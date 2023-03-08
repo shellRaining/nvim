@@ -12,7 +12,33 @@ function M.before() end
 function M.load()
     M.nvim_treesitter_install.prefer_git = true
     M.nvim_treesitter_configs.setup({
-        ensure_installed = "all",
+        ensure_installed = {
+            "lua",
+            "c",
+            "vue",
+            "css",
+            "cpp",
+            "bash",
+            "beancount",
+            "cmake",
+            "comment",
+            "diff",
+            "gitcommit",
+            "git_rebase",
+            "gitignore",
+            "html",
+            "json",
+            "json5",
+            "latex",
+            "llvm",
+            "make",
+            "markdown",
+            "markdown_inline",
+            "vim",
+            "yaml",
+            "python",
+            "help",
+        },
         ignore_install = {
             "c_sharp",
             "haskell",
@@ -22,7 +48,7 @@ function M.load()
             "ruby",
             "tsx",
             "tlaplus",
-            "qmldir"
+            "qmldir",
         },
         highlight = {
             enable = true,
@@ -34,20 +60,13 @@ function M.load()
         },
         -- incremental selection
         incremental_selection = {
-            enable = false,
+            enable = true,
             keymaps = {
                 init_selection = "<cr>",
                 node_incremental = "<cr>",
                 node_decremental = "<bs>",
                 scope_incremental = "<tab>",
             },
-        },
-        -- nvim-ts-rainbow
-        rainbow = {
-            enable = true,
-            extended_mode = true,
-            -- Do not enable for files with more than 1000 lines, int
-            max_file_lines = 1000,
         },
         -- nvim-ts-autotag
         autotag = {
