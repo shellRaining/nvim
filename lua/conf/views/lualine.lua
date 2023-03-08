@@ -5,7 +5,6 @@
 local M = {
     requires = {
         "lualine",
-        "visual_studio_code",
     },
 }
 
@@ -40,7 +39,6 @@ function M.load()
                 winbar = 100,
             },
         },
-        sections = M.visual_studio_code.get_lualine_sections(),
     })
 end
 

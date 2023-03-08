@@ -3,8 +3,8 @@ local api = require("utils.api")
 local M = {
     -- ui settings
     show_winbar = true,
-    transparent = false,
-    float_border = false,
+    transparent = true,
+    float_border = true,
     -- edit settings
     auto_save = true,
     auto_switch_input = true,
@@ -14,8 +14,6 @@ local M = {
     storage_directory = api.path.join(vim.fn.stdpath("data"), "store"),
     mason_install_directory = api.path.join(vim.fn.stdpath("data"), "mason"),
     global_config_directory = api.path.join(vim.fn.stdpath("config"), "config"),
-    -- formatter
-    sql_langkind = "postgresql",
 }
 
 return M

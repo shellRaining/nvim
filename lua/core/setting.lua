@@ -42,8 +42,6 @@ M.opt = {
 }
 
 vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("eol:↴")
-vim.opt.listchars:append("tab:↹ ")
 
 vim.opt.shortmess:append("sI")
 vim.opt.whichwrap:append("<>[]hl")

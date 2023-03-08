@@ -5,11 +5,7 @@ local aid_lazy = require("utils.aid.lazy")
 local M = {}
 
 M.theme = {
-    {
-        "askfiy/visual_studio_code",
-        priority = 100,
-        cond = true,
-    },
+    { "folke/tokyonight.nvim" },
 }
 
 M.basic = {
@@ -89,7 +85,6 @@ M.editor = {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         dependencies = {
-            { "mrjones2014/nvim-ts-rainbow" },
             { "windwp/nvim-ts-autotag" },
             { "JoosepAlviste/nvim-ts-context-commentstring" },
             { "nvim-lua/plenary.nvim" },

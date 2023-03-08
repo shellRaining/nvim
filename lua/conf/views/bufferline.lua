@@ -7,7 +7,6 @@ local icons = public.get_icons_group("diagnostic", true)
 local M = {
     requires = {
         "bufferline",
-        "visual_studio_code"
     },
 }
 
@@ -48,9 +47,6 @@ function M.load()
                 end
                 return message
             end,
-            custom_areas = {
-                right = M.visual_studio_code.get_bufferline_right(),
-            },
             offsets = {
                 {
                     filetype = "NvimTree",
