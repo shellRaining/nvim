@@ -70,7 +70,6 @@ M.complete = {
             { "hrsh7th/cmp-cmdline" },
             { "hrsh7th/cmp-nvim-lsp" },
             { "saadparwaiz1/cmp_luasnip" },
-            { "kristijanhusak/vim-dadbod-completion" },
             { "tzachar/cmp-tabnine", build = "./install.sh" },
         },
         event = { "InsertEnter", "CmdlineEnter" },
@@ -82,26 +81,6 @@ M.complete = {
         dependencies = {
             { "rafamadriz/friendly-snippets" },
         },
-    },
-}
-
-M.dap = {
-    {
-        "mfussenegger/nvim-dap",
-        lazy = true,
-    },
-    {
-        "theHamsta/nvim-dap-virtual-text",
-        event = { "UIEnter" },
-    },
-    {
-        "rcarriga/nvim-dap-ui",
-        event = { "UIEnter" },
-    },
-    -- javascript debug,
-    {
-        "mxsdev/nvim-dap-vscode-js",
-        ft = { "javascript", "typescript" },
     },
 }
 
@@ -122,7 +101,7 @@ M.editor = {
         event = { "UIEnter" },
     },
     {
-        "lukas-reineke/indent-blankline.nvim",
+        "shellRaining/hlchunk.nvim",
         event = { "UIEnter" },
     },
     {
@@ -132,21 +111,17 @@ M.editor = {
         },
         event = { "VeryLazy" },
     },
-    {
-        "ur4ltz/surround.nvim",
-        dependencies = {
-            { "tpope/vim-repeat" },
-        },
-        event = { "VeryLazy" },
-    },
-    {
-        "AndrewRadev/switch.vim",
-        event = { "VeryLazy" },
-    },
-    {
-        "mg979/vim-visual-multi",
-        event = { "VeryLazy" },
-    },
+    -- {
+    --     "ur4ltz/surround.nvim",
+    --     dependencies = {
+    --         { "tpope/vim-repeat" },
+    --     },
+    --     event = { "VeryLazy" },
+    -- },
+    -- {
+    --     "mg979/vim-visual-multi",
+    --     event = { "VeryLazy" },
+    -- },
     {
         "kevinhwang91/nvim-ufo",
         dependencies = {
@@ -157,10 +132,6 @@ M.editor = {
     {
         "windwp/nvim-autopairs",
         event = { "InsertEnter" },
-    },
-    {
-        "jbyuki/venn.nvim",
-        lazy = true,
     },
 }
 
@@ -173,13 +144,6 @@ M.find = {
     {
         "folke/todo-comments.nvim",
         event = { "UIEnter" },
-    },
-    {
-        "AckslD/nvim-neoclip.lua",
-        dependencies = {
-            "kkharji/sqlite.lua",
-        },
-        event = { "VeryLazy" },
     },
     {
         "phaazon/hop.nvim",
@@ -207,10 +171,6 @@ M.language = {
     {
         "davidgranstrom/nvim-markdown-preview",
         ft = { "markdown" },
-    },
-    {
-        "Vimjas/vim-python-pep8-indent",
-        ft = { "python" },
     },
 }
 
@@ -277,13 +237,6 @@ M.views = {
     {
         "akinsho/toggleterm.nvim",
         lazy = true,
-    },
-    {
-        "kristijanhusak/vim-dadbod-ui",
-        dependencies = {
-            { "tpope/vim-dadbod" },
-        },
-        cmd = { "DBUIToggle" },
     },
 }
 

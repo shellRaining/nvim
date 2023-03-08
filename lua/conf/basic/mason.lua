@@ -15,23 +15,21 @@ local M = {
 function M.before()
     M.installer_tools = {
         lsp = {
-            "gopls",
+            "clangd",
             "pyright",
             "css-lsp",
             "json-lsp",
             "html-lsp",
             "emmet-ls",
-            "vetur-vls",
+            "vue-language-server",
             "vim-language-server",
             "lua-language-server",
             "bash-language-server",
             "typescript-language-server",
-            "tailwindcss-language-server",
+            -- "unocss-language-server",
+            -- "tailwindcss-language-server",
         },
         dap = {
-            "delve",
-            "debugpy",
-            "js-debug-adapter@v1.74.1",
         },
         linter = {
             "pylint",
@@ -39,10 +37,10 @@ function M.before()
         formatter = {
             "shfmt",
             "autopep8",
+            "clang-format",
             "prettier",
-            "sql-formatter",
             "stylua",
-            "fixjson",
+            -- "eslint-lsp",
         },
     }
 end
