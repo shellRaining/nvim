@@ -9,10 +9,6 @@ local M = {
     requires = {
         "notify",
     },
-    special_message = {
-        -- navic
-        { 'nvim%-navic: Server ".*" does not support documentSymbols.', echo = false },
-    },
 }
 
 function M.before()
@@ -37,14 +33,6 @@ function M.after()
     vim.notify = setmetatable({}, {
         ---@diagnostic disable-next-line: unused-local
         __call = function(self, message, ...)
-            for _, row in ipairs(M.special_message) do
-                if message:match(row[1]) then
-                    if row.echo then
-                        vim.api.nvim_echo({ { message, "MoreMsg" } }, false, {})
-                    end
-                    return
-                end
-            end
             return M.notify(message, ...)
         end,
         __index = M.notify,

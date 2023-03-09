@@ -16,7 +16,6 @@ function M.before()
     M.installer_tools = {
         lsp = {
             "clangd",
-            "pyright",
             "css-lsp",
             "json-lsp",
             "html-lsp",
