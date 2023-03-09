@@ -27,31 +27,31 @@ function M.load()
     M.null_ls.setup({
         border = options.float_border and "double" or "none",
         sources = {
-            M.null_ls.builtins.formatting.gofmt,
-            M.null_ls.builtins.formatting.shfmt,
-            M.null_ls.builtins.formatting.prettier,
-            M.null_ls.builtins.formatting.autopep8,
-            M.null_ls.builtins.formatting.fixjson,
-            M.null_ls.builtins.formatting.sql_formatter.with({
+            M.null_ls.builtins.diagnostics.pylint.with({
                 extra_args = {
-                    ("-l=%s"):format(options.sql_langkind),
+                    "-f",
+                    "json",
+                    "--load-plugins=pylint_django",
+                    "--disable=django-not-configured",
+                    "--rcfile=" .. api.path.join(options.lint_directory, "pylint.conf"),
                 },
             }),
+
+            M.null_ls.builtins.diagnostics.luacheck,
+
+            -- formatters
+            M.null_ls.builtins.formatting.autopep8,
+            M.null_ls.builtins.formatting.clang_format,
+            -- M.null_ls.builtins.formatting.eslint,
+            M.null_ls.builtins.formatting.shfmt,
             M.null_ls.builtins.formatting.stylua.with({
                 extra_args = {
                     "--indent-type=Spaces",
                     "--indent-width=4",
                 },
             }),
-            -- M.null_ls.builtins.diagnostics.pylint.with({
-            --     extra_args = {
-            --         "-f",
-            --         "json",
-            --         "--load-plugins=pylint_django",
-            --         "--disable=django-not-configured",
-            --         "--rcfile=" .. api.path.join(options.lint_directory, "pylint.conf"),
-            --     },
-            -- }),
+            M.null_ls.builtins.formatting.stylua,
+            M.null_ls.builtins.formatting.prettier,
         },
     })
 end
