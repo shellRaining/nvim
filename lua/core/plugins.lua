@@ -158,7 +158,6 @@ M.find = {
                 build = "make",
             },
         },
-        lazy = true,
     },
 }
 
