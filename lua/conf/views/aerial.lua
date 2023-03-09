@@ -55,7 +55,7 @@ function M.register_key()
     api.map.bulk_register({
         {
             mode = { "n" },
-            lhs = "<leader>2",
+            lhs = "<leader>u2",
             rhs = "<cmd>AerialToggle! right<cr>",
             options = { silent = true },
             description = "Open Outilne Explorer",

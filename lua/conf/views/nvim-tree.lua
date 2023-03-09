@@ -118,7 +118,7 @@ function M.register_key()
     api.map.bulk_register({
         {
             mode = { "n" },
-            lhs = "<leader>1",
+            lhs = "<leader>u1",
             rhs = function()
                 local aerial_info = public.get_aerial_info()
                 public.toggle_sidebar("NvimTree")

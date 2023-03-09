@@ -38,7 +38,7 @@ function M.register_key()
     api.map.bulk_register({
         {
             mode = { "n" },
-            lhs = "<leader>3",
+            lhs = "<leader>u3",
             rhs = function()
                 public.toggle_sidebar("undotree")
                 local ok, _ = pcall(vim.cmd, "UndotreeToggle")

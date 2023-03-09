@@ -216,10 +216,6 @@ M.views = {
         lazy = true,
     },
     {
-        "nvim-pack/nvim-spectre",
-        lazy = true,
-    },
-    {
         "akinsho/toggleterm.nvim",
         lazy = true,
     },
