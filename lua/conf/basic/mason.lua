@@ -28,8 +28,7 @@ function M.before()
             -- "unocss-language-server",
             -- "tailwindcss-language-server",
         },
-        dap = {
-        },
+        dap = {},
         linter = {
             "pylint",
         },

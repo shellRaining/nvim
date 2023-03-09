@@ -51,7 +51,7 @@ function M.load()
                 text = "_",
                 numhl = "GitSignsChangeNr",
                 linehl = "GitSignsChangeLn",
-            }
+            },
         },
         current_line_blame_opts = {
             virt_text = true,

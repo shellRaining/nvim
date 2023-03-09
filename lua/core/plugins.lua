@@ -47,7 +47,7 @@ M.lsp = {
 		"j-hui/fidget.nvim",
 		event = { "LspAttach" },
 	},
-    { "glepnir/lspsaga.nvim" },
+	{ "glepnir/lspsaga.nvim" },
 }
 
 M.complete = {
@@ -92,6 +92,10 @@ M.editor = {
 		"shellRaining/hlchunk.nvim",
 		event = { "UIEnter" },
 	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	event = { "UIEnter" },
+	-- },
 	{
 		"numToStr/Comment.nvim",
 		dependencies = {

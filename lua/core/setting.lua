@@ -8,7 +8,6 @@ M.opt = {
     ruler = false,
     showmode = false,
     swapfile = false,
-    cmdheight = 1,
     signcolumn = "yes:1",
     completeopt = "menuone,noselect",
     pumheight = 10,
@@ -22,12 +21,13 @@ M.opt = {
     scrolloff = 21,
     mouse = "a",
     list = true,
+    spell = false,
+    spelllang = "en_us,cjk",
     ignorecase = true,
     smartcase = true,
     filetype = "plugin",
     foldmethod = "indent",
     foldlevel = 100,
-    foldlevelstart = 99,
     foldcolumn = "0",
     clipboard = "unnamedplus",
     smartindent = true,
@@ -37,6 +37,7 @@ M.opt = {
     fillchars = "eob: ",
     fileencodings = "ucs-bom,utf-8,gbk,big5,gb18030,latin1",
     sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,globals",
+    wrap = false,
 }
 
 for prefix, tbl in pairs(M) do

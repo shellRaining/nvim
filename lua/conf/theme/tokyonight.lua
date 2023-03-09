@@ -1,6 +1,5 @@
 -- https://github.com/askfiy/visual_studio_code
 
-
 local M = {
     requires = {
         "tokyonight",
