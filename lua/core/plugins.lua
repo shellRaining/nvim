@@ -201,6 +201,7 @@ M.tools = {
 }
 
 M.views = {
+    { "glepnir/dashboard-nvim" },
     {
         "akinsho/bufferline.nvim",
         event = { "UIEnter" },
@@ -215,10 +216,6 @@ M.views = {
     },
     {
         "stevearc/aerial.nvim",
-        event = { "UIEnter" },
-    },
-    {
-        "dstein64/nvim-scrollview",
         event = { "UIEnter" },
     },
     {
