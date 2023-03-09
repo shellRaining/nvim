@@ -8,7 +8,7 @@ M.opt = {
     ruler = false,
     showmode = false,
     swapfile = false,
-    cmdheight = 0,
+    cmdheight = 1,
     signcolumn = "yes:1",
     completeopt = "menuone,noselect",
     pumheight = 10,
@@ -22,8 +22,6 @@ M.opt = {
     scrolloff = 21,
     mouse = "a",
     list = true,
-    spell = true,
-    spelllang = "en_us,cjk",
     ignorecase = true,
     smartcase = true,
     filetype = "plugin",
@@ -42,9 +40,6 @@ M.opt = {
 }
 
 vim.opt.listchars:append("space:⋅")
-
-vim.opt.shortmess:append("sI")
-vim.opt.whichwrap:append("<>[]hl")
 
 for prefix, tbl in pairs(M) do
     for key, value in pairs(tbl) do

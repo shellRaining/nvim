@@ -6,7 +6,7 @@ api.map.bulk_register({
     {
         mode = { "n" },
         lhs = "<leader><esc>",
-        rhs = ":qa!<cr>",
+        rhs = "<cmd>qa!<cr>",
         options = { silent = true },
         description = "Escape Neovim",
     },
@@ -76,13 +76,6 @@ api.map.bulk_register({
         rhs = "<c-w>>",
         options = { silent = true },
         description = "Increase vertical split screen size",
-    },
-    {
-        mode = { "n" },
-        lhs = "<leader>cs",
-        rhs = "<cmd>set spell!<cr>",
-        options = { silent = true },
-        description = "Enable or disable spell checking",
     },
     {
         mode = { "c" },
@@ -175,6 +168,34 @@ api.map.bulk_register({
         rhs = "<right>",
         options = {},
         description = "Move cursor right in insert mode",
+    },
+    {
+        mode = { "v" },
+        lhs = "<",
+        rhs = "<gv",
+        options = { noremap = true },
+        description = "move the select_hunk to left",
+    },
+    {
+        mode = { "v" },
+        lhs = ">",
+        rhs = ">gv",
+        options = { noremap = true },
+        description = "move the select_hunk to right",
+    },
+    {
+        mode = { "n", "v" },
+        lhs = ";",
+        rhs = ":",
+        options = { noremap = true },
+        description = "have a good day",
+    },
+    {
+        mode = { "n", "v" },
+        lhs = ":",
+        rhs = ";",
+        options = { noremap = true },
+        description = "have a good day",
     },
 })
 
