@@ -142,12 +142,6 @@ M.find = {
     },
     {
         "phaazon/hop.nvim",
-        cmd = {
-            "HopWord",
-            "HopLine",
-            "HopChar1",
-            "HopChar1CurrentLine",
-        },
     },
     {
         "nvim-telescope/telescope.nvim",

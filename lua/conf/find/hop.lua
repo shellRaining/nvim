@@ -5,6 +5,7 @@ local api = require("utils.api")
 local M = {
     requires = {
         "hop",
+        "hop.hint",
     },
 }
 
@@ -37,18 +38,36 @@ function M.register_key()
             description = "Jump to line",
         },
         {
-            mode = { "n", "v" },
-            lhs = "sf",
-            rhs = "<cmd>HopChar1<cr>",
-            options = { silent = true },
-            description = "Jump to search char on buffer",
+            mode = { "n", "x" },
+            lhs = "f",
+            rhs = function()
+                M.hop.hint_char1({ direction = M.hop_hint.HintDirection.AFTER_CURSOR, current_line_only = true })
+            end,
+            options = { remap = true },
         },
         {
-            mode = { "n", "v" },
-            lhs = "sc",
-            rhs = "<cmd>HopChar1CurrentLine<cr>",
-            options = { silent = true },
-            description = "Jump to search char on current line",
+            mode = { "n", "x" },
+            lhs = "F",
+            rhs = function()
+                M.hop.hint_char1({ direction = M.hop_hint.HintDirection.BEFORE_CURSOR, current_line_only = true })
+            end,
+            options = { remap = true },
+        },
+        {
+            mode = { "x" },
+            lhs = "t",
+            rhs = function()
+                M.hop.hint_char1({ direction = M.hop_hint.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+            end,
+            options = { remap = true },
+        },
+        {
+            mode = { "x" },
+            lhs = "T",
+            rhs = function()
+                M.hop.hint_char1({ direction = M.hop_hint.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+            end,
+            options = { remap = true },
         },
     })
 end
