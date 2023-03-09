@@ -39,8 +39,6 @@ M.opt = {
     sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,globals",
 }
 
-vim.opt.listchars:append("space:⋅")
-
 for prefix, tbl in pairs(M) do
     for key, value in pairs(tbl) do
         vim[prefix][key] = value
