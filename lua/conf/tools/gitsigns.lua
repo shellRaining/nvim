@@ -14,7 +14,9 @@ function M.load()
     M.gitsigns.setup({})
 end
 
-function M.after() end
+function M.after()
+    M.register_key()
+end
 
 function M.register_key()
     api.map.bulk_register({
@@ -41,14 +43,14 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<leader>gd",
+            lhs = "<leader>gD",
             rhs = "<cmd>Gitsigns diffthis<cr>",
             options = { silent = true },
             description = "Open deff view",
         },
         {
             mode = { "n" },
-            lhs = "<leader>gD",
+            lhs = "<leader>gd",
             rhs = "<cmd>Gitsigns toggle_deleted<cr>",
             options = { silent = true },
             description = "Show deleted lines",

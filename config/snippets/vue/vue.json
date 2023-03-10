@@ -89,6 +89,21 @@
     "body": ["v-bind$1='${2}'"],
     "description": "Expects: any (with argument) | Object (without argument)"
   },
+  "v-bind class": {
+    "prefix": "vcls",
+    "body": [":class='${1}'"],
+    "description": "vbind class"
+  },
+  "v-bind id": {
+    "prefix": "vid",
+    "body": [":id='${1}'"],
+    "description": "vbind class"
+  },
+  "v-on click": {
+    "prefix": "vclick",
+    "body": ["@click='${1}'"],
+    "description": "v-on click"
+  },
   "v-model": {
     "prefix": "vModel",
     "body": ["v-model='${1:something}'"],

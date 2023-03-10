@@ -54,6 +54,12 @@
         "language": [
           "vue"
         ]
+      },
+      {
+        "path": "./vue/vuehtml.json",
+        "language": [
+          "vue"
+        ]
       }
     ]
   }
