@@ -1,5 +1,5 @@
 {
-  "name": "askify-snippets",
+  "name": "shellRaining-snippets",
   "contributes": {
     "snippets": [
       {
@@ -41,6 +41,18 @@
         "path": "./markdown.json",
         "language": [
           "markdown"
+        ]
+      },
+      {
+        "path": "./vue/vue.json",
+        "language": [
+          "vue"
+        ]
+      },
+      {
+        "path": "./vue/vuejs.json",
+        "language": [
+          "vue"
         ]
       }
     ]
