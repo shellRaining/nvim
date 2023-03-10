@@ -9,7 +9,7 @@ local root_files = {
 
 return {
     single_file_support = true,
-    filetypes = { "css", "scss", "less" },
+    filetypes = { "css", "scss", "less", "vue" },
     cmd = { "vscode-css-language-server", "--stdio" },
     root_dir = util.root_pattern(unpack(root_files)),
     settings = {

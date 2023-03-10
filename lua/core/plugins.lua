@@ -67,9 +67,6 @@ M.complete = {
         "L3MON4D3/LuaSnip",
         -- in nvim-cmp config file require luasnip
         lazy = true,
-        dependencies = {
-            { "rafamadriz/friendly-snippets" },
-        },
     },
 }
 

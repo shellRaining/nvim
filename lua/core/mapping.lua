@@ -197,6 +197,13 @@ api.map.bulk_register({
         options = { noremap = true },
         description = "have a good day",
     },
+    {
+        mode = { "n" },
+        lhs = "<leader>so",
+        rhs = "<cmd>OpenUserSnippetFile<cr>",
+        options = { noremap = true },
+        description = "open snippet file for current filetype",
+    },
 })
 
 return M

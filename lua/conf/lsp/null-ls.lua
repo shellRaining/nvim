@@ -37,7 +37,9 @@ function M.load()
                 },
             }),
 
+            -- linter
             M.null_ls.builtins.diagnostics.luacheck,
+            M.null_ls.builtins.diagnostics.jsonlint,
 
             -- formatters
             M.null_ls.builtins.formatting.autopep8,

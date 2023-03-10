@@ -55,6 +55,9 @@ function M.load()
             -- "custom", "wildmenu" or "native"
             entries = "custom",
         },
+        experimental = {
+            ghost_text = true,
+        },
         -- uncheck auto-select (gopls)
         preselect = M.cmp_types.cmp.PreselectMode.None,
         -- Insert or Replace
