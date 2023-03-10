@@ -74,20 +74,6 @@ function M.register_key()
             options = { silent = true },
             description = "Move item down",
         },
-        {
-            mode = { "n" },
-            lhs = "[[",
-            rhs = "<cmd>AerialPrevUp<cr>",
-            options = { silent = true },
-            description = "Move up one level",
-        },
-        {
-            mode = { "n" },
-            lhs = "]]",
-            rhs = "<cmd>AerialNextUp<cr>",
-            options = { silent = true },
-            description = "Move down one level",
-        },
     })
 end
 

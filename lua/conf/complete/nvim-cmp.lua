@@ -82,7 +82,6 @@ function M.load()
         -- if you don't want to auto-complete when selecting, then fill in the following content in the item selection
         -- { behavior = M.cmp.SelectBehavior.Select }
         mapping = {
-            ["<cr>"] = aid_nvim_cmp.confirm(),
             ["<c-p>"] = aid_nvim_cmp.select_prev_item(),
             ["<c-n>"] = aid_nvim_cmp.select_next_item(),
             ["<c-b>"] = aid_nvim_cmp.scroll_docs(-5),

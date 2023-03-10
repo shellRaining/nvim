@@ -1,7 +1,6 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 
 local api = require("utils.api")
-local options = require("core.options")
 
 local M = {
     requires = {
@@ -12,61 +11,7 @@ local M = {
 function M.before() end
 
 function M.load()
-    M.gitsigns.setup({
-        signcolumn = true,
-        numhl = false,
-        linehl = false,
-        word_diff = false,
-        ---@diagnostic disable-next-line: unused-local
-        on_attach = function(bufnr)
-            M.register_key()
-        end,
-        signs = {
-            add = {
-                hl = "GitSignsAdd",
-                text = "+",
-                numhl = "GitSignsAddNr",
-                linehl = "GitSignsAddLn",
-            },
-            change = {
-                hl = "GitSignsChange",
-                text = "~",
-                numhl = "GitSignsChangeNr",
-                linehl = "GitSignsChangeLn",
-            },
-            delete = {
-                hl = "GitSignsDelete",
-                text = "-",
-                numhl = "GitSignsDeleteNr",
-                linehl = "GitSignsDeleteLn",
-            },
-            topdelete = {
-                hl = "GitSignsDelete",
-                text = "‾",
-                numhl = "GitSignsDeleteNr",
-                linehl = "GitSignsDeleteLn",
-            },
-            changedelete = {
-                hl = "GitSignsChange",
-                text = "_",
-                numhl = "GitSignsChangeNr",
-                linehl = "GitSignsChangeLn",
-            },
-        },
-        current_line_blame_opts = {
-            virt_text = true,
-            virt_text_pos = "eol",
-            delay = 100,
-            ignore_whitespace = false,
-        },
-        preview_config = {
-            border = options.float_border and "rounded" or "none",
-            style = "minimal",
-            relative = "cursor",
-            row = 0,
-            col = 1,
-        },
-    })
+    M.gitsigns.setup({})
 end
 
 function M.after() end

@@ -1,5 +1,4 @@
--- https://github.com/numToStr/Comment.nvim
--- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+-- https://github.com/shellRaining/hlchunk.nvim
 
 local M = {
     requires = {
@@ -27,10 +26,6 @@ function M.load()
         },
 
         line_num = {
-            enable = false,
-        },
-
-        blank = {
             enable = false,
         },
     })
