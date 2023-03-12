@@ -134,6 +134,7 @@ M.find = {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = "make",
             },
+            { "ahmedkhalf/project.nvim" },
         },
     },
 }
@@ -196,10 +197,6 @@ M.views = {
     },
     {
         "nvim-tree/nvim-tree.lua",
-        lazy = true,
-    },
-    {
-        "akinsho/toggleterm.nvim",
         lazy = true,
     },
 }

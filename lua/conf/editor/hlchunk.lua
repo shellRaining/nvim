@@ -28,6 +28,10 @@ function M.load()
         line_num = {
             enable = false,
         },
+
+        blank = {
+            enable = false,
+        }
     })
 end
 

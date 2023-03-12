@@ -1,5 +1,3 @@
--- https://github.com/windwp/nvim-autopairs
-
 local M = {
     requires = {
         "nvim-autopairs",

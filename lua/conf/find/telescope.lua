@@ -5,6 +5,7 @@ local api = require("utils.api")
 local M = {
     requires = {
         "telescope",
+        "telescope.actions"
     },
 }
 
@@ -15,11 +16,6 @@ end
 function M.load()
     M.telescope.setup({
         defaults = {
-            prompt_prefix = " ",
-            selection_caret = " ",
-            entry_prefix = " ",
-            multi_icon = " ",
-            color_devicons = true,
             file_ignore_patterns = { "node_modules" },
             -- theme
             layout_strategy = "bottom_pane",
@@ -29,6 +25,12 @@ function M.load()
                     height = 15,
                     preview_cutoff = 100,
                     prompt_position = "bottom",
+                },
+            },
+            mappings = {
+                i = {
+                    ["<C-j>"] = M.telescope_actions.cycle_history_next,
+                    ["<C-k>"] = M.telescope_actions.cycle_history_prev,
                 },
             },
         },
@@ -51,12 +53,14 @@ function M.load()
                 override_file_sorter = true,
                 case_mode = "smart_case",
             },
+            projects = {},
         },
     })
 end
 
 function M.after()
     M.telescope.load_extension("fzf")
+    M.telescope.load_extension("projects")
 
     -- FIX: https://github.com/nvim-telescope/telescope.nvim/issues/699
     vim.api.nvim_create_autocmd({ "BufEnter" }, {
