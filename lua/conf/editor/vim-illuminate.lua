@@ -29,7 +29,6 @@ function M.load()
             "mason",
             "notify",
             "lspinfo",
-            "toggleterm",
             "TelescopePrompt",
         },
     })
