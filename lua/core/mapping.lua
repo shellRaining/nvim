@@ -32,7 +32,7 @@ api.map.bulk_register({
         description = "Clear search highlight",
     },
     {
-        mode = { "n" },
+        mode = { "n", "v" },
         lhs = "<c-u>",
         rhs = function()
             vim.cmd("normal! " .. math.ceil(vim.api.nvim_win_get_height(0) / 4) .. "k")
@@ -41,7 +41,7 @@ api.map.bulk_register({
         description = "Move 1/4 screen up",
     },
     {
-        mode = { "n" },
+        mode = { "n", "v" },
         lhs = "<c-d>",
         rhs = function()
             vim.cmd("normal! " .. math.ceil(vim.api.nvim_win_get_height(0) / 4) .. "j")
@@ -203,6 +203,13 @@ api.map.bulk_register({
         rhs = "<cmd>OpenUserSnippetFile<cr>",
         options = { noremap = true },
         description = "open snippet file for current filetype",
+    },
+    {
+        mode = { "n" },
+        lhs = "<leader>sp",
+        rhs = "<cmd>OpenUserSnippetPackage<cr>",
+        options = { noremap = true },
+        description = "open snippet package",
     },
 })
 
