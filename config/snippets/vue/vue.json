@@ -24,6 +24,11 @@
     "body": ["const ${1:name} = reactive($2)", "$0"],
     "description": "vue reactive function"
   },
+  "computed": {
+    "prefix": "computed",
+    "body": ["const ${1:name} = computed(($2) => {$3})", "$0"],
+    "description": "vue reactive function"
+  },
   "import ref": {
     "prefix": "iref",
     "body": ["import { ref } from 'vue'"],
@@ -32,6 +37,11 @@
   "import reactive": {
     "prefix": "ireactive",
     "body": ["import { reactive } from 'vue'"],
+    "description": "import reactive function from vue"
+  },
+  "import computed": {
+    "prefix": "icomputed",
+    "body": ["import { computed } from 'vue'"],
     "description": "import reactive function from vue"
   },
   "Function Statement": {

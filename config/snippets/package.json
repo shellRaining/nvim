@@ -26,9 +26,9 @@
         ]
       },
       {
-        "path": "./go.json",
+        "path": "./c.json",
         "language": [
-          "go"
+          "c"
         ]
       },
       {
@@ -57,6 +57,12 @@
       },
       {
         "path": "./vue/vuehtml.json",
+        "language": [
+          "vue"
+        ]
+      },
+      {
+        "path": "./vue/vuets.json",
         "language": [
           "vue"
         ]
