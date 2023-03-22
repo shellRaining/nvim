@@ -60,7 +60,6 @@ end
 
 function M.after()
     M.telescope.load_extension("fzf")
-    M.telescope.load_extension("projects")
 
     -- FIX: https://github.com/nvim-telescope/telescope.nvim/issues/699
     vim.api.nvim_create_autocmd({ "BufEnter" }, {
@@ -126,13 +125,6 @@ function M.register_key()
             rhs = "<cmd>Telescope zoxide list theme=dropdown<cr>",
             options = { silent = true },
             description = "use telescope to find dir use zoxide and enter it",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>fp",
-            rhs = "<cmd>Telescope projects theme=dropdown<cr>",
-            options = { silent = true },
-            description = "use telescope to find projects has opened",
         },
         {
             mode = { "n" },

@@ -134,7 +134,6 @@ M.find = {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = "make",
             },
-            { "ahmedkhalf/project.nvim" },
         },
     },
 }
@@ -155,10 +154,11 @@ M.tools = {
         "lewis6991/gitsigns.nvim",
         event = { "UIEnter" },
     },
-    {
-        "uga-rosa/translate.nvim",
-        event = { "VeryLazy" },
-    },
+    -- {
+    --     "JuanZoran/Trans.nvim",
+    --     dependencies = { "kkharji/sqlite.lua" },
+    --     branch = "experimental",
+    -- },
     {
         "olimorris/persisted.nvim",
         event = { "VeryLazy" },
