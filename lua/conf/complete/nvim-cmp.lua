@@ -22,6 +22,7 @@ local M = {
         "cmp",
         "cmp.types",
         "luasnip",
+        "copilot.suggestion",
     },
 }
 
@@ -89,7 +90,16 @@ function M.load()
             ["<c-n>"] = aid_nvim_cmp.select_next_item(),
             ["<c-b>"] = aid_nvim_cmp.scroll_docs(-5),
             ["<c-f>"] = aid_nvim_cmp.scroll_docs(5),
-            ["<tab>"] = aid_nvim_cmp.confirm_select(),
+            -- ["<tab>"] = aid_nvim_cmp.confirm_select(),
+            ["<tab>"] = M.cmp.mapping(function(fallback)
+                if M.copilot_suggestion.is_visible() then
+                    M.copilot_suggestion.accept()
+                elseif M.cmp.visible() then
+                    M.cmp.select_next_item()
+                else
+                    fallback()
+                end
+            end, { "i", "s" }),
             ["<c-u>"] = aid_nvim_cmp.select_prev_n_item(5),
             ["<c-d>"] = aid_nvim_cmp.select_next_n_item(5),
             ["<c-k>"] = aid_nvim_cmp.toggle_complete_menu(),

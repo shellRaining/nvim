@@ -59,7 +59,20 @@ M.complete = {
             { "hrsh7th/cmp-cmdline" },
             { "hrsh7th/cmp-nvim-lsp" },
             { "saadparwaiz1/cmp_luasnip" },
-            { "tzachar/cmp-tabnine", build = "./install.sh" },
+            {
+                "zbirenbaum/copilot.lua",
+                opts = {
+                    panel = { enabled = false },
+                    suggestion = {
+                        enable = true,
+                        auto_trigger = true,
+                        keymap = false,
+                    },
+                    filetypes = {
+                        markdown = true,
+                    },
+                },
+            },
         },
         event = { "InsertEnter", "CmdlineEnter" },
     },
