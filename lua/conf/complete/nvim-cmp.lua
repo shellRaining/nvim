@@ -49,7 +49,7 @@ end
 
 function M.load()
     -- send cmp to aid_cmp module
-    aid_nvim_cmp.receive_cmp(M.cmp)
+    aid_nvim_cmp.receive_cmp(M.cmp, M.copilot_suggestion)
 
     M.cmp.setup({
         view = {
@@ -90,16 +90,8 @@ function M.load()
             ["<c-n>"] = aid_nvim_cmp.select_next_item(),
             ["<c-b>"] = aid_nvim_cmp.scroll_docs(-5),
             ["<c-f>"] = aid_nvim_cmp.scroll_docs(5),
-            -- ["<tab>"] = aid_nvim_cmp.confirm_select(),
-            ["<tab>"] = M.cmp.mapping(function(fallback)
-                if M.copilot_suggestion.is_visible() then
-                    M.copilot_suggestion.accept()
-                elseif M.cmp.visible() then
-                    M.cmp.select_next_item()
-                else
-                    fallback()
-                end
-            end, { "i", "s" }),
+            ["<tab>"] = aid_nvim_cmp.confirm_select(),
+            ["<c-l>"] = aid_nvim_cmp.confirm_copilot(),
             ["<c-u>"] = aid_nvim_cmp.select_prev_n_item(5),
             ["<c-d>"] = aid_nvim_cmp.select_next_n_item(5),
             ["<c-k>"] = aid_nvim_cmp.toggle_complete_menu(),
