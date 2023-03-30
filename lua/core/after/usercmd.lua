@@ -9,14 +9,16 @@ vim.api.nvim_create_user_command("BufferDelete", function(ctx)
     if file_exists == 0 and modified then
         local user_choice = vim.fn.input("The file is not saved, whether to force delete? Press enter or input [y/n]:")
         if user_choice == "y" or user_choice:len() == 0 then
-            vim.cmd("bd!")
+            ---@diagnostic disable-next-line: param-type-mismatch
+            pcall(vim.cmd, "bd!")
         end
         return
     end
 
     local force = not vim.bo.buflisted or vim.bo.buftype == "nofile"
 
-    vim.cmd(force and "bd!" or ("bp | bd! %s"):format(vim.api.nvim_get_current_buf()))
+    ---@diagnostic disable-next-line: param-type-mismatch
+    pcall(vim.cmd, force and "bd!" or ("bp | bd! %s"):format(vim.api.nvim_get_current_buf()))
 end, { desc = "Delete the current Buffer while maintaining the window layout" })
 
 vim.api.nvim_create_user_command("OpenUserSnippetFile", function(ctx)
