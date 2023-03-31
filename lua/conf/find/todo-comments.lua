@@ -55,6 +55,13 @@ function M.register_key()
             options = { silent = true },
             description = "Find todo tag in the current workspace",
         },
+        {
+            mode = { "n" },
+            lhs = "<leader>qd",
+            rhs = "<cmd>TodoLocList<CR>",
+            options = { silent = true },
+            description = "Find todo tag in the current workspace",
+        },
     })
 end
 
