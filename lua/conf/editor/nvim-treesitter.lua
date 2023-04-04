@@ -29,8 +29,8 @@ function M.load()
             additional_vim_regex_highlighting = false,
         },
         indent = {
-            enable = true,
-            -- disable = { "yaml", "python", "html", "vue" },
+            enable = false,
+            -- disable = { "yaml", "python", "html", "vue", "c", "cpp" },
         },
         -- incremental selection
         incremental_selection = {

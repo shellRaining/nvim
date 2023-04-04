@@ -11,13 +11,6 @@ api.map.bulk_register({
         description = "Escape Neovim",
     },
     {
-        mode = { "i" },
-        lhs = "jj",
-        rhs = "<esc>",
-        options = { silent = true },
-        description = "Escape editor insert mode",
-    },
-    {
         mode = { "t" },
         lhs = "<esc>",
         rhs = "<c-\\><c-n>",
