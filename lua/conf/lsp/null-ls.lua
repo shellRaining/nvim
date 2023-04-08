@@ -43,7 +43,6 @@ function M.load()
 
             -- formatters
             M.null_ls.builtins.formatting.autopep8,
-            M.null_ls.builtins.formatting.clang_format,
             -- M.null_ls.builtins.formatting.eslint,
             M.null_ls.builtins.formatting.shfmt,
             M.null_ls.builtins.formatting.stylua.with({
