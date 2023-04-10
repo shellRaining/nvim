@@ -83,49 +83,6 @@ M.complete = {
     },
 }
 
-M.editor = {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        dependencies = {
-            { "windwp/nvim-ts-autotag" },
-            { "JoosepAlviste/nvim-ts-context-commentstring" },
-            { "nvim-lua/plenary.nvim" },
-        },
-        event = { "UIEnter" },
-    },
-    {
-        "RRethy/vim-illuminate",
-        event = { "UIEnter" },
-    },
-    {
-        "shellRaining/hlchunk.nvim",
-        event = { "UIEnter" },
-    },
-    -- {
-    -- 	"lukas-reineke/indent-blankline.nvim",
-    -- 	event = { "UIEnter" },
-    -- },
-    {
-        "numToStr/Comment.nvim",
-        dependencies = {
-            { "JoosepAlviste/nvim-ts-context-commentstring" },
-        },
-        event = { "VeryLazy" },
-    },
-    {
-        "kevinhwang91/nvim-ufo",
-        dependencies = {
-            "kevinhwang91/promise-async",
-        },
-        event = { "VeryLazy" },
-    },
-    {
-        "windwp/nvim-autopairs",
-        event = { "InsertEnter" },
-    },
-}
-
 M.find = {
     {
         "kevinhwang91/nvim-hlslens",
@@ -211,6 +168,49 @@ M.views = {
     {
         "nvim-tree/nvim-tree.lua",
         lazy = true,
+    },
+}
+
+M.editor = {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        dependencies = {
+            { "windwp/nvim-ts-autotag" },
+            { "JoosepAlviste/nvim-ts-context-commentstring" },
+            { "nvim-lua/plenary.nvim" },
+        },
+        event = { "UIEnter" },
+    },
+    {
+        "RRethy/vim-illuminate",
+        event = { "UIEnter" },
+    },
+    {
+        "numToStr/Comment.nvim",
+        dependencies = {
+            { "JoosepAlviste/nvim-ts-context-commentstring" },
+        },
+        event = { "VeryLazy" },
+    },
+    {
+        "kevinhwang91/nvim-ufo",
+        dependencies = {
+            "kevinhwang91/promise-async",
+        },
+        event = { "VeryLazy" },
+    },
+    {
+        "windwp/nvim-autopairs",
+        event = { "InsertEnter" },
+    },
+    {
+        "shellRaining/hlchunk.nvim",
+        event = { "UIEnter" },
+    },
+    {
+    	"lukas-reineke/indent-blankline.nvim",
+    	event = { "UIEnter" },
     },
 }
 
