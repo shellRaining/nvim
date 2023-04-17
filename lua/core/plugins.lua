@@ -116,10 +116,10 @@ M.language = {
 }
 
 M.tools = {
-    {
-        "NvChad/nvim-colorizer.lua",
-        event = { "UIEnter" },
-    },
+    -- {
+    --     "NvChad/nvim-colorizer.lua",
+    --     event = { "UIEnter" },
+    -- },
     {
         "lewis6991/gitsigns.nvim",
         event = { "UIEnter" },
@@ -129,21 +129,13 @@ M.tools = {
     --     dependencies = { "kkharji/sqlite.lua" },
     --     branch = "experimental",
     -- },
-    {
-        "olimorris/persisted.nvim",
-        event = { "VeryLazy" },
-    },
+    -- {
+    --     "olimorris/persisted.nvim",
+    --     event = { "VeryLazy" },
+    -- },
     {
         "folke/which-key.nvim",
         event = { "VeryLazy" },
-    },
-    {
-        "askfiy/nvim-picgo",
-        lazy = true,
-    },
-    {
-        "kristijanhusak/vim-carbon-now-sh",
-        cmd = { "CarbonNowSh" },
     },
 }
 
@@ -208,10 +200,10 @@ M.editor = {
         "shellRaining/hlchunk.nvim",
         event = { "UIEnter" },
     },
-    {
-    	"lukas-reineke/indent-blankline.nvim",
-    	event = { "UIEnter" },
-    },
+    -- {
+    -- 	"lukas-reineke/indent-blankline.nvim",
+    -- 	event = { "UIEnter" },
+    -- },
 }
 
 aid_lazy.entry(M)

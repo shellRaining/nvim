@@ -11,7 +11,7 @@ function M.before() end
 function M.load()
     M.hlchunk.setup({
         chunk = {
-            enable = true,
+            enable = false,
             chars = {
                 horizontal_line = "─",
                 vertical_line = "│",
@@ -28,10 +28,13 @@ function M.load()
         line_num = {
             enable = false,
         },
-
+        --
         blank = {
+            enable = true,
+        },
+        context = {
             enable = false,
-        }
+        },
     })
 end
 
