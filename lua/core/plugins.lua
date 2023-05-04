@@ -116,10 +116,10 @@ M.language = {
 }
 
 M.tools = {
-    -- {
-    --     "NvChad/nvim-colorizer.lua",
-    --     event = { "UIEnter" },
-    -- },
+    {
+        "NvChad/nvim-colorizer.lua",
+        event = { "UIEnter" },
+    },
     {
         "lewis6991/gitsigns.nvim",
         event = { "UIEnter" },
@@ -129,10 +129,10 @@ M.tools = {
     --     dependencies = { "kkharji/sqlite.lua" },
     --     branch = "experimental",
     -- },
-    -- {
-    --     "olimorris/persisted.nvim",
-    --     event = { "VeryLazy" },
-    -- },
+    {
+        "olimorris/persisted.nvim",
+        event = { "VeryLazy" },
+    },
     {
         "folke/which-key.nvim",
         event = { "VeryLazy" },
@@ -140,7 +140,7 @@ M.tools = {
 }
 
 M.views = {
-    { "glepnir/dashboard-nvim" },
+    { "nvimdev/dashboard-nvim" },
     {
         "akinsho/bufferline.nvim",
         event = { "UIEnter" },
@@ -201,8 +201,26 @@ M.editor = {
         event = { "UIEnter" },
     },
     -- {
-    -- 	"lukas-reineke/indent-blankline.nvim",
-    -- 	event = { "UIEnter" },
+    --     "nvimdev/indentmini.nvim",
+    --     event = "BufEnter",
+    --     config = function()
+    --         require("indentmini").setup({
+    --             {
+    --                 char = "|",
+    --                 exclude = {
+    --                     "erlang",
+    --                     "markdown",
+    --                 },
+    --             },
+    --         })
+    --         vim.cmd.highlight("default link IndentLine Comment")
+    --     end,
+    --     -- this is no required but if you want indent blanklink line this is needed
+    --     dependencies = { "nvim-treesitter/nvim-treesitter" },
+    -- },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = { "UIEnter" },
     -- },
 }
 

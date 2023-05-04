@@ -11,7 +11,8 @@ function M.before() end
 function M.load()
     M.hlchunk.setup({
         chunk = {
-            enable = false,
+            enable = true,
+            use_treesitter = true,
             chars = {
                 horizontal_line = "─",
                 vertical_line = "│",
@@ -19,10 +20,16 @@ function M.load()
                 left_bottom = "└",
                 right_arrow = "─",
             },
-            style = "#00ffff",
+            -- style = "#00ffff",
         },
         indent = {
             enable = true,
+            chars = {
+                "│",
+                -- "¦",
+                -- "┆",
+                -- "┊",
+            },
         },
 
         line_num = {
@@ -30,7 +37,23 @@ function M.load()
         },
         --
         blank = {
-            enable = true,
+            enable = false,
+            chars = {
+                "․",
+                -- "⁚",
+                -- "⁖",
+                -- "⁘",
+                -- "⁙",
+            },
+            -- style = {
+            --     "#FF0000",
+            --     "#FF7F00",
+            --     "#FFFF00",
+            --     "#00FF00",
+            --     "#00FFFF",
+            --     "#0000FF",
+            --     "#8B00FF",
+            -- },
         },
         context = {
             enable = false,

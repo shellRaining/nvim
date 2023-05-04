@@ -15,7 +15,8 @@ end
 
 function M.load()
     M.indent_blankline.setup({
-        show_current_context = true,
+        -- show_current_context = true,
+        space_char_blankline = "⋅",
     })
 end
 
