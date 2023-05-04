@@ -21,7 +21,6 @@ function M.load()
             show_close_icon = true,
             -- ordinal
             numbers = "none",
-            buffer_close_icon = "",
             modified_icon = "●",
             close_icon = "",
             left_trunc_marker = "",

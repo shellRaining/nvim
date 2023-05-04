@@ -1,3 +1,3 @@
 return {
-    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+    filetypes = { "javascriptreact", "typescriptreact", "vue", "json" },
 }

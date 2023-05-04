@@ -37,6 +37,7 @@ M.opt = {
     fillchars = "eob: ",
     fileencodings = "ucs-bom,utf-8,gbk,big5,gb18030,latin1",
     sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,globals",
+    wrap = false,
 }
 
 for prefix, tbl in pairs(M) do
