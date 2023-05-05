@@ -2,7 +2,6 @@
 
 local api = require("utils.api")
 local public = require("utils.public")
-local icons = public.get_icons_group("diagnostic", true)
 
 local M = {
     requires = {
@@ -41,12 +40,6 @@ function M.load()
         diagnostics = {
             enable = true,
             show_on_dirs = true,
-            icons = {
-                hint = icons.Hint,
-                info = icons.Info,
-                warning = icons.Warn,
-                error = icons.Error,
-            },
         },
         actions = {
             use_system_clipboard = true,

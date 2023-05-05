@@ -83,8 +83,6 @@ Open the [options.lua](./lua/core/options.lua) file and set your personal prefer
 
 Open the [mapping.lua](./lua/core/mapping.lua) file to set the base keys.
 
-Open the [lua/utils/public/icons.lua](./lua/utils/public/icons.lua) file to change the icons to your liking.
-
 Open the [mason.lua](./lua/conf/basic/mason.lua) file and add the `LSP`, `DAP`, `Linter`, `Formatter` and other external tools you need .
 
 If you want to customize the startup configuration of a certain `LSP`, you should configure it in [lua/conf/lsp/server_configurations](./lua/conf/lsp/server_configurations) directory.

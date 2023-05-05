@@ -12,10 +12,8 @@
 -- requires curl and unzip
 --    ~/.local/share/nvim/store/cmp-tabnine/install.sh
 
-local public = require("utils.public")
 local options = require("core.options")
 local aid_nvim_cmp = require("utils.aid.nvim-cmp")
-local icons = public.get_icons_group("lsp_kind", false)
 
 local M = {
     requires = {
@@ -115,41 +113,6 @@ function M.load()
                 -- aid_nvim_cmp.source_compare,
                 -- aid_nvim_cmp.kind_compare,
             },
-        },
-        -- define the style of menu completion options
-        formatting = {
-            -- sort menu
-            fields = { "kind", "abbr", "menu" },
-            format = function(entry, vim_item)
-                local abbr = vim_item.abbr
-                local kind = vim_item.kind
-                local source = entry.source.name
-
-                -- vim_item.kind = ("%s %s"):format(icons[kind], kind)
-                -- vim_item.menu = ("<%s>"):format(source:upper())
-
-                -- icon_prefix
-                vim_item.kind = (" %s "):format(icons[kind])
-                vim_item.menu = ("<%s>"):format(kind)
-
-                vim_item.dup = M.duplicate_keywords[source] or 0
-
-                -- determine if it is a fixed window size
-                if M.complete_window_settings.fixed and vim.fn.mode() == "i" then
-                    local min_width = M.complete_window_settings.min_width
-                    local max_width = M.complete_window_settings.max_width
-                    local truncated_abbr = vim.fn.strcharpart(abbr, 0, max_width)
-
-                    if truncated_abbr ~= abbr then
-                        vim_item.abbr = ("%s %s"):format(truncated_abbr, "…")
-                    elseif abbr:len() < min_width then
-                        local padding = (" "):rep(min_width - abbr:len())
-                        vim_item.abbr = ("%s %s"):format(abbr, padding)
-                    end
-                end
-
-                return vim_item
-            end,
         },
         -- define the appearance of the completion menu
         window = not options.float_border and {}

@@ -31,7 +31,6 @@ function M.load()
             },
             center = {
                 {
-                    icon = " ",
                     icon_hl = "Label",
                     desc = "Projects",
                     desc_hl = "Label",
@@ -40,7 +39,6 @@ function M.load()
                     key_hl = "Label",
                 },
                 {
-                    icon = " ",
                     icon_hl = "Label",
                     desc = "Grep",
                     desc_hl = "Label",
@@ -49,7 +47,6 @@ function M.load()
                     key_hl = "Label",
                 },
                 {
-                    icon = " ",
                     icon_hl = "Label",
                     desc = "Files",
                     desc_hl = "Label",
@@ -58,7 +55,6 @@ function M.load()
                     key_hl = "Label",
                 },
                 {
-                    icon = " ",
                     icon_hl = "Label",
                     desc = "Recent Files",
                     desc_hl = "Label",
@@ -67,7 +63,6 @@ function M.load()
                     key_hl = "Label",
                 },
                 {
-                    icon = " ",
                     icon_hl = "Number",
                     desc = "quit",
                     desc_hl = "Number",

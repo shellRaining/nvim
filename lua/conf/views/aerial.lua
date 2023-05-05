@@ -1,8 +1,6 @@
 -- https://github.com/stevearc/aerial.nvim
 
 local api = require("utils.api")
-local public = require("utils.public")
-local icons = public.get_icons_group("lsp_kind", false)
 
 local M = {
     requires = {
@@ -14,7 +12,6 @@ function M.before() end
 
 function M.load()
     M.aerial.setup({
-        icons = icons,
         show_guides = true,
         backends = { "lsp", "treesitter", "markdown" },
         update_events = "TextChanged,InsertLeave",

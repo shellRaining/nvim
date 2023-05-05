@@ -2,7 +2,6 @@ local api = require("utils.api")
 local public = require("utils.public")
 local options = require("core.options")
 local setting = require("core.setting")
-local icons = public.get_icons_group("diagnostic", true)
 
 local M = {
     filetype = {
@@ -99,11 +98,6 @@ function M.diagnostic_quick_set()
         float = { source = "always" },
         virtual_text = { prefix = "●", source = "always" },
     })
-
-    for _type, icon in pairs(icons) do
-        local hl = ("DiagnosticSign%s"):format(_type)
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
 end
 
 function M.lspconfig_ui_quick_set()

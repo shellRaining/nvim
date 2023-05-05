@@ -1,8 +1,6 @@
 -- https://github.com/folke/todo-comments.nvim
 
 local api = require("utils.api")
-local public = require("utils.public")
-local icons = public.get_icons_group("tag_level", true)
 
 local M = {
     requires = {
@@ -18,18 +16,16 @@ function M.load()
     M.todo_comments.setup({
         keywords = {
             -- alt = alias
-            NOTE = { icon = icons.Note, color = "#D9D9D9" },
-            TODO = { icon = icons.Todo, color = "#D9D9D9" },
-            PERF = { icon = icons.Pref, color = "#CCA700" },
-            WARN = { icon = icons.Warn, color = "#CCA700" },
-            ERROR = { icon = icons.Warn, color = "#F14C4C" },
+            NOTE = { color = "#D9D9D9" },
+            TODO = { color = "#D9D9D9" },
+            PERF = { color = "#CCA700" },
+            WARN = { color = "#CCA700" },
+            ERROR = { color = "#F14C4C" },
             HACK = {
-                icon = icons.Hack,
                 color = "#DDB6F2",
                 alt = { "DEP" },
             },
             FIX = {
-                icon = icons.Fixme,
                 color = "#DDB6F2",
                 alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
             },
