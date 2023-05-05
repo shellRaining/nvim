@@ -31,6 +31,7 @@ function M.before()
         dap = {},
         linter = {
             "pylint",
+            "luacheck",
         },
         formatter = {
             "shfmt",
