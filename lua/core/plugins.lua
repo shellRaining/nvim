@@ -130,10 +130,6 @@ M.tools = {
     --     branch = "experimental",
     -- },
     {
-        "olimorris/persisted.nvim",
-        event = { "VeryLazy" },
-    },
-    {
         "folke/which-key.nvim",
         event = { "VeryLazy" },
     },
