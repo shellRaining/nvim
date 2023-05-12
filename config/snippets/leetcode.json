@@ -1,0 +1,22 @@
+{
+  "Leetcode": {
+    "prefix": "template",
+    "body": [
+      "const readline = require('readline');",
+      "const rl = readline.createInterface({",
+      "\tinput: process.stdin,",
+      "\toutput: process.stdout",
+      "});",
+      "",
+      "$1",
+      "",
+      "rl.on('line', function(line) {",
+      "\t$0",
+      "});",
+      "rl.on('close', function() {",
+      "\t$2",
+      "});"
+    ],
+    "description": "for leetcode"
+  }
+}
