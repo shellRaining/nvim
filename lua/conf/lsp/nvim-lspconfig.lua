@@ -58,8 +58,13 @@ function M.load()
                 private_on_init(client, bufnr)
             end
 
+            local enabled_format_lang = {
+                clangd = true,
+                -- jdtls = true,
+            }
+
             configuration.on_attach = function(client, bufnr)
-                if server_name ~= "clangd" then
+                if not enabled_format_lang[server_name] then
                     aid_nvim_lsptools.close_document_format(client)
                 end
                 aid_nvim_lsptools.close_semantic_tokens(client)
@@ -75,7 +80,6 @@ end
 
 function M.after() end
 
-function M.register_key()
-end
+function M.register_key() end
 
 return M
