@@ -68,7 +68,7 @@ function M.after()
         },
         {
             mode = { "n" },
-            lhs = "gD",
+            lhs = "gn",
             rhs = "<cmd>Lspsaga goto_definition<CR>",
             options = { silent = true },
             description = "Go to type definitions",

@@ -24,6 +24,7 @@ function M.load()
         },
         indent = {
             enable = true,
+            -- use_treesitter = true,
             chars = {
                 "│",
                 -- "¦",
@@ -35,7 +36,7 @@ function M.load()
         line_num = {
             enable = false,
         },
-        --
+
         blank = {
             enable = false,
             chars = {
