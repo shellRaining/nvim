@@ -10,7 +10,7 @@ function M.before() end
 
 function M.load()
     M.tokyonight.setup({
-        transparent = false, -- Enable this to disable setting the background color
+        transparent = true, -- Enable this to disable setting the background color
         styles = {
             sidebars = "transparent", -- style for sidebars, see below
             floats = "transparent", -- style for floating windows
