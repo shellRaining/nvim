@@ -53,6 +53,8 @@ function M.load()
             }),
             M.null_ls.builtins.formatting.stylua,
             M.null_ls.builtins.formatting.prettier,
+            M.null_ls.builtins.formatting.google_java_format,
+            M.null_ls.builtins.formatting.xmlformat,
         },
     })
 end

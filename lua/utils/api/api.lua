@@ -17,6 +17,9 @@ function M.require_all_package(module)
 
         for char, replace in pairs(replace_char) do
             if use_name:match(char) then
+                if use_name == "NeoColumn" then
+                    vim.notify("Load " .. tostring(vim.inspect(require_name)))
+                end
                 use_name = (use_name:gsub(char, replace)):lower()
             end
         end
@@ -45,6 +48,9 @@ end
 -- Creating a simple setTimeout wrapper
 function M.setTimeout(timeout, callback)
     local timer = vim.loop.new_timer()
+    if timer == nil then
+        return
+    end
     timer:start(timeout, 0, function()
         timer:stop()
         timer:close()
@@ -56,6 +62,9 @@ end
 -- Creating a simple setInterval wrapper
 function M.setInterval(interval, callback)
     local timer = vim.loop.new_timer()
+    if timer == nil then
+        return
+    end
     timer:start(interval, interval, function()
         callback()
     end)

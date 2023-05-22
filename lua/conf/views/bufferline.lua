@@ -16,7 +16,6 @@ function M.load()
     M.bufferline.setup({
         options = {
             themable = true,
-            show_close_icon = true,
             -- ordinal
             numbers = "none",
             modified_icon = "●",
