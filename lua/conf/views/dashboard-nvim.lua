@@ -67,7 +67,7 @@ function M.load()
                     key_hl = "Label",
                 },
                 {
-                    icon = " ",
+                    icon = " ",
                     icon_hl = "Number",
                     desc = "quit",
                     desc_hl = "Number",

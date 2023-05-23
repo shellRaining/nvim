@@ -8,6 +8,8 @@ local M = {
 
 function M.before() end
 
+local whitespaceStyle = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui")
+
 function M.load()
     M.hlchunk.setup({
         chunk = {
@@ -21,16 +23,21 @@ function M.load()
                 right_arrow = "─",
             },
             -- style = "#00ffff",
+            textobject = "ic",
         },
         indent = {
             enable = true,
             -- use_treesitter = true,
             chars = {
+                -- " ",
                 "│",
                 -- "¦",
                 -- "┆",
                 -- "┊",
             },
+            -- style = {
+            --     { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") },
+            -- },
         },
 
         line_num = {
@@ -40,11 +47,16 @@ function M.load()
         blank = {
             enable = false,
             chars = {
-                "․",
+                " ",
+                -- "․",
                 -- "⁚",
                 -- "⁖",
                 -- "⁘",
                 -- "⁙",
+            },
+            style = {
+                { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("cursorline")), "bg", "gui") },
+                { bg = "", fg = "" },
             },
             -- style = {
             --     "#FF0000",
