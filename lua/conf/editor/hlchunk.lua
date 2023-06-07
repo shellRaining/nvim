@@ -8,8 +8,6 @@ local M = {
 
 function M.before() end
 
-local whitespaceStyle = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui")
-
 function M.load()
     M.hlchunk.setup({
         chunk = {

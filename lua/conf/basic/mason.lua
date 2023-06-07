@@ -48,11 +48,6 @@ function M.load()
     M.mason.setup({
         max_concurrent_installers = 20,
         ui = {
-            icons = {
-                package_installed = "",
-                package_pending = "",
-                package_uninstalled = "",
-            },
             border = options.float_border and "double" or "none",
         },
         install_root_dir = options.mason_install_directory,

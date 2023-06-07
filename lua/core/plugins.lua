@@ -157,6 +157,9 @@ M.views = {
         "nvim-tree/nvim-tree.lua",
         lazy = true,
     },
+    {
+        "Vonr/align.nvim",
+    },
 }
 
 M.editor = {
