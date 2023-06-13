@@ -204,6 +204,20 @@ api.map.bulk_register({
         options = { noremap = true },
         description = "open snippet package",
     },
+    {
+        mode = { "n" },
+        lhs = "<C-n>",
+        rhs = "<cmd>cnext<cr>",
+        options = { noremap = true },
+        description = "next quickfix",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-p>",
+        rhs = "<cmd>cprev<cr>",
+        options = { noremap = true },
+        description = "previous quickfix",
+    }
 })
 
 return M

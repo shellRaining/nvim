@@ -8,10 +8,19 @@ local M = {
 
 function M.before() end
 
+local cb = function()
+    if vim.g.colors_name == "tokyonight" then
+        return "#806d9c"
+    else
+        return "#00ffff"
+    end
+end
+
 function M.load()
     M.hlchunk.setup({
         chunk = {
             enable = true,
+            notify = false,
             use_treesitter = true,
             chars = {
                 horizontal_line = "─",
@@ -20,7 +29,9 @@ function M.load()
                 left_bottom = "└",
                 right_arrow = "─",
             },
-            -- style = "#00ffff",
+            style = {
+                { fg = cb },
+            },
             textobject = "ic",
         },
         indent = {
