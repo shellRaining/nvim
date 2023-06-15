@@ -9,19 +9,6 @@ if options.auto_save then
     })
 end
 
--- switch input method
-if options.auto_switch_input then
-    vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-        pattern = { "*" },
-        callback = function()
-            local input_status = tonumber(vim.fn.system("fcitx5-remote"))
-            if input_status == 2 then
-                vim.fn.system("fcitx5-remote -c")
-            end
-        end,
-    })
-end
-
 -- auto restore cursor position
 if options.auto_restore_cursor_position then
     vim.api.nvim_create_autocmd("BufReadPost", {
