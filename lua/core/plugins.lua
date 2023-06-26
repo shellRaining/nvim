@@ -43,10 +43,6 @@ M.lsp = {
         "jose-elias-alvarez/null-ls.nvim",
         event = { "UIEnter" },
     },
-    {
-        "j-hui/fidget.nvim",
-        event = { "LspAttach" },
-    },
     { "glepnir/lspsaga.nvim" },
 }
 

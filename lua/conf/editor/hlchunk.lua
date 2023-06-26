@@ -20,7 +20,7 @@ function M.load()
     M.hlchunk.setup({
         chunk = {
             enable = true,
-            notify = false,
+            notify = true,
             use_treesitter = true,
             chars = {
                 horizontal_line = "─",

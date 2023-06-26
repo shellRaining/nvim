@@ -217,6 +217,34 @@ api.map.bulk_register({
         rhs = "<cmd>cprev<cr>",
         options = { noremap = true },
         description = "previous quickfix",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-t>n",
+        rhs = "<cmd>tabnext<cr>",
+        options = { noremap = true },
+        description = "next tab",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-t>p",
+        rhs = "<cmd>tabprev<cr>",
+        options = { noremap = true },
+        description = "previous tab",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-t>c",
+        rhs = "<cmd>tabnew<cr>",
+        options = { noremap = true },
+        description = "new tab",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-t>d",
+        rhs = "<cmd>tabclose<cr>",
+        options = { noremap = true },
+        description = "close tab",
     }
 })
 
