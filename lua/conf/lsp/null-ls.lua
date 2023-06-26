@@ -27,15 +27,15 @@ function M.load()
     M.null_ls.setup({
         border = options.float_border and "double" or "none",
         sources = {
-            M.null_ls.builtins.diagnostics.pylint.with({
-                extra_args = {
-                    "-f",
-                    "json",
-                    "--load-plugins=pylint_django",
-                    "--disable=django-not-configured",
-                    "--rcfile=" .. api.path.join(options.lint_directory, "pylint.conf"),
-                },
-            }),
+            -- M.null_ls.builtins.diagnostics.pylint.with({
+            --     extra_args = {
+            --         "-f",
+            --         "json",
+            --         "--load-plugins=pylint_django",
+            --         "--disable=django-not-configured",
+            --         "--rcfile=" .. api.path.join(options.lint_directory, "pylint.conf"),
+            --     },
+            -- }),
 
             -- linter
             M.null_ls.builtins.diagnostics.luacheck,

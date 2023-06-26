@@ -1,4 +1,20 @@
 {
+  "blog head": {
+    "prefix": ["blog"],
+    "body": [
+      "---",
+      "title: $1",
+      "tag:",
+      "\t- $2",
+      "description: $3",
+      "---",
+      "",
+      "# {{ \\$frontmatter.title }}",
+      "",
+      "$0"
+    ],
+    "description": "create code block"
+  },
   "code block": {
     "prefix": ["code"],
     "body": ["```$1\n```"],
