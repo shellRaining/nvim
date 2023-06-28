@@ -7,7 +7,7 @@ local options = require("core.options")
 
 local M = {
     -- plugin config file root directory
-    plugin_config_root_directory = "conf",
+    plug_conf_root_dir = "conf",
 }
 
 function M.get_opts()
@@ -46,27 +46,26 @@ function M.load(plugins)
 
     for plugin_kind_name, plugin_kind_tbl in pairs(plugins) do
         for _, plugin_opts in ipairs(plugin_kind_tbl) do
-            if not plugin_opts.dir then
-                local require_file_name = (plugin_opts.name or plugin_opts[1]:match("/([%w%-_]+).?")):lower()
+            local require_file_name = (plugin_opts.name or plugin_opts[1]:match("/([%w%-_]+).?")):lower()
+            local require_file_path = api.path.join(M.plug_conf_root_dir, plugin_kind_name, require_file_name)
+            local ok, module = pcall(require, require_file_path)
 
-                local require_file_path =
-                    api.path.join(M.plugin_config_root_directory, plugin_kind_name, require_file_name)
-
-                local ok, module = pcall(require, require_file_path)
-
-                if ok then
-                    plugin_opts.init = plugin_opts.init
-                        or function()
+            if ok then
+                plugin_opts.init = plugin_opts.init
+                    or function()
+                        if module.before then
                             module.before()
                         end
+                    end
 
-                    plugin_opts.config = plugin_opts.config
-                        or function()
-                            api.require_all_package(module)
-                            module.load()
+                plugin_opts.config = plugin_opts.config
+                    or function()
+                        api.require_all_package(module)
+                        module.load()
+                        if module.after then
                             module.after()
                         end
-                end
+                    end
             end
             table.insert(requires_moduls, plugin_opts)
         end

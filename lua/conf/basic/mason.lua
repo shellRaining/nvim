@@ -25,6 +25,7 @@ function M.before()
             "lua-language-server",
             "bash-language-server",
             "typescript-language-server",
+            "rust-analyzer",
             -- "unocss-language-server",
             -- "tailwindcss-language-server",
         },

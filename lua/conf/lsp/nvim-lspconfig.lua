@@ -1,8 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig
 
-local api = require("utils.api")
-local aid_nvim_lsptools = require("utils.aid.nvim-lsptools")
-local aid_nvim_lspconfig = require("utils.aid.nvim-lspconfig")
+local join = require("utils.api").path.join
+local options = require("core.options")
 
 local M = {
     requires = {
@@ -10,76 +9,38 @@ local M = {
         "lspconfig",
         "mason-lspconfig",
     },
-    disabled_servers = {
-        "pylance",
-    },
-    server_configurations_dir_path = api.path.join("conf", "lsp", "server_configurations"),
+    server_config_path = join("conf", "lsp", "server_configurations"),
 }
 
-function M.before()
-    M.register_key()
-end
-
 function M.load()
-    aid_nvim_lspconfig.begin()
+    require("lspconfig.ui.windows").default_options.border = options.float_border and "double" or "none"
 
-    -- lspconfig_to_mason or mason_to_lspconfig
     local mappings = M.mason_lspconfig.get_mappings()
-
-    -- load build-in servers and expands servers
-    local servers = vim.tbl_deep_extend(
-        "force",
-        M.mason_lspconfig.get_installed_servers(),
-        aid_nvim_lspconfig.get_expands_servers()
-    )
+    local fmt_lang = {
+        clangd = false,
+    }
+    local servers = M.mason_lspconfig.get_installed_servers()
 
     for _, server_name in ipairs(servers) do
-        local require_path =
-            api.path.join(M.server_configurations_dir_path, mappings.lspconfig_to_mason[server_name] or server_name)
-
+        local require_path = join(M.server_config_path, mappings.lspconfig_to_mason[server_name] or server_name)
         local ok, configuration = pcall(require, require_path)
+        configuration = ok and configuration or {}
 
-        -- set default configuration
-        configuration = vim.tbl_deep_extend("force", {
-            ---@diagnostic disable-next-line: unused-local
-            on_init = function(client, bufnr) end,
-            ---@diagnostic disable-next-line: unused-local
-            on_attach = function(client, bufnr) end,
-        }, ok and configuration or {})
+        local private_on_init = configuration.on_init
+        local private_on_attach = configuration.on_attach
 
-        if not vim.tbl_contains(M.disabled_servers, server_name) then
-            local private_on_init = configuration.on_init
-            local private_on_attach = configuration.on_attach
-
-            configuration.capabilities = aid_nvim_lspconfig.get_capabilities()
-            configuration.handlers = aid_nvim_lspconfig.get_headlers(configuration)
-
-            configuration.on_init = function(client, bufnr)
-                private_on_init(client, bufnr)
-            end
-
-            local enabled_format_lang = {
-                clangd = true,
-                -- jdtls = true,
-            }
-
-            configuration.on_attach = function(client, bufnr)
-                if not enabled_format_lang[server_name] then
-                    aid_nvim_lsptools.close_document_format(client)
-                end
-                aid_nvim_lsptools.close_semantic_tokens(client)
-                aid_nvim_lsptools.did_change_configuration(client)
-                -- run private_on_attach
-                private_on_attach(client, bufnr)
-            end
-
-            M.lspconfig[server_name].setup(configuration)
+        configuration.on_init = function(client, bufnr)
+            private_on_init(client, bufnr)
         end
+        configuration.on_attach = function(client, bufnr)
+            if fmt_lang[server_name] then
+                client.server_capabilities.documentFormattingProvider = fmt_lang[server_name]
+            end
+            private_on_attach(client, bufnr)
+        end
+
+        M.lspconfig[server_name].setup(configuration)
     end
 end
-
-function M.after() end
-
-function M.register_key() end
 
 return M
