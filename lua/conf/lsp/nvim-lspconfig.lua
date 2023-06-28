@@ -24,7 +24,9 @@ function M.load()
     for _, server_name in ipairs(servers) do
         local require_path = join(M.server_config_path, mappings.lspconfig_to_mason[server_name] or server_name)
         local ok, configuration = pcall(require, require_path)
-        configuration = ok and configuration or {}
+        if not ok then
+            goto continue
+        end
 
         local private_on_init = configuration.on_init
         local private_on_attach = configuration.on_attach
@@ -40,6 +42,7 @@ function M.load()
         end
 
         M.lspconfig[server_name].setup(configuration)
+        ::continue::
     end
 end
 

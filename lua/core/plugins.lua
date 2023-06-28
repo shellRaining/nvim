@@ -34,7 +34,7 @@ M.lsp = {
             { "williamboman/mason-lspconfig.nvim" },
         },
     },
-    -- in nvim-lspconfig config file require neodev
+    { 'simrat39/rust-tools.nvim' },
     {
         "folke/neodev.nvim",
         lazy = true,
@@ -195,6 +195,13 @@ M.editor = {
         "shellRaining/hlchunk.nvim",
         event = { "UIEnter" },
     },
+    -- {
+    --     "echasnovski/mini.indentscope",
+    --     event = { "UIEnter" },
+    --     config = function()
+    --         require("mini.indentscope").setup()
+    --     end,
+    -- },
     -- {
     --     "nvimdev/indentmini.nvim",
     --     event = "BufEnter",

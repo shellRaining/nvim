@@ -53,6 +53,7 @@
   "img": {
     "prefix": ["img"],
     "body": [
+      "<img width='$1' src='~/Pictures/pic_bed/$2/$3'>",
       "<img width='$1' src='https://raw.githubusercontent.com/shellRaining/img/main/$2/$3'>"
     ],
     "description": "generate todo "

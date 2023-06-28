@@ -1,8 +1,4 @@
 -- https://github.com/jose-elias-alvarez/null-ls.nvim
-
----@diagnostic disable: unused-local
-
-local api = require("utils.api")
 local options = require("core.options")
 
 local M = {
@@ -55,6 +51,7 @@ function M.load()
             M.null_ls.builtins.formatting.prettier,
             M.null_ls.builtins.formatting.google_java_format,
             M.null_ls.builtins.formatting.xmlformat,
+            M.null_ls.builtins.formatting.rustfmt,
         },
     })
 end
