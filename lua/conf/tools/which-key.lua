@@ -16,11 +16,6 @@ function M.load()
                 suggestions = 20,
             },
         },
-        icons = {
-            breadcrumb = " ",
-            separator = " ",
-            group = " ",
-        },
     })
 end
 function M.after()

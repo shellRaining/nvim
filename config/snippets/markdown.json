@@ -15,6 +15,21 @@
     ],
     "description": "create code block"
   },
+  "focus": {
+    "prefix": ["focus"],
+    "body": ["// [!code focus]"],
+    "description": "create code block"
+  },
+  "delete": {
+    "prefix": ["delete"],
+    "body": ["// [!code --]"],
+    "description": "create code block"
+  },
+  "add": {
+    "prefix": ["add"],
+    "body": ["// [!code ++]"],
+    "description": "create code block"
+  },
   "code block": {
     "prefix": ["code"],
     "body": ["```$1\n```"],
