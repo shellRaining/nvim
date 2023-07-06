@@ -114,6 +114,7 @@ end
 function M.after() end
 
 function M.register_key()
+    local tree_api = require("nvim-tree.api")
     api.map.bulk_register({
         {
             mode = { "n" },
@@ -126,6 +127,15 @@ function M.register_key()
             end,
             options = { silent = true },
             description = "Open File Explorer",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>th",
+            rhs = function()
+                tree_api.tree.toggle_gitignore_filter()
+            end,
+            options = { silent = true },
+            description = "Toggle Hidden Files",
         },
     })
 end

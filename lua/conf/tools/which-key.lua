@@ -18,6 +18,7 @@ function M.load()
         },
     })
 end
+
 function M.after()
     -- global leader
     M.which_key.register({
@@ -30,11 +31,7 @@ function M.after()
         r = { name = "Replace", w = "Replace Word To ..." },
         s = { name = "Session" },
         u = { name = "Upload" },
-        t = {
-            name = "Terminal | Translate",
-            c = "Translate English to Chinese",
-            e = "Translate Chinese to English",
-        },
+        t = { name = "nvim_tree" },
     }, { prefix = "<leader>", mode = "n" })
 
     -- comment
