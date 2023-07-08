@@ -245,7 +245,16 @@ api.map.bulk_register({
         rhs = "<cmd>tabclose<cr>",
         options = { noremap = true },
         description = "close tab",
-    }
+    },
+    {
+        mode = { "n" },
+        lhs = "<leader>st",
+        rhs = function()
+            require("core.swap_ternary").swap_ternary()
+        end,
+        options = { noremap = true },
+        description = "swap ternary",
+    },
 })
 
 return M
