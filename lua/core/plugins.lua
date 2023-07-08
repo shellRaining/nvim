@@ -34,7 +34,7 @@ M.lsp = {
             { "williamboman/mason-lspconfig.nvim" },
         },
     },
-    { 'simrat39/rust-tools.nvim' },
+    { "simrat39/rust-tools.nvim" },
     {
         "folke/neodev.nvim",
         lazy = true,
@@ -55,20 +55,6 @@ M.complete = {
             { "hrsh7th/cmp-cmdline" },
             { "hrsh7th/cmp-nvim-lsp" },
             { "saadparwaiz1/cmp_luasnip" },
-            {
-                "zbirenbaum/copilot.lua",
-                opts = {
-                    panel = { enabled = false },
-                    suggestion = {
-                        enable = true,
-                        auto_trigger = true,
-                        keymap = false,
-                    },
-                    filetypes = {
-                        markdown = true,
-                    },
-                },
-            },
         },
         event = { "InsertEnter", "CmdlineEnter" },
     },
@@ -77,6 +63,7 @@ M.complete = {
         -- in nvim-cmp config file require luasnip
         lazy = true,
     },
+    { "zbirenbaum/copilot.lua" },
 }
 
 M.find = {
