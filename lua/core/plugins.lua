@@ -107,11 +107,6 @@ M.tools = {
         "lewis6991/gitsigns.nvim",
         event = { "UIEnter" },
     },
-    -- {
-    --     "JuanZoran/Trans.nvim",
-    --     dependencies = { "kkharji/sqlite.lua" },
-    --     branch = "experimental",
-    -- },
     {
         "folke/which-key.nvim",
         event = { "VeryLazy" },
@@ -181,6 +176,9 @@ M.editor = {
     {
         "shellRaining/hlchunk.nvim",
         event = { "UIEnter" },
+    },
+    {
+        "shellRaining/nvim_md_HFfont",
     },
     -- {
     --     "echasnovski/mini.indentscope",
