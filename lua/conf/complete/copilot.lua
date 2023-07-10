@@ -1,4 +1,5 @@
 -- https://github.com/zbirenbaum/copilot-cmp
+local api = require("utils.api")
 
 local M = {
     requires = {
@@ -9,9 +10,33 @@ local M = {
 function M.before() end
 
 function M.load()
-    M.copilot.setup({})
+    M.copilot.setup({
+        panel = { enabled = false },
+        suggestion = {
+            enable = true,
+            auto_trigger = true,
+            keymap = false,
+        },
+        filetypes = {
+            markdown = true,
+        },
+    })
 end
 
-function M.after() end
+function M.after()
+    M.register_key()
+end
+
+function M.register_key()
+    api.map.bulk_register({
+        {
+            mode = { "n" },
+            lhs = "<leader>cd",
+            rhs = "<cmd>Copilot disable<cr>",
+            options = { silent = true },
+            description = "disable copilot",
+        },
+    })
+end
 
 return M
