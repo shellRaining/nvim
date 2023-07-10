@@ -16,8 +16,9 @@ function M.load()
     require("lspconfig.ui.windows").default_options.border = options.float_border and "double" or "none"
 
     local mappings = M.mason_lspconfig.get_mappings()
-    local fmt_lang = {
-        clangd = false,
+    local not_fmt_lang = {
+        clangd = true,
+        tsserver = true,
     }
     local servers = M.mason_lspconfig.get_installed_servers()
 
@@ -35,8 +36,8 @@ function M.load()
             private_on_init(client, bufnr)
         end
         configuration.on_attach = function(client, bufnr)
-            if fmt_lang[server_name] then
-                client.server_capabilities.documentFormattingProvider = fmt_lang[server_name]
+            if not_fmt_lang[server_name] then
+                client.server_capabilities.documentFormattingProvider = false
             end
             private_on_attach(client, bufnr)
         end
