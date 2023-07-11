@@ -38,12 +38,10 @@ end
 vim.api.nvim_create_autocmd("TermOpen", {
     pattern = { "*" },
     callback = function()
-        api.map.register({
-            mode = { "n" },
-            lhs = "q",
-            rhs = "<cmd>q<cr>",
-            options = { silent = true },
-            description = "Escape terminal normal mode",
+        local bufnr = vim.api.nvim_get_current_buf()
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<cmd>BufferDelete<cr>", {
+            silent = true,
+            noremap = true,
         })
     end,
 })
