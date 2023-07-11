@@ -1,4 +1,5 @@
 local options = require("core.options")
+local api = require("utils.api")
 
 -- auto save buffer
 if options.auto_save then
@@ -33,3 +34,16 @@ if options.auto_remove_new_lines_comment then
         end,
     })
 end
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = { "*" },
+    callback = function()
+        api.map.register({
+            mode = { "n" },
+            lhs = "q",
+            rhs = "<cmd>q<cr>",
+            options = { silent = true },
+            description = "Escape terminal normal mode",
+        })
+    end,
+})

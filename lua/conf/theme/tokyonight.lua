@@ -16,7 +16,7 @@ function M.load()
             floats = "transparent", -- style for floating windows
         },
     })
-    vim.cmd([[colorscheme tokyonight]])
+    vim.cmd([[colorscheme tokyonight-moon]])
 end
 
 function M.after() end
