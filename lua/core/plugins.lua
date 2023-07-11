@@ -10,15 +10,16 @@ M.theme = {
 
 M.basic = {
     {
-        "rcarriga/nvim-notify",
-        priority = 90,
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+        },
     },
+    { "nvim-tree/nvim-web-devicons" },
+    { "rcarriga/nvim-notify" },
     {
         "williamboman/mason.nvim",
-        event = { "VimEnter" },
-    },
-    {
-        "nvim-tree/nvim-web-devicons",
         event = { "VimEnter" },
     },
     {
@@ -60,7 +61,6 @@ M.complete = {
     },
     {
         "L3MON4D3/LuaSnip",
-        -- in nvim-cmp config file require luasnip
         lazy = true,
     },
     { "zbirenbaum/copilot.lua" },
@@ -68,13 +68,7 @@ M.complete = {
 
 M.find = {
     {
-        "kevinhwang91/nvim-hlslens",
-        event = { "CmdlineEnter" },
-        lazy = true,
-    },
-    {
         "folke/todo-comments.nvim",
-        event = { "UIEnter" },
     },
     {
         "phaazon/hop.nvim",
@@ -111,10 +105,16 @@ M.tools = {
         "folke/which-key.nvim",
         event = { "VeryLazy" },
     },
+    {
+        "CRAG666/code_runner.nvim",
+        event = { "VeryLazy" },
+    },
 }
 
 M.views = {
     { "nvimdev/dashboard-nvim" },
+    -- { 'CRAG666/betterTerm.nvim' },
+    { "akinsho/toggleterm.nvim" },
     {
         "akinsho/bufferline.nvim",
         event = { "UIEnter" },

@@ -22,7 +22,7 @@ local ignore_message = {
     "method textDocument/documentSymbol is not supported by any of the servers registered for the current buffer",
     "warning: multiple different client offset_encodings detected for buffer, this is not supported yet",
     'Server "emmet_ls" does not support documentSymbols.',
-    'No information available',
+    "No information available",
     "Failed to attach to volar for current buffer. Already attached to volar",
 }
 

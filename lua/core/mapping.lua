@@ -18,9 +18,16 @@ api.map.bulk_register({
         description = "Escape terminal insert mode",
     },
     {
+        mode = { "t" },
+        lhs = "<c-q>",
+        rhs = "<c-\\><c-n><cmd>BufferDelete<cr>",
+        options = { silent = true },
+        description = "Escape terminal",
+    },
+    {
         mode = { "n" },
         lhs = "<esc>",
-        rhs = ":noh<cr>",
+        rhs = "<cmd>nohlsearch<cr>",
         options = { silent = true },
         description = "Clear search highlight",
     },

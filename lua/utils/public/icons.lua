@@ -7,6 +7,16 @@ M.diagnostic = {
     Info = "",
 }
 
+M.tag_level = {
+    FIX = "",
+    TODO = "",
+    HACK = "",
+    WARN = "",
+    PERF = "",
+    NOTE = "",
+    TEST = "⏲",
+}
+
 M.lsp_kind = {
     Array = "",
     Boolean = "",

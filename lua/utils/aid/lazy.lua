@@ -43,11 +43,17 @@ end
 
 function M.load(plugins)
     local requires_moduls = {}
+    local disabled_plugins = {
+        plenary = true, -- because this is a nvim-lua lib
+    }
 
     for plugin_kind_name, plugin_kind_tbl in pairs(plugins) do
         for _, plugin_opts in ipairs(plugin_kind_tbl) do
             local require_file_name = (plugin_opts.name or plugin_opts[1]:match("/([%w%-_]+).?")):lower()
             local require_file_path = api.path.join(M.plug_conf_root_dir, plugin_kind_name, require_file_name)
+            if disabled_plugins[require_file_name] then
+                goto continue
+            end
             local ok, module = pcall(require, require_file_path)
 
             if ok then
@@ -68,6 +74,7 @@ function M.load(plugins)
                     end
             end
             table.insert(requires_moduls, plugin_opts)
+            ::continue::
         end
     end
 

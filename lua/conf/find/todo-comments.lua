@@ -10,29 +10,18 @@ local M = {
     },
 }
 
-function M.before()
-    M.register_key()
-end
+function M.before() end
 
 function M.load()
     M.todo_comments.setup({
         keywords = {
-            -- alt = alias
-            NOTE = { icon = icons.Note, color = "#D9D9D9" },
-            TODO = { icon = icons.Todo, color = "#D9D9D9" },
-            PERF = { icon = icons.Pref, color = "#CCA700" },
-            WARN = { icon = icons.Warn, color = "#CCA700" },
-            ERROR = { icon = icons.Warn, color = "#F14C4C" },
-            HACK = {
-                icon = icons.Hack,
-                color = "#DDB6F2",
-                alt = { "DEP" },
-            },
-            FIX = {
-                icon = icons.Fixme,
-                color = "#DDB6F2",
-                alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
-            },
+            FIX = { icon = icons.FIX, color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
+            TODO = { icon = icons.TODO, color = "info" },
+            HACK = { icon = icons.HACK, color = "warning" },
+            WARN = { icon = icons.WARN, color = "warning", alt = { "WARNING", "XXX" } },
+            PERF = { icon = icons.PERF, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+            NOTE = { icon = icons.NOTE, color = "hint", alt = { "INFO" } },
+            TEST = { icon = icons.TEST, color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
         },
         gui_style = {
             fg = "NONE",
@@ -42,7 +31,9 @@ function M.load()
     })
 end
 
-function M.after() end
+function M.after()
+    M.register_key()
+end
 
 function M.register_key()
     api.map.bulk_register({

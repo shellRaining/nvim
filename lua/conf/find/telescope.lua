@@ -5,7 +5,7 @@ local api = require("utils.api")
 local M = {
     requires = {
         "telescope",
-        "telescope.actions"
+        "telescope.actions",
     },
 }
 

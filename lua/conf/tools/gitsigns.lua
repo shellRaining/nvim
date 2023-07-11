@@ -51,7 +51,9 @@ function M.register_key()
         {
             mode = { "n" },
             lhs = "<leader>gd",
-            rhs = "<cmd>Gitsigns toggle_deleted<cr>",
+            rhs = function()
+                M.gitsigns.toggle_deleted()
+            end,
             options = { silent = true },
             description = "Show deleted lines",
         },
