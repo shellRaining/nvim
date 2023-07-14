@@ -6,8 +6,12 @@ if sysname == "Darwin" then
     api.register({
         mode = { "i" },
         lhs = "jk",
-        rhs = "<esc>",
+        rhs = function()
+            vim.cmd("nohlsearch")
+            vim.cmd("stopinsert")
+            vim.lsp.buf.format({ async = false })
+        end,
         options = { silent = true },
-        description = "Escape Neovim insert mode",
+        description = "Clear search highlight",
     })
 end

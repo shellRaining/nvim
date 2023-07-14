@@ -23,21 +23,21 @@ function M.load()
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     M.null_ls.setup({
         border = options.float_border and "double" or "none",
-        on_attach = function(client, bufnr)
-            if client.supports_method("textDocument/formatting") then
-                vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                vim.api.nvim_create_autocmd("InsertLeave", {
-                    group = augroup,
-                    buffer = bufnr,
-                    callback = function()
-                        -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                        -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
-                        -- vim.lsp.buf.formatting_sync()
-                        vim.lsp.buf.format({ async = false })
-                    end,
-                })
-            end
-        end,
+        -- on_attach = function(client, bufnr)
+        --     if client.supports_method("textDocument/formatting") then
+        --         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        --         vim.api.nvim_create_autocmd("InsertLeave", {
+        --             group = augroup,
+        --             buffer = bufnr,
+        --             callback = function()
+        --                 -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+        --                 -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
+        --                 -- vim.lsp.buf.formatting_sync()
+        --                 vim.lsp.buf.format({ async = false })
+        --             end,
+        --         })
+        --     end
+        -- end,
         sources = {
             -- M.null_ls.builtins.diagnostics.pylint.with({
             --     extra_args = {
