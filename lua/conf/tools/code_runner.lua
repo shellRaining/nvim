@@ -10,7 +10,11 @@ local M = {
 function M.before() end
 
 function M.load()
-    M.code_runner.setup({})
+    M.code_runner.setup({
+        filetype = {
+            typescript = "deno run",
+        },
+    })
 end
 
 function M.after()

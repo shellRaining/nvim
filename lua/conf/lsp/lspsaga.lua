@@ -12,10 +12,10 @@ function M.before() end
 function M.load()
     M.lspsaga.setup({
         symbol_in_winbar = {
-            enable = false,
+            enable = true,
         },
         lightbulb = {
-            enable = false,
+            enable = true,
         },
     })
 end
@@ -48,7 +48,21 @@ function M.after()
         {
             mode = { "n" },
             lhs = "gh",
-            rhs = "<cmd>Lspsaga lsp_finder<CR>",
+            rhs = "<cmd>Lspsaga finder<CR>",
+            options = { silent = true },
+            description = "Show help information",
+        },
+        {
+            mode = { "n" },
+            lhs = "gr",
+            rhs = "<cmd>Lspsaga finder ref<CR>",
+            options = { silent = true },
+            description = "Show help information",
+        },
+        {
+            mode = { "n" },
+            lhs = "gi",
+            rhs = "<cmd>Lspsaga finder imp<CR>",
             options = { silent = true },
             description = "Show help information",
         },
