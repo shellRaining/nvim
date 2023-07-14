@@ -32,7 +32,10 @@ function M.register_key()
         {
             mode = { "n" },
             lhs = "<leader>cd",
-            rhs = "<cmd>Copilot disable<cr>",
+            rhs = function()
+                vim.cmd("Copilot disable")
+                vim.notify("Copilot disabled", "info", { title = "Copilot" })
+            end,
             options = { silent = true },
             description = "disable copilot",
         },
