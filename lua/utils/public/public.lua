@@ -34,7 +34,6 @@ function M.toggle_sidebar(target_filetype)
     local close_prev_filetypes = {
         "NvimTree",
         "undotree",
-        "dbui",
         "spectre_panel",
     }
 
@@ -81,11 +80,9 @@ function M.terminal_offset_run_command(command)
     local offset_filetype = {
         ---@diagnostic disable-next-line: unused-local
         NvimTree = function(window_id)
-            vim.cmd("NvimTreeToggle")
+            require("nvim-tree.api").tree.toggle({ focus = false })
             vim.cmd(command)
-            require("nvim-tree.api").tree.toggle({
-                focus = false,
-            })
+            require("nvim-tree.api").tree.toggle({ focus = false })
         end,
 
         ---@diagnostic disable-next-line: unused-local
@@ -95,29 +92,6 @@ function M.terminal_offset_run_command(command)
             vim.cmd(command)
             vim.cmd("UndotreeToggle")
             vim.g.undotree_SetFocusWhenToggle = 1
-        end,
-
-        dbui = function(window_id)
-            vim.api.nvim_win_close(window_id, true)
-            vim.cmd(command)
-            vim.cmd("DBUIToggle")
-
-            local max_window_id = 0
-            local max_terminal_id = 0
-
-            for _, opts in ipairs(M.get_all_window_buffer_filetype()) do
-                if opts.buffer_filetype == "toggleterm" then
-                    local buffer_name = vim.api.nvim_buf_get_name(opts.buffer_id)
-                    local terminal_id = tonumber(buffer_name:match("#(%d+)$"))
-
-                    max_window_id = opts.window_id
-                    max_terminal_id = math.max(max_terminal_id, terminal_id)
-                end
-            end
-
-            if max_window_id ~= 0 then
-                vim.fn.win_gotoid(max_window_id)
-            end
         end,
     }
 

@@ -1,5 +1,4 @@
 local options = require("core.options")
-local api = require("utils.api")
 
 -- auto save buffer
 if options.auto_save then
@@ -39,7 +38,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     pattern = { "*" },
     callback = function()
         local bufnr = vim.api.nvim_get_current_buf()
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<cmd>BufferDelete<cr>", {
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<cmd>BufferDelete<cr><c-w>l", {
             silent = true,
             noremap = true,
         })

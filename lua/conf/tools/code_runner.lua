@@ -3,7 +3,6 @@ local api = require("utils.api")
 local M = {
     requires = {
         "code_runner",
-        -- "betterTerm",
     },
 }
 
