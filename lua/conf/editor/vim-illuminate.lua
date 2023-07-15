@@ -1,5 +1,8 @@
 -- https://github.com/RRethy/vim-illuminate
 
+local api = vim.api
+local fn = vim.fn
+
 local M = {
     requires = {
         "illuminate",
@@ -34,6 +37,7 @@ function M.load()
     })
 end
 
-function M.after() end
+function M.after()
+end
 
 return M

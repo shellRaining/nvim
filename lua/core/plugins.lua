@@ -90,6 +90,10 @@ M.language = {
         "davidgranstrom/nvim-markdown-preview",
         ft = { "markdown" },
     },
+    -- {
+    --     "toppair/peek.nvim",
+    --     build = "deno task --quiet build:fast",
+    -- },
 }
 
 M.tools = {
