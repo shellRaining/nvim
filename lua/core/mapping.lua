@@ -139,6 +139,68 @@ api.map.bulk_register({
         description = "Move to the last character at the end of the line",
     },
     {
+        mode = { "v" },
+        lhs = "<",
+        rhs = "<gv",
+        options = { noremap = true },
+        description = "move the select_hunk to left",
+    },
+    {
+        mode = { "v" },
+        lhs = ">",
+        rhs = ">gv",
+        options = { noremap = true },
+        description = "move the select_hunk to right",
+    },
+    {
+        mode = { "n", "v" },
+        lhs = ";",
+        rhs = ":",
+        options = { noremap = true },
+        description = "have a good day",
+    },
+    {
+        mode = { "n", "v" },
+        lhs = ":",
+        rhs = ";",
+        options = { noremap = true },
+        description = "have a good day",
+    },
+    {
+        mode = { "n" },
+        lhs = "*",
+        rhs = "*N",
+        options = { noremap = true },
+        description = "search the word under cursor forward",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-n>",
+        rhs = "<cmd>cnext<cr>",
+        options = { noremap = true },
+        description = "next quickfix",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-p>",
+        rhs = "<cmd>cprev<cr>",
+        options = { noremap = true },
+        description = "previous quickfix",
+    },
+    {
+        mode = { "n" },
+        lhs = "<leader>st",
+        rhs = function()
+            require("core.swap_ternary").swap_ternary()
+        end,
+        options = { noremap = true },
+        description = "swap ternary",
+    },
+})
+
+-- insert mapping
+api.map.bulk_register({
+    {
         mode = { "i", "c", "t" },
         lhs = "<m-w>",
         rhs = "<c-right>",
@@ -180,62 +242,10 @@ api.map.bulk_register({
         options = {},
         description = "Move cursor right in insert mode",
     },
-    {
-        mode = { "v" },
-        lhs = "<",
-        rhs = "<gv",
-        options = { noremap = true },
-        description = "move the select_hunk to left",
-    },
-    {
-        mode = { "v" },
-        lhs = ">",
-        rhs = ">gv",
-        options = { noremap = true },
-        description = "move the select_hunk to right",
-    },
-    {
-        mode = { "n", "v" },
-        lhs = ";",
-        rhs = ":",
-        options = { noremap = true },
-        description = "have a good day",
-    },
-    {
-        mode = { "n", "v" },
-        lhs = ":",
-        rhs = ";",
-        options = { noremap = true },
-        description = "have a good day",
-    },
-    {
-        mode = { "n" },
-        lhs = "<leader>so",
-        rhs = "<cmd>OpenUserSnippetFile<cr>",
-        options = { noremap = true },
-        description = "open snippet file for current filetype",
-    },
-    {
-        mode = { "n" },
-        lhs = "<leader>sp",
-        rhs = "<cmd>OpenUserSnippetPackage<cr>",
-        options = { noremap = true },
-        description = "open snippet package",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-n>",
-        rhs = "<cmd>cnext<cr>",
-        options = { noremap = true },
-        description = "next quickfix",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-p>",
-        rhs = "<cmd>cprev<cr>",
-        options = { noremap = true },
-        description = "previous quickfix",
-    },
+})
+
+-- tab mapping
+api.map.bulk_register({
     {
         mode = { "n" },
         lhs = "<C-t>n",
@@ -263,15 +273,6 @@ api.map.bulk_register({
         rhs = "<cmd>tabclose<cr>",
         options = { noremap = true },
         description = "close tab",
-    },
-    {
-        mode = { "n" },
-        lhs = "<leader>st",
-        rhs = function()
-            require("core.swap_ternary").swap_ternary()
-        end,
-        options = { noremap = true },
-        description = "swap ternary",
     },
 })
 

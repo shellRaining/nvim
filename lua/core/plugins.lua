@@ -22,10 +22,6 @@ M.basic = {
         "williamboman/mason.nvim",
         event = { "VimEnter" },
     },
-    {
-        "nvim-lua/plenary.nvim",
-        lazy = true,
-    },
 }
 
 M.lsp = {
@@ -35,7 +31,10 @@ M.lsp = {
             { "williamboman/mason-lspconfig.nvim" },
         },
     },
-    { "simrat39/rust-tools.nvim" },
+    {
+        "simrat39/rust-tools.nvim",
+        ft = { "rust" },
+    },
     {
         "folke/neodev.nvim",
         lazy = true,
@@ -43,6 +42,9 @@ M.lsp = {
     {
         "jose-elias-alvarez/null-ls.nvim",
         event = { "UIEnter" },
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+        },
     },
     { "glepnir/lspsaga.nvim" },
 }
@@ -90,10 +92,6 @@ M.language = {
         "davidgranstrom/nvim-markdown-preview",
         ft = { "markdown" },
     },
-    -- {
-    --     "toppair/peek.nvim",
-    --     build = "deno task --quiet build:fast",
-    -- },
 }
 
 M.tools = {
@@ -117,7 +115,6 @@ M.tools = {
 
 M.views = {
     { "nvimdev/dashboard-nvim" },
-    -- { 'CRAG666/betterTerm.nvim' },
     { "akinsho/toggleterm.nvim" },
     {
         "akinsho/bufferline.nvim",
@@ -139,9 +136,6 @@ M.views = {
         "nvim-tree/nvim-tree.lua",
         lazy = true,
     },
-    {
-        "Vonr/align.nvim",
-    },
 }
 
 M.editor = {
@@ -155,10 +149,10 @@ M.editor = {
         },
         event = { "UIEnter" },
     },
-    {
-        "RRethy/vim-illuminate",
-        event = { "UIEnter" },
-    },
+    -- {
+    --     "RRethy/vim-illuminate",
+    --     event = { "UIEnter" },
+    -- },
     {
         "numToStr/Comment.nvim",
         dependencies = {
@@ -183,6 +177,7 @@ M.editor = {
     },
     {
         "shellRaining/nvim_md_HFfont",
+        ft = { "markdown" },
     },
     -- {
     --     "echasnovski/mini.indentscope",

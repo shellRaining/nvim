@@ -60,6 +60,20 @@ function M.register_key()
             options = { silent = true, expr = true },
             description = "Jump to the prev fragment placeholder",
         },
+        {
+            mode = { "n" },
+            lhs = "<leader>so",
+            rhs = "<cmd>OpenUserSnippetFile<cr>",
+            options = { noremap = true },
+            description = "open snippet file for current filetype",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>sp",
+            rhs = "<cmd>OpenUserSnippetPackage<cr>",
+            options = { noremap = true },
+            description = "open snippet package",
+        },
     })
 end
 
