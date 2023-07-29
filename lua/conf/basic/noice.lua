@@ -1,7 +1,5 @@
 -- https://github.com/rcarriga/nvim-notify
 
-local api = require("utils.api")
-
 local M = {
     requires = {
         "noice",
@@ -85,18 +83,6 @@ end
 
 function M.after() end
 
-function M.register_key()
-    -- api.map.bulk_register({
-    --     {
-    --         mode = { "c" },
-    --         lhs = "<S-Enter>",
-    --         rhs = function()
-    --             require("noice").redirect(vim.fn.getcmdline())
-    --         end,
-    --         options = { silent = true },
-    --         description = "redirect cmdline",
-    --     },
-    -- })
-end
+function M.register_key() end
 
 return M

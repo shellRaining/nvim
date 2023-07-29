@@ -12,7 +12,7 @@ function M.before() end
 function M.load()
     M.lspsaga.setup({
         symbol_in_winbar = {
-            enable = true,
+            enable = false,
         },
         lightbulb = {
             enable = true,

@@ -13,6 +13,13 @@ function M.load()
         filetype = {
             typescript = "deno run",
         },
+        -- project = {
+        --     ["~/Documents/learnsth/rust/guessing_name"] = {
+        --         name = "guessing_name",
+        --         description = "guessing_name",
+        --         command = "cargo run",
+        --     },
+        -- },
     })
 end
 
