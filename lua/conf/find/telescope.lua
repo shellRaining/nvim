@@ -19,6 +19,7 @@ function M.load()
             file_ignore_patterns = { "node_modules" },
             -- theme
             layout_strategy = "bottom_pane",
+            path_display = { "truncate" },
             -- config
             layout_config = {
                 bottom_pane = {
@@ -36,6 +37,8 @@ function M.load()
         },
         pickers = {
             buffers = {
+                previewer = false,
+                theme = "dropdown",
                 mappings = {
                     i = {
                         ["<c-d>"] = "delete_buffer",
@@ -93,6 +96,13 @@ function M.register_key()
         },
         {
             mode = { "n" },
+            lhs = "<c-p>",
+            rhs = "<cmd>Telescope buffers<cr>",
+            options = { silent = true },
+            description = "use telescope to find buffers",
+        },
+        {
+            mode = { "n" },
             lhs = "<leader>fh",
             rhs = "<cmd>Telescope help_tags<cr>",
             options = { silent = true },
@@ -118,13 +128,6 @@ function M.register_key()
             rhs = "<cmd>Telescope search_history<cr>",
             options = { silent = true },
             description = "use telescope to find search_history",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>fl",
-            rhs = "<cmd>Telescope zoxide list theme=dropdown<cr>",
-            options = { silent = true },
-            description = "use telescope to find dir use zoxide and enter it",
         },
         {
             mode = { "n" },
