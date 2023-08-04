@@ -31,6 +31,7 @@ function M.load()
             },
             style = {
                 { fg = cb },
+                { fg = "#f35336" },
             },
             textobject = "ic",
         },
@@ -46,6 +47,7 @@ function M.load()
             },
             -- style = {
             --     { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") },
+            --     { fg = cb },
             -- },
         },
 
