@@ -30,7 +30,10 @@ function M.load()
                 right_arrow = "─",
             },
             style = {
-                { fg = cb },
+                -- { fg = cb },
+                -- { "#ff0000" },
+                { fg = "#806d9c" },
+                { fg = "#FF0000" },
             },
             textobject = "ic",
         },

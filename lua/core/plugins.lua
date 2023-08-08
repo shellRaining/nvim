@@ -172,6 +172,12 @@ M.editor = {
         event = { "InsertEnter" },
     },
     {
+        "folke/twilight.nvim",
+        config = function()
+            require("twilight").setup({})
+        end,
+    },
+    {
         "shellRaining/hlchunk.nvim",
         event = { "UIEnter" },
     },
