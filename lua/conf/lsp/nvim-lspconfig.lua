@@ -19,6 +19,9 @@ function M.load()
     local not_fmt_lang = {
         clangd = true,
         tsserver = true,
+        jsonls = true,
+        html = true,
+        volar = true,
     }
     local servers = M.mason_lspconfig.get_installed_servers()
 

@@ -1,4 +1,22 @@
 {
+  "acm template": {
+    "prefix": ["acm"],
+    "body": [
+      "import * as readline from \"node:readline\";",
+      "import process from \"node:process\";",
+      "",
+      "const rl = readline.createInterface({",
+      "  input: process.stdin,",
+      "  output: process.stdout,",
+      "});",
+      "",
+      "rl.on(\"line\", (line) => {",
+      "\t$0",
+      "});",
+      "",
+      "rl.on(\"close\", () => {})"
+    ]
+  },
   "iife": {
     "prefix": ["iife"],
     "body": ["(function () {", "\t'use strict';", "", "\t$0", "})();"],
