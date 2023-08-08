@@ -171,6 +171,10 @@ M.editor = {
         "windwp/nvim-autopairs",
         event = { "InsertEnter" },
     },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = { "UIEnter" },
+    -- },
     {
         "folke/twilight.nvim",
         config = function()
@@ -209,10 +213,6 @@ M.editor = {
     --     end,
     --     -- this is no required but if you want indent blanklink line this is needed
     --     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    -- },
-    -- {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     event = { "UIEnter" },
     -- },
 }
 
