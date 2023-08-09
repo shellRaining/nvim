@@ -175,6 +175,10 @@ M.editor = {
     --     "lukas-reineke/indent-blankline.nvim",
     --     event = { "UIEnter" },
     -- },
+    -- {
+    --     "huy-hng/anyline.nvim",
+    --     event = "VeryLazy",
+    -- },
     {
         "folke/twilight.nvim",
         config = function()
