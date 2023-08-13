@@ -16,8 +16,8 @@ M.basic = {
             "MunifTanjim/nui.nvim",
         },
     },
-    { "nvim-tree/nvim-web-devicons" },
     { "rcarriga/nvim-notify" },
+    { "nvim-tree/nvim-web-devicons" },
     {
         "williamboman/mason.nvim",
         event = { "VimEnter" },

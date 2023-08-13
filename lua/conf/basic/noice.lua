@@ -12,6 +12,21 @@ end
 
 function M.load()
     M.noice.setup({
+        routes = {
+            {
+                filter = {
+                    event = "msg_show",
+                    any = {
+                        { find = "%d+L, %d+B" },
+                        { find = "; after #%d+" },
+                        { find = "; before #%d+" },
+                        { find = "%d fewer lines" },
+                        { find = "%d more lines" },
+                    },
+                },
+                opts = { skip = true },
+            },
+        },
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
             progress = {
@@ -64,7 +79,7 @@ function M.load()
             view = "mini", -- default view for messages
             view_error = "notify", -- view for errors
             view_warn = "notify", -- view for warnings
-            view_history = "messages", -- view for :messages
+            view_history = "notify", -- view for :messages
             view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
         },
         format = {
