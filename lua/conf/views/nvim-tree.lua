@@ -32,11 +32,6 @@ function M.load()
             side = "left",
             width = 30,
             signcolumn = "yes",
-            mappings = {
-                list = {
-                    { key = "?", action = "toggle_help" },
-                },
-            },
         },
         diagnostics = {
             enable = true,
@@ -125,6 +120,15 @@ function M.register_key()
             end,
             options = { silent = true },
             description = "Toggle Hidden Files",
+        },
+        {
+            mode = { "n" },
+            lhs = "?",
+            rhs = function()
+                tree_api.tree.toggle_help()
+            end,
+            options = { silent = true },
+            description = "Toggle help",
         },
     })
 end

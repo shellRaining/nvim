@@ -31,6 +31,16 @@ function M.register_key()
     api.map.bulk_register({
         {
             mode = { "n" },
+            lhs = "<leader>ce",
+            rhs = function()
+                vim.cmd("Copilot enable")
+                vim.notify("Copilot enable", "info", { title = "Copilot" })
+            end,
+            options = { silent = true },
+            description = "enable copilot",
+        },
+        {
+            mode = { "n" },
             lhs = "<leader>cd",
             rhs = function()
                 vim.cmd("Copilot disable")
