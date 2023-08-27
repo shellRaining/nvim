@@ -2,9 +2,19 @@ local options = require("core.options")
 
 -- auto save buffer
 if options.auto_save then
-    vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+    vim.api.nvim_create_autocmd({ "TextChanged" }, {
         pattern = { "*" },
         command = "silent! wall",
+        nested = true,
+    })
+    vim.api.nvim_create_autocmd("InsertLeave", {
+        pattern = { "*" },
+        callback = function()
+            vim.cmd("nohlsearch")
+            vim.cmd("stopinsert")
+            vim.lsp.buf.format({ async = false })
+            vim.cmd("silent! wall")
+        end,
         nested = true,
     })
 end

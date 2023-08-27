@@ -32,17 +32,6 @@ api.map.bulk_register({
         description = "Clear search highlight",
     },
     {
-        mode = { "i" },
-        lhs = "<esc>",
-        rhs = function()
-            vim.cmd("nohlsearch")
-            vim.cmd("stopinsert")
-            vim.lsp.buf.format({ async = false })
-        end,
-        options = { silent = true },
-        description = "Clear search highlight",
-    },
-    {
         mode = { "n", "v" },
         lhs = "<c-u>",
         rhs = function()
