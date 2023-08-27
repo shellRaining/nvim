@@ -22,6 +22,7 @@ function M.load()
         jsonls = true,
         html = true,
         volar = true,
+        lua_ls = true,
     }
     local servers = M.mason_lspconfig.get_installed_servers()
 
