@@ -11,8 +11,9 @@ if options.auto_save then
         pattern = { "*" },
         callback = function()
             vim.cmd("nohlsearch")
-            vim.cmd("stopinsert")
-            vim.lsp.buf.format({ async = false })
+            if vim.lsp.buf_is_attached(0, 0) then
+                vim.lsp.buf.format({ async = false })
+            end
             vim.cmd("silent! wall")
         end,
         nested = true,
