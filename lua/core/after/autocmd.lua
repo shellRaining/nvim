@@ -2,20 +2,9 @@ local options = require("core.options")
 
 -- auto save buffer
 if options.auto_save then
-    vim.api.nvim_create_autocmd({ "TextChanged" }, {
+    vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
         pattern = { "*" },
         command = "silent! wall",
-        nested = true,
-    })
-    vim.api.nvim_create_autocmd("InsertLeave", {
-        pattern = { "*" },
-        callback = function()
-            vim.cmd("nohlsearch")
-            if vim.lsp.buf_is_attached(0, 0) then
-                vim.lsp.buf.format({ async = false })
-            end
-            vim.cmd("silent! wall")
-        end,
         nested = true,
     })
 end
@@ -27,8 +16,6 @@ if options.auto_restore_cursor_position then
         callback = function()
             if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
                 vim.fn.setpos(".", vim.fn.getpos("'\""))
-                -- how do I center the buffer in a sane way??
-                -- vim.cmd('normal zz')
                 vim.cmd("silent! foldopen")
             end
         end,

@@ -215,8 +215,6 @@ M.editor = {
     --         })
     --         vim.cmd.highlight("default link IndentLine Comment")
     --     end,
-    --     -- this is no required but if you want indent blanklink line this is needed
-    --     dependencies = { "nvim-treesitter/nvim-treesitter" },
     -- },
 }
 
