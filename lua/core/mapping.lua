@@ -213,6 +213,13 @@ api.map.bulk_register({
     },
     {
         mode = { "i", "c", "t" },
+        lhs = "<m-e>",
+        rhs = "<c-right><left>",
+        options = {},
+        description = "Jump to end of word in insert mode",
+    },
+    {
+        mode = { "i", "c", "t" },
         lhs = "<m-b>",
         rhs = "<c-left>",
         options = {},
@@ -221,14 +228,14 @@ api.map.bulk_register({
     {
         mode = { "i", "c", "t" },
         lhs = "<m-k>",
-        rhs = "<up>",
+        rhs = "<up><c-f>",
         options = {},
         description = "Move cursor up in insert mode",
     },
     {
         mode = { "i", "c", "t" },
         lhs = "<m-j>",
-        rhs = "<down>",
+        rhs = "<down><c-f>",
         options = {},
         description = "Move cursor down in insert mode",
     },
