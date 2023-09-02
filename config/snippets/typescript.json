@@ -3,7 +3,6 @@
     "prefix": ["acm"],
     "body": [
       "import * as readline from \"node:readline\";",
-      "import process from \"node:process\";",
       "",
       "const rl = readline.createInterface({",
       "  input: process.stdin,",
@@ -15,6 +14,36 @@
       "});",
       "",
       "rl.on(\"close\", () => {})"
+    ]
+  },
+  "acm array template": {
+    "prefix": ["acm array"],
+    "body": [
+      "import * as readline from \"node:readline\";",
+      "import process from \"node:process\";",
+      "",
+      "const rl = readline.createInterface({",
+      "  input: process.stdin,",
+      "  output: process.stdout,",
+      "});",
+      "",
+      "let n = 0;",
+      "const numbers = [];",
+      "",
+      "rl.on(\"line\", (line) => {",
+      "  if (n === 0) {",
+      "    n = parseInt(line);",
+      "  } else {",
+      "    numbers.push(...line.split(\" \").map(Number));",
+      "    if (numbers.length === n) {",
+      "      rl.close();",
+      "    }",
+      "  }",
+      "});",
+      "",
+      "rl.on(\"close\", () => {",
+      "$0",
+      "});"
     ]
   },
   "iife": {

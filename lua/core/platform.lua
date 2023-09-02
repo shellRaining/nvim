@@ -9,7 +9,6 @@ if sysname == "Darwin" then
         rhs = function()
             vim.cmd("nohlsearch")
             vim.cmd("stopinsert")
-            vim.lsp.buf.format({ async = false })
         end,
         options = { silent = true },
         description = "Clear search highlight",

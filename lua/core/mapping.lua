@@ -189,11 +189,11 @@ api.map.bulk_register({
         mode = { "i" },
         lhs = "<esc>",
         rhs = function()
-            local client = vim.lsp.get_clients()
-            if client == nil or #client == 0 then
-                return
-            end
-            vim.lsp.buf.format({ async = false })
+            -- local client = vim.lsp.get_clients()
+            -- if client == nil or #client == 0 then
+            --     return
+            -- end
+            -- vim.lsp.buf.format({ async = false })
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
             vim.cmd("nohlsearch")
         end,
