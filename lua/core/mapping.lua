@@ -287,4 +287,16 @@ api.map.bulk_register({
     },
 })
 
+api.map.bulk_register({
+    {
+        mode = { "n" },
+        lhs = "<leader>cf",
+        rhs = function()
+            vim.lsp.buf.format({ async = false })
+        end,
+        options = { silent = true },
+        description = "Format buffer",
+    },
+})
+
 return M

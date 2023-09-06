@@ -26,27 +26,12 @@ M.basic = {
 
 M.lsp = {
     {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            { "williamboman/mason-lspconfig.nvim" },
-        },
-    },
-    {
-        "simrat39/rust-tools.nvim",
-        ft = { "rust" },
-    },
-    {
-        "folke/neodev.nvim",
-        lazy = true,
-    },
-    {
         "jose-elias-alvarez/null-ls.nvim",
         event = { "UIEnter" },
         dependencies = {
             { "nvim-lua/plenary.nvim" },
         },
     },
-    { "glepnir/lspsaga.nvim" },
 }
 
 M.complete = {
@@ -65,7 +50,6 @@ M.complete = {
         "L3MON4D3/LuaSnip",
         lazy = true,
     },
-    { "zbirenbaum/copilot.lua" },
 }
 
 M.find = {

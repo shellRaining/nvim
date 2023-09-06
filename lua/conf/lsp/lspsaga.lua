@@ -38,15 +38,6 @@ function M.after()
         },
         {
             mode = { "n" },
-            lhs = "<leader>cf",
-            rhs = function()
-                vim.lsp.buf.format({ async = true })
-            end,
-            options = { silent = true },
-            description = "Format buffer",
-        },
-        {
-            mode = { "n" },
             lhs = "gh",
             rhs = "<cmd>Lspsaga finder<CR>",
             options = { silent = true },

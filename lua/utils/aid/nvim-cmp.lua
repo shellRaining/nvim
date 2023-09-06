@@ -41,7 +41,6 @@ local M = {
 
 function M.receive_cmp(cmp, copilot_suggestion)
     M.cmp = cmp
-    M.copilot_suggestion = copilot_suggestion
 end
 
 -- sort by name, lower priority if name starts with underscore
@@ -88,26 +87,6 @@ end
 
 function M.confirm_select()
     return M.cmp.mapping(M.cmp.mapping.confirm({ select = true }), { "i", "s", "c" })
-end
-
-function M.confirm_copilot()
-    return M.cmp.mapping(function(fallback)
-        if M.copilot_suggestion.is_visible() then
-            M.copilot_suggestion.accept()
-        else
-            fallback()
-        end
-    end, { "i", "s" })
-end
-
-function M.select_next_copilot_item()
-    return M.cmp.mapping(function(fallback)
-        if M.copilot_suggestion.is_visible() then
-            M.copilot_suggestion.next()
-        else
-            fallback()
-        end
-    end, { "i" })
 end
 
 function M.select_prev_item()

@@ -13,36 +13,6 @@ local M = {
 }
 
 function M.before()
-    M.installer_tools = {
-        lsp = {
-            "clangd",
-            "css-lsp",
-            "json-lsp",
-            "html-lsp",
-            "emmet-ls",
-            "vue-language-server",
-            "vim-language-server",
-            "lua-language-server",
-            "bash-language-server",
-            "typescript-language-server",
-            "rust-analyzer",
-            -- "unocss-language-server",
-            -- "tailwindcss-language-server",
-        },
-        dap = {},
-        linter = {
-            "pylint",
-            "luacheck",
-        },
-        formatter = {
-            "shfmt",
-            "autopep8",
-            "clang-format",
-            "prettier",
-            "stylua",
-            -- "eslint-lsp",
-        },
-    }
 end
 
 function M.load()
@@ -56,32 +26,6 @@ function M.load()
 end
 
 function M.after()
-    local installed_packages = {}
-
-    for _, package_kind in pairs(M.installer_tools) do
-        for _, package_name_version in pairs(package_kind) do
-            ---@diagnostic disable-next-line: missing-parameter
-            local name, version = unpack(vim.split(package_name_version, "@"))
-
-            if not M.mason_registry.is_installed(name) then
-                if not M.mason_registry.has_package(name) then
-                    vim.notify(("Invalid package name : %s"):format(name), "ERROR", { title = "Mason" })
-                else
-                    local params = version and { version = version }
-                    M.mason_registry.get_package(name):install(params)
-                    table.insert(installed_packages, package_name_version)
-                end
-            end
-        end
-    end
-
-    if not vim.tbl_isempty(installed_packages) then
-        vim.notify(
-            ("Start install package : \n - %s"):format(table.concat(installed_packages, "\n - ")),
-            "INFO",
-            { title = "Mason" }
-        )
-    end
 end
 
 return M
