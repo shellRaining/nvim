@@ -100,7 +100,7 @@
   },
   "Log to the console": {
     "prefix": "log",
-    "body": ["console.log($1);", "$0"],
+    "body": ["console.log($1);"],
     "description": "Log to the console"
   },
   "Log warning to console": {
@@ -152,8 +152,7 @@
   "For Loop": {
     "prefix": "for",
     "body": [
-      "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-      "\tconst ${3:element} = ${2:array}[${1:index}];",
+      "for (let ${1:index} = ${2:0}; ${1:index} < ${3:array}; ${1:index}++) {",
       "\t$0",
       "}"
     ],
