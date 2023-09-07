@@ -46,6 +46,14 @@
       "});"
     ]
   },
+  "leetcode tree": {
+    "prefix": ["lc tree"],
+    "body": [
+      "import { TreeNode } from \"../lib/tree.ts\";",
+      "",
+      "const root = TreeNode.fromArray()"
+    ]
+  },
   "iife": {
     "prefix": ["iife"],
     "body": ["(function () {", "\t'use strict';", "", "\t$0", "})();"],
