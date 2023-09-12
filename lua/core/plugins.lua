@@ -73,7 +73,8 @@ M.find = {
         "folke/todo-comments.nvim",
     },
     {
-        "phaazon/hop.nvim",
+        "folke/flash.nvim",
+        event = "VeryLazy",
     },
     {
         "nvim-telescope/telescope.nvim",
