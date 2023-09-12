@@ -7,9 +7,12 @@ local M = {
     float_border = true,
     -- edit settings
     auto_save = true,
-    auto_switch_input = true,
     auto_restore_cursor_position = true,
     auto_remove_new_lines_comment = true,
+    auto_hl_on_yank = true,
+    auto_resize_window = true,
+    auto_set_quit_map = true,
+    auto_spell_check_text = true,
     -- directory settings
     storage_directory = api.path.join(vim.fn.stdpath("data"), "store"),
     mason_install_directory = api.path.join(vim.fn.stdpath("data"), "mason"),

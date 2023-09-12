@@ -20,7 +20,7 @@ function M.load()
         end, filetype_tables)
     end
 
-    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+    -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     M.null_ls.setup({
         border = options.float_border and "double" or "none",
         -- on_attach = function(client, bufnr)

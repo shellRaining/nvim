@@ -2,6 +2,7 @@ local api = require("utils.api")
 
 local M = {}
 
+-- basic set
 api.map.bulk_register({
     {
         mode = { "n" },
@@ -9,27 +10,6 @@ api.map.bulk_register({
         rhs = "<cmd>qa!<cr>",
         options = { silent = true },
         description = "Escape Neovim",
-    },
-    {
-        mode = { "t" },
-        lhs = "<esc>",
-        rhs = "<c-\\><c-n>",
-        options = { silent = true },
-        description = "Escape terminal insert mode",
-    },
-    {
-        mode = { "t" },
-        lhs = "<c-q>",
-        rhs = "<c-\\><c-n><cmd>BufferDelete<cr>",
-        options = { silent = true },
-        description = "Escape terminal",
-    },
-    {
-        mode = { "n" },
-        lhs = "<esc>",
-        rhs = "<cmd>nohlsearch<cr>",
-        options = { silent = true },
-        description = "Clear search highlight",
     },
     {
         mode = { "n", "v" },
@@ -49,6 +29,130 @@ api.map.bulk_register({
         options = { silent = true },
         description = "Move 1/4 screen down",
     },
+    {
+        mode = { "n", "x" },
+        lhs = "k",
+        rhs = function()
+            return vim.v.count > 0 and "k" or "gk"
+        end,
+        options = { silent = true, expr = true },
+        description = "Move up one line",
+    },
+    {
+        mode = { "n", "x" },
+        lhs = "j",
+        rhs = function()
+            return vim.v.count > 0 and "j" or "gj"
+        end,
+        options = { silent = true, expr = true },
+        description = "Move down one line",
+    },
+    {
+        mode = { "v" },
+        lhs = "<",
+        rhs = "<gv",
+        options = { noremap = true },
+        description = "move the select_hunk to left",
+    },
+    {
+        mode = { "v" },
+        lhs = ">",
+        rhs = ">gv",
+        options = { noremap = true },
+        description = "move the select_hunk to right",
+    },
+    {
+        mode = { "n" },
+        lhs = "*",
+        rhs = "*N",
+        options = { noremap = true },
+        description = "search the word under cursor forward",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-n>",
+        rhs = "<cmd>cnext<cr>",
+        options = { noremap = true },
+        description = "next quickfix",
+    },
+    {
+        mode = { "n" },
+        lhs = "<C-p>",
+        rhs = "<cmd>cprev<cr>",
+        options = { noremap = true },
+        description = "previous quickfix",
+    },
+    {
+        mode = { "i", "n" },
+        lhs = "<esc>",
+        rhs = "<cmd>noh<cr><esc>",
+        options = { silent = true, noremap = true },
+        description = "stop highlight search when escape insert mode",
+    },
+})
+
+-- console mapping
+api.map.bulk_register({
+    {
+        mode = { "c" },
+        lhs = "<m-p>",
+        rhs = "<up>",
+        options = {},
+        description = "Look up history",
+    },
+    {
+        mode = { "c" },
+        lhs = "<m-n>",
+        rhs = "<down>",
+        options = {},
+        description = "Look down history",
+    },
+    {
+        mode = { "t" },
+        lhs = "<esc>",
+        rhs = "<c-\\><c-n>",
+        options = { silent = true },
+        description = "Escape terminal insert mode",
+    },
+    {
+        mode = { "t" },
+        lhs = "<c-q>",
+        rhs = "<c-\\><c-n><cmd>BufferDelete<cr>",
+        options = { silent = true },
+        description = "Escape terminal",
+    },
+    {
+        mode = { "t" },
+        lhs = "<c-h>",
+        rhs = "<cmd>wincmd h<cr>",
+        options = { silent = true },
+        description = "goto left window",
+    },
+    {
+        mode = { "t" },
+        lhs = "<c-j>",
+        rhs = "<cmd>wincmd j<cr>",
+        options = { silent = true },
+        description = "goto lower window",
+    },
+    {
+        mode = { "t" },
+        lhs = "<c-k>",
+        rhs = "<cmd>wincmd k<cr>",
+        options = { silent = true },
+        description = "goto upper window",
+    },
+    {
+        mode = { "t" },
+        lhs = "<c-l>",
+        rhs = "<cmd>wincmd l<cr>",
+        options = { silent = true },
+        description = "goto right window",
+    },
+})
+
+-- windows mapping
+api.map.bulk_register({
     {
         mode = { "n" },
         lhs = "<m-k>",
@@ -78,127 +182,32 @@ api.map.bulk_register({
         description = "Increase vertical split screen size",
     },
     {
-        mode = { "c" },
-        lhs = "<m-p>",
-        rhs = "<up>",
-        options = {},
-        description = "Look up history",
-    },
-    {
-        mode = { "c" },
-        lhs = "<m-n>",
-        rhs = "<down>",
-        options = {},
-        description = "Look down history",
-    },
-    {
-        mode = { "n", "x" },
-        lhs = "k",
-        rhs = function()
-            return vim.v.count > 0 and "k" or "gk"
-        end,
-        options = { silent = true, expr = true },
-        description = "Move up one line",
-    },
-    {
-        mode = { "n", "x" },
-        lhs = "j",
-        rhs = function()
-            return vim.v.count > 0 and "j" or "gj"
-        end,
-        options = { silent = true, expr = true },
-        description = "Move down one line",
-    },
-    {
-        mode = { "n", "x" },
-        lhs = "H",
-        rhs = function()
-            return vim.v.count > 0 and "^" or "g^"
-        end,
-        options = { silent = true, expr = true },
-        description = "Move to the first character at the beginning of the line",
-    },
-    {
-        mode = { "n", "x" },
-        lhs = "L",
-        rhs = function()
-            return vim.v.count > 0 and "$" or "g$"
-        end,
-        options = { silent = true, expr = true },
-        description = "Move to the last character at the end of the line",
-    },
-    {
-        mode = { "v" },
-        lhs = "<",
-        rhs = "<gv",
-        options = { noremap = true },
-        description = "move the select_hunk to left",
-    },
-    {
-        mode = { "v" },
-        lhs = ">",
-        rhs = ">gv",
-        options = { noremap = true },
-        description = "move the select_hunk to right",
-    },
-    {
-        mode = { "n", "v" },
-        lhs = ";",
-        rhs = ":",
-        options = { noremap = true },
-        description = "have a good day",
-    },
-    {
-        mode = { "n", "v" },
-        lhs = ":",
-        rhs = ";",
-        options = { noremap = true },
-        description = "have a good day",
-    },
-    {
         mode = { "n" },
-        lhs = "*",
-        rhs = "*N",
-        options = { noremap = true },
-        description = "search the word under cursor forward",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-n>",
-        rhs = "<cmd>cnext<cr>",
-        options = { noremap = true },
-        description = "next quickfix",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-p>",
-        rhs = "<cmd>cprev<cr>",
-        options = { noremap = true },
-        description = "previous quickfix",
-    },
-    {
-        mode = { "n" },
-        lhs = "<leader>st",
-        rhs = function()
-            require("core.swap_ternary").swap_ternary()
-        end,
-        options = { noremap = true },
-        description = "swap ternary",
-    },
-    {
-        mode = { "i" },
-        lhs = "<esc>",
-        rhs = function()
-            -- local client = vim.lsp.get_clients()
-            -- if client == nil or #client == 0 then
-            --     return
-            -- end
-            -- vim.lsp.buf.format({ async = false })
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
-            vim.cmd("nohlsearch")
-        end,
+        lhs = "<c-l>",
+        rhs = "<c-w>l",
         options = { silent = true },
-        description = "swap ternary",
+        description = "goto right window",
+    },
+    {
+        mode = { "n" },
+        lhs = "<c-h>",
+        rhs = "<c-w>h",
+        options = { silent = true },
+        description = "goto left window",
+    },
+    {
+        mode = { "n" },
+        lhs = "<c-j>",
+        rhs = "<c-w>j",
+        options = { silent = true },
+        description = "goto lower window",
+    },
+    {
+        mode = { "n" },
+        lhs = "<c-k>",
+        rhs = "<c-w>k",
+        options = { silent = true },
+        description = "goto upper window",
     },
 })
 
@@ -284,6 +293,19 @@ api.map.bulk_register({
         rhs = "<cmd>tabclose<cr>",
         options = { noremap = true },
         description = "close tab",
+    },
+})
+
+-- special
+api.map.bulk_register({
+    {
+        mode = { "n" },
+        lhs = "<leader>cf",
+        rhs = function()
+            vim.lsp.buf.format({ async = false })
+        end,
+        options = { silent = true },
+        description = "Format buffer",
     },
 })
 
