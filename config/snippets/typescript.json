@@ -95,6 +95,16 @@
     "body": ["import { $0 } from \"${1:module}\";"],
     "description": "Import external module."
   },
+  "Export": {
+    "prefix": "export",
+    "body": ["export { $0 };"],
+    "description": "export something~"
+  },
+  "Export default": {
+    "prefix": "export default",
+    "body": ["export default $0;"],
+    "description": "export something~"
+  },
   "Property getter": {
     "prefix": "get",
     "body": [
