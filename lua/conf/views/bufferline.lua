@@ -98,7 +98,6 @@ function M.register_key()
             description = "Close current buffer",
         },
         {
-
             mode = { "n" },
             lhs = "<leader>bq",
             rhs = "<cmd>BufferLinePickClose<cr>",
@@ -107,14 +106,14 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<c-h>",
+            lhs = "<s-h>",
             rhs = "<cmd>BufferLineCyclePrev<cr>",
             options = { silent = true },
             description = "Go to left buffer",
         },
         {
             mode = { "n" },
-            lhs = "<c-l>",
+            lhs = "<s-l>",
             rhs = "<cmd>BufferLineCycleNext<cr>",
             options = { silent = true },
             description = "Go to right buffer",
@@ -153,27 +152,6 @@ function M.register_key()
             rhs = "<cmd>BufferLineCloseRight<cr>",
             options = { silent = true },
             description = "Close all right buffers",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>bo",
-            rhs = function()
-                vim.cmd("BufferLineCloseLeft")
-                vim.cmd("BufferLineCloseRight")
-            end,
-            options = { silent = true },
-            description = "Close all other buffers",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>ba",
-            rhs = function()
-                vim.cmd("BufferLineCloseLeft")
-                vim.cmd("BufferLineCloseRight")
-                vim.cmd("BufferDelete")
-            end,
-            options = { silent = true },
-            description = "Close all buffers",
         },
         {
             mode = { "n" },

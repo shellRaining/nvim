@@ -80,10 +80,6 @@ M.language = {
 
 M.tools = {
     {
-        "NvChad/nvim-colorizer.lua",
-        event = { "UIEnter" },
-    },
-    {
         "lewis6991/gitsigns.nvim",
         event = { "UIEnter" },
     },

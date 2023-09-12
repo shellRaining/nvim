@@ -7,7 +7,6 @@ local options = require("core.options")
 local M = {
     requires = {
         "luasnip",
-        "luasnip.loaders",
         "luasnip.loaders.from_vscode",
     },
 }
@@ -19,11 +18,7 @@ end
 function M.load()
     M.luasnip.setup({
         history = true,
-        region_check_events = "CursorMoved",
-        delete_check_events = "TextChangedI",
-        update_events = "TextChanged,TextChangedI,InsertLeave",
-        enable_autosnippets = true,
-        store_selection_keys = "<Tab>",
+        delete_check_events = "TextChanged",
     })
 
     M.luasnip_loaders_from_vscode.lazy_load({
