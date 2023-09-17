@@ -4,49 +4,30 @@ local aid_lazy = require("utils.aid.lazy")
 
 local M = {}
 
-M.theme = {
-    { "folke/tokyonight.nvim" },
-}
+M.theme = { { "folke/tokyonight.nvim" } }
 
 M.basic = {
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        },
-    },
+    { "folke/noice.nvim" },
+    { "williamboman/mason.nvim" },
     { "rcarriga/nvim-notify" },
-    { "nvim-tree/nvim-web-devicons" },
-    {
-        "williamboman/mason.nvim",
-        event = { "VimEnter" },
-    },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
+    { "MunifTanjim/nui.nvim", lazy = true },
+    { "nvim-lua/plenary.nvim", lazy = true },
 }
 
 M.lsp = {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
+            { "folke/neodev.nvim", lazy = true },
             { "williamboman/mason-lspconfig.nvim" },
+            { "hrsh7th/cmp-nvim-lsp" },
         },
     },
-    {
-        "simrat39/rust-tools.nvim",
-        ft = { "rust" },
-    },
-    {
-        "folke/neodev.nvim",
-        lazy = true,
-    },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        event = { "UIEnter" },
-        dependencies = {
-            { "nvim-lua/plenary.nvim" },
-        },
-    },
+    { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
+    { "jose-elias-alvarez/null-ls.nvim" },
     { "glepnir/lspsaga.nvim" },
+    { "SmiteshP/nvim-navic", lazy = true },
 }
 
 M.complete = {
@@ -59,104 +40,57 @@ M.complete = {
             { "hrsh7th/cmp-nvim-lsp" },
             { "saadparwaiz1/cmp_luasnip" },
         },
-        event = { "InsertEnter", "CmdlineEnter" },
     },
-    {
-        "L3MON4D3/LuaSnip",
-        lazy = true,
-    },
+    { "L3MON4D3/LuaSnip" },
     { "zbirenbaum/copilot.lua" },
 }
 
 M.find = {
-    {
-        "folke/todo-comments.nvim",
-    },
-    {
-        "folke/flash.nvim",
-        event = "VeryLazy",
-    },
+    { "folke/todo-comments.nvim" },
+    { "folke/flash.nvim" },
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
-            { "nvim-lua/plenary.nvim" },
+            { "nvim-lua/plenary.nvim", lazy = true },
             {
-                "nvim-telescope/telescope-fzf-native.nvim",
-                build = "make",
+                "ahmedkhalf/project.nvim",
+                opts = {},
+                event = "VeryLazy",
+                config = function(_, opts)
+                    require("project_nvim").setup(opts)
+                    require("telescope").load_extension("projects")
+                end,
+                keys = {
+                    { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
+                },
             },
         },
     },
 }
 
 M.language = {
-    {
-        "davidgranstrom/nvim-markdown-preview",
-        ft = { "markdown" },
-    },
+    { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" } },
 }
 
 M.tools = {
-    {
-        "lewis6991/gitsigns.nvim",
-        event = { "UIEnter" },
-    },
-    {
-        "folke/which-key.nvim",
-        event = { "VeryLazy" },
-    },
-    {
-        "CRAG666/code_runner.nvim",
-        event = { "VeryLazy" },
-    },
+    { "lewis6991/gitsigns.nvim" },
+    { "folke/which-key.nvim" },
+    { "CRAG666/code_runner.nvim" },
 }
 
 M.views = {
     { "nvimdev/dashboard-nvim" },
     { "akinsho/toggleterm.nvim" },
-    {
-        "akinsho/bufferline.nvim",
-        event = { "UIEnter" },
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        event = { "UIEnter" },
-    },
-    {
-        "mbbill/undotree",
-        event = { "UIEnter" },
-    },
-    {
-        "stevearc/aerial.nvim",
-        event = { "UIEnter" },
-    },
-    {
-        "nvim-tree/nvim-tree.lua",
-        lazy = true,
-    },
+    { "akinsho/bufferline.nvim", event = { "VeryLazy" } },
+    { "nvim-lualine/lualine.nvim" },
+    { "stevearc/aerial.nvim" },
+    { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
+    { "folke/trouble.nvim" },
 }
 
 M.editor = {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        dependencies = {
-            { "windwp/nvim-ts-autotag" },
-            { "JoosepAlviste/nvim-ts-context-commentstring" },
-            { "nvim-lua/plenary.nvim" },
-        },
-        event = { "UIEnter" },
-    },
-    -- {
-    --     "RRethy/vim-illuminate",
-    --     event = { "UIEnter" },
-    -- },
-    {
-        "numToStr/Comment.nvim",
-        dependencies = {
-            { "JoosepAlviste/nvim-ts-context-commentstring" },
-        },
-        event = { "VeryLazy" },
-    },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { "RRethy/vim-illuminate" },
     {
         "kevinhwang91/nvim-ufo",
         dependencies = {
@@ -164,32 +98,11 @@ M.editor = {
         },
         event = { "VeryLazy" },
     },
-    {
-        "windwp/nvim-autopairs",
-        event = { "InsertEnter" },
-    },
-    -- {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     event = { "UIEnter" },
-    -- },
-    -- {
-    --     "huy-hng/anyline.nvim",
-    --     event = "VeryLazy",
-    -- },
-    {
-        "folke/twilight.nvim",
-        config = function()
-            require("twilight").setup({})
-        end,
-    },
-    {
-        "shellRaining/hlchunk.nvim",
-        event = { "UIEnter" },
-    },
-    {
-        "shellRaining/nvim_md_HFfont",
-        ft = { "markdown" },
-    },
+    { "echasnovski/mini.comment", name = "miniComment" },
+    { "echasnovski/mini.pairs", name = "miniPairs" },
+    { "echasnovski/mini.bufremove", name = "miniBufremove" },
+    { "shellRaining/hlchunk.nvim" },
+    { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
     -- {
     --     "echasnovski/mini.indentscope",
     --     event = { "UIEnter" },
@@ -212,6 +125,10 @@ M.editor = {
     --         })
     --         vim.cmd.highlight("default link IndentLine Comment")
     --     end,
+    -- },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = { "UIEnter" },
     -- },
 }
 

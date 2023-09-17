@@ -1,16 +1,14 @@
 local M = {
-    requires = {
-        "dashboard",
-    },
+    requires = { "dashboard" },
+    event = "VimEnter",
 }
-
-function M.before() end
 
 function M.load()
     M.dashboard.setup({
         theme = "doom", --  theme is doom and hyper default is hyper
         config = {
             header = {
+                "",
                 "",
                 "",
                 "",
@@ -53,7 +51,7 @@ function M.load()
                     icon_hl = "Label",
                     desc = "Files",
                     desc_hl = "Label",
-                    action = "Telescope find_files",
+                    action = "Telescope find_files theme=dropdown",
                     key = "f",
                     key_hl = "Label",
                 },
@@ -62,8 +60,26 @@ function M.load()
                     icon_hl = "Label",
                     desc = "Recent Files",
                     desc_hl = "Label",
-                    action = "Telescope oldfiles",
+                    action = "Telescope oldfiles theme=dropdown",
                     key = "o",
+                    key_hl = "Label",
+                },
+                {
+                    icon = " ",
+                    icon_hl = "Label",
+                    desc = "Config Files",
+                    desc_hl = "Label",
+                    action = "Telescope find_files cwd=~/.config/nvim theme=dropdown",
+                    key = "c",
+                    key_hl = "Label",
+                },
+                {
+                    icon = "󰒲 ",
+                    icon_hl = "Label",
+                    desc = "Lazy",
+                    desc_hl = "Label",
+                    action = "Lazy",
+                    key = "l",
                     key_hl = "Label",
                 },
                 {
@@ -87,25 +103,10 @@ function M.load()
                 "",
                 "",
                 "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
                 "designed by askfiy & shellRaining ~~~",
-                "",
-                "",
-                "",
-                "",
             },
         }, --  config used for theme
     })
 end
-
-function M.after() end
 
 return M

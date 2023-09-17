@@ -1,12 +1,8 @@
 -- https://github.com/askfiy/visual_studio_code
 
 local M = {
-    requires = {
-        "tokyonight",
-    },
+    requires = { "tokyonight" },
 }
-
-function M.before() end
 
 function M.load()
     M.tokyonight.setup({
@@ -18,7 +14,5 @@ function M.load()
     })
     vim.cmd([[colorscheme tokyonight-moon]])
 end
-
-function M.after() end
 
 return M

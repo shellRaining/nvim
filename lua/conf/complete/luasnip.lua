@@ -1,7 +1,5 @@
--- https://github.com/L3MON4D3/LuaSnip
--- https://github.com/rafamadriz/friendly-snippets
-
 local api = require("utils.api")
+local map = require("utils.map")
 local options = require("core.options")
 
 local M = {
@@ -36,25 +34,7 @@ function M.after()
 end
 
 function M.register_key()
-    api.map.bulk_register({
-        {
-            mode = { "i", "s" },
-            lhs = "<tab>",
-            rhs = function()
-                return vim.api.nvim_eval("luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<tab>'")
-            end,
-            options = { silent = true, expr = true },
-            description = "Jump to the next fragment placeholder",
-        },
-        {
-            mode = { "i", "s" },
-            lhs = "<s-tab>",
-            rhs = function()
-                return vim.api.nvim_eval("luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<s-tab>'")
-            end,
-            options = { silent = true, expr = true },
-            description = "Jump to the prev fragment placeholder",
-        },
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "<leader>so",
@@ -71,5 +51,31 @@ function M.register_key()
         },
     })
 end
+
+M.keys = {
+    {
+        "<tab>",
+        function()
+            return M.luasnip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        end,
+        expr = true,
+        silent = true,
+        mode = "i",
+    },
+    {
+        "<tab>",
+        function()
+            M.luasnip.jump(1)
+        end,
+        mode = "s",
+    },
+    {
+        "<s-tab>",
+        function()
+            M.luasnip.jump(-1)
+        end,
+        mode = { "i", "s" },
+    },
+}
 
 return M

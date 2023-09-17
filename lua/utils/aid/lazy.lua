@@ -2,6 +2,7 @@
 
 ---@diagnostic disable: param-type-mismatch
 
+local map = require("utils.map")
 local api = require("utils.api")
 local options = require("core.options")
 
@@ -72,6 +73,9 @@ function M.load(plugins)
                             module.after()
                         end
                     end
+                plugin_opts.keys = plugin_opts.keys or module.keys or nil
+                plugin_opts.cmd = plugin_opts.cmd or module.cmd or nil
+                plugin_opts.event = plugin_opts.event or module.event or nil
             end
             table.insert(requires_moduls, plugin_opts)
             ::continue::
@@ -92,7 +96,7 @@ function M.entry(plugins)
 end
 
 function M.register_key()
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "<leader>lh",

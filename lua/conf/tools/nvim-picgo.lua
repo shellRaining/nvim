@@ -1,6 +1,4 @@
--- https://github.com/askfiy/nvim-picgo
-
-local api = require("utils.api")
+local map = require("utils.map")
 
 local M = {
     requires = {
@@ -19,7 +17,7 @@ end
 function M.after() end
 
 function M.register_key()
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "<leader>uc",

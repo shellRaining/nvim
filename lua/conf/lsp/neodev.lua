@@ -1,9 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 local M = {
-    requires = {
-        "neodev", -- neovim lua api complete enhance, must require
-    },
+    requires = { "neodev" },
 }
 
 function M.load()

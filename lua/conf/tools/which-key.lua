@@ -4,6 +4,7 @@ local M = {
     requires = {
         "which-key",
     },
+    event = { "VeryLazy" },
 }
 
 function M.before() end
@@ -24,14 +25,14 @@ function M.after()
     M.which_key.register({
         b = { name = "Buffers" },
         c = { name = "Code" },
-        d = { name = "Debug" },
         f = { name = "Find" },
         g = { name = "Git" },
         l = { name = "Lazy" },
-        r = { name = "Replace", w = "Replace Word To ..." },
+        r = { name = "Run Code" },
         s = { name = "Session" },
-        u = { name = "Upload" },
-        t = { name = "nvim_tree" },
+        u = { name = "UI" },
+        t = { name = "Terminal" },
+        n = { name = "Noice" },
     }, { prefix = "<leader>", mode = "n" })
 
     -- comment
@@ -50,20 +51,6 @@ function M.after()
         c = "Switch the specified line to a line comment",
         b = "Switch the specified line to a block comment",
     }, { prefix = "g", mode = "v" })
-
-    -- surround
-    M.which_key.register({
-        q = "Switch Surround",
-        s = "Change Surround",
-    }, { prefix = "c", mode = "n" })
-
-    M.which_key.register({
-        s = "Delete Surround",
-    }, { prefix = "d", mode = "n" })
-
-    M.which_key.register({
-        s = "Add Surround",
-    }, { prefix = "y", mode = "n" })
 end
 
 return M

@@ -1,12 +1,17 @@
--- https://github.com/stevearc/aerial.nvim
-
-local api = require("utils.api")
+local map = require("utils.map")
 local public = require("utils.public")
 local icons = public.get_icons_group("lsp_kind", false)
 
 local M = {
     requires = {
         "aerial",
+    },
+    keys = {
+        {
+            "<leader>u2",
+            "<cmd>AerialToggle! right<cr>",
+            desc = "Open Outilne Explorer",
+        },
     },
 }
 
@@ -18,8 +23,7 @@ function M.load()
         show_guides = true,
         backends = { "lsp", "treesitter", "markdown" },
         update_events = "TextChanged,InsertLeave",
-        ---@diagnostic disable-next-line: unused-local
-        on_attach = function(bufnr)
+        on_attach = function()
             M.register_key()
         end,
         layout = {
@@ -52,14 +56,7 @@ end
 function M.after() end
 
 function M.register_key()
-    api.map.bulk_register({
-        {
-            mode = { "n" },
-            lhs = "<leader>u2",
-            rhs = "<cmd>AerialToggle! right<cr>",
-            options = { silent = true },
-            description = "Open Outilne Explorer",
-        },
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "{",

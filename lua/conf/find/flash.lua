@@ -1,71 +1,21 @@
--- https://github.com/folke/flash.nvim
-
-local api = require("utils.api")
-
 local M = {
     requires = {
         "flash",
     },
+    event = "VeryLazy",
 }
-
-function M.before()
-    M.register_key()
-end
 
 function M.load()
     M.flash.setup({})
 end
 
-function M.after() end
-
-function M.register_key()
-    api.map.bulk_register({
-        {
-            mode = { "n", "o", "x" },
-            lhs = "s",
-            rhs = function()
-                M.flash.jump()
-            end,
-            options = { silent = true },
-            description = "Flash",
-        },
-        {
-            mode = { "n", "o", "x" },
-            lhs = "S",
-            rhs = function()
-                M.flash.treesitter()
-            end,
-            options = { silent = true },
-            description = "Flash treesitter",
-        },
-        {
-            mode = { "o" },
-            lhs = "r",
-            rhs = function()
-                M.flash.remote()
-            end,
-            options = { silent = true },
-            description = "Remote Flash",
-        },
-        {
-            mode = { "o", "x" },
-            lhs = "R",
-            rhs = function()
-                M.flash.treesitter_search()
-            end,
-            options = { silent = true },
-            description = "Treesitter Search",
-        },
-        {
-            mode = { "c" },
-            lhs = "<c-s>",
-            rhs = function()
-                M.flash.toggle()
-            end,
-            options = { silent = true },
-            description = "Toggle Flash Search",
-        },
-    })
-end
+-- stylua: ignore
+M.keys = {
+    { "s", mode = { "n", "x", "o" }, function() M.flash.jump() end, desc = "Flash" },
+    { "S", mode = { "n", "o", "x" }, function() M.flash.treesitter() end, desc = "Flash Treesitter" },
+    { "r", mode = "o", function() M.flash.remote() end, desc = "Remote Flash" },
+    { "R", mode = { "o", "x" }, function() M.flash.treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() M.flash.toggle() end, desc = "Toggle Flash Search" },
+}
 
 return M

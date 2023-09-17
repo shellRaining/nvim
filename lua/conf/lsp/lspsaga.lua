@@ -1,10 +1,11 @@
 -- https://github.com/j-hui/fidget.nvim
-local api = require("utils.api")
+local map = require("utils.map")
 
 local M = {
     requires = {
         "lspsaga",
     },
+    evnet = "LspAttach",
 }
 
 function M.before() end
@@ -17,11 +18,14 @@ function M.load()
         lightbulb = {
             enable = true,
         },
+        outline = {
+            detail = false,
+        },
     })
 end
 
 function M.after()
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "<leader>ca",

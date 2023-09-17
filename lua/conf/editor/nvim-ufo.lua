@@ -1,6 +1,6 @@
 -- https://github.com/kevinhwang91/nvim-ufo
 
-local api = require("utils.api")
+local map = require("utils.map")
 
 local M = {
     requires = {
@@ -54,7 +54,7 @@ function M.fold_virtual_text_handler(virtual_text, lnum, end_lnum, width, trunca
 end
 
 function M.after()
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "zR",

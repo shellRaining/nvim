@@ -1,9 +1,9 @@
-local api = require("utils.api")
+local map = require("utils.map")
 
 local M = {}
 
 -- basic set
-api.map.bulk_register({
+map.bulk_register({
     {
         mode = { "n" },
         lhs = "<leader><esc>",
@@ -92,7 +92,7 @@ api.map.bulk_register({
 })
 
 -- console mapping
-api.map.bulk_register({
+map.bulk_register({
     {
         mode = { "c" },
         lhs = "<m-p>",
@@ -152,7 +152,7 @@ api.map.bulk_register({
 })
 
 -- windows mapping
-api.map.bulk_register({
+map.bulk_register({
     {
         mode = { "n" },
         lhs = "<m-k>",
@@ -212,7 +212,7 @@ api.map.bulk_register({
 })
 
 -- insert mapping
-api.map.bulk_register({
+map.bulk_register({
     {
         mode = { "i", "c", "t" },
         lhs = "<m-w>",
@@ -265,7 +265,7 @@ api.map.bulk_register({
 })
 
 -- tab mapping
-api.map.bulk_register({
+map.bulk_register({
     {
         mode = { "n" },
         lhs = "<C-t>n",
@@ -297,7 +297,7 @@ api.map.bulk_register({
 })
 
 -- special
-api.map.bulk_register({
+map.bulk_register({
     {
         mode = { "n" },
         lhs = "<leader>cf",

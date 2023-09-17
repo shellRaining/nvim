@@ -1,37 +1,90 @@
--- https://github.com/nvim-telescope/telescope.nvim
-
-local api = require("utils.api")
+local util = require("utils.telescope")
 
 local M = {
     requires = {
         "telescope",
         "telescope.actions",
     },
+    cmd = "Telescope",
+    keys = {
+        { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
+        { "<leader>/", util.telescope("live_grep"), desc = "Grep (root dir)" },
+        { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+        { "<leader><space>", util.telescope("files"), desc = "Find Files (root dir)" },
+        -- find
+        { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+        { "<leader>ff", util.telescope("files"), desc = "Find Files (root dir)" },
+        { "<leader>fF", util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+        { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+        { "<leader>fO", util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
+        -- git
+        { "<leader>fg", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+        -- search
+        { '<leader>fr"', "<cmd>Telescope registers<cr>", desc = "Registers" },
+        { "<leader>fa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+        { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+        { "<leader>fH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+        { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+        { "<leader>us", util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+        {
+            "<leader>fs",
+            util.telescope("lsp_document_symbols", {
+                symbols = {
+                    "Class",
+                    "Function",
+                    "Method",
+                    "Constructor",
+                    "Interface",
+                    "Module",
+                    "Struct",
+                    "Trait",
+                    "Field",
+                    "Property",
+                },
+            }),
+            desc = "Goto Symbol",
+        },
+        {
+            "<leader>fS",
+            util.telescope("lsp_dynamic_workspace_symbols", {
+                symbols = {
+                    "Class",
+                    "Function",
+                    "Method",
+                    "Constructor",
+                    "Interface",
+                    "Module",
+                    "Struct",
+                    "Trait",
+                    "Field",
+                    "Property",
+                },
+            }),
+            desc = "Goto Symbol (Workspace)",
+        },
+    },
 }
-
-function M.before()
-    M.register_key()
-end
 
 function M.load()
     M.telescope.setup({
         defaults = {
-            file_ignore_patterns = { "node_modules" },
-            -- theme
-            layout_strategy = "bottom_pane",
-            path_display = { "truncate" },
-            -- config
-            layout_config = {
-                bottom_pane = {
-                    height = 15,
-                    preview_cutoff = 100,
-                    prompt_position = "bottom",
-                },
-            },
+            prompt_prefix = " ",
+            selection_caret = " ",
             mappings = {
                 i = {
                     ["<C-j>"] = M.telescope_actions.cycle_history_next,
                     ["<C-k>"] = M.telescope_actions.cycle_history_prev,
+                    ["<c-t>"] = function(...)
+                        return require("trouble.providers.telescope").open_with_trouble(...)
+                    end,
+                    ["<a-t>"] = function(...)
+                        return require("trouble.providers.telescope").open_selected_with_trouble(...)
+                    end,
+                },
+                n = {
+                    ["q"] = function(...)
+                        return require("telescope.actions").close(...)
+                    end,
                 },
             },
         },
@@ -50,93 +103,7 @@ function M.load()
             },
         },
         extensions = {
-            fzf = {
-                fuzzy = true,
-                override_generic_sorter = true,
-                override_file_sorter = true,
-                case_mode = "smart_case",
-            },
             projects = {},
-        },
-    })
-end
-
-function M.after()
-    M.telescope.load_extension("fzf")
-
-    -- FIX: https://github.com/nvim-telescope/telescope.nvim/issues/699
-    -- vim.api.nvim_create_autocmd({ "BufEnter" }, {
-    --     pattern = { "*" },
-    --     command = "normal zx",
-    -- })
-end
-
-function M.register_key()
-    api.map.bulk_register({
-        {
-            mode = { "n" },
-            lhs = "<leader>ff",
-            rhs = "<cmd>Telescope find_files<cr>",
-            options = { silent = true },
-            description = "use telescope to find files",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>fg",
-            rhs = "<cmd>Telescope live_grep<cr>",
-            options = { silent = true },
-            description = "use telescope to search string pattern",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>fb",
-            rhs = "<cmd>Telescope buffers<cr>",
-            options = { silent = true },
-            description = "use telescope to find buffers",
-        },
-        {
-            mode = { "n" },
-            lhs = "<c-p>",
-            rhs = "<cmd>Telescope buffers<cr>",
-            options = { silent = true },
-            description = "use telescope to find buffers",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>fh",
-            rhs = "<cmd>Telescope help_tags<cr>",
-            options = { silent = true },
-            description = "use telescope to find help tags",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>fo",
-            rhs = "<cmd>Telescope oldfiles<cr>",
-            options = { silent = true },
-            description = "use telescope to find oldfiles",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>f;",
-            rhs = "<cmd>Telescope command_history<cr>",
-            options = { silent = true },
-            description = "use telescope to find history command",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>f/",
-            rhs = "<cmd>Telescope search_history<cr>",
-            options = { silent = true },
-            description = "use telescope to find search_history",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>fd",
-            rhs = function()
-                require("telescope").extensions["todo-comments"].todo()
-            end,
-            options = { silent = true },
-            description = "use telescope to find comments",
         },
     })
 end

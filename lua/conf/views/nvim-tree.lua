@@ -1,6 +1,4 @@
--- https://github.com/nvim-tree/nvim-tree.lua
-
-local api = require("utils.api")
+local map = require("utils.map")
 local public = require("utils.public")
 local icons = public.get_icons_group("diagnostic", true)
 
@@ -99,7 +97,7 @@ function M.after() end
 
 function M.register_key()
     local tree_api = require("nvim-tree.api")
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "<leader>u1",

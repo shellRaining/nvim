@@ -1,9 +1,9 @@
-local api = require("utils.api.map")
+local map = require("utils.map")
 
 local sysname = vim.loop.os_uname().sysname
 
 if sysname == "Darwin" then
-    api.register({
+    map.register({
         mode = { "i" },
         lhs = "jk",
         rhs = function()

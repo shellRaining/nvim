@@ -1,11 +1,10 @@
--- https://github.com/lewis6991/gitsigns.nvim
-
-local api = require("utils.api")
+local map = require("utils.map")
 
 local M = {
     requires = {
         "gitsigns",
     },
+    event = { "BufReadPre", "BufNewFile" },
 }
 
 function M.before() end
@@ -19,7 +18,7 @@ function M.after()
 end
 
 function M.register_key()
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "<leader>gl",
@@ -29,77 +28,66 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<leader>gh",
-            rhs = "<cmd>lua require'gitsigns'.preview_hunk()<cr>",
-            options = { silent = true },
-            description = "Preview current hunk",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>gH",
-            rhs = "<cmd>lua require'gitsigns'.blame_line{full=true}<cr>",
-            options = { silent = true },
-            description = "Show current block blame",
-        },
-        {
-            mode = { "n" },
             lhs = "<leader>gD",
-            rhs = "<cmd>Gitsigns diffthis<cr>",
+            rhs = M.gitsigns.diffthis,
             options = { silent = true },
             description = "Open deff view",
         },
         {
             mode = { "n" },
             lhs = "<leader>gd",
-            rhs = function()
-                M.gitsigns.toggle_deleted()
-            end,
+            rhs = M.gitsigns.toggle_deleted,
             options = { silent = true },
             description = "Show deleted lines",
         },
         {
             mode = { "n", "v" },
             lhs = "<leader>gr",
-            rhs = "<cmd>Gitsigns reset_hunk<cr>",
+            rhs = M.gitsigns.reset_hunk,
             options = { silent = true },
             description = "Reset current hunk",
         },
         {
             mode = { "n" },
             lhs = "<leader>gR",
-            rhs = "<cmd>Gitsigns reset_buffer<cr>",
+            rhs = M.gitsigns.reset_buffer,
             options = { silent = true },
             description = "Reset current buffer",
         },
         {
             mode = { "n" },
-            lhs = "[c",
-            rhs = function()
-                if vim.wo.diff then
-                    return "[c"
-                end
-                vim.schedule(function()
-                    M.gitsigns.prev_hunk()
-                end)
-                return "<Ignore>"
-            end,
+            lhs = "<leader>gp",
+            rhs = M.gitsigns.preview_hunk,
+            options = { silent = true },
+            description = "Preview current hunk",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>gs",
+            rhs = M.gitsigns.stage_hunk,
+            options = { silent = true },
+            description = "Stage current hunk",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>gS",
+            rhs = M.gitsigns.stage_buffer,
+            options = { silent = true },
+            description = "Stage current buffer",
+        },
+        {
+            mode = { "n" },
+            lhs = "[h",
+            rhs = M.gitsigns.prev_hunk,
             options = { silent = true, expr = true },
             description = "Jump to the prev hunk",
         },
         {
             mode = { "n" },
-            lhs = "]c",
-            rhs = function()
-                if vim.wo.diff then
-                    return "]c"
-                end
-                vim.schedule(function()
-                    M.gitsigns.next_hunk()
-                end)
-                return "<Ignore>"
-            end,
+            lhs = "]h",
+            rhs = M.gitsigns.next_hunk,
             options = { silent = true, expr = true },
-            description = "Jump to the next hunk",
+            description = "Jump to the prev hunk",
         },
     })
 end

@@ -1,6 +1,4 @@
--- https://github.com/akinsho/toggleterm.nvim
-
-local api = require("utils.api")
+local map = require("utils.map")
 local options = require("core.options")
 local public = require("utils.public.public")
 
@@ -15,10 +13,6 @@ M.terminals = {
     float = nil,
     lazygit = nil,
 }
-
-function M.before()
-    M.register_key()
-end
 
 function M.load()
     M.terms = require("toggleterm.terminal").Terminal
@@ -71,7 +65,7 @@ function M.create_terminal()
         },
         on_open = function(term)
             M.open_callback()
-            api.map.register({
+            map.register({
                 mode = { "t" },
                 lhs = "<esc>",
                 rhs = "<c-\\><c-n><cmd>close<cr>",
@@ -81,7 +75,6 @@ function M.create_terminal()
         end,
         on_close = M.close_callback,
     })
-
     M.terminals.lazygit = M.terms:new({
         cmd = "lazygit",
         count = 130,
@@ -92,7 +85,7 @@ function M.create_terminal()
         },
         on_open = function(term)
             M.open_callback()
-            api.map.register({
+            map.register({
                 mode = { "i" },
                 lhs = "q",
                 rhs = "<cmd>close<cr>",
@@ -122,11 +115,11 @@ end
 
 function M.open_callback()
     vim.cmd("startinsert")
-    api.map.unregister({ "t" }, "<esc>")
+    map.unregister({ "t" }, "<esc>")
 end
 
 function M.close_callback()
-    api.map.register({
+    map.register({
         mode = { "t" },
         lhs = "<esc>",
         rhs = "<c-\\><c-n>",
@@ -135,46 +128,11 @@ function M.close_callback()
     })
 end
 
-function M.register_key()
-    api.map.bulk_register({
-        {
-            mode = { "n" },
-            lhs = "<leader>tt",
-            rhs = function()
-                require("toggleterm").term_toggle()
-            end,
-            options = { silent = true },
-            description = "Toggle bottom or vertical terminal",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>tf",
-            rhs = function()
-                require("toggleterm").float_toggle()
-            end,
-
-            options = { silent = true },
-            description = "Toggle floating terminal",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>tv",
-            rhs = function()
-                require("toggleterm").vertical_toggle()
-            end,
-            options = { silent = true },
-            description = "Toggle vertical terminal",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>tg",
-            rhs = function()
-                require("toggleterm").lazygit_toggle()
-            end,
-            options = { silent = true },
-            description = "Toggle lazygit terminal",
-        },
-    })
-end
+-- stylua: ignore
+M.keys = {
+    { "<leader>tt", function () M.toggleterm.term_toggle() end, desc = "toggle terminal" },
+    { "<leader>tf", function () M.toggleterm.float_toggle() end, desc = "toggle float terminal" },
+    { "<leader>tg", function () M.toggleterm.lazygit_toggle() end, desc = "toggle terminal" },
+}
 
 return M

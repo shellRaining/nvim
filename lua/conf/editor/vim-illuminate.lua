@@ -1,25 +1,20 @@
 -- https://github.com/RRethy/vim-illuminate
 
-local api = vim.api
-local fn = vim.fn
-
 local M = {
     requires = {
         "illuminate",
     },
+    event = { "BufReadPost", "BufNewFile" },
 }
 
 function M.before() end
 
 function M.load()
     M.illuminate.configure({
-        delay = 100,
-        under_cursor = true,
-        modes_denylist = { "i" },
-        providers = {
-            --[[ "lsp", ]]
-            "regex",
-            "treesitter",
+        delay = 200,
+        large_file_cutoff = 2000,
+        large_file_overrides = {
+            providers = { "lsp" },
         },
         filetypes_denylist = {
             "NvimTree",
@@ -37,7 +32,6 @@ function M.load()
     })
 end
 
-function M.after()
-end
+function M.after() end
 
 return M

@@ -32,7 +32,7 @@ end
 
 function M.toggle_sidebar(target_filetype)
     local close_prev_filetypes = {
-        "NvimTree",
+        "neo-tree",
         "undotree",
         "spectre_panel",
     }

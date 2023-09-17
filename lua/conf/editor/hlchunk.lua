@@ -4,6 +4,7 @@ local M = {
     requires = {
         "hlchunk",
     },
+    event = { "BufReadPre", "BufNewFile" },
 }
 
 function M.before() end

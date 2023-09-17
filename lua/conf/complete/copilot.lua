@@ -1,10 +1,7 @@
--- https://github.com/zbirenbaum/copilot-cmp
-local api = require("utils.api")
+local map = require("utils.map")
 
 local M = {
-    requires = {
-        "copilot",
-    },
+    requires = { "copilot" },
 }
 
 function M.before() end
@@ -28,7 +25,7 @@ function M.after()
 end
 
 function M.register_key()
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "<leader>ce",

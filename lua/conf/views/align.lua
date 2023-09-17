@@ -1,5 +1,4 @@
--- https://github.com/shellRaining/hlchunk.nvim
-local api = require("utils.api")
+local map = require("utils.map")
 
 local M = {
     requires = {
@@ -10,7 +9,7 @@ local M = {
 function M.before() end
 
 function M.load()
-    api.map.register({
+    map.register({
         mode = { "x" },
         lhs = "<leader>=",
         rhs = function()

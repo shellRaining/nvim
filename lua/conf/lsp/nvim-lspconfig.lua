@@ -8,11 +8,14 @@ local M = {
         "neodev", -- neovim lua api complete enhance, must require
         "lspconfig",
         "mason-lspconfig",
+        "nvim-navic",
     },
     server_config_path = join("conf", "lsp", "server_configurations"),
+    event = { "BufReadPre", "BufNewFile" },
 }
 
 function M.load()
+    vim.g.navic_silence = true
     require("lspconfig.ui.windows").default_options.border = options.float_border and "double" or "none"
 
     local mappings = M.mason_lspconfig.get_mappings()
@@ -42,6 +45,9 @@ function M.load()
         configuration.on_attach = function(client, bufnr)
             if not_fmt_lang[server_name] then
                 client.server_capabilities.documentFormattingProvider = false
+            end
+            if client.server_capabilities.documentSymbolProvider then
+                M.nvim_navic.attach(client, bufnr)
             end
             private_on_attach(client, bufnr)
         end

@@ -10,6 +10,7 @@ local M = {
         "mason",
         "mason-registry",
     },
+    event = { "VimEnter" },
 }
 
 function M.before()

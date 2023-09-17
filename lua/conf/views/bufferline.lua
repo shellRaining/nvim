@@ -1,12 +1,11 @@
--- https://github.com/akinsho/bufferline.nvim
-
-local api = require("utils.api")
-local public = require("utils.public")
-local icons = public.get_icons_group("diagnostic", true)
+local map = require("utils.map")
+local icons = require("utils.public.init").get_icons_group("diagnostic", true)
 
 local M = {
-    requires = {
-        "bufferline",
+    requires = { "bufferline" },
+    keys = {
+        { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
+        { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
     },
 }
 
@@ -17,40 +16,32 @@ end
 function M.load()
     M.bufferline.setup({
         options = {
-            themable = true,
-            -- ordinal
-            numbers = "none",
-            modified_icon = "●",
-            close_icon = "",
-            left_trunc_marker = "",
-            right_trunc_marker = "",
-            diagnostics = "nvim_lsp",
-            separator_style = "thin",
-            -- separator_style = { "▏", "▕" },
-            -- separator_style = { "", "" },
-            indicator = { icon = "▎", style = "icon" },
-            ---@diagnostic disable-next-line: unused-local
-            diagnostics_indicator = function(count, level, diagnostics_dict, context)
-                local message
-                if diagnostics_dict.error then
-                    message = ("%s%s"):format(icons.Error, diagnostics_dict.error)
-                elseif diagnostics_dict.warning then
-                    message = ("%s%s"):format(icons.Warn, diagnostics_dict.warning)
-                elseif diagnostics_dict.info then
-                    message = ("%s%s"):format(icons.Info, diagnostics_dict.info)
-                elseif diagnostics_dict.hint then
-                    message = ("%s%s"):format(icons.Hint, diagnostics_dict.hint)
-                else
-                    message = ""
-                end
-                return message
+            close_command = function(n)
+                require("mini.bufremove").delete(n, false)
             end,
+            right_mouse_command = function(n)
+                require("mini.bufremove").delete(n, false)
+            end,
+            diagnostics = "nvim_lsp",
+            always_show_bufferline = false,
+            diagnostics_indicator = function(_, _, diag)
+                local ret = (diag.error and icons.Error .. diag.error .. " " or "")
+                    .. (diag.warning and icons.Warn .. diag.warning or "")
+                return vim.trim(ret)
+            end,
+            numbers = "none",
             custom_filter = function(buf_number)
                 if vim.bo[buf_number].filetype ~= "qf" then
                     return true
                 end
             end,
             offsets = {
+                {
+                    filetype = "neo-tree",
+                    text = "Neo-tree",
+                    highlight = "Directory",
+                    text_align = "left",
+                },
                 {
                     filetype = "NvimTree",
                     text = "File Explorer",
@@ -70,12 +61,6 @@ function M.load()
                     text_align = "center",
                 },
                 {
-                    filetype = "dbui",
-                    text = "Database Explorer",
-                    highlight = "Directory",
-                    text_align = "center",
-                },
-                {
                     filetype = "spectre_panel",
                     text = "Project Blurry Search",
                     highlight = "Directory",
@@ -89,20 +74,13 @@ end
 function M.after() end
 
 function M.register_key()
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "n" },
             lhs = "<c-q>",
             rhs = "<cmd>BufferDelete<cr>",
             options = { silent = true },
             description = "Close current buffer",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>bq",
-            rhs = "<cmd>BufferLinePickClose<cr>",
-            options = { silent = true },
-            description = "Close target buffer",
         },
         {
             mode = { "n" },
@@ -131,41 +109,6 @@ function M.register_key()
             rhs = "<cmd>BufferLineMoveNext<cr>",
             options = { silent = true },
             description = "Move current buffer to right",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>bn",
-            rhs = "<cmd>enew<cr>",
-            options = { silent = true },
-            description = "Create new buffer",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>bh",
-            rhs = "<cmd>BufferLineCloseLeft<cr>",
-            options = { silent = true },
-            description = "Close all left buffers",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>bl",
-            rhs = "<cmd>BufferLineCloseRight<cr>",
-            options = { silent = true },
-            description = "Close all right buffers",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>bt",
-            rhs = "<cmd>BufferLinePick<cr>",
-            options = { silent = true },
-            description = "Go to buffer *",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>bs",
-            rhs = "<cmd>BufferLineSortByExtension<cr>",
-            options = { silent = true },
-            description = "Buffers sort (by extension)",
         },
         {
             mode = { "n" },

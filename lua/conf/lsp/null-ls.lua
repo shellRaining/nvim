@@ -9,6 +9,7 @@ local M = {
         shfmt = { "zsh" },
         fixjson = { "json5" },
     },
+    event = { "BufReadPre", "BufNewFile" },
 }
 
 function M.before() end

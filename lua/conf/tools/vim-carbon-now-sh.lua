@@ -1,6 +1,4 @@
--- https://github.com/kristijanhusak/vim-carbon-now-sh
-
-local api = require("utils.api")
+local map = require("utils.api")
 
 local M = {}
 
@@ -13,7 +11,7 @@ function M.load() end
 function M.after() end
 
 function M.register_key()
-    api.map.bulk_register({
+    map.bulk_register({
         {
             mode = { "v" },
             lhs = "<leader>ci",

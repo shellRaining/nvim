@@ -16,6 +16,7 @@ if options.auto_restore_cursor_position then
         pattern = { "*" },
         callback = function()
             if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
+                ---@diagnostic disable-next-line: param-type-mismatch
                 vim.fn.setpos(".", vim.fn.getpos("'\""))
                 vim.cmd("silent! foldopen")
             end

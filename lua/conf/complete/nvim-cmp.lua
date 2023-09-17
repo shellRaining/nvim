@@ -7,11 +7,6 @@
 -- https://github.com/kristijanhusak/vim-dadbod-completion
 -- https://github.com/tzachar/cmp-tabnin
 
--- WARN: manually install tabnine when there is an error in tabnine
---    TabNine is not executable
--- requires curl and unzip
---    ~/.local/share/nvim/store/cmp-tabnine/install.sh
-
 local public = require("utils.public")
 local options = require("core.options")
 local aid_nvim_cmp = require("utils.aid.nvim-cmp")
@@ -24,6 +19,7 @@ local M = {
         "luasnip",
         "copilot.suggestion",
     },
+    event = { "InsertEnter", "CmdlineEnter" },
 }
 
 function M.before()
@@ -37,8 +33,8 @@ function M.before()
     M.duplicate_keywords = {
         -- allow duplicate keywords
         ["luasnip"] = 1,
-        ["nvim_lsp"] = 1,
         -- do not allow duplicate keywords
+        ["nvim_lsp"] = 0,
         ["buffer"] = 0,
         ["path"] = 0,
         ["cmdline"] = 0,

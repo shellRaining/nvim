@@ -1,14 +1,9 @@
 -- https://github.com/rcarriga/nvim-notify
 
 local M = {
-    requires = {
-        "noice",
-    },
+    requires = { "noice" },
+    event = "VeryLazy",
 }
-
-function M.before()
-    M.register_key()
-end
 
 function M.load()
     M.noice.setup({
@@ -47,7 +42,7 @@ function M.load()
             kind_icons = {}, -- set to `false` to disable icons
         },
         presets = {
-            bottom_search = false, -- use a classic bottom cmdline for search
+            bottom_search = true, -- use a classic bottom cmdline for search
             long_message_to_split = true, -- long messages will be sent to a split
             inc_rename = false, -- enables an input dialog for inc-rename.nvim
             lsp_doc_border = true, -- add a border to hover docs and signature help
@@ -96,8 +91,14 @@ function M.load()
     })
 end
 
-function M.after() end
-
-function M.register_key() end
+-- stylua: ignore
+M.keys = {
+    { "<leader>nl", function() require("noice").cmd("last") end, desc = "Noice Last Message", },
+    { "<leader>nh", function() require("noice").cmd("history") end, desc = "Noice History", },
+    { "<leader>na", function() require("noice").cmd("all") end, desc = "Noice All", },
+    { "<leader>nd", function() require("noice").cmd("dismiss") end, desc = "Dismiss All", },
+    { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll forward", mode = { "i", "n", "s" }, },
+    { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll backward", mode = { "i", "n", "s" }, },
+}
 
 return M
