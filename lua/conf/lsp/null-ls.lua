@@ -53,6 +53,10 @@ function M.load()
             -- linter
             M.null_ls.builtins.diagnostics.luacheck,
             M.null_ls.builtins.diagnostics.jsonlint,
+            M.null_ls.builtins.diagnostics.markdownlint.with({
+                extra_args = { "--fix" },
+            }),
+            -- M.null_ls.builtins.diagnostics.textlint,
 
             -- formatters
             M.null_ls.builtins.formatting.autopep8,
@@ -60,10 +64,27 @@ function M.load()
             M.null_ls.builtins.formatting.shfmt,
             M.null_ls.builtins.formatting.clang_format,
             M.null_ls.builtins.formatting.stylua,
-            M.null_ls.builtins.formatting.prettier,
+            M.null_ls.builtins.formatting.prettier.with({
+                filetypes = {
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact",
+                    "vue",
+                    "css",
+                    "scss",
+                    "less",
+                    "html",
+                    "yaml",
+                    "graphql",
+                    "handlebars",
+                },
+            }),
             M.null_ls.builtins.formatting.google_java_format,
             M.null_ls.builtins.formatting.xmlformat,
             M.null_ls.builtins.formatting.rustfmt,
+            M.null_ls.builtins.formatting.mdformat,
+            -- M.null_ls.builtins.formatting.markdown_toc,
         },
     })
 end

@@ -97,6 +97,7 @@ if options.auto_spell_check_text then
     vim.api.nvim_create_autocmd("FileType", {
         pattern = { "gitcommit", "markdown" },
         callback = function()
+            vim.opt_local.spellfile = options.spell_config_directory .. "/en.utf-8.add"
             vim.opt_local.wrap = true
             vim.opt_local.spell = true
         end,

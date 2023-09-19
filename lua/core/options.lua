@@ -17,6 +17,7 @@ local M = {
     storage_directory = api.path.join(vim.fn.stdpath("data"), "store"),
     mason_install_directory = api.path.join(vim.fn.stdpath("data"), "mason"),
     global_config_directory = api.path.join(vim.fn.stdpath("config"), "config"),
+    spell_config_directory = api.path.join(vim.fn.stdpath("config"), "spell"),
 }
 
 return M

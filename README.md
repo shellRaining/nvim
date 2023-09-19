@@ -108,3 +108,60 @@ You can change anything you don't like, and if you don't know how to change it, 
 - OpenUserSnippetPackage : Open user snippet package.json file
 - OpenUserDatabaseFile   : Open user defined database config file
 ```
+
+## plugin config list
+
+- [x] Comment.nvim -> mini.comment
+- [x] mini.bufremove
+- [x] LuaSnip
+- [x] aerial.nvim
+- [x] bufferline.nvim
+- [x] cmp-buffer
+- [x] cmp-cmdline
+- [x] cmp-nvim-lsp
+- [x] cmp-path
+- [x] cmp_luasnip
+- [x] code_runner.nvim
+- [x] copilot.lua
+- [x] dashboard-nvim
+- [x] flash.nvim
+- [x] gitsigns.nvim
+- [x] hlchunk.nvim
+- [ ] lazy.nvim
+- [x] lspsaga.nvim
+- [x] lualine.nvim
+- [ ] mason-lspconfig.nvim
+- [x] mason.nvim
+- [x] mini.pairs
+- [x] neo-tree.nvim
+- [x] neodev.nvim
+- [x] noice.nvim
+- [x] nui.nvim
+- [x] null-ls.nvim
+- [x] nvim-cmp
+- [ ] nvim-lspconfig
+- [x] nvim-markdown-preview
+- [x] nvim-notify
+- [x] nvim-treesitter
+- [x] nvim-ts-context-commentstring -> delete
+- [ ] nvim-ufo
+- [x] nvim-web-devicons
+- [x] nvim_md_HFfont
+- [x] plenary.nvim
+- [x] project.nvim
+- [ ] promise-async
+- [x] telescope.nvim
+- [x] todo-comments.nvim
+- [x] toggleterm.nvim
+- [x] tokyonight.nvim
+- [x] trouble.nvim
+- [x] twilight.nvim -> delete
+- [x] vim-illuminate
+- [x] which-key.nvim
+- [x] rust-tools.nvim
+- [x] nvim-navic
+
+
+## TODO
+
+- [ ] fix deps for utils

@@ -21,7 +21,7 @@ function M.load()
     M.aerial.setup({
         icons = icons,
         show_guides = true,
-        backends = { "lsp", "treesitter", "markdown" },
+        backends = { "markdown", "lsp", "treesitter" },
         update_events = "TextChanged,InsertLeave",
         on_attach = function()
             M.register_key()
