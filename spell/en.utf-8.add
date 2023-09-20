@@ -37,3 +37,8 @@ colorscheme
 toc
 MiniIndentscope
 msec
+boolean
+autocmds
+extmark
+Neovim
+frontmatter
