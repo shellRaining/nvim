@@ -36,8 +36,8 @@ function M.load()
             goto continue
         end
 
-        local private_on_init = configuration.on_init
-        local private_on_attach = configuration.on_attach
+        local private_on_init = configuration.on_init or function() end
+        local private_on_attach = configuration.on_attach or function() end
 
         configuration.on_init = function(client, bufnr)
             private_on_init(client, bufnr)

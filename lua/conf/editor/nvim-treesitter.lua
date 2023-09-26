@@ -54,7 +54,7 @@ function M.load()
         },
         indent = {
             enable = true,
-            disable = { "yaml", "python", "html", "vue", "c", "cpp", "lua" },
+            disable = { "yaml", "python", "html", "c", "cpp", "lua" },
         },
         -- incremental selection
         incremental_selection = {

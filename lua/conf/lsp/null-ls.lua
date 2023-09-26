@@ -78,12 +78,23 @@ function M.load()
                     "yaml",
                     "graphql",
                     "handlebars",
+                    "json",
+                    "json5",
+                    "jsonc",
                 },
             }),
             M.null_ls.builtins.formatting.google_java_format,
             M.null_ls.builtins.formatting.xmlformat,
             M.null_ls.builtins.formatting.rustfmt,
             M.null_ls.builtins.formatting.mdformat,
+            -- M.null_ls.builtins.diagnostics.stylelint.with({
+            --     filetypes = {
+            --         "css",
+            --         "scss",
+            --         "less",
+            --         "vue",
+            --     },
+            -- }),
             -- M.null_ls.builtins.formatting.markdown_toc,
         },
     })

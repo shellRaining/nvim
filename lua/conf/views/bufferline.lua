@@ -22,14 +22,14 @@ function M.load()
             right_mouse_command = function(n)
                 require("mini.bufremove").delete(n, false)
             end,
-            diagnostics = "nvim_lsp",
+            diagnostics = false,
             always_show_bufferline = false,
             diagnostics_indicator = function(_, _, diag)
-                local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-                    .. (diag.warning and icons.Warn .. diag.warning or "")
-                return vim.trim(ret)
+                -- local ret = (diag.error and icons.Error .. diag.error .. " " or "")
+                --     .. (diag.warning and icons.Warn .. diag.warning or "")
+                -- return vim.trim(ret)
             end,
-            numbers = "none",
+            numbers = "ordinal",
             custom_filter = function(buf_number)
                 if vim.bo[buf_number].filetype ~= "qf" then
                     return true

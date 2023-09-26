@@ -11,6 +11,11 @@ function M.before() end
 
 function M.load()
     M.illuminate.configure({
+        -- providers: provider used to get references in the buffer, ordered by priority
+        providers = {
+            "treesitter",
+            "regex",
+        },
         delay = 200,
         large_file_cutoff = 2000,
         large_file_overrides = {

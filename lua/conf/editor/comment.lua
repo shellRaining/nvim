@@ -2,9 +2,8 @@
 -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
 
 local M = {
-    requires = {
-        "Comment",
-    },
+    requires = { "Comment" },
+    event = "VeryLazy",
 }
 
 function M.load()

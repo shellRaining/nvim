@@ -2,6 +2,7 @@ local M = {
     requires = {
         "nvim-autopairs",
     },
+    event = "VeryLazy",
 }
 
 function M.before() end

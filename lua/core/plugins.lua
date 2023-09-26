@@ -90,6 +90,7 @@ M.views = {
 
 M.editor = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { "windwp/nvim-ts-autotag" },
     { "RRethy/vim-illuminate" },
     {
         "kevinhwang91/nvim-ufo",
@@ -98,8 +99,10 @@ M.editor = {
         },
         event = { "VeryLazy" },
     },
-    { "echasnovski/mini.comment", name = "miniComment" },
-    { "echasnovski/mini.pairs", name = "miniPairs" },
+    -- { "echasnovski/mini.comment", name = "miniComment" },
+    -- { "echasnovski/mini.pairs", name = "miniPairs" },
+    { "windwp/nvim-autopairs" },
+    { "numToStr/Comment.nvim" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
     { "shellRaining/hlchunk.nvim" },
     { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },

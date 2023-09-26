@@ -1,4 +1,42 @@
 {
+  "Vue Single File Component": {
+    "prefix": "vbase",
+    "body": [
+      "<script setup>",
+      "$0",
+      "</script>",
+      "",
+      "<template>",
+      "\t<div>",
+      "",
+      "\t</div>",
+      "</template>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Base for Vue File with SCSS"
+  },
+  "Vue Single File Component with Typescript": {
+    "prefix": "vbase-ts",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "$0",
+      "</script>",
+      "",
+      "<template>",
+      "\t<div>",
+      "",
+      "\t</div>",
+      "</template>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Base for Vue File with Typescript"
+  },
   "script": {
     "prefix": "script",
     "body": ["<script>", "export default {", "\t$0", "}", "</script>"],

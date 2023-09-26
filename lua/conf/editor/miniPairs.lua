@@ -1,6 +1,6 @@
 local M = {
     requires = { "mini.pairs" },
-    event = "VeryLazy",
+    event = "InsertEnter",
 }
 
 function M.load()
