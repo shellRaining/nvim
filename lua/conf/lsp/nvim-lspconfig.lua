@@ -11,7 +11,6 @@ local M = {
         "nvim-navic",
     },
     server_config_path = join("conf", "lsp", "server_configurations"),
-    event = { "BufReadPre", "BufNewFile" },
 }
 
 function M.load()
