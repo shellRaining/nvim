@@ -2,22 +2,21 @@
 
 local M = {
     requires = {
-        "indent_blankline",
+        "ibl",
     },
 }
 
-function M.before()
-    vim.g.indent_blankline_filetype_exclude = {
-        "help",
-        "undotree",
-    }
-end
-
 function M.load()
-    M.indent_blankline.setup({
-        show_current_context = true,
-        space_char_blankline = "⋅",
-        show_current_context_start = true,
+    M.ibl.setup({
+        exclude = {
+            filetypes = {
+                "help",
+                "markdown",
+                "vimwiki",
+                "alpha",
+                "dashboard",
+            },
+        }
     })
 end
 

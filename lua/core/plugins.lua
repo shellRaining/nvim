@@ -104,8 +104,8 @@ M.editor = {
     { "windwp/nvim-autopairs" },
     { "numToStr/Comment.nvim" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
-    { "shellRaining/hlchunk.nvim" },
-    { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
+    -- { "shellRaining/hlchunk.nvim" },
+    -- { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
     -- {
     --     "echasnovski/mini.indentscope",
     --     event = { "UIEnter" },
@@ -129,10 +129,10 @@ M.editor = {
     --         vim.cmd.highlight("default link IndentLine Comment")
     --     end,
     -- },
-    -- {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     event = { "UIEnter" },
-    -- },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        event = { "UIEnter" },
+    },
 }
 
 aid_lazy.entry(M)
