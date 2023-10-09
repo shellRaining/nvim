@@ -18,4 +18,7 @@ return {
         "-j=12",
         "--pretty",
     },
+    capabilities = {
+        offsetEncoding = { "utf-16" },
+    }
 }
