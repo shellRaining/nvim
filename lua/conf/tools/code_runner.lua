@@ -39,19 +39,26 @@ local M = {
     },
 }
 
+local spark_path = "~/Documents/learnsth/spark-3.5.0-bin-hadoop3"
 function M.load()
     M.code_runner.setup({
         filetype = {
             typescript = "deno run",
+            python = "python3",
         },
         focus = false,
-        -- project = {
-        --     ["~/Documents/learnsth/rust/guessing_name"] = {
-        --         name = "guessing_name",
-        --         description = "guessing_name",
-        --         command = "cargo run",
-        --     },
-        -- },
+        project = {
+            ["~/Documents/learnsth/rust/guessing_name"] = {
+                name = "guessing_name",
+                description = "guessing_name",
+                command = "cargo run",
+            },
+            -- ["~/Documents/learnsth/spark-3.5.0-bin-hadoop3"] = {
+            --     name = "lab1",
+            --     description = "calculate Discrete Frechet Distance",
+            --     command = spark_path .. "/bin/spark-submit " .. spark_path .. "/test.py",
+            -- },
+        },
     })
 end
 
