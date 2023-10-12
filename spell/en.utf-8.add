@@ -62,3 +62,9 @@ Runtime
 runtime
 APIs
 VitePress
+addr
+uint8
+uint16
+uint32
+IPv4
+IPv6
