@@ -4,7 +4,6 @@
 -- https://github.com/hrsh7th/cmp-cmdline
 -- https://github.com/hrsh7th/cmp-nvim-lsp
 -- https://github.com/saadparwaiz1/cmp_luasnip
--- https://github.com/kristijanhusak/vim-dadbod-completion
 -- https://github.com/tzachar/cmp-tabnin
 
 local public = require("utils.public")
@@ -38,8 +37,6 @@ function M.before()
         ["buffer"] = 0,
         ["path"] = 0,
         ["cmdline"] = 0,
-        ["cmp_tabnine"] = 0,
-        ["vim-dadbod-completion"] = 0,
     }
 end
 
@@ -72,8 +69,6 @@ function M.load()
             { name = "nvim_lsp" },
             { name = "path" },
             { name = "buffer" },
-            { name = "cmp_tabnine" },
-            { name = "vim-dadbod-completion" },
         }),
         -- define buttons
         -- • i: valid in insert mode

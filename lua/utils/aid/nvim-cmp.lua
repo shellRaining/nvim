@@ -3,11 +3,9 @@ local M = {
     soruce_priority = {
         ["vsnip"] = 7,
         ["nvim_lsp"] = 6,
-        ["cmp_tabnine"] = 5,
         ["buffer"] = 4,
         ["path"] = 3,
         ["cmdline"] = 2,
-        ["vim-dadbod-completion"] = 1,
     },
     -- priority when sorting by kind (disabled by default)
     kind_priority = {
