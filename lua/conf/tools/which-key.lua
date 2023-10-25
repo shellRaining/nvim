@@ -33,6 +33,7 @@ function M.after()
         u = { name = "UI" },
         t = { name = "Terminal" },
         n = { name = "Noice" },
+        x = { name = "trouble" },
     }, { prefix = "<leader>", mode = "n" })
 
     -- comment

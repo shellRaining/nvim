@@ -2,6 +2,7 @@
 
 local join = require("utils.api").path.join
 local options = require("core.options")
+local map = require("utils.map")
 
 local M = {
     requires = {
@@ -9,6 +10,7 @@ local M = {
         "lspconfig",
         "mason-lspconfig",
         "nvim-navic",
+        "telescope.builtin",
     },
     server_config_path = join("conf", "lsp", "server_configurations"),
 }
@@ -54,6 +56,59 @@ function M.load()
         M.lspconfig[server_name].setup(configuration)
         ::continue::
     end
+end
+
+function M.after()
+    map.bulk_register({
+        {
+            mode = { "n" },
+            lhs = "<leader>ca",
+            rhs = vim.lsp.buf.code_action,
+            options = { silent = true },
+            description = "Show code action",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>cn",
+            rhs = vim.lsp.buf.rename,
+            options = { silent = true },
+            description = "Variable renaming",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>cf",
+            rhs = function()
+                vim.lsp.buf.format({ async = true })
+            end,
+            options = { silent = true },
+            description = "Format buffer",
+        },
+        {
+            mode = { "n" },
+            lhs = "gi",
+            rhs = function()
+                M.telescope_builtin.lsp_implementations({ reuse_win = true })
+            end,
+            options = { silent = true },
+            description = "Show help information",
+        },
+        {
+            mode = { "n" },
+            lhs = "K",
+            rhs = vim.lsp.buf.hover,
+            options = { silent = true },
+            description = "check doc",
+        },
+        {
+            mode = { "n" },
+            lhs = "gd",
+            rhs = function()
+                M.telescope_builtin.lsp_definitions({ reuse_win = true })
+            end,
+            options = { silent = true },
+            description = "peek to definitions",
+        },
+    })
 end
 
 return M

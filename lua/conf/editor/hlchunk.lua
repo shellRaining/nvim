@@ -20,6 +20,7 @@ end
 function M.load()
     M.hlchunk.setup({
         chunk = {
+            enable = true,
             chars = {
                 horizontal_line = "━",
                 vertical_line = "┃",
@@ -34,7 +35,7 @@ function M.load()
             textobject = "ic",
         },
         indent = {
-            enable = true,
+            enable = false,
             -- use_treesitter = true,
             chars = {
                 -- " ",

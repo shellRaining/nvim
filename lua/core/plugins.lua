@@ -26,7 +26,7 @@ M.lsp = {
     },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "jose-elias-alvarez/null-ls.nvim" },
-    { "glepnir/lspsaga.nvim" },
+    -- { "glepnir/lspsaga.nvim" },
     { "SmiteshP/nvim-navic", lazy = true },
 }
 
