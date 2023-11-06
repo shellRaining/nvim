@@ -4,7 +4,10 @@ local aid_lazy = require("utils.aid.lazy")
 
 local M = {}
 
-M.theme = { { "folke/tokyonight.nvim" } }
+M.theme = {
+    { "folke/tokyonight.nvim" },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+}
 
 M.basic = {
     { "folke/noice.nvim" },
@@ -26,8 +29,7 @@ M.lsp = {
     },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "jose-elias-alvarez/null-ls.nvim" },
-    -- { "glepnir/lspsaga.nvim" },
-    { "SmiteshP/nvim-navic", lazy = true },
+    -- { "SmiteshP/nvim-navic", lazy = true },
 }
 
 M.complete = {

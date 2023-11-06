@@ -20,7 +20,7 @@ function M.before()
             "css-lsp",
             "json-lsp",
             "html-lsp",
-            "emmet-ls",
+            -- "emmet-ls",
             "vue-language-server",
             "vim-language-server",
             "lua-language-server",
@@ -37,7 +37,7 @@ function M.before()
         },
         formatter = {
             "shfmt",
-            "autopep8",
+            -- "autopep8",
             "clang-format",
             "prettier",
             "stylua",
