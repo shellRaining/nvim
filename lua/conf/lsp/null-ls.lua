@@ -59,7 +59,8 @@ function M.load()
             -- M.null_ls.builtins.diagnostics.textlint,
 
             -- formatters
-            M.null_ls.builtins.formatting.autopep8,
+            -- M.null_ls.builtins.formatting.autopep8,
+            M.null_ls.builtins.formatting.black,
             -- M.null_ls.builtins.formatting.eslint,
             M.null_ls.builtins.formatting.shfmt,
             M.null_ls.builtins.formatting.clang_format,

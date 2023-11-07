@@ -35,7 +35,7 @@ function M.load()
             textobject = "ic",
         },
         indent = {
-            enable = false,
+            enable = true,
             -- use_treesitter = true,
             chars = {
                 -- " ",

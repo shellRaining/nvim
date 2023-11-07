@@ -37,7 +37,7 @@ function M.before()
         },
         formatter = {
             "shfmt",
-            "autopep8",
+            -- "autopep8",
             "clang-format",
             "prettier",
             "stylua",
