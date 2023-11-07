@@ -1,0 +1,180 @@
+{
+  "Vue Single File Component": {
+    "prefix": "vbase",
+    "body": [
+      "<script setup>",
+      "$0",
+      "</script>",
+      "",
+      "<template>",
+      "\t<div>",
+      "",
+      "\t</div>",
+      "</template>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Base for Vue File with SCSS"
+  },
+  "Vue Single File Component with Typescript": {
+    "prefix": "vbase-ts",
+    "body": [
+      "<script lang=\"ts\" setup>",
+      "$0",
+      "</script>",
+      "",
+      "<template>",
+      "\t<div>",
+      "",
+      "\t</div>",
+      "</template>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Base for Vue File with Typescript"
+  },
+  "script": {
+    "prefix": "script",
+    "body": ["<script>", "export default {", "\t$0", "}", "</script>"],
+    "description": "script element"
+  },
+  "script-composition": {
+    "prefix": "scriptSetup",
+    "body": ["<script setup>", "\t$0", "</script>"],
+    "description": "script setup vue composition api element"
+  },
+  "script-ts-composition": {
+    "prefix": "scriptTsSetup",
+    "body": ["<script setup lang=\"ts\">", "\t$0", "</script>"],
+    "description": "script setup vue with lang ts composition api element"
+  },
+  "ref": {
+    "prefix": "ref",
+    "body": ["const ${1:name} = ref($2)", "$0"],
+    "description": "vue ref function"
+  },
+  "reactive": {
+    "prefix": "reactive",
+    "body": ["const ${1:name} = reactive($2)", "$0"],
+    "description": "vue reactive function"
+  },
+  "computed": {
+    "prefix": "computed",
+    "body": ["const ${1:name} = computed(($2) => {$3})", "$0"],
+    "description": "vue reactive function"
+  },
+  "import ref": {
+    "prefix": "iref",
+    "body": ["import { ref } from 'vue'"],
+    "description": "import ref function from vue"
+  },
+  "import reactive": {
+    "prefix": "ireactive",
+    "body": ["import { reactive } from 'vue'"],
+    "description": "import reactive function from vue"
+  },
+  "import computed": {
+    "prefix": "icomputed",
+    "body": ["import { computed } from 'vue'"],
+    "description": "import reactive function from vue"
+  },
+  "Function Statement": {
+    "prefix": "function",
+    "body": ["function ${1:name}(${2:params}:${3:type}) {", "\t$0", "}"],
+    "description": "Function Statement"
+  },
+  "v-text": {
+    "prefix": "vText",
+    "body": ["v-text='${1:msg}'"],
+    "description": "Expects: string"
+  },
+  "v-html": {
+    "prefix": "vHtml",
+    "body": ["v-html='${1:html}'"],
+    "description": "Expects: string"
+  },
+  "v-show": {
+    "prefix": "vShow",
+    "body": ["v-show='${1:condition}'"],
+    "description": "Expects: any"
+  },
+  "v-if": {
+    "prefix": "vIf",
+    "body": ["v-if='${1:condition}'"],
+    "description": "Expects: any"
+  },
+  "v-else": {
+    "prefix": "vElse",
+    "body": ["v-else"],
+    "description": "Does not expect expression. previous sibling element must have v-if or v-else-if."
+  },
+  "v-else-if": {
+    "prefix": "vElseIf",
+    "body": ["v-else-if='${1:condition}'"],
+    "description": "Expects: any. previous sibling element must have v-if or v-else-if."
+  },
+  "v-for-without-key": {
+    "prefix": "vForWithoutKey",
+    "body": ["v-for='${1:item} in ${2:items}'"],
+    "description": "Expects: Array | Object | number | string"
+  },
+  "v-for": {
+    "prefix": "vFor",
+    "body": ["v-for='${1:item} in ${2:items}' :key='${3:item.id}'"],
+    "description": "Expects: Array | Object | number | string"
+  },
+  "v-on": {
+    "prefix": "vOn",
+    "body": ["v-on:${1:event}='${2:handle}'"],
+    "description": "Expects: Function | Inline Statement"
+  },
+  "v-bind": {
+    "prefix": "vBind",
+    "body": ["v-bind$1='${2}'"],
+    "description": "Expects: any (with argument) | Object (without argument)"
+  },
+  "v-bind class": {
+    "prefix": "vcls",
+    "body": [":class='${1}'"],
+    "description": "vbind class"
+  },
+  "v-bind id": {
+    "prefix": "vid",
+    "body": [":id='${1}'"],
+    "description": "vbind class"
+  },
+  "v-on click": {
+    "prefix": "vclick",
+    "body": ["@click='${1}'"],
+    "description": "v-on click"
+  },
+  "v-model": {
+    "prefix": "vModel",
+    "body": ["v-model='${1:something}'"],
+    "description": "Expects: varies based on value of form inputs element or output of components"
+  },
+  "v-pre": {
+    "prefix": "vPre",
+    "body": ["v-pre"],
+    "description": "Does not expect expression"
+  },
+  "v-cloak": {
+    "prefix": "vCloak",
+    "body": ["v-cloak"],
+    "description": "Does not expect expression"
+  },
+  "v-once": {
+    "prefix": "vOnce",
+    "body": ["v-once"],
+    "description": "Does not expect expression"
+  },
+  "key": {
+    "prefix": "key",
+    "body": [":key='${1:key}'"],
+    "description": "Expects: string. Children of the same common parent must have unique keys. Duplicate keys will cause render errors."
+  }
+}

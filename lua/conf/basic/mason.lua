@@ -20,7 +20,7 @@ function M.before()
             "css-lsp",
             "json-lsp",
             "html-lsp",
-            "emmet-ls",
+            -- "emmet-ls",
             "vue-language-server",
             "vim-language-server",
             "lua-language-server",

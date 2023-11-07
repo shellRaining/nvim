@@ -36,6 +36,7 @@ function M.load()
             "tsx",
             "typescript",
             "vim",
+            "vue",
             "vimdoc",
             "yaml",
         },

@@ -62,7 +62,7 @@
         ]
       },
       {
-        "path": "./vue/vue.json",
+        "path": "./vue.json",
         "language": [
           "vue"
         ]
@@ -75,12 +75,6 @@
       },
       {
         "path": "./vue/vuehtml.json",
-        "language": [
-          "vue"
-        ]
-      },
-      {
-        "path": "./vue/vuets.json",
         "language": [
           "vue"
         ]
