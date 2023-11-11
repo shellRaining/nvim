@@ -6,7 +6,7 @@
   },
   "import": {
     "prefix": "import",
-    "body": ["import $1 from '$2'"],
+    "body": ["import $2 from '$1'"],
     "description": "import ... from ..."
   },
   "For Loop": {
