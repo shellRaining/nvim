@@ -1,5 +1,6 @@
 require("core.setting")
 require("core.platform")
+require("core.filetype")
 require("core.options")
 require("core.mapping")
 require("core.plugins")

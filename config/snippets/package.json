@@ -62,6 +62,12 @@
         ]
       },
       {
+        "path": "./jest.typescript.json",
+        "language": [
+          "spec"
+        ]
+      },
+      {
         "path": "./leetcode.json",
         "language": [
           "javascript"
