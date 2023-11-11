@@ -21,6 +21,7 @@ function M.load()
     M.hlchunk.setup({
         chunk = {
             enable = true,
+            notify = false,
             chars = {
                 horizontal_line = "━",
                 vertical_line = "┃",
