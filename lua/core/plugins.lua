@@ -78,6 +78,11 @@ M.tools = {
     { "lewis6991/gitsigns.nvim" },
     { "folke/which-key.nvim" },
     { "CRAG666/code_runner.nvim" },
+    {
+        "barrett-ruth/live-server.nvim",
+        build = "npm install -g live-server",
+        config = true,
+    },
 }
 
 M.views = {

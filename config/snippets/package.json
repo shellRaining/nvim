@@ -64,7 +64,8 @@
       {
         "path": "./jest.typescript.json",
         "language": [
-          "spec"
+          "spec",
+          "jest"
         ]
       },
       {

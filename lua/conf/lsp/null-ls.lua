@@ -88,6 +88,7 @@ function M.load()
             M.null_ls.builtins.formatting.xmlformat,
             M.null_ls.builtins.formatting.rustfmt,
             M.null_ls.builtins.formatting.mdformat,
+            M.null_ls.builtins.formatting.bean_format,
             -- M.null_ls.builtins.diagnostics.stylelint.with({
             --     filetypes = {
             --         "css",

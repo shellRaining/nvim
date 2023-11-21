@@ -23,6 +23,7 @@ function M.load()
             PERF = { icon = icons.PERF, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
             NOTE = { icon = icons.NOTE, color = "hint", alt = { "INFO" } },
             TEST = { icon = icons.TEST, color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+            QUES = { icon = icons.QUES, color = "hint", alt = { "QUESTION" } },
         },
     })
 end

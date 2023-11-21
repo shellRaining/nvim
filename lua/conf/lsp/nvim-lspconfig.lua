@@ -112,6 +112,15 @@ function M.after()
             options = { silent = true },
             description = "peek to references",
         },
+        {
+            mode = { "n" },
+            lhs = "gt",
+            rhs = function()
+                M.telescope_builtin.lsp_type_definitions({ reuse_win = true })
+            end,
+            options = { silent = true },
+            description = "peek to type define of a variable",
+        },
     })
 end
 

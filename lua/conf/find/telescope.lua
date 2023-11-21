@@ -14,6 +14,7 @@ local M = {
         -- find
         { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
         { "<leader>ff", util.telescope("files"), desc = "Find Files (root dir)" },
+        -- { "<leader>ff", "<cmd>Telescope files<cr>", desc = "Find Files (root dir)" },
         { "<leader>fF", util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
         { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
         { "<leader>fO", util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },

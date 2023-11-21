@@ -15,6 +15,7 @@ M.tag_level = {
     PERF = "",
     NOTE = "",
     TEST = "⏲",
+    QUES = "",
 }
 
 M.lsp_kind = {
