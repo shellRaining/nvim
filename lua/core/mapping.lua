@@ -262,6 +262,20 @@ map.bulk_register({
         options = {},
         description = "Move cursor right in insert mode",
     },
+    {
+        mode = { "i" },
+        lhs = "<m-left>",
+        rhs = "<c-o>v<c-g>",
+        options = { silent = true },
+        description = "Select previous word in insert mode",
+    },
+    {
+        mode = { "s" },
+        lhs = "<m-left>",
+        rhs = "<c-g>h<c-g>",
+        options = { silent = true },
+        description = "Select previous word in insert mode",
+    },
 })
 
 -- tab mapping

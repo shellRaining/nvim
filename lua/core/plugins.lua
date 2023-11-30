@@ -83,6 +83,7 @@ M.tools = {
         build = "npm install -g live-server",
         config = true,
     },
+    { "willothy/moveline.nvim", build = "make", },
 }
 
 M.views = {
