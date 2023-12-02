@@ -121,21 +121,6 @@
     "body": ["console.error($1);", "$0"],
     "description": "Log error to the console"
   },
-  "Define a full property": {
-    "prefix": "prop",
-    "body": [
-      "",
-      "private _${1:value} : ${2:string};",
-      "public get ${1:value}() : ${2:string} {",
-      "\treturn this._${1:value};",
-      "}",
-      "public set ${1:value}(v : ${2:string}) {",
-      "\tthis._${1:value} = v;",
-      "}",
-      ""
-    ],
-    "description": "Define a full property"
-  },
   "Triple-slash reference": {
     "prefix": "ref",
     "body": ["/// <reference path=\"$1\" />", "$0"],

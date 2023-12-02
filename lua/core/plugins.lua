@@ -29,6 +29,7 @@ M.lsp = {
     },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "jose-elias-alvarez/null-ls.nvim" },
+    { "luckasRanarison/clear-action.nvim" },
     -- { "SmiteshP/nvim-navic", lazy = true },
 }
 
@@ -83,7 +84,7 @@ M.tools = {
         build = "npm install -g live-server",
         config = true,
     },
-    { "willothy/moveline.nvim", build = "make", },
+    { "willothy/moveline.nvim", build = "make" },
 }
 
 M.views = {

@@ -3,6 +3,7 @@
 local M = {
     requires = {
         "hlchunk",
+        -- "hlchunk.mods.indent",
     },
     event = { "BufReadPre", "BufNewFile" },
 }
@@ -20,7 +21,7 @@ end
 function M.load()
     M.hlchunk.setup({
         chunk = {
-            enable = true,
+            enable = false,
             notify = false,
             chars = {
                 horizontal_line = "━",
@@ -35,26 +36,23 @@ function M.load()
             },
             textobject = "ic",
         },
+
         indent = {
             enable = true,
-            -- use_treesitter = true,
+            use_treesitter = false,
+            notify = true,
             chars = {
                 -- " ",
-                "│",
+                -- "│",
                 -- "¦",
-                -- "┆",
+                "┆",
                 -- "┊",
             },
-            -- style = {
-            --     { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") },
-            --     { fg = cb },
-            -- },
         },
 
         line_num = {
             enable = false,
         },
-
         blank = {
             enable = false,
             chars = {
@@ -64,7 +62,7 @@ function M.load()
                 -- "⁖",
                 -- "⁘",
                 -- "⁙",
-            },
+           },
             style = {
                 { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("cursorline")), "bg", "gui") },
                 { bg = "", fg = "" },
@@ -79,9 +77,9 @@ function M.load()
             --     "#8B00FF",
             -- },
         },
-        context = {
-            enable = false,
-        },
+        -- context = {
+        --     enable = false,
+        -- },
     })
 end
 
