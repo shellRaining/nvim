@@ -33,6 +33,18 @@ M.lsp = {
     -- { "SmiteshP/nvim-navic", lazy = true },
 }
 
+M.dap = {
+    { "mfussenegger/nvim-dap" },
+    { "jay-babu/mason-nvim-dap.nvim" },
+    { "theHamsta/nvim-dap-virtual-text" },
+    { "rcarriga/nvim-dap-ui" },
+    -- { "mxsdev/nvim-dap-vscode-js" },
+    -- {
+    --     "microsoft/vscode-js-debug",
+    --     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+    -- },
+}
+
 M.complete = {
     {
         "hrsh7th/nvim-cmp",
