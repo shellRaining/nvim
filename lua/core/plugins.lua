@@ -38,7 +38,7 @@ M.dap = {
     { "jay-babu/mason-nvim-dap.nvim" },
     { "theHamsta/nvim-dap-virtual-text" },
     { "rcarriga/nvim-dap-ui" },
-    -- { "mxsdev/nvim-dap-vscode-js" },
+    { "mxsdev/nvim-dap-vscode-js" },
     -- {
     --     "microsoft/vscode-js-debug",
     --     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",

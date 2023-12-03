@@ -4,6 +4,7 @@ local M = {
     requires = {
         "dap",
     },
+    adapter_configurations_dir_path = api.path.join("conf", "dap", "dap_configurations"),
 }
 
 function M.before()
@@ -11,43 +12,12 @@ function M.before()
 end
 
 function M.load()
-    M.dap.adapters["pwa-node"] = {
-        type = "server",
-        host = "localhost",
-        -- port = "${port}",
-        port = "9229",
-        executable = {
-            command = "node",
-            args = { "/Users/shellraining/.local/share/nvim/mason/bin/js-debug-adapter", "9229" },
-        },
-    }
-
-    M.dap.configurations.typescript = {
-        {
-            type = "pwa-node",
-            request = "launch",
-            name = "Launch file",
-            runtimeExecutable = "deno",
-            runtimeArgs = {
-                "run",
-                "--inspect-wait",
-                "--allow-all",
-            },
-            program = "${file}",
-            cwd = "${workspaceFolder}",
-            attachSimplePort = 9229,
-        },
-    }
-
-    M.dap.configurations.javascript = {
-        {
-            type = "pwa-node",
-            request = "launch",
-            name = "Launch file",
-            program = "${file}",
-            cwd = "${workspaceFolder}",
-        },
-    }
+    local require_files_table = api.get_importable_subfiles(M.adapter_configurations_dir_path)
+    for _, require_file in ipairs(require_files_table) do
+        local dap_config = require(require_file)
+        M.dap.adapters = vim.tbl_deep_extend("force", M.dap.adapters, dap_config.adapters or {})
+        M.dap.configurations = vim.tbl_deep_extend("force", M.dap.configurations, dap_config.configurations or {})
+    end
 end
 
 function M.register_key()
@@ -109,15 +79,6 @@ function M.register_key()
         {
             mode = { "n" },
             lhs = "<F9>",
-            rhs = function()
-                require("dap").run_last()
-            end,
-            options = { silent = true },
-            description = "Rerun debug",
-        },
-        {
-            mode = { "n" },
-            lhs = "<F10>",
             rhs = function()
                 require("dap").terminate()
             end,
