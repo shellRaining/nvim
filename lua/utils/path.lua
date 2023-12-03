@@ -12,7 +12,8 @@ end
 ---@return string | nil
 local function get_root_by_lsp(bufnr)
     bufnr = bufnr or 0
-    local clients = vim.lsp.get_clients({ bufnr = bufnr })
+    local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
+    local clients = get_clients({ bufnr = bufnr })
     if #clients == 0 or not clients[1].config or not clients[1].config.workspace_folders then
         return nil
     end

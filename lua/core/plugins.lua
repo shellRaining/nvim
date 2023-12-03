@@ -39,10 +39,6 @@ M.dap = {
     { "theHamsta/nvim-dap-virtual-text" },
     { "rcarriga/nvim-dap-ui" },
     { "mxsdev/nvim-dap-vscode-js" },
-    -- {
-    --     "microsoft/vscode-js-debug",
-    --     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-    -- },
 }
 
 M.complete = {
@@ -97,6 +93,7 @@ M.tools = {
         config = true,
     },
     { "willothy/moveline.nvim", build = "make" },
+    { "uga-rosa/translate.nvim" },
 }
 
 M.views = {
