@@ -51,7 +51,7 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<F6>",
+            lhs = "<F11>", -- <F11>
             rhs = function()
                 require("dap").step_into()
             end,
@@ -60,7 +60,7 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<F7>",
+            lhs = "<F10>", -- <F10>
             rhs = function()
                 require("dap").step_over()
             end,
@@ -69,7 +69,7 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<F8>",
+            lhs = "<F23>", -- <S-F11>
             rhs = function()
                 require("dap").step_out()
             end,
@@ -78,12 +78,21 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<F9>",
+            lhs = "<F17>",
             rhs = function()
                 require("dap").terminate()
             end,
             options = { silent = true },
             description = "Close debug",
+        },
+        {
+            mode = { "n" },
+            lhs = "<F6>",
+            rhs = function()
+                require("dap").restart()
+            end,
+            options = { silent = true },
+            description = "restart debug",
         },
     })
 end

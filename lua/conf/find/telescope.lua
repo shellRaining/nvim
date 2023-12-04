@@ -63,6 +63,8 @@ local M = {
             }),
             desc = "Goto Symbol (Workspace)",
         },
+        { "<leader>fy", "<cmd>Telescope neoclip<cr>", desc = "Yank History" },
+        { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
     },
 }
 

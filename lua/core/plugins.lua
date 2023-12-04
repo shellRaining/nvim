@@ -16,6 +16,8 @@ M.basic = {
     { "nvim-tree/nvim-web-devicons", lazy = true },
     { "MunifTanjim/nui.nvim", lazy = true },
     { "nvim-lua/plenary.nvim", lazy = true },
+    { "kkharji/sqlite.lua", module = "sqlite" },
+    { "stevearc/dressing.nvim", opts = {} },
 }
 
 M.lsp = {
@@ -62,25 +64,16 @@ M.find = {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
-            { "nvim-lua/plenary.nvim", lazy = true },
-            {
-                "ahmedkhalf/project.nvim",
-                opts = {},
-                event = "VeryLazy",
-                config = function(_, opts)
-                    require("project_nvim").setup(opts)
-                    require("telescope").load_extension("projects")
-                end,
-                keys = {
-                    { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
-                },
-            },
+            { "nvim-lua/plenary.nvim" },
         },
     },
+    { "ahmedkhalf/project.nvim" },
+    { "ThePrimeagen/harpoon", branch = "harpoon2" },
 }
 
 M.language = {
     { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" } },
+    -- { "ray-x/web-tools.nvim" },
 }
 
 M.tools = {
@@ -94,6 +87,10 @@ M.tools = {
     },
     { "willothy/moveline.nvim", build = "make" },
     { "uga-rosa/translate.nvim" },
+    { "ellisonleao/carbon-now.nvim" },
+    { "jackMort/ChatGPT.nvim" },
+    { "AckslD/nvim-neoclip.lua" },
+    { "ziontee113/icon-picker.nvim" },
 }
 
 M.views = {
@@ -104,10 +101,14 @@ M.views = {
     { "stevearc/aerial.nvim" },
     { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
     { "folke/trouble.nvim" },
+    { "nvim-zh/colorful-winsep.nvim", config = true, event = { "WinNew" } },
+    { "folke/zen-mode.nvim", opts = {} },
 }
 
 M.editor = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
+    { "chrisgrieser/nvim-various-textobjs", opts = { useDefaultKeymaps = true } },
     { "windwp/nvim-ts-autotag" },
     { "RRethy/vim-illuminate" },
     {
