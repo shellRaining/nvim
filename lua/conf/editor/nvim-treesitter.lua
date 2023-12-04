@@ -61,8 +61,8 @@ function M.load()
         incremental_selection = {
             enable = true,
             keymaps = {
-                init_selection = "<c-i>",
-                node_incremental = "<c-i>",
+                init_selection = "<c-n>",
+                node_incremental = "<c-n>",
                 node_decremental = "<bs>",
                 scope_incremental = false,
             },

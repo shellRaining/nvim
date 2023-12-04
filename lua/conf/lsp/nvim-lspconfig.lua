@@ -10,6 +10,7 @@ local M = {
         "lspconfig",
         "mason-lspconfig",
         "telescope.builtin",
+        "cmp_nvim_lsp",
     },
     server_config_path = join("conf", "lsp", "server_configurations"),
 }
@@ -34,7 +35,6 @@ function M.load()
         if not ok then
             goto continue
         end
-
         local private_on_init = configuration.on_init or function() end
         local private_on_attach = configuration.on_attach or function() end
 
@@ -47,6 +47,7 @@ function M.load()
             end
             private_on_attach(client, bufnr)
         end
+        configuration.capabilities = M.cmp_nvim_lsp.default_capabilities()
 
         M.lspconfig[server_name].setup(configuration)
         ::continue::

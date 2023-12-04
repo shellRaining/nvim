@@ -73,6 +73,7 @@ M.find = {
 
 M.language = {
     { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" } },
+    { "b0o/schemastore.nvim" },
     -- { "ray-x/web-tools.nvim" },
 }
 

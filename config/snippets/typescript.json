@@ -16,6 +16,28 @@
       "rl.on(\"close\", () => {})"
     ]
   },
+  "multi-line input": {
+    "prefix": ["multi"],
+    "body": [
+      "import * as readline from \"node:readline\";",
+      "",
+      "const rl = readline.createInterface({",
+      "  input: process.stdin,",
+      "  output: process.stdout,",
+      "});",
+      "",
+      "let input = \"\";",
+      "",
+      "rl.on(\"line\", (line) => {",
+      "  input += line + \"\\n\";",
+      "});",
+      "",
+      "rl.on(\"close\", () => {",
+      "  const lines = input.trim().split(\"\\n\");",
+      "  $0",
+      "});"
+    ]
+  },
   "acm array template": {
     "prefix": ["acm array"],
     "body": [

@@ -69,20 +69,6 @@ map.bulk_register({
         description = "search the word under cursor forward",
     },
     {
-        mode = { "n" },
-        lhs = "<C-n>",
-        rhs = "<cmd>cnext<cr>",
-        options = { noremap = true },
-        description = "next quickfix",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-p>",
-        rhs = "<cmd>cprev<cr>",
-        options = { noremap = true },
-        description = "previous quickfix",
-    },
-    {
         mode = { "i", "n" },
         lhs = "<esc>",
         rhs = "<cmd>noh<cr><esc>",
