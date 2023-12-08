@@ -7,14 +7,7 @@ local M = {}
 M.theme = {
     { "folke/tokyonight.nvim" },
     -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    -- {
-    --     "oxfist/night-owl.nvim",
-    --     lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    --     priority = 1000, -- make sure to load this before all the other start plugins
-    --     config = function()
-    --         vim.cmd.colorscheme("night-owl")
-    --     end,
-    -- },
+    -- { "oxfist/night-owl.nvim", },
 }
 
 M.basic = {
@@ -40,11 +33,7 @@ M.lsp = {
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "jose-elias-alvarez/null-ls.nvim" },
     { "luckasRanarison/clear-action.nvim" },
-    {
-        "pmizio/typescript-tools.nvim",
-        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-        opts = {},
-    },
+    { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
     -- { "SmiteshP/nvim-navic", lazy = true },
 }
 
@@ -74,12 +63,7 @@ M.complete = {
 M.find = {
     { "folke/todo-comments.nvim" },
     { "folke/flash.nvim" },
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            { "nvim-lua/plenary.nvim" },
-        },
-    },
+    { "nvim-telescope/telescope.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     { "ahmedkhalf/project.nvim" },
     { "ThePrimeagen/harpoon", branch = "harpoon2" },
 }
@@ -94,11 +78,7 @@ M.tools = {
     { "lewis6991/gitsigns.nvim" },
     { "folke/which-key.nvim" },
     { "CRAG666/code_runner.nvim" },
-    {
-        "barrett-ruth/live-server.nvim",
-        build = "npm install -g live-server",
-        config = true,
-    },
+    { "barrett-ruth/live-server.nvim", build = "npm install -g live-server", config = true },
     { "willothy/moveline.nvim", build = "make" },
     { "uga-rosa/translate.nvim" },
     { "ellisonleao/carbon-now.nvim" },
@@ -123,18 +103,11 @@ M.views = {
 M.editor = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
-    { "chrisgrieser/nvim-various-textobjs", opts = { useDefaultKeymaps = true } },
+    { "chrisgrieser/nvim-various-textobjs" },
+    { "kylechui/nvim-surround", version = "*" },
     { "windwp/nvim-ts-autotag" },
     { "RRethy/vim-illuminate" },
-    {
-        "kevinhwang91/nvim-ufo",
-        dependencies = {
-            "kevinhwang91/promise-async",
-        },
-        event = { "VeryLazy" },
-    },
-    -- { "echasnovski/mini.comment", name = "miniComment" },
-    -- { "echasnovski/mini.pairs", name = "miniPairs" },
+    { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
     { "windwp/nvim-autopairs" },
     { "numToStr/Comment.nvim" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
@@ -145,22 +118,6 @@ M.editor = {
     --     event = { "UIEnter" },
     --     config = function()
     --         require("mini.indentscope").setup()
-    --     end,
-    -- },
-    -- {
-    --     "nvimdev/indentmini.nvim",
-    --     event = "BufEnter",
-    --     config = function()
-    --         require("indentmini").setup({
-    --             {
-    --                 char = "|",
-    --                 exclude = {
-    --                     "erlang",
-    --                     "markdown",
-    --                 },
-    --             },
-    --         })
-    --         vim.cmd.highlight("default link IndentLine Comment")
     --     end,
     -- },
     -- {

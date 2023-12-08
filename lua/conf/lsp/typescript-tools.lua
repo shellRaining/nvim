@@ -6,6 +6,10 @@ local M = {
 
 function M.load()
     M.typescript_tools.setup({
+        on_attach = function(client, _)
+            client.server_capabilities.documentFormattingProvider = false
+        end,
+
         filetypes = {
             "javascript",
             "javascriptreact",
