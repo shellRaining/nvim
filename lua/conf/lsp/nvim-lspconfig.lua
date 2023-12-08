@@ -19,6 +19,9 @@ function M.load()
     require("lspconfig.ui.windows").default_options.border = options.float_border and "double" or "none"
 
     local mappings = M.mason_lspconfig.get_mappings()
+    local ignore_lang = {
+        tsserver = true,
+    }
     local not_fmt_lang = {
         clangd = true,
         tsserver = true,
@@ -30,6 +33,9 @@ function M.load()
     local servers = M.mason_lspconfig.get_installed_servers()
 
     for _, server_name in ipairs(servers) do
+        if ignore_lang[server_name] then
+            goto continue
+        end
         local require_path = join(M.server_config_path, mappings.lspconfig_to_mason[server_name] or server_name)
         local ok, configuration = pcall(require, require_path)
         if not ok then
@@ -47,6 +53,7 @@ function M.load()
             end
             private_on_attach(client, bufnr)
         end
+        -- NOTE: without this require, the jsonls schema will not work
         configuration.capabilities = M.cmp_nvim_lsp.default_capabilities()
 
         M.lspconfig[server_name].setup(configuration)

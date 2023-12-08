@@ -76,8 +76,7 @@
   "Property getter": {
     "prefix": "get",
     "body": [
-      "",
-      "public get ${1:value}() : ${2:string} {",
+      "get ${1:value}() : ${2:string} {",
       "\t${3:return $0}",
       "}",
       ""
@@ -111,8 +110,7 @@
   "Property setter": {
     "prefix": "set",
     "body": [
-      "",
-      "public set ${1:value}(v : ${2:string}) {",
+      "set ${1:value}(v : ${2:string}) {",
       "\tthis.$3 = v;",
       "}",
       ""

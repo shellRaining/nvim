@@ -6,7 +6,15 @@ local M = {}
 
 M.theme = {
     { "folke/tokyonight.nvim" },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    -- {
+    --     "oxfist/night-owl.nvim",
+    --     lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    --     priority = 1000, -- make sure to load this before all the other start plugins
+    --     config = function()
+    --         vim.cmd.colorscheme("night-owl")
+    --     end,
+    -- },
 }
 
 M.basic = {
@@ -32,6 +40,11 @@ M.lsp = {
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "jose-elias-alvarez/null-ls.nvim" },
     { "luckasRanarison/clear-action.nvim" },
+    {
+        "pmizio/typescript-tools.nvim",
+        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+        opts = {},
+    },
     -- { "SmiteshP/nvim-navic", lazy = true },
 }
 
@@ -102,8 +115,9 @@ M.views = {
     { "stevearc/aerial.nvim" },
     { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
     { "folke/trouble.nvim" },
-    { "nvim-zh/colorful-winsep.nvim", config = true, event = { "WinNew" } },
+    { "nvim-zh/colorful-winsep.nvim" },
     { "folke/zen-mode.nvim", opts = {} },
+    -- { "Pocco81/true-zen.nvim" },
 }
 
 M.editor = {

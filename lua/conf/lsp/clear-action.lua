@@ -58,7 +58,7 @@ function M.load()
             refactor_inline = nil,
             refactor_extract = nil,
             refactor_rewrite = nil,
-            source = "<leader>so",
+            source = "<leader>su",
             -- server-specific mappings, server_name = {...}
             -- This is a map of code actions prefixes and keys
             actions = {

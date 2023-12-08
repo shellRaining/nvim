@@ -20,7 +20,7 @@ function M.register_key()
     map.bulk_register({
         {
             mode = { "n" },
-            lhs = "<leader>ce",
+            lhs = "<leader>ip",
             rhs = "<cmd>IconPickerNormal<cr>",
             options = { silent = true },
             description = "pick icon in normal mode",
