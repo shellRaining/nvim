@@ -11,8 +11,8 @@ function M.load()
                 shade = "dark", -- if `dark` then dim the padding windows, otherwise if it's `light` it'll brighten said windows
                 backdrop = 0, -- percentage by which padding windows should be dimmed/brightened. Must be a number between 0 and 1. Set to 0 to keep the same background color
                 minimum_writing_area = { -- minimum size of main window
-                    width = 70,
-                    height = 44,
+                    width = 100,
+                    height = 100,
                 },
                 quit_untoggles = true, -- type :q or :qa to quit Ataraxis mode
                 padding = { -- padding windows
@@ -24,13 +24,15 @@ function M.load()
                 callbacks = { -- run functions when opening/closing Ataraxis mode
                     open_pre = {
                         function()
-                            vim.cmd("NvimSeparatorDel")
+                            vim.cmd("NvimSeparatorDelture")
                         end,
                     },
                     open_pos = nil,
-                    close_pre = function()
-                        vim.cmd("NvimSeparatorShow")
-                    end,
+                    close_pre = {
+                        function()
+                            vim.cmd("NvimSeparatorShow")
+                        end,
+                    },
                     close_pos = nil,
                 },
             },

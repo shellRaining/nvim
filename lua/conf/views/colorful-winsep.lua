@@ -6,11 +6,6 @@ local M = {
 
 function M.load()
     M.colorful_winsep.setup({
-        -- highlight for Window separator
-        highlight = {
-            bg = "#16161E",
-            fg = "#1F3442",
-        },
         -- timer refresh rate
         interval = 30,
         -- This plugin will not be activated for filetype in the following table.
