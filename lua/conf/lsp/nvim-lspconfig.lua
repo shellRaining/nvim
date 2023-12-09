@@ -130,6 +130,28 @@ function M.after()
             options = { silent = true },
             description = "peek to type define of a variable",
         },
+        {
+            mode = { "n" },
+            lhs = "<F8>",
+            rhs = function()
+                vim.diagnostic.goto_next({
+                    float = false,
+                })
+            end,
+            options = { silent = true },
+            description = "goto next diagnostic",
+        },
+        {
+            mode = { "n" },
+            lhs = "<S-F8>",
+            rhs = function()
+                vim.diagnostic.goto_prev({
+                    float = false,
+                })
+            end,
+            options = { silent = true },
+            description = "goto previous diagnostic",
+        },
     })
 end
 
