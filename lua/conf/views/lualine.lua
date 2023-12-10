@@ -1,4 +1,4 @@
-local util = require("utils.color")
+local color_util = require("utils.color")
 
 local M = {
     requires = {
@@ -29,14 +29,14 @@ function M.load()
                         return M.noice.api.status.command.get()
                     end,
                     cond = M.noice.api.status.command.has,
-                    color = util.fg("Statement"),
+                    color = color_util.fg("Statement"),
                 },
                 {
                     function()
                         return M.noice.api.status.mode.get()
                     end,
                     cond = M.noice.api.status.mode.has,
-                    color = util.fg("Constant"),
+                    color = color_util.fg("Constant"),
                 },
             },
             lualine_y = { "progress" },

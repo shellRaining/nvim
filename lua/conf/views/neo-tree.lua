@@ -1,4 +1,4 @@
-local path = require("utils.api.path")
+local path = require("utils.path")
 
 local M = {
     requires = {

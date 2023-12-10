@@ -98,20 +98,6 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<c-e>",
-            rhs = "<cmd>BufferLineMovePrev<cr>",
-            options = { silent = true },
-            description = "Move current buffer to left",
-        },
-        {
-            mode = { "n" },
-            lhs = "<c-y>",
-            rhs = "<cmd>BufferLineMoveNext<cr>",
-            options = { silent = true },
-            description = "Move current buffer to right",
-        },
-        {
-            mode = { "n" },
             lhs = "<leader>1",
             rhs = "<cmd>BufferLineGoToBuffer 1<cr>",
             options = { silent = true },

@@ -16,6 +16,28 @@
       "rl.on(\"close\", () => {})"
     ]
   },
+  "multi-line input": {
+    "prefix": ["multi"],
+    "body": [
+      "import * as readline from \"node:readline\";",
+      "",
+      "const rl = readline.createInterface({",
+      "  input: process.stdin,",
+      "  output: process.stdout,",
+      "});",
+      "",
+      "let input = \"\";",
+      "",
+      "rl.on(\"line\", (line) => {",
+      "  input += line + \"\\n\";",
+      "});",
+      "",
+      "rl.on(\"close\", () => {",
+      "  const lines = input.trim().split(\"\\n\");",
+      "  $0",
+      "});"
+    ]
+  },
   "acm array template": {
     "prefix": ["acm array"],
     "body": [
@@ -98,8 +120,7 @@
   "Property getter": {
     "prefix": "get",
     "body": [
-      "",
-      "public get ${1:value}() : ${2:string} {",
+      "get ${1:value}() : ${2:string} {",
       "\t${3:return $0}",
       "}",
       ""
@@ -121,21 +142,6 @@
     "body": ["console.error($1);", "$0"],
     "description": "Log error to the console"
   },
-  "Define a full property": {
-    "prefix": "prop",
-    "body": [
-      "",
-      "private _${1:value} : ${2:string};",
-      "public get ${1:value}() : ${2:string} {",
-      "\treturn this._${1:value};",
-      "}",
-      "public set ${1:value}(v : ${2:string}) {",
-      "\tthis._${1:value} = v;",
-      "}",
-      ""
-    ],
-    "description": "Define a full property"
-  },
   "Triple-slash reference": {
     "prefix": "ref",
     "body": ["/// <reference path=\"$1\" />", "$0"],
@@ -144,8 +150,7 @@
   "Property setter": {
     "prefix": "set",
     "body": [
-      "",
-      "public set ${1:value}(v : ${2:string}) {",
+      "set ${1:value}(v : ${2:string}) {",
       "\tthis.$3 = v;",
       "}",
       ""

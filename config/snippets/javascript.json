@@ -1,15 +1,4 @@
 {
-  "a func": {
-    "prefix": [
-      "afunc"
-    ],
-    "body": [
-      "($1) => {",
-      "\t$2",
-      "}"
-    ],
-    "description": ""
-  },
   "iife": {
     "prefix": [
       "iife"
@@ -87,8 +76,7 @@
   "Property getter": {
     "prefix": "get",
     "body": [
-      "",
-      "public get ${1:value}() : ${2:string} {",
+      "get ${1:value}() : ${2:string} {",
       "\t${3:return $0}",
       "}",
       ""
@@ -119,34 +107,10 @@
     ],
     "description": "Log error to the console"
   },
-  "Define a full property": {
-    "prefix": "prop",
-    "body": [
-      "",
-      "private _${1:value} : ${2:string};",
-      "public get ${1:value}() : ${2:string} {",
-      "\treturn this._${1:value};",
-      "}",
-      "public set ${1:value}(v : ${2:string}) {",
-      "\tthis._${1:value} = v;",
-      "}",
-      ""
-    ],
-    "description": "Define a full property"
-  },
-  "Triple-slash reference": {
-    "prefix": "ref",
-    "body": [
-      "/// <reference path=\"$1\" />",
-      "$0"
-    ],
-    "description": "Triple-slash reference"
-  },
   "Property setter": {
     "prefix": "set",
     "body": [
-      "",
-      "public set ${1:value}(v : ${2:string}) {",
+      "set ${1:value}(v : ${2:string}) {",
       "\tthis.$3 = v;",
       "}",
       ""
@@ -164,12 +128,11 @@
   "For Loop": {
     "prefix": "for",
     "body": [
-      "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-      "\tconst ${3:element} = ${2:array}[${1:index}];",
+      "for (let ${1:index} = 0; ${1:index} < ${2:length}; ${1:index}++) {",
       "\t$0",
       "}"
     ],
-    "description": "For Loop"
+    "description": "For Loop - Iterate over a collection"
   },
   "For-Each Loop using =>": {
     "prefix": "foreach =>",

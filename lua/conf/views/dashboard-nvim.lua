@@ -51,7 +51,7 @@ function M.load()
                     icon_hl = "Label",
                     desc = "Files",
                     desc_hl = "Label",
-                    action = "Telescope find_files theme=dropdown",
+                    action = require("utils.telescope").telescope("files", { theme = "dropdown" }),
                     key = "f",
                     key_hl = "Label",
                 },

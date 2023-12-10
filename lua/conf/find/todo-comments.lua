@@ -3,6 +3,7 @@ local icons = public.get_icons_group("tag_level", true)
 
 local M = {
     requires = { "todo-comments" },
+    event = { "BufEnter" },
     keys = {
       { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
       { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
@@ -23,6 +24,7 @@ function M.load()
             PERF = { icon = icons.PERF, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
             NOTE = { icon = icons.NOTE, color = "hint", alt = { "INFO" } },
             TEST = { icon = icons.TEST, color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+            QUES = { icon = icons.QUES, color = "hint", alt = { "QUESTION" } },
         },
     })
 end

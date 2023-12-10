@@ -6,7 +6,8 @@ local M = {}
 
 M.theme = {
     { "folke/tokyonight.nvim" },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    -- { "oxfist/night-owl.nvim", },
 }
 
 M.basic = {
@@ -16,6 +17,8 @@ M.basic = {
     { "nvim-tree/nvim-web-devicons", lazy = true },
     { "MunifTanjim/nui.nvim", lazy = true },
     { "nvim-lua/plenary.nvim", lazy = true },
+    { "kkharji/sqlite.lua", module = "sqlite" },
+    { "stevearc/dressing.nvim", opts = {} },
 }
 
 M.lsp = {
@@ -29,7 +32,17 @@ M.lsp = {
     },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "jose-elias-alvarez/null-ls.nvim" },
+    { "luckasRanarison/clear-action.nvim" },
+    { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
     -- { "SmiteshP/nvim-navic", lazy = true },
+}
+
+M.dap = {
+    { "mfussenegger/nvim-dap" },
+    { "jay-babu/mason-nvim-dap.nvim" },
+    { "theHamsta/nvim-dap-virtual-text" },
+    { "rcarriga/nvim-dap-ui" },
+    { "mxsdev/nvim-dap-vscode-js" },
 }
 
 M.complete = {
@@ -50,34 +63,28 @@ M.complete = {
 M.find = {
     { "folke/todo-comments.nvim" },
     { "folke/flash.nvim" },
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            { "nvim-lua/plenary.nvim", lazy = true },
-            {
-                "ahmedkhalf/project.nvim",
-                opts = {},
-                event = "VeryLazy",
-                config = function(_, opts)
-                    require("project_nvim").setup(opts)
-                    require("telescope").load_extension("projects")
-                end,
-                keys = {
-                    { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
-                },
-            },
-        },
-    },
+    { "nvim-telescope/telescope.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
+    { "ahmedkhalf/project.nvim" },
+    { "ThePrimeagen/harpoon", branch = "harpoon2" },
 }
 
 M.language = {
     { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" } },
+    { "b0o/schemastore.nvim" },
+    -- { "ray-x/web-tools.nvim" },
 }
 
 M.tools = {
     { "lewis6991/gitsigns.nvim" },
     { "folke/which-key.nvim" },
     { "CRAG666/code_runner.nvim" },
+    { "barrett-ruth/live-server.nvim", build = "npm install -g live-server", config = true },
+    { "willothy/moveline.nvim", build = "make" },
+    { "uga-rosa/translate.nvim" },
+    { "ellisonleao/carbon-now.nvim" },
+    { "jackMort/ChatGPT.nvim" },
+    { "AckslD/nvim-neoclip.lua" },
+    { "ziontee113/icon-picker.nvim" },
 }
 
 M.views = {
@@ -88,21 +95,19 @@ M.views = {
     { "stevearc/aerial.nvim" },
     { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
     { "folke/trouble.nvim" },
+    { "nvim-zh/colorful-winsep.nvim" },
+    { "folke/zen-mode.nvim", opts = {} },
+    -- { "Pocco81/true-zen.nvim" },
 }
 
 M.editor = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
+    { "chrisgrieser/nvim-various-textobjs" },
+    { "kylechui/nvim-surround", version = "*" },
     { "windwp/nvim-ts-autotag" },
     { "RRethy/vim-illuminate" },
-    {
-        "kevinhwang91/nvim-ufo",
-        dependencies = {
-            "kevinhwang91/promise-async",
-        },
-        event = { "VeryLazy" },
-    },
-    -- { "echasnovski/mini.comment", name = "miniComment" },
-    -- { "echasnovski/mini.pairs", name = "miniPairs" },
+    { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
     { "windwp/nvim-autopairs" },
     { "numToStr/Comment.nvim" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
@@ -113,22 +118,6 @@ M.editor = {
     --     event = { "UIEnter" },
     --     config = function()
     --         require("mini.indentscope").setup()
-    --     end,
-    -- },
-    -- {
-    --     "nvimdev/indentmini.nvim",
-    --     event = "BufEnter",
-    --     config = function()
-    --         require("indentmini").setup({
-    --             {
-    --                 char = "|",
-    --                 exclude = {
-    --                     "erlang",
-    --                     "markdown",
-    --                 },
-    --             },
-    --         })
-    --         vim.cmd.highlight("default link IndentLine Comment")
     --     end,
     -- },
     -- {

@@ -69,20 +69,6 @@ map.bulk_register({
         description = "search the word under cursor forward",
     },
     {
-        mode = { "n" },
-        lhs = "<C-n>",
-        rhs = "<cmd>cnext<cr>",
-        options = { noremap = true },
-        description = "next quickfix",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-p>",
-        rhs = "<cmd>cprev<cr>",
-        options = { noremap = true },
-        description = "previous quickfix",
-    },
-    {
         mode = { "i", "n" },
         lhs = "<esc>",
         rhs = "<cmd>noh<cr><esc>",
@@ -261,6 +247,20 @@ map.bulk_register({
         rhs = "<right>",
         options = {},
         description = "Move cursor right in insert mode",
+    },
+    {
+        mode = { "i" },
+        lhs = "<m-left>",
+        rhs = "<c-o>v<c-g>",
+        options = { silent = true },
+        description = "Select previous word in insert mode",
+    },
+    {
+        mode = { "s" },
+        lhs = "<m-left>",
+        rhs = "<c-g>h<c-g>",
+        options = { silent = true },
+        description = "Select previous word in insert mode",
     },
 })
 

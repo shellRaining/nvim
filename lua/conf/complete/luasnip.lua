@@ -30,6 +30,8 @@ end
 function M.after()
     -- M.luasnip.filetype_extend("javascript", { "typescript" })
     M.luasnip.filetype_extend("typescript", { "javascript" })
+    -- M.luasnip.filetype_extend("jest.typescript", { "typescript" })
+    -- M.luasnip.filetype_extend("jest.javascript", { "javascript" })
     -- M.luasnip.filetype_extend("vue", { "javascript", "typescript" })
 end
 
