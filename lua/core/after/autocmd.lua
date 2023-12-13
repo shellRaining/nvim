@@ -5,7 +5,12 @@ local api = vim.api
 if options.auto_save then
     api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
         pattern = { "*" },
-        command = "silent! wall",
+        callback = function()
+            if vim.bo.ft == "harpoon" then
+                return
+            end
+            vim.cmd("silent! wall")
+        end,
         nested = true,
     })
 end

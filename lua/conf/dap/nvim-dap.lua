@@ -26,7 +26,7 @@ function M.register_key()
             mode = { "n" },
             lhs = "<leader>db",
             rhs = function()
-                require("dap").toggle_breakpoint()
+                M.dap.toggle_breakpoint()
             end,
             options = { silent = true },
             description = "Mark or delete breakpoints",
@@ -35,7 +35,7 @@ function M.register_key()
             mode = { "n" },
             lhs = "<leader>dc",
             rhs = function()
-                require("dap").clear_breakpoints()
+                M.dap.clear_breakpoints()
             end,
             options = { silent = true },
             description = "Clear breakpoints in the current buffer",
@@ -44,7 +44,7 @@ function M.register_key()
             mode = { "n" },
             lhs = "<F5>",
             rhs = function()
-                require("dap").continue()
+                M.dap.continue()
             end,
             options = { silent = true },
             description = "Enable debugging or jump to the next breakpoint",
@@ -53,7 +53,7 @@ function M.register_key()
             mode = { "n" },
             lhs = "<F11>", -- <F11>
             rhs = function()
-                require("dap").step_into()
+                M.dap.step_into()
             end,
             options = { silent = true },
             description = "Step into",
@@ -62,7 +62,7 @@ function M.register_key()
             mode = { "n" },
             lhs = "<F10>", -- <F10>
             rhs = function()
-                require("dap").step_over()
+                M.dap.step_over()
             end,
             options = { silent = true },
             description = "Step over",
@@ -71,7 +71,7 @@ function M.register_key()
             mode = { "n" },
             lhs = "<F23>", -- <S-F11>
             rhs = function()
-                require("dap").step_out()
+                M.dap.step_out()
             end,
             options = { silent = true },
             description = "Step out",
@@ -80,7 +80,7 @@ function M.register_key()
             mode = { "n" },
             lhs = "<F17>",
             rhs = function()
-                require("dap").terminate()
+                M.dap.terminate()
             end,
             options = { silent = true },
             description = "Close debug",
@@ -89,7 +89,7 @@ function M.register_key()
             mode = { "n" },
             lhs = "<F6>",
             rhs = function()
-                require("dap").restart()
+                M.dap.restart()
             end,
             options = { silent = true },
             description = "restart debug",

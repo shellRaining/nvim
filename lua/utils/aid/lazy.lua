@@ -46,6 +46,7 @@ function M.load(plugins)
     local requires_moduls = {}
     local disabled_plugins = {
         plenary = true, -- because this is a nvim-lua lib
+        -- harpoon = true,
     }
 
     for plugin_kind_name, plugin_kind_tbl in pairs(plugins) do
@@ -58,13 +59,7 @@ function M.load(plugins)
             local ok, module = pcall(require, require_file_path)
 
             if ok then
-                plugin_opts.init = plugin_opts.init
-                    or function()
-                        if module.before then
-                            module.before()
-                        end
-                    end
-
+                plugin_opts.init = plugin_opts.init or module.before
                 plugin_opts.config = plugin_opts.config
                     or function()
                         api.require_all_package(module)
