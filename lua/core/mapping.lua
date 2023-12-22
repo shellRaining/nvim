@@ -22,6 +22,13 @@ map.bulk_register({
     },
     {
         mode = { "n", "v" },
+        lhs = "<c-0>",
+        rhs = "^",
+        options = { silent = true },
+        description = "Move to first non-blank character of line",
+    },
+    {
+        mode = { "n", "v" },
         lhs = "<c-d>",
         rhs = function()
             vim.cmd("normal! " .. math.ceil(vim.api.nvim_win_get_height(0) / 4) .. "j")
