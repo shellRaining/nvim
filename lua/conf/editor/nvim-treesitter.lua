@@ -21,6 +21,7 @@ function M.load()
         ensure_installed = {
             "bash",
             "c",
+            "css",
             "html",
             "javascript",
             "jsdoc",
