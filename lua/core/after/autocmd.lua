@@ -108,3 +108,12 @@ if options.auto_spell_check_text then
         end,
     })
 end
+
+if options.auto_reload_changed_file then
+    vim.api.nvim_create_autocmd({ "FocusGained", "CursorHold" }, {
+        pattern = { "*" },
+        callback = function()
+            vim.cmd("checktime")
+        end,
+    })
+end
