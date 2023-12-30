@@ -21,7 +21,8 @@ end
 function M.load()
     M.hlchunk.setup({
         chunk = {
-            enable = false,
+            enable = true,
+            use_treesitter = true,
             notify = false,
             chars = {
                 horizontal_line = "━",
@@ -62,7 +63,7 @@ function M.load()
                 -- "⁖",
                 -- "⁘",
                 -- "⁙",
-           },
+            },
             style = {
                 { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("cursorline")), "bg", "gui") },
                 { bg = "", fg = "" },
