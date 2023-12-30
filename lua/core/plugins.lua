@@ -31,7 +31,8 @@ M.lsp = {
         },
     },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
-    { "jose-elias-alvarez/null-ls.nvim" },
+    -- { "jose-elias-alvarez/null-ls.nvim" },
+    { "nvimtools/none-ls.nvim", name = "null-ls" },
     { "luckasRanarison/clear-action.nvim" },
     { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
     -- { "SmiteshP/nvim-navic", lazy = true },
@@ -85,6 +86,8 @@ M.tools = {
     { "jackMort/ChatGPT.nvim" },
     { "AckslD/nvim-neoclip.lua" },
     { "ziontee113/icon-picker.nvim" },
+    { "wakatime/vim-wakatime" },
+    { "chrishrb/gx.nvim" },
 }
 
 M.views = {

@@ -47,8 +47,8 @@ for prefix, tbl in pairs(M) do
 end
 
 local disable_builtin_plugins = {
-    -- "netrw",
-    -- "netrwPlugin",
+    "netrw",
+    "netrwPlugin",
     "netrwSettings",
     "netrwFileHandlers",
     "2html_plugin",
