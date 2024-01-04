@@ -24,8 +24,8 @@ vim.g.neovide_input_macos_alt_is_meta = 1
 -- cursor animation
 -- vim.g.neovide_cursor_animation_length = 0.13
 -- vim.g.neovide_cursor_trail_size = 0.8
+-- vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_cursor_vfx_mode = "ripple"
-vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
 vim.opt.guifont = { "JetBrainsMono NFM:h12" }
 -- vim.opt.guifont = { "JetBrainsMono Nerd Font Mono", ":h12" }

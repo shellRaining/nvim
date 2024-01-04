@@ -11,8 +11,8 @@ M.opt = {
     signcolumn = "yes:1",
     completeopt = "menuone,noselect",
     pumheight = 10,
-    updatetime = 500,
-    timeoutlen = 500,
+    updatetime = 300,
+    timeoutlen = 300,
     termguicolors = true,
     cursorline = true,
     numberwidth = 2,
@@ -47,8 +47,8 @@ for prefix, tbl in pairs(M) do
 end
 
 local disable_builtin_plugins = {
-    -- "netrw",
-    -- "netrwPlugin",
+    "netrw",
+    "netrwPlugin",
     "netrwSettings",
     "netrwFileHandlers",
     "2html_plugin",

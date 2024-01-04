@@ -5,7 +5,12 @@ local api = vim.api
 if options.auto_save then
     api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
         pattern = { "*" },
-        command = "silent! wall",
+        callback = function()
+            if vim.bo.ft == "harpoon" then
+                return
+            end
+            vim.cmd("silent! wall")
+        end,
         nested = true,
     })
 end
@@ -100,6 +105,15 @@ if options.auto_spell_check_text then
             vim.opt_local.spellfile = options.spell_config_directory .. "/en.utf-8.add"
             vim.opt_local.wrap = true
             vim.opt_local.spell = true
+        end,
+    })
+end
+
+if options.auto_reload_changed_file then
+    vim.api.nvim_create_autocmd({ "FocusGained", "CursorHold" }, {
+        pattern = { "*" },
+        callback = function()
+            vim.cmd("checktime")
         end,
     })
 end

@@ -14,7 +14,7 @@ end
 
 function M.load()
     M.nvim_tree.setup({
-        disable_netrw = false,
+        disable_netrw = true,
         hijack_netrw = false,
         hijack_cursor = true,
         update_cwd = true,

@@ -28,7 +28,7 @@ local M = {
         { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
         { "<leader>us", util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
         {
-            "<leader>fs",
+            "<leader>fS",
             util.telescope("lsp_document_symbols", {
                 symbols = {
                     "Class",
@@ -46,7 +46,7 @@ local M = {
             desc = "Goto Symbol",
         },
         {
-            "<leader>fS",
+            "<leader>fs",
             util.telescope("lsp_dynamic_workspace_symbols", {
                 symbols = {
                     "Class",
@@ -71,6 +71,7 @@ local M = {
 function M.load()
     M.telescope.setup({
         defaults = {
+            file_ignore_patterns = { "node_modules" },
             prompt_prefix = " ",
             selection_caret = " ",
             mappings = {

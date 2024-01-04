@@ -1,45 +1,69 @@
--- local map = require("utils.map")
+local map = require("utils.map")
 
 local M = {
-    requires = {
-        "harpoon",
-        "harpoon.ui",
-    },
+    requires = {},
 }
 
-function M.before()
-    -- M.register_key()
-end
-
 function M.load()
-    M.harpoon.setup({
-        settings = {
-            save_on_toggle = true,
+    local harpoon = require("harpoon")
+    harpoon:setup()
+
+    map.bulk_register({
+        {
+            mode = { "n" },
+            lhs = "<leader>ha",
+            rhs = function()
+                harpoon:list():append()
+            end,
+            options = { silent = true },
+            description = "append current file to harpoon",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>hh",
+            rhs = function()
+                harpoon.ui:toggle_quick_menu(harpoon:list())
+            end,
+            options = { silent = true },
+            description = "toggle harpoon menu",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>1",
+            rhs = function()
+                harpoon:list():select(1)
+            end,
+            options = { silent = true },
+            description = "select harpoon 1",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>2",
+            rhs = function()
+                harpoon:list():select(2)
+            end,
+            options = { silent = true },
+            description = "select harpoon 2",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>3",
+            rhs = function()
+                harpoon:list():select(3)
+            end,
+            options = { silent = true },
+            description = "select harpoon 3",
+        },
+        {
+            mode = { "n" },
+            lhs = "<leader>4",
+            rhs = function()
+                harpoon:list():select(4)
+            end,
+            options = { silent = true },
+            description = "select harpoon 4",
         },
     })
-    -- M.harpoon:setup()
-
-    vim.keymap.set("n", "<leader>ha", function()
-        M.harpoon:list():append()
-    end)
-    vim.keymap.set("n", "<leader>hh", function()
-        M.harpoon_ui:toggle_quick_menu(M.harpoon:list())
-    end)
-
-    vim.keymap.set("n", "<leader>hi", function()
-        M.harpoon:list():select(1)
-    end)
-    vim.keymap.set("n", "<leader>hj", function()
-        M.harpoon:list():select(2)
-    end)
-    vim.keymap.set("n", "<leader>hk", function()
-        M.harpoon:list():select(3)
-    end)
-    vim.keymap.set("n", "<leader>hl", function()
-        M.harpoon:list():select(4)
-    end)
 end
-
-function M.after() end
 
 return M

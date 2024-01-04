@@ -1,6 +1,6 @@
 {
   "blog head": {
-    "prefix": ["blog"],
+    "prefix": ["frontmatter"],
     "body": [
       "---",
       "title: $1",

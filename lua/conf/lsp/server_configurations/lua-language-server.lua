@@ -16,12 +16,17 @@ local root_files = {
     ".git",
 }
 
+local path = {
+    "/Users/shellraining/.config/nvim",
+    "/Users/shellraining/.local/share/nvim/store/neodev.nvim",
+    "/Users/shellraining/.local/share/nvim/store/hlchunk.nvim",
+}
+
 return {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
     single_file_support = true,
     root_dir = function(fname)
-        ---@diagnostic disable-next-line: deprecated
         return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
     end,
     log_level = 2,
@@ -31,21 +36,12 @@ return {
                 version = "LuaJIT",
                 path = runtime_path,
             },
-            hover = {
-                previewFields = vim.o.lines * 4,
-            },
             diagnostics = {
                 globals = { "vim" },
             },
             workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-            },
-            telemetry = {
-                enable = false,
-            },
-            completion = {
-                callSnippet = "Replace",
+                library = path,
+                checkThirdParty = true,
             },
         },
     },

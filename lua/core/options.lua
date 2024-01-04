@@ -13,6 +13,7 @@ local M = {
     auto_resize_window = true,
     auto_set_quit_map = true,
     auto_spell_check_text = true,
+    auto_reload_changed_file = true,
     -- directory settings
     storage_directory = api.path.join(vim.fn.stdpath("data"), "store"),
     mason_install_directory = api.path.join(vim.fn.stdpath("data"), "mason"),
