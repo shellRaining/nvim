@@ -41,6 +41,19 @@ function M.load()
             { name = "path" },
             { name = "buffer" },
         }),
+        sorting = {
+            priority_weight = 2,
+            comparators = {
+                M.cmp.config.compare.offset,
+                M.cmp.config.compare.exact,
+                M.cmp.config.compare.score,
+                M.cmp.config.compare.recently_used,
+                M.cmp.config.compare.locality,
+                M.cmp.config.compare.kind,
+                M.cmp.config.compare.length,
+                M.cmp.config.compare.order,
+            },
+        },
         mapping = {
             ["<c-p>"] = aid_nvim_cmp.select_prev_item(),
             ["<c-n>"] = aid_nvim_cmp.select_next_item(),
