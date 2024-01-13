@@ -6,14 +6,12 @@
       "title: $1",
       "tag:",
       "\t- $2",
-      "description: $3",
+      "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
       "---",
-      "",
-      "# {{ \\$frontmatter.title }}",
       "",
       "$0"
     ],
-    "description": "create code block"
+    "description": "add blog head"
   },
   "focus": {
     "prefix": ["focus"],

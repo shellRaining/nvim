@@ -83,7 +83,7 @@ M.tools = {
     { "willothy/moveline.nvim", build = "make" },
     { "uga-rosa/translate.nvim" },
     { "ellisonleao/carbon-now.nvim" },
-    { "jackMort/ChatGPT.nvim" },
+    -- { "jackMort/ChatGPT.nvim" },
     { "AckslD/nvim-neoclip.lua" },
     { "ziontee113/icon-picker.nvim" },
     { "wakatime/vim-wakatime" },
@@ -114,7 +114,7 @@ M.editor = {
     { "windwp/nvim-autopairs" },
     { "numToStr/Comment.nvim" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
-    { "shellRaining/hlchunk.nvim" },
+    { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
     -- {
     --     "echasnovski/mini.indentscope",
@@ -126,6 +126,7 @@ M.editor = {
     -- {
     --     "lukas-reineke/indent-blankline.nvim",
     --     event = { "UIEnter" },
+    --     dependencies = { { "nvim-lua/plenary.nvim" } }
     -- },
 }
 
