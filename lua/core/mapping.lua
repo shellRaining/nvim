@@ -331,7 +331,7 @@ map.bulk_register({
         end,
         options = { silent = true },
         description = "stop profile",
-    }
+    },
 })
 
 return M

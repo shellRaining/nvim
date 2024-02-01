@@ -19,6 +19,7 @@ M.basic = {
     { "nvim-lua/plenary.nvim", lazy = true },
     { "kkharji/sqlite.lua", module = "sqlite" },
     { "stevearc/dressing.nvim", opts = {} },
+    { "willothy/flatten.nvim", lazy = false, priority = 1001 },
 }
 
 M.lsp = {
@@ -31,7 +32,6 @@ M.lsp = {
         },
     },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
-    -- { "jose-elias-alvarez/null-ls.nvim" },
     { "nvimtools/none-ls.nvim", name = "null-ls" },
     { "luckasRanarison/clear-action.nvim" },
     { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
@@ -66,7 +66,6 @@ M.find = {
     { "folke/flash.nvim" },
     { "nvim-telescope/telescope.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     { "ahmedkhalf/project.nvim" },
-    { "ThePrimeagen/harpoon", branch = "harpoon2" },
 }
 
 M.language = {
@@ -83,11 +82,11 @@ M.tools = {
     { "willothy/moveline.nvim", build = "make" },
     { "uga-rosa/translate.nvim" },
     { "ellisonleao/carbon-now.nvim" },
-    -- { "jackMort/ChatGPT.nvim" },
     { "AckslD/nvim-neoclip.lua" },
     { "ziontee113/icon-picker.nvim" },
     { "wakatime/vim-wakatime" },
-    { "chrishrb/gx.nvim" },
+    { "chrishrb/gx.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
+    { "nmac427/guess-indent.nvim" },
 }
 
 M.views = {
@@ -97,10 +96,21 @@ M.views = {
     { "nvim-lualine/lualine.nvim" },
     { "stevearc/aerial.nvim" },
     { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
+    {
+        "kelly-lin/ranger.nvim",
+        config = function()
+            require("ranger-nvim").setup({ replace_netrw = true })
+            vim.api.nvim_set_keymap("n", "<leader>ef", "", {
+                noremap = true,
+                callback = function()
+                    require("ranger-nvim").open(true)
+                end,
+            })
+        end,
+    },
     { "folke/trouble.nvim" },
     { "nvim-zh/colorful-winsep.nvim" },
     { "folke/zen-mode.nvim", opts = {} },
-    -- { "Pocco81/true-zen.nvim" },
 }
 
 M.editor = {
@@ -116,13 +126,6 @@ M.editor = {
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
     { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
-    -- {
-    --     "echasnovski/mini.indentscope",
-    --     event = { "UIEnter" },
-    --     config = function()
-    --         require("mini.indentscope").setup()
-    --     end,
-    -- },
     -- {
     --     "lukas-reineke/indent-blankline.nvim",
     --     event = { "UIEnter" },
