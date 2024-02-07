@@ -60,6 +60,7 @@ function M.load()
             ["<c-u>"] = aid_nvim_cmp.select_prev_n_item(5),
             ["<c-d>"] = aid_nvim_cmp.select_next_n_item(5),
             ["<c-k>"] = aid_nvim_cmp.toggle_complete_menu(),
+            ["<bs>"] = aid_nvim_cmp.backspace(),
         },
         formatting = {
             -- sort menu
