@@ -52,13 +52,15 @@
       {
         "path": "./typescript.json",
         "language": [
-          "typescript"
+          "typescript",
+          "typescriptreact"
         ]
       },
       {
         "path": "./javascript.json",
         "language": [
-          "javascript"
+          "javascript",
+          "javascriptreact"
         ]
       },
       {
@@ -90,6 +92,18 @@
         "path": "./vue/vuehtml.json",
         "language": [
           "vue"
+        ]
+      },
+      {
+        "path": "./react/javascript_react.json",
+        "language": [
+          "javascriptreact"
+        ]
+      },
+      {
+        "path": "./react/typescript_react.json",
+        "language": [
+          "typescriptreact"
         ]
       }
     ]
