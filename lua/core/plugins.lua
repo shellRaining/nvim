@@ -55,6 +55,8 @@ M.complete = {
             { "hrsh7th/cmp-cmdline" },
             { "hrsh7th/cmp-nvim-lsp" },
             { "saadparwaiz1/cmp_luasnip" },
+            { "amarakon/nvim-cmp-fonts" },
+            { "crispgm/cmp-beancount" },
         },
     },
     { "L3MON4D3/LuaSnip" },
@@ -87,6 +89,7 @@ M.tools = {
     { "wakatime/vim-wakatime" },
     { "chrishrb/gx.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
     { "nmac427/guess-indent.nvim" },
+    { "smjonas/live-command.nvim" },
 }
 
 M.views = {
@@ -115,8 +118,8 @@ M.views = {
 
 M.editor = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
-    { "chrisgrieser/nvim-various-textobjs" },
+    -- { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
+    -- { "chrisgrieser/nvim-various-textobjs" },
     { "kylechui/nvim-surround", version = "*" },
     { "windwp/nvim-ts-autotag" },
     { "RRethy/vim-illuminate" },

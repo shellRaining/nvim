@@ -1,11 +1,3 @@
--- https://github.com/hrsh7th/nvim-cmp
--- https://github.com/hrsh7th/cmp-path
--- https://github.com/hrsh7th/cmp-buffer
--- https://github.com/hrsh7th/cmp-cmdline
--- https://github.com/hrsh7th/cmp-nvim-lsp
--- https://github.com/saadparwaiz1/cmp_luasnip
--- https://github.com/tzachar/cmp-tabnin
-
 local public = require("utils.public")
 local options = require("core.options")
 local aid_nvim_cmp = require("utils.aid.nvim-cmp")
@@ -17,6 +9,7 @@ local M = {
         "cmp.types",
         "luasnip",
         "copilot.suggestion",
+        "nvim-autopairs.completion.cmp",
     },
     event = { "InsertEnter", "CmdlineEnter" },
 }
@@ -40,6 +33,8 @@ function M.load()
             { name = "nvim_lsp" },
             { name = "path" },
             { name = "buffer" },
+            { name = "fonts" },
+            { name = "beancount", option = { account = "~/beancount/V2023/accounts.beancount" } },
         }),
         sorting = {
             priority_weight = 2,
@@ -87,12 +82,16 @@ function M.load()
                     col_offset = -4,
                     -- content offset
                     side_padding = 0,
+                    border = "single",
                 }),
                 documentation = M.cmp.config.window.bordered({
                     winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:Search",
+                    border = "single",
                 }),
             },
     })
+
+    M.cmp.event:on("confirm_done", M.nvim_autopairs_completion_cmp.on_confirm_done())
 end
 
 function M.after()
