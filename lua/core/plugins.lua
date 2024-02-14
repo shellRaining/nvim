@@ -26,11 +26,11 @@ M.lsp = {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { "folke/neodev.nvim", lazy = true },
             { "williamboman/mason-lspconfig.nvim" },
             { "hrsh7th/cmp-nvim-lsp" },
         },
     },
+    { "folke/neodev.nvim" },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "nvimtools/none-ls.nvim", name = "null-ls" },
     { "luckasRanarison/clear-action.nvim" },
@@ -41,9 +41,9 @@ M.lsp = {
 M.dap = {
     { "mfussenegger/nvim-dap" },
     { "jay-babu/mason-nvim-dap.nvim" },
-    { "theHamsta/nvim-dap-virtual-text" },
+    { "theHamsta/nvim-dap-virtual-text", opts = {} },
     { "rcarriga/nvim-dap-ui" },
-    { "mxsdev/nvim-dap-vscode-js" },
+    { "mxsdev/nvim-dap-vscode-js", ft = { "javascript", "typescript" } },
 }
 
 M.complete = {
@@ -55,12 +55,12 @@ M.complete = {
             { "hrsh7th/cmp-cmdline" },
             { "hrsh7th/cmp-nvim-lsp" },
             { "saadparwaiz1/cmp_luasnip" },
-            { "amarakon/nvim-cmp-fonts" },
-            { "crispgm/cmp-beancount" },
+            -- { "amarakon/nvim-cmp-fonts", ft = { "yaml", "json", "toml" } },
         },
     },
     { "L3MON4D3/LuaSnip" },
     { "zbirenbaum/copilot.lua" },
+    { "crispgm/cmp-beancount", ft = { "beancount" } },
 }
 
 M.find = {
@@ -71,16 +71,15 @@ M.find = {
 }
 
 M.language = {
-    { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" } },
-    { "b0o/schemastore.nvim" },
-    -- { "ray-x/web-tools.nvim" },
+    { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" }, cmd = "MarkdownPreview" },
+    { "b0o/schemastore.nvim", ft = { "json", "json5", "jsonc" } },
 }
 
 M.tools = {
     { "lewis6991/gitsigns.nvim" },
     { "folke/which-key.nvim" },
     { "CRAG666/code_runner.nvim" },
-    { "barrett-ruth/live-server.nvim", build = "npm install -g live-server", config = true },
+    { "barrett-ruth/live-server.nvim", build = "npm install -g live-server", config = true, cmd = "LiveServerStart" },
     { "willothy/moveline.nvim", build = "make" },
     { "uga-rosa/translate.nvim" },
     { "ellisonleao/carbon-now.nvim" },
@@ -99,27 +98,14 @@ M.views = {
     { "nvim-lualine/lualine.nvim" },
     { "stevearc/aerial.nvim" },
     { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
-    {
-        "kelly-lin/ranger.nvim",
-        config = function()
-            require("ranger-nvim").setup({ replace_netrw = true })
-            vim.api.nvim_set_keymap("n", "<leader>ef", "", {
-                noremap = true,
-                callback = function()
-                    require("ranger-nvim").open(true)
-                end,
-            })
-        end,
-    },
+    { "kelly-lin/ranger.nvim" },
     { "folke/trouble.nvim" },
     { "nvim-zh/colorful-winsep.nvim" },
-    { "folke/zen-mode.nvim", opts = {} },
+    { "folke/zen-mode.nvim", cmd = { "ZenMode" } },
 }
 
 M.editor = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    -- { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
-    -- { "chrisgrieser/nvim-various-textobjs" },
     { "kylechui/nvim-surround", version = "*" },
     { "windwp/nvim-ts-autotag" },
     { "RRethy/vim-illuminate" },

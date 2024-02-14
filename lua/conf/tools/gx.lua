@@ -5,6 +5,7 @@ local M = {
 }
 
 M.keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } }
+M.cmd = { "Browse" }
 
 function M.load()
     M.gx.setup({

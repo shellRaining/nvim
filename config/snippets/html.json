@@ -3,7 +3,7 @@
     "prefix": "html5",
     "body": [
       "<!DOCTYPE html>",
-      "<html lang=\"$1en\">",
+      "<html lang=\"en$1\">",
       "\t<head>",
       "\t\t<title>$2</title>",
       "\t\t<meta charset=\"UTF-8\">",

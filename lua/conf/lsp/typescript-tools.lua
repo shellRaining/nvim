@@ -2,6 +2,20 @@ local M = {
     requires = {
         "typescript-tools",
     },
+    ft = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "spec.typescript",
+        "spec.javascript",
+        "spec",
+        "jest.typescript",
+        "jest.javascript",
+        "jest",
+    },
 }
 
 function M.load()
@@ -10,20 +24,7 @@ function M.load()
             client.server_capabilities.documentFormattingProvider = false
         end,
 
-        filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-            "spec.typescript",
-            "spec.javascript",
-            "spec",
-            "jest.typescript",
-            "jest.javascript",
-            "jest",
-        },
+        filetypes = M.ft,
     })
 end
 

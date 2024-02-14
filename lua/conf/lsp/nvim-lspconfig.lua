@@ -6,7 +6,6 @@ local map = require("utils.map")
 
 local M = {
     requires = {
-        "neodev", -- neovim lua api complete enhance, must require
         "lspconfig",
         "mason-lspconfig",
         "telescope.builtin",

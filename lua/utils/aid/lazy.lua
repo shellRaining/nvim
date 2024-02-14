@@ -71,6 +71,7 @@ function M.load(plugins)
                 plugin_opts.keys = plugin_opts.keys or module.keys or nil
                 plugin_opts.cmd = plugin_opts.cmd or module.cmd or nil
                 plugin_opts.event = plugin_opts.event or module.event or nil
+                plugin_opts.ft = plugin_opts.ft or module.ft or nil
             end
             table.insert(requires_moduls, plugin_opts)
             ::continue::

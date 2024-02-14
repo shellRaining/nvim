@@ -23,7 +23,7 @@ function M.load()
         chunk = {
             enable = true,
             use_treesitter = true,
-            notify = false,
+            notify = true,
             chars = {
                 horizontal_line = "━",
                 vertical_line = "┃",
@@ -40,7 +40,7 @@ function M.load()
 
         indent = {
             enable = true,
-            use_treesitter = false,
+            -- use_treesitter = false,
             notify = true,
             chars = {
                 -- " ",
@@ -65,6 +65,8 @@ function M.load()
                 -- "⁙",
             },
             style = {
+                -- "#806d9c",
+
                 { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("cursorline")), "bg", "gui") },
                 { bg = "", fg = "" },
             },

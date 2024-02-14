@@ -7,10 +7,6 @@ local M = {
     },
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSUpdateSync" },
-    keys = {
-        { "<c-space>", desc = "Increment selection" },
-        { "<bs>", desc = "Decrement selection", mode = "x" },
-    },
 }
 
 function M.before() end
@@ -56,7 +52,7 @@ function M.load()
         },
         indent = {
             enable = true,
-            disable = { "yaml", "python", "html", "c", "cpp", "lua", "markdown" },
+            disable = { "yaml", "python", "html", "c", "cpp", "lua" },
         },
         -- incremental selection
         incremental_selection = {

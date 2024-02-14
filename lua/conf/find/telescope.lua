@@ -10,7 +10,7 @@ local M = {
     keys = {
         { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
         { "<leader>/", util.telescope("live_grep"), desc = "Grep (root dir)" },
-        { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+        { "<leader>;", "<cmd>Telescope command_history<cr>", desc = "Command History" },
         { "<leader><space>", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
         -- find
         { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
@@ -64,7 +64,6 @@ local M = {
             }),
             desc = "Goto Symbol (Workspace)",
         },
-        { "<leader>fy", "<cmd>Telescope neoclip<cr>", desc = "Yank History" },
         { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
     },
 }

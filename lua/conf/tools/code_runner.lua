@@ -2,7 +2,6 @@ local M = {
     requires = {
         "code_runner",
     },
-    event = { "VeryLazy" },
     keys = {
         {
             "<leader>tc",
@@ -39,7 +38,6 @@ local M = {
     },
 }
 
-local spark_path = "~/Documents/learnsth/spark-3.5.0-bin-hadoop3"
 function M.load()
     M.code_runner.setup({
         filetype = {
@@ -53,11 +51,6 @@ function M.load()
                 description = "guessing_name",
                 command = "cargo run",
             },
-            -- ["~/Documents/learnsth/spark-3.5.0-bin-hadoop3"] = {
-            --     name = "lab1",
-            --     description = "calculate Discrete Frechet Distance",
-            --     command = spark_path .. "/bin/spark-submit " .. spark_path .. "/test.py",
-            -- },
         },
     })
 end

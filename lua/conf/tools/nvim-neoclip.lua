@@ -3,6 +3,9 @@ local M = {
         "neoclip",
         "telescope",
     },
+    keys = {
+        { "<leader>fy", "<cmd>Telescope neoclip<cr>", desc = "Yank History" },
+    },
 }
 
 function M.load()

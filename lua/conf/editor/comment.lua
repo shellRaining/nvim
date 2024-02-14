@@ -3,11 +3,11 @@
 
 local M = {
     requires = { "Comment" },
-    event = "VeryLazy",
+
 }
 
 function M.load()
-    M.comment.setup({})
+    M.comment.setup()
 end
 
 return M

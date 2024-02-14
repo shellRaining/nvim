@@ -14,6 +14,10 @@ local cmd = function()
     end
 end
 
+M.cmd = {
+    "CarbonNow"
+}
+
 function M.load()
     M.carbon_now.setup({
         open_cmd = cmd(),

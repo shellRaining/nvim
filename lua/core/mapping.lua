@@ -207,6 +207,13 @@ map.bulk_register({
 -- insert mapping
 map.bulk_register({
     {
+        mode = { "i" },
+        lhs = "<c-enter>",
+        rhs = "<c-o>o",
+        options = { silent = true },
+        description = "Insert new line below",
+    },
+    {
         mode = { "i", "c", "t" },
         lhs = "<m-w>",
         rhs = "<c-right>",
