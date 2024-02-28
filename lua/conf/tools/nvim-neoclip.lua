@@ -5,6 +5,7 @@ local M = {
     },
     keys = {
         { "<leader>fy", "<cmd>Telescope neoclip<cr>", desc = "Yank History" },
+        { "<c-y>", "<cmd>Telescope neoclip<cr>", mode = "i", desc = "Yank History" },
     },
 }
 

@@ -84,7 +84,6 @@ M.tools = {
     { "uga-rosa/translate.nvim" },
     { "ellisonleao/carbon-now.nvim" },
     { "AckslD/nvim-neoclip.lua" },
-    { "ziontee113/icon-picker.nvim" },
     { "wakatime/vim-wakatime" },
     { "chrishrb/gx.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
     { "nmac427/guess-indent.nvim" },
