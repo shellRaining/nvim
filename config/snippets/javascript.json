@@ -73,6 +73,13 @@
     ],
     "description": "Import external module."
   },
+  "default import": {
+    "prefix": "import default",
+    "body": [
+      "import ${2:name} from \"${1:module}\";"
+    ],
+    "description": "default import"
+  },
   "Property getter": {
     "prefix": "get",
     "body": [

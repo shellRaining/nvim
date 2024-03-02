@@ -35,6 +35,7 @@ M.lsp = {
     { "nvimtools/none-ls.nvim", name = "null-ls" },
     { "luckasRanarison/clear-action.nvim" },
     { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
+    { "onsails/lspkind-nvim" },
     -- { "SmiteshP/nvim-navic", lazy = true },
 }
 
@@ -73,6 +74,7 @@ M.find = {
 M.language = {
     { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" }, cmd = "MarkdownPreview" },
     { "b0o/schemastore.nvim", ft = { "json", "json5", "jsonc" } },
+    { "hotoo/pangu.vim", ft = { "markdown" } },
 }
 
 M.tools = {
