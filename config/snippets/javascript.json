@@ -189,6 +189,15 @@
     ],
     "description": "Function Statement"
   },
+  "Arrow Function": {
+    "prefix": "arrow",
+    "body": [
+      "(${1:params}) => {",
+      "\t$0",
+      "};"
+    ],
+    "description": "Arrow Function"
+  },
   "If Statement": {
     "prefix": "if",
     "body": [
