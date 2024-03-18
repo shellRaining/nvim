@@ -146,7 +146,7 @@
     "body": [
       "${1:array}.forEach(${2:element} => {",
       "\t$0",
-      "});"
+      "})"
     ],
     "description": "For-Each Loop using =>"
   },
@@ -194,7 +194,7 @@
     "body": [
       "(${1:params}) => {",
       "\t$0",
-      "};"
+      "}"
     ],
     "description": "Arrow Function"
   },

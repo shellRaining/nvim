@@ -13,6 +13,11 @@
     ],
     "description": "add blog head"
   },
+  "code highlight": {
+    "prefix": ["highlight"],
+    "body": ["// [!code highlight]"],
+    "description": "create code block"
+  },
   "focus": {
     "prefix": ["focus"],
     "body": ["// [!code focus]"],

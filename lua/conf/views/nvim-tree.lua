@@ -112,15 +112,6 @@ function M.register_key()
         },
         {
             mode = { "n" },
-            lhs = "<leader>th",
-            rhs = function()
-                tree_api.tree.toggle_gitignore_filter()
-            end,
-            options = { silent = true },
-            description = "Toggle Hidden Files",
-        },
-        {
-            mode = { "n" },
             lhs = "?",
             rhs = function()
                 tree_api.tree.toggle_help()
