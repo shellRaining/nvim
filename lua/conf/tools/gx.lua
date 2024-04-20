@@ -4,6 +4,9 @@ local M = {
     },
 }
 
+M.keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } }
+M.cmd = { "Browse" }
+
 function M.load()
     M.gx.setup({
         open_browser_args = { "--background" }, -- specify any arguments, such as --background for macOS' "open".

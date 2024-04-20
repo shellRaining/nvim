@@ -19,31 +19,32 @@ M.basic = {
     { "nvim-lua/plenary.nvim", lazy = true },
     { "kkharji/sqlite.lua", module = "sqlite" },
     { "stevearc/dressing.nvim", opts = {} },
+    { "willothy/flatten.nvim", lazy = false, priority = 1001 },
 }
 
 M.lsp = {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { "folke/neodev.nvim", lazy = true },
             { "williamboman/mason-lspconfig.nvim" },
             { "hrsh7th/cmp-nvim-lsp" },
         },
     },
+    { "folke/neodev.nvim" },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
-    -- { "jose-elias-alvarez/null-ls.nvim" },
     { "nvimtools/none-ls.nvim", name = "null-ls" },
     { "luckasRanarison/clear-action.nvim" },
     { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
+    { "onsails/lspkind-nvim" },
     -- { "SmiteshP/nvim-navic", lazy = true },
 }
 
 M.dap = {
     { "mfussenegger/nvim-dap" },
     { "jay-babu/mason-nvim-dap.nvim" },
-    { "theHamsta/nvim-dap-virtual-text" },
+    { "theHamsta/nvim-dap-virtual-text", opts = {} },
     { "rcarriga/nvim-dap-ui" },
-    { "mxsdev/nvim-dap-vscode-js" },
+    { "mxsdev/nvim-dap-vscode-js", ft = { "javascript", "typescript" } },
 }
 
 M.complete = {
@@ -55,10 +56,12 @@ M.complete = {
             { "hrsh7th/cmp-cmdline" },
             { "hrsh7th/cmp-nvim-lsp" },
             { "saadparwaiz1/cmp_luasnip" },
+            -- { "amarakon/nvim-cmp-fonts", ft = { "yaml", "json", "toml" } },
         },
     },
     { "L3MON4D3/LuaSnip" },
     { "zbirenbaum/copilot.lua" },
+    { "crispgm/cmp-beancount", ft = { "beancount" } },
 }
 
 M.find = {
@@ -66,28 +69,27 @@ M.find = {
     { "folke/flash.nvim" },
     { "nvim-telescope/telescope.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     { "ahmedkhalf/project.nvim" },
-    { "ThePrimeagen/harpoon", branch = "harpoon2" },
 }
 
 M.language = {
-    { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" } },
-    { "b0o/schemastore.nvim" },
-    -- { "ray-x/web-tools.nvim" },
+    { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" }, cmd = "MarkdownPreview" },
+    { "b0o/schemastore.nvim", ft = { "json", "json5", "jsonc" } },
+    { "hotoo/pangu.vim", ft = { "markdown" } },
 }
 
 M.tools = {
     { "lewis6991/gitsigns.nvim" },
     { "folke/which-key.nvim" },
     { "CRAG666/code_runner.nvim" },
-    { "barrett-ruth/live-server.nvim", build = "npm install -g live-server", config = true },
+    { "barrett-ruth/live-server.nvim", build = "npm install -g live-server", config = true, cmd = "LiveServerStart" },
     { "willothy/moveline.nvim", build = "make" },
     { "uga-rosa/translate.nvim" },
     { "ellisonleao/carbon-now.nvim" },
-    -- { "jackMort/ChatGPT.nvim" },
     { "AckslD/nvim-neoclip.lua" },
-    { "ziontee113/icon-picker.nvim" },
     { "wakatime/vim-wakatime" },
-    { "chrishrb/gx.nvim" },
+    { "chrishrb/gx.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
+    { "nmac427/guess-indent.nvim" },
+    { "smjonas/live-command.nvim" },
 }
 
 M.views = {
@@ -96,17 +98,16 @@ M.views = {
     { "akinsho/bufferline.nvim", event = { "VeryLazy" } },
     { "nvim-lualine/lualine.nvim" },
     { "stevearc/aerial.nvim" },
-    { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
+    -- { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
+    { "nvim-tree/nvim-tree.lua" },
+    { "kelly-lin/ranger.nvim" },
     { "folke/trouble.nvim" },
     { "nvim-zh/colorful-winsep.nvim" },
-    { "folke/zen-mode.nvim", opts = {} },
-    -- { "Pocco81/true-zen.nvim" },
+    { "folke/zen-mode.nvim", cmd = { "ZenMode" } },
 }
 
 M.editor = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
-    { "chrisgrieser/nvim-various-textobjs" },
     { "kylechui/nvim-surround", version = "*" },
     { "windwp/nvim-ts-autotag" },
     { "RRethy/vim-illuminate" },
@@ -116,13 +117,6 @@ M.editor = {
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
     { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
-    -- {
-    --     "echasnovski/mini.indentscope",
-    --     event = { "UIEnter" },
-    --     config = function()
-    --         require("mini.indentscope").setup()
-    --     end,
-    -- },
     -- {
     --     "lukas-reineke/indent-blankline.nvim",
     --     event = { "UIEnter" },

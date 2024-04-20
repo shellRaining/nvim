@@ -2,6 +2,7 @@ local M = {
     requires = {
         "mason-nvim-dap",
     },
+    cmd = { "DapInstall", "DapUninstall" },
 }
 
 function M.load()

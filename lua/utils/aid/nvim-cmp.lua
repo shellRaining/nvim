@@ -81,4 +81,11 @@ function M.toggle_complete_menu()
     end, { "i", "s", "c" })
 end
 
+function M.backspace()
+    return M.cmp.mapping(function()
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Del>", true, true, true), "x")
+        vim.fn.feedkeys("i", "n")
+    end, { "s" })
+end
+
 return M

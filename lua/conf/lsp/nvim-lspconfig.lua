@@ -6,7 +6,6 @@ local map = require("utils.map")
 
 local M = {
     requires = {
-        "neodev", -- neovim lua api complete enhance, must require
         "lspconfig",
         "mason-lspconfig",
         "telescope.builtin",
@@ -27,7 +26,7 @@ function M.load()
         tsserver = true,
         jsonls = true,
         html = true,
-        volar = true,
+        -- volar = true,
         lua_ls = true,
         cssls = true,
     }
@@ -52,6 +51,7 @@ function M.load()
             if not_fmt_lang[server_name] then
                 client.server_capabilities.documentFormattingProvider = false
             end
+            client.server_capabilities.semanticTokensProvider = nil
             private_on_attach(client, bufnr)
         end
         -- NOTE: without this require, the jsonls schema will not work

@@ -2,6 +2,7 @@
 
 local M = {
     requires = { "neodev" },
+    ft = { "lua" },
 }
 
 function M.load()

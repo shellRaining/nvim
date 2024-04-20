@@ -5,13 +5,18 @@
       "---",
       "title: $1",
       "tag:",
-      "\t- $2",
+      "  - $2",
       "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
       "---",
       "",
       "$0"
     ],
     "description": "add blog head"
+  },
+  "code highlight": {
+    "prefix": ["highlight"],
+    "body": ["// [!code highlight]"],
+    "description": "create code block"
   },
   "focus": {
     "prefix": ["focus"],
@@ -66,8 +71,8 @@
   "img": {
     "prefix": ["img"],
     "body": [
-      "<img width='$1' src='~/Pictures/picBed/$2/$3'>",
-      "<img width='$1' src='https://raw.githubusercontent.com/shellRaining/img/main/$2/$3'>",
+      "<img src='~/Documents/picBed/$2'>",
+      "<img width='$3' src='https://raw.githubusercontent.com/shellRaining/img/main/$2'>",
       "$0"
     ],
     "description": "generate todo "

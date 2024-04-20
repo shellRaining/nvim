@@ -2,6 +2,21 @@ local M = {
     requires = {
         "typescript-tools",
     },
+    ft = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "spec.typescript",
+        "spec.javascript",
+        "spec",
+        "jest.typescript",
+        "jest.javascript",
+        "jest",
+        "vue",
+    },
 }
 
 function M.load()
@@ -9,21 +24,13 @@ function M.load()
         on_attach = function(client, _)
             client.server_capabilities.documentFormattingProvider = false
         end,
-
-        filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-            "spec.typescript",
-            "spec.javascript",
-            "spec",
-            "jest.typescript",
-            "jest.javascript",
-            "jest",
+        settings = {
+            tsserver_plugins = {
+                "@vue/typescript-plugin",
+            },
         },
+
+        filetypes = M.ft,
     })
 end
 

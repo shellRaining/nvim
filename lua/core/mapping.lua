@@ -207,6 +207,13 @@ map.bulk_register({
 -- insert mapping
 map.bulk_register({
     {
+        mode = { "i" },
+        lhs = "<c-enter>",
+        rhs = "<c-o>o",
+        options = { silent = true },
+        description = "Insert new line below",
+    },
+    {
         mode = { "i", "c", "t" },
         lhs = "<m-w>",
         rhs = "<c-right>",
@@ -271,38 +278,6 @@ map.bulk_register({
     },
 })
 
--- tab mapping
-map.bulk_register({
-    {
-        mode = { "n" },
-        lhs = "<C-t>n",
-        rhs = "<cmd>tabnext<cr>",
-        options = { noremap = true },
-        description = "next tab",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-t>p",
-        rhs = "<cmd>tabprev<cr>",
-        options = { noremap = true },
-        description = "previous tab",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-t>c",
-        rhs = "<cmd>tabnew<cr>",
-        options = { noremap = true },
-        description = "new tab",
-    },
-    {
-        mode = { "n" },
-        lhs = "<C-t>d",
-        rhs = "<cmd>tabclose<cr>",
-        options = { noremap = true },
-        description = "close tab",
-    },
-})
-
 -- special
 map.bulk_register({
     {
@@ -331,7 +306,7 @@ map.bulk_register({
         end,
         options = { silent = true },
         description = "stop profile",
-    }
+    },
 })
 
 return M

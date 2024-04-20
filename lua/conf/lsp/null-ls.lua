@@ -7,7 +7,6 @@ local M = {
     },
     formatting_filetype_extends = {
         shfmt = { "zsh" },
-        fixjson = { "json5" },
     },
     event = { "BufReadPre", "BufNewFile" },
 }
@@ -51,8 +50,6 @@ function M.load()
             -- }),
 
             -- linter
-            M.null_ls.builtins.diagnostics.luacheck,
-            M.null_ls.builtins.diagnostics.jsonlint,
             M.null_ls.builtins.diagnostics.markdownlint.with({
                 extra_args = { "--fix" },
             }),
@@ -82,11 +79,11 @@ function M.load()
                     "json",
                     "json5",
                     "jsonc",
+                    "wxss",
+                    "wxml",
                 },
             }),
             M.null_ls.builtins.formatting.google_java_format,
-            M.null_ls.builtins.formatting.xmlformat,
-            M.null_ls.builtins.formatting.rustfmt,
             M.null_ls.builtins.formatting.mdformat,
             M.null_ls.builtins.formatting.bean_format,
             -- M.null_ls.builtins.diagnostics.stylelint.with({

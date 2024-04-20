@@ -7,10 +7,6 @@ local M = {
     },
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSUpdateSync" },
-    keys = {
-        { "<c-space>", desc = "Increment selection" },
-        { "<bs>", desc = "Decrement selection", mode = "x" },
-    },
 }
 
 function M.before() end

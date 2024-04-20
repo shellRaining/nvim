@@ -5,5 +5,7 @@ ft.add({
     pattern = {
         [".*.spec.ts"] = "jest.typescript",
         [".*.spec.js"] = "jest.javascript",
+        [".*.wxml"] = "html",
+        [".*.wxss"] = "css",
     },
 })

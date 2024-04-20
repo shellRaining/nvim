@@ -7,9 +7,18 @@ local M = {
     adapter_configurations_dir_path = api.path.join("conf", "dap", "dap_configurations"),
 }
 
-function M.before()
-    M.register_key()
-end
+-- stylua: ignore
+M.keys = {
+    { "<leader>db", function() M.dap.toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+    { "<leader>dc", function() M.dap.clear_breakpoints() end, desc = "Clear Breakpoint" },
+    { "<F5>", function() M.dap.continue() end, desc = "Continue" },
+    { "<F11>", function() M.dap.step_into() end, desc = "Step Into" },
+    { "<F10>", function() M.dap.step_over() end, desc = "Step Over" },
+    { "<F23>", function() M.dap.step_out() end, desc = "Step Out" },
+    { "<F17>", function() M.dap.terminate() end, desc = "Terminate" },
+    { "<F6>", function() M.dap.restart() end, desc = "Restart" },
+    { "<leader>dC", function() M.dap.run_to_cursor() end, desc = "Run to Cursor" },
+}
 
 function M.load()
     local require_files_table = api.get_importable_subfiles(M.adapter_configurations_dir_path)
@@ -18,83 +27,6 @@ function M.load()
         M.dap.adapters = vim.tbl_deep_extend("force", M.dap.adapters, dap_config.adapters or {})
         M.dap.configurations = vim.tbl_deep_extend("force", M.dap.configurations, dap_config.configurations or {})
     end
-end
-
-function M.register_key()
-    api.map.bulk_register({
-        {
-            mode = { "n" },
-            lhs = "<leader>db",
-            rhs = function()
-                M.dap.toggle_breakpoint()
-            end,
-            options = { silent = true },
-            description = "Mark or delete breakpoints",
-        },
-        {
-            mode = { "n" },
-            lhs = "<leader>dc",
-            rhs = function()
-                M.dap.clear_breakpoints()
-            end,
-            options = { silent = true },
-            description = "Clear breakpoints in the current buffer",
-        },
-        {
-            mode = { "n" },
-            lhs = "<F5>",
-            rhs = function()
-                M.dap.continue()
-            end,
-            options = { silent = true },
-            description = "Enable debugging or jump to the next breakpoint",
-        },
-        {
-            mode = { "n" },
-            lhs = "<F11>", -- <F11>
-            rhs = function()
-                M.dap.step_into()
-            end,
-            options = { silent = true },
-            description = "Step into",
-        },
-        {
-            mode = { "n" },
-            lhs = "<F10>", -- <F10>
-            rhs = function()
-                M.dap.step_over()
-            end,
-            options = { silent = true },
-            description = "Step over",
-        },
-        {
-            mode = { "n" },
-            lhs = "<F23>", -- <S-F11>
-            rhs = function()
-                M.dap.step_out()
-            end,
-            options = { silent = true },
-            description = "Step out",
-        },
-        {
-            mode = { "n" },
-            lhs = "<F17>",
-            rhs = function()
-                M.dap.terminate()
-            end,
-            options = { silent = true },
-            description = "Close debug",
-        },
-        {
-            mode = { "n" },
-            lhs = "<F6>",
-            rhs = function()
-                M.dap.restart()
-            end,
-            options = { silent = true },
-            description = "restart debug",
-        },
-    })
 end
 
 return M

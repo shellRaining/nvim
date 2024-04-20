@@ -4,12 +4,13 @@ local M = {
     requires = {
         "telescope",
         "telescope.actions",
+        "trouble.providers.telescope",
     },
     cmd = "Telescope",
     keys = {
         { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
         { "<leader>/", util.telescope("live_grep"), desc = "Grep (root dir)" },
-        { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+        { "<leader>;", "<cmd>Telescope command_history<cr>", desc = "Command History" },
         { "<leader><space>", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
         -- find
         { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
@@ -63,7 +64,6 @@ local M = {
             }),
             desc = "Goto Symbol (Workspace)",
         },
-        { "<leader>fy", "<cmd>Telescope neoclip<cr>", desc = "Yank History" },
         { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
     },
 }
@@ -78,17 +78,11 @@ function M.load()
                 i = {
                     ["<C-j>"] = M.telescope_actions.cycle_history_next,
                     ["<C-k>"] = M.telescope_actions.cycle_history_prev,
-                    ["<c-t>"] = function(...)
-                        return require("trouble.providers.telescope").open_with_trouble(...)
-                    end,
-                    ["<a-t>"] = function(...)
-                        return require("trouble.providers.telescope").open_selected_with_trouble(...)
-                    end,
+                    ["<c-t>"] = M.trouble_providers_telescope.open_with_trouble,
                 },
                 n = {
-                    ["q"] = function(...)
-                        return require("telescope.actions").close(...)
-                    end,
+                    ["q"] = M.telescope_actions.close,
+                    ["<c-t>"] = M.trouble_providers_telescope.open_with_trouble,
                 },
             },
         },

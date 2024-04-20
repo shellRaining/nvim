@@ -34,6 +34,7 @@ function M.after()
         t = { name = "Terminal" },
         n = { name = "Noice" },
         x = { name = "trouble" },
+        h = { name = "profile" },
     }, { prefix = "<leader>", mode = "n" })
 
     -- comment

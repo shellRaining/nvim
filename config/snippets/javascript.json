@@ -73,6 +73,13 @@
     ],
     "description": "Import external module."
   },
+  "default import": {
+    "prefix": "import default",
+    "body": [
+      "import ${2:name} from \"${1:module}\";"
+    ],
+    "description": "default import"
+  },
   "Property getter": {
     "prefix": "get",
     "body": [
@@ -139,7 +146,7 @@
     "body": [
       "${1:array}.forEach(${2:element} => {",
       "\t$0",
-      "});"
+      "})"
     ],
     "description": "For-Each Loop using =>"
   },
@@ -181,6 +188,15 @@
       "}"
     ],
     "description": "Function Statement"
+  },
+  "Arrow Function": {
+    "prefix": "arrow",
+    "body": [
+      "(${1:params}) => {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Arrow Function"
   },
   "If Statement": {
     "prefix": "if",

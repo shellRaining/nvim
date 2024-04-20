@@ -31,6 +31,9 @@ function M.load()
                 throttle = 1000 / 30, -- frequency to update lsp progress message
                 view = "mini",
             },
+            hover = {
+                silent = true, -- set to true to not show a message if hover is not available
+            },
             override = {
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                 ["vim.lsp.util.stylize_markdown"] = true,
