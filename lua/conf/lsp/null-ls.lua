@@ -53,6 +53,7 @@ function M.load()
             M.null_ls.builtins.diagnostics.markdownlint.with({
                 extra_args = { "--fix" },
             }),
+            -- M.null_ls.builtins.diagnostics.vale,
             -- M.null_ls.builtins.diagnostics.textlint,
 
             -- formatters

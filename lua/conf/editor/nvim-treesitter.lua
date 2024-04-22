@@ -68,11 +68,6 @@ function M.load()
         autotag = {
             enable = true,
         },
-        -- nvim-ts-context-commentstring
-        context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-        },
         textobjects = {
             select = {
                 enable = true,
