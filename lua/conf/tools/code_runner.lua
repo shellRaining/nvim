@@ -1,33 +1,31 @@
+local running = false
+
+local function toggleRun(cmdName)
+    if running then
+        vim.cmd("RunClose")
+    else
+        vim.cmd(cmdName)
+    end
+    running = not running
+    vim.notify(running and "Running" or "Stopped")
+end
 local M = {
     requires = {
         "code_runner",
     },
     keys = {
         {
-            "<leader>tc",
-            function()
-                local current_buffer = vim.api.nvim_get_current_buf()
-                local windows = vim.api.nvim_list_wins()
-                for _, win in ipairs(windows) do
-                    vim.api.nvim_set_current_win(win)
-                    local buffer_type = vim.api.nvim_buf_get_option(0, "buftype")
-                    if buffer_type == "terminal" then
-                        vim.cmd("close")
-                    end
-                end
-                ---@diagnostic disable-next-line: param-type-mismatch
-                vim.api.nvim_set_current_win(vim.fn.win_getid(current_buffer))
-            end,
-            desc = "Close all terminal",
-        },
-        {
             "<leader>rf",
-            "<cmd>RunFile<CR>",
+            function()
+                toggleRun("RunFile")
+            end,
             desc = "Run the current project of file",
         },
         {
             "<leader>rc",
-            "<cmd>RunCode<CR>",
+            function()
+                toggleRun("RunCode")
+            end,
             desc = "Run the current project of file",
         },
         {

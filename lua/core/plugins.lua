@@ -34,18 +34,18 @@ M.lsp = {
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "nvimtools/none-ls.nvim", name = "null-ls" },
     { "luckasRanarison/clear-action.nvim" },
-    { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
+    -- { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
     { "onsails/lspkind-nvim" },
     -- { "SmiteshP/nvim-navic", lazy = true },
 }
 
-M.dap = {
-    { "mfussenegger/nvim-dap" },
-    { "jay-babu/mason-nvim-dap.nvim" },
-    { "theHamsta/nvim-dap-virtual-text", opts = {} },
-    { "rcarriga/nvim-dap-ui" },
-    { "mxsdev/nvim-dap-vscode-js", ft = { "javascript", "typescript" } },
-}
+-- M.dap = {
+--     { "mfussenegger/nvim-dap" },
+--     { "jay-babu/mason-nvim-dap.nvim" },
+--     { "theHamsta/nvim-dap-virtual-text", opts = {} },
+--     { "rcarriga/nvim-dap-ui" },
+--     { "mxsdev/nvim-dap-vscode-js", ft = { "javascript", "typescript" } },
+-- }
 
 M.complete = {
     {
@@ -102,7 +102,7 @@ M.views = {
     { "nvim-tree/nvim-tree.lua" },
     { "kelly-lin/ranger.nvim" },
     { "folke/trouble.nvim" },
-    { "nvim-zh/colorful-winsep.nvim" },
+    -- { "nvim-zh/colorful-winsep.nvim" },
     { "folke/zen-mode.nvim", cmd = { "ZenMode" } },
 }
 
@@ -114,6 +114,7 @@ M.editor = {
     { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
     { "windwp/nvim-autopairs" },
     { "numToStr/Comment.nvim" },
+    { "JoosepAlviste/nvim-ts-context-commentstring" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
     { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },

@@ -80,6 +80,13 @@
     ],
     "description": "default import"
   },
+  "require": {
+    "prefix": "require",
+    "body": [
+      "const ${2:name} = require(\"${1:module}\");"
+    ],
+    "description": "require"
+  },
   "Property getter": {
     "prefix": "get",
     "body": [

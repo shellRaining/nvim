@@ -19,14 +19,14 @@ function M.load()
 
     local mappings = M.mason_lspconfig.get_mappings()
     local ignore_lang = {
-        tsserver = true,
+        tsserver = false,
     }
     local not_fmt_lang = {
         clangd = true,
         tsserver = true,
         jsonls = true,
         html = true,
-        -- volar = true,
+        volar = true,
         lua_ls = true,
         cssls = true,
     }
