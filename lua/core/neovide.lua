@@ -13,23 +13,15 @@ vim.g.neovide_light_angle_degrees = 45
 vim.g.neovide_light_radius = 5
 
 -- full screen
--- vim.g.neovide_fullscreen = true
--- vim.g.neovide_profiler = false
-
-
-
-vim.g.neovide_input_use_logo = 1
-vim.g.neovide_input_macos_alt_is_meta = 1
+vim.g.neovide_show_border = false
 
 -- cursor animation
--- vim.g.neovide_cursor_animation_length = 0.13
--- vim.g.neovide_cursor_trail_size = 0.8
--- vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_cursor_vfx_mode = "ripple"
 
 vim.opt.guifont = { "JetBrainsMono NFM:h12" }
--- vim.opt.guifont = { "JetBrainsMono Nerd Font Mono", ":h12" }
 
+-- keymap
+vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
 vim.cmd("command -nargs=0 NeovideToggleFullscreen :let g:neovide_fullscreen = !g:neovide_fullscreen")
 local map = require("utils.api").map
 map.bulk_register({
