@@ -18,6 +18,7 @@ function M.load()
             markdown = true,
         },
     })
+    vim.cmd("Copilot disable")
 end
 
 function M.after()

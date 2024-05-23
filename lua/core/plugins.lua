@@ -1,5 +1,3 @@
--- https://github.com/folke/lazy.nvim
-
 local aid_lazy = require("utils.aid.lazy")
 
 local M = {}
@@ -37,6 +35,7 @@ M.lsp = {
     -- { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
     { "onsails/lspkind-nvim" },
     -- { "SmiteshP/nvim-navic", lazy = true },
+    -- { "nvimdev/lspsaga.nvim", ft = { "vue" } },
 }
 
 -- M.dap = {
