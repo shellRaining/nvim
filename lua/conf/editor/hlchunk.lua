@@ -3,7 +3,8 @@
 local M = {
     requires = {
         "hlchunk",
-        -- "hlchunk.mods.indent",
+        "hlchunk.mods.chunk",
+        "hlchunk.mods.indent",
     },
     event = { "BufReadPre", "BufNewFile" },
 }
@@ -19,38 +20,63 @@ local cb = function()
 end
 
 function M.load()
+    M.hlchunk_mods_chunk({
+        notify = true,
+        chars = {
+            left_arrow = "━",
+            horizontal_line = "━",
+            vertical_line = "┃",
+            left_top = "┏",
+            left_bottom = "┗",
+            right_arrow = "━",
+        },
+        textobject = "ic",
+        max_file_size = 10 * 1024 * 1024,
+        -- duration = 300,
+        delay = 300,
+    }):enable()
+    M.hlchunk_mods_indent({
+        notify = true,
+        chars = {
+            -- " ",
+            -- "│",
+            -- "¦",
+            "┆",
+            -- "┊",
+        },
+    }):enable()
     M.hlchunk.setup({
-        chunk = {
-            enable = true,
-            use_treesitter = true,
-            notify = true,
-            chars = {
-                horizontal_line = "━",
-                vertical_line = "┃",
-                left_top = "┏",
-                left_bottom = "┗",
-                right_arrow = "━",
-            },
-            style = {
-                { fg = cb },
-                { fg = "#f35336" },
-            },
-            textobject = "ic",
-        },
-
-        indent = {
-            enable = true,
-            -- use_treesitter = false,
-            notify = true,
-            chars = {
-                -- " ",
-                -- "│",
-                -- "¦",
-                "┆",
-                -- "┊",
-            },
-        },
-
+        -- chunk = {
+        --     enable = true,
+        --     use_treesitter = true,
+        --     notify = true,
+        --     chars = {
+        --         horizontal_line = "━",
+        --         vertical_line = "┃",
+        --         left_top = "┏",
+        --         left_bottom = "┗",
+        --         right_arrow = "━",
+        --     },
+        --     style = {
+        --         { fg = cb },
+        --         { fg = "#f35336" },
+        --     },
+        --     textobject = "ic",
+        -- },
+        --
+        -- indent = {
+        --     enable = true,
+        --     -- use_treesitter = false,
+        --     notify = true,
+        --     chars = {
+        --         -- " ",
+        --         -- "│",
+        --         -- "¦",
+        --         "┆",
+        --         -- "┊",
+        --     },
+        -- },
+        --
         line_num = {
             enable = false,
         },
@@ -64,21 +90,18 @@ function M.load()
                 -- "⁘",
                 -- "⁙",
             },
-            style = {
-                -- "#806d9c",
-
-                { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("cursorline")), "bg", "gui") },
-                { bg = "", fg = "" },
-            },
             -- style = {
-            --     "#FF0000",
-            --     "#FF7F00",
-            --     "#FFFF00",
-            --     "#00FF00",
-            --     "#00FFFF",
-            --     "#0000FF",
-            --     "#8B00FF",
+            --     -- "#806d9c",
+            --
+            --     { bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("cursorline")), "bg", "gui") },
+            --     { bg = "", fg = "" },
             -- },
+            style = {
+                { bg = "#434437" },
+                { bg = "#2f4440" },
+                { bg = "#433054" },
+                { bg = "#284251" },
+            },
         },
         -- context = {
         --     enable = false,

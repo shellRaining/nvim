@@ -115,13 +115,17 @@ M.editor = {
     { "numToStr/Comment.nvim" },
     { "JoosepAlviste/nvim-ts-context-commentstring" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
-    { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
-    { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
+    -- { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
+    -- { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     -- {
     --     "lukas-reineke/indent-blankline.nvim",
     --     event = { "UIEnter" },
-    --     dependencies = { { "nvim-lua/plenary.nvim" } }
+    --     dependencies = {
+    --         "TheGLander/indent-rainbowline.nvim",
+    --     },
     -- },
+    -- { "echasnovski/mini.indentscope", version = "*" },
+    { "nvimdev/indentmini.nvim" },
 }
 
 aid_lazy.entry(M)

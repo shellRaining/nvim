@@ -1,14 +1,3 @@
-local running = false
-
-local function toggleRun(cmdName)
-    if running then
-        vim.cmd("RunClose")
-    else
-        vim.cmd(cmdName)
-    end
-    running = not running
-    vim.notify(running and "Running" or "Stopped")
-end
 local M = {
     requires = {
         "code_runner",
@@ -17,14 +6,14 @@ local M = {
         {
             "<leader>rf",
             function()
-                toggleRun("RunFile")
+                vim.cmd('RunFile')
             end,
             desc = "Run the current project of file",
         },
         {
             "<leader>rc",
             function()
-                toggleRun("RunCode")
+                vim.cmd('RunCode')
             end,
             desc = "Run the current project of file",
         },
@@ -38,6 +27,7 @@ local M = {
 
 function M.load()
     M.code_runner.setup({
+        hot_reload = false,
         filetype = {
             typescript = "deno run",
             python = "python3",
