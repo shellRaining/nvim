@@ -103,6 +103,7 @@ M.views = {
     { "folke/trouble.nvim" },
     -- { "nvim-zh/colorful-winsep.nvim" },
     { "folke/zen-mode.nvim", cmd = { "ZenMode" } },
+    { "vague2k/huez.nvim", import = "huez-manager.import" },
 }
 
 M.editor = {
@@ -116,7 +117,8 @@ M.editor = {
     { "JoosepAlviste/nvim-ts-context-commentstring" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
     -- { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
-    -- { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
+    -- { "Mr-LLLLL/cool-chunk.nvim" },
+    { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     -- {
     --     "lukas-reineke/indent-blankline.nvim",
     --     event = { "UIEnter" },
@@ -125,7 +127,7 @@ M.editor = {
     --     },
     -- },
     -- { "echasnovski/mini.indentscope", version = "*" },
-    { "nvimdev/indentmini.nvim" },
+    -- { "nvimdev/indentmini.nvim" },
 }
 
 aid_lazy.entry(M)
