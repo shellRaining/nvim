@@ -10,7 +10,7 @@ local M = {
         "mason-lspconfig",
         "telescope.builtin",
         "cmp_nvim_lsp",
-        "neodev",
+        "lazydev",
     },
     server_config_path = join("conf", "lsp", "server_configurations"),
 }
@@ -18,7 +18,7 @@ local M = {
 function M.load()
     require("lspconfig.ui.windows").default_options.border = options.float_border and "double" or "none"
     -- neodev should init before luals
-    M.neodev.setup({})
+    M.lazydev.setup({})
 
     local mappings = M.mason_lspconfig.get_mappings()
     local ignore_lang = {
