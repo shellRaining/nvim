@@ -105,7 +105,6 @@ M.views = {
     { "folke/trouble.nvim" },
     -- { "nvim-zh/colorful-winsep.nvim" },
     { "folke/zen-mode.nvim", cmd = { "ZenMode" } },
-    { "vague2k/huez.nvim", import = "huez-manager.import" },
 }
 
 M.editor = {
