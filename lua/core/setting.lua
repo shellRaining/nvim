@@ -17,7 +17,6 @@ M.opt = {
     cursorline = true,
     numberwidth = 2,
     number = true,
-    relativenumber = true,
     scrolloff = 21,
     mouse = "a",
     list = true,

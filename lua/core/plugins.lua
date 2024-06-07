@@ -89,6 +89,7 @@ M.tools = {
     { "chrishrb/gx.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
     { "nmac427/guess-indent.nvim" },
     { "smjonas/live-command.nvim" },
+    { "stevearc/profile.nvim" },
 }
 
 M.views = {
@@ -116,7 +117,8 @@ M.editor = {
     { "JoosepAlviste/nvim-ts-context-commentstring" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
     -- { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
-    -- { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
+    { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
+    -- { "Mr-LLLLL/cool-chunk.nvim" },
     -- {
     --     "lukas-reineke/indent-blankline.nvim",
     --     event = { "UIEnter" },
@@ -125,7 +127,7 @@ M.editor = {
     --     },
     -- },
     -- { "echasnovski/mini.indentscope", version = "*" },
-    { "nvimdev/indentmini.nvim" },
+    -- { "nvimdev/indentmini.nvim" },
 }
 
 aid_lazy.entry(M)
