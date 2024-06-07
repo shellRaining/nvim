@@ -28,7 +28,8 @@ M.lsp = {
             { "hrsh7th/cmp-nvim-lsp" },
         },
     },
-    { "folke/neodev.nvim" },
+    { "folke/lazydev.nvim", ft = "lua" },
+    { "Bilal2453/luvit-meta", lazy = true },
     { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "nvimtools/none-ls.nvim", name = "null-ls" },
     { "luckasRanarison/clear-action.nvim" },
@@ -104,6 +105,7 @@ M.views = {
     { "folke/trouble.nvim" },
     -- { "nvim-zh/colorful-winsep.nvim" },
     { "folke/zen-mode.nvim", cmd = { "ZenMode" } },
+    { "vague2k/huez.nvim", import = "huez-manager.import" },
 }
 
 M.editor = {

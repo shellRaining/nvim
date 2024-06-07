@@ -4,7 +4,7 @@ local M = {
     requires = {
         "telescope",
         "telescope.actions",
-        "trouble.providers.telescope",
+        "trouble.sources.telescope",
     },
     cmd = "Telescope",
     keys = {
@@ -78,11 +78,11 @@ function M.load()
                 i = {
                     ["<C-j>"] = M.telescope_actions.cycle_history_next,
                     ["<C-k>"] = M.telescope_actions.cycle_history_prev,
-                    ["<c-t>"] = M.trouble_providers_telescope.open_with_trouble,
+                    ["<c-t>"] = M.trouble_sources_telescope.open,
                 },
                 n = {
                     ["q"] = M.telescope_actions.close,
-                    ["<c-t>"] = M.trouble_providers_telescope.open_with_trouble,
+                    ["<c-t>"] = M.trouble_sources_telescope.open,
                 },
             },
         },

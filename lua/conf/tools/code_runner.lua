@@ -18,6 +18,13 @@ local M = {
             desc = "Run the current project of file",
         },
         {
+            "<F5>",
+            function()
+                vim.cmd('RunCode')
+            end,
+            desc = "Run the current project of file",
+        },
+        {
             "<leader>rp",
             "<cmd>RunProject<CR>",
             desc = "Run the project",

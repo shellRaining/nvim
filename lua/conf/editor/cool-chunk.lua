@@ -1,7 +1,6 @@
 local M = {
     requires = {
         "cool-chunk",
-        -- "hlchunk.mods.indent",
     },
     event = { "BufReadPre", "BufNewFile" },
 }
