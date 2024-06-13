@@ -183,3 +183,4 @@ DisableHLBlank
 EnableHLBlank
 neovim
 textobject
+utils
