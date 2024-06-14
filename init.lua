@@ -19,14 +19,18 @@ end
 
 local function toggle_profile()
     local prof = require("profile")
+    local home = vim.fn.expand("~/Desktop")
     if prof.is_recording() then
         prof.stop()
-        vim.ui.input({ prompt = "Save profile to:", completion = "file", default = "/home/shellraining/Desktop/profile.json" }, function(filename)
-            if filename then
-                prof.export(filename)
-                vim.notify(string.format("Wrote %s", filename))
+        vim.ui.input(
+            { prompt = "Save profile to:", completion = "file", default = home .. "/profile.json" },
+            function(filename)
+                if filename then
+                    prof.export(filename)
+                    vim.notify(string.format("Wrote %s", filename))
+                end
             end
-        end)
+        )
     else
         prof.start("*")
     end
