@@ -117,3 +117,28 @@ if options.auto_reload_changed_file then
         end,
     })
 end
+
+if options.auto_switch_relative_number then
+    vim.api.nvim_create_autocmd({
+        "InsertEnter",
+        "InsertLeave",
+        "BufEnter",
+        "BufLeave",
+        "WinEnter",
+        "WinLeave",
+        "CmdlineEnter",
+        "CmdlineLeave",
+        "VimEnter",
+        "VimLeave",
+        "ModeChanged",
+    }, {
+        callback = function()
+            local mode = vim.api.nvim_get_mode().mode
+            if mode == "i" or mode == "ic" then
+                vim.opt_local.relativenumber = false
+            else
+                vim.opt_local.relativenumber = true
+            end
+        end,
+    })
+end

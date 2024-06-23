@@ -69,6 +69,7 @@ M.find = {
     { "folke/flash.nvim" },
     { "nvim-telescope/telescope.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     { "ahmedkhalf/project.nvim" },
+    -- { "kevinhwang91/nvim-hlslens" },
 }
 
 M.language = {
@@ -99,8 +100,8 @@ M.views = {
     { "akinsho/bufferline.nvim", event = { "VeryLazy" } },
     { "nvim-lualine/lualine.nvim" },
     { "stevearc/aerial.nvim" },
-    -- { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
-    { "nvim-tree/nvim-tree.lua" },
+    { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
+    -- { "nvim-tree/nvim-tree.lua" },
     { "kelly-lin/ranger.nvim" },
     { "folke/trouble.nvim" },
     -- { "nvim-zh/colorful-winsep.nvim" },
@@ -114,11 +115,10 @@ M.editor = {
     { "RRethy/vim-illuminate" },
     { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
     { "windwp/nvim-autopairs" },
-    -- { "numToStr/Comment.nvim" },
-    { "folke/ts-comments.nvim" },
+    { "numToStr/Comment.nvim" },
     { "JoosepAlviste/nvim-ts-context-commentstring" },
+    -- { "folke/ts-comments.nvim" },
     { "echasnovski/mini.bufremove", name = "miniBufremove" },
-    -- { "shellRaining/nvim_md_HFfont", ft = { "markdown" } },
     { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
     -- { "Mr-LLLLL/cool-chunk.nvim" },
     -- {
@@ -130,6 +130,15 @@ M.editor = {
     -- },
     -- { "echasnovski/mini.indentscope", version = "*" },
     -- { "nvimdev/indentmini.nvim" },
+    -- {
+    --     "gh-liu/fold_line.nvim",
+    --     event = "VeryLazy",
+    --     init = function()
+    --         -- change the char of the line, see the `Appearance` section
+    --         vim.g.fold_line_char_open_start = "╭"
+    --         vim.g.fold_line_char_open_end = "╰"
+    --     end,
+    -- },
 }
 
 aid_lazy.entry(M)

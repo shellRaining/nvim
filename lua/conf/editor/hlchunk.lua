@@ -3,8 +3,6 @@
 local M = {
     requires = {
         "hlchunk",
-        "hlchunk.mods.chunk",
-        "hlchunk.mods.indent",
     },
     event = { "BufReadPre", "BufNewFile" },
 }
@@ -20,71 +18,56 @@ local cb = function()
 end
 
 function M.load()
-    M.hlchunk_mods_chunk({
-        notify = true,
-        chars = {
-            left_arrow = "━",
-            horizontal_line = "━",
-            vertical_line = "┃",
-            left_top = "┏",
-            left_bottom = "┗",
-            right_arrow = "━",
-        },
-        textobject = "ic",
-        max_file_size = 10 * 1024 * 1024,
-        -- duration = 300,
-        delay = 300,
-    }):enable()
-    M.hlchunk_mods_indent({
-        notify = true,
-        chars = {
-            -- " ",
-            -- "│",
-            -- "¦",
-            "┆",
-            -- "┊",
-        },
-    }):enable()
     M.hlchunk.setup({
-        -- chunk = {
-        --     enable = true,
-        --     use_treesitter = true,
-        --     notify = true,
-        --     chars = {
-        --         horizontal_line = "━",
-        --         vertical_line = "┃",
-        --         left_top = "┏",
-        --         left_bottom = "┗",
-        --         right_arrow = "━",
-        --     },
-        --     style = {
-        --         { fg = cb },
-        --         { fg = "#f35336" },
-        --     },
-        --     textobject = "ic",
-        -- },
-        --
-        -- indent = {
-        --     enable = true,
-        --     -- use_treesitter = false,
-        --     notify = true,
-        --     chars = {
-        --         -- " ",
-        --         -- "│",
-        --         -- "¦",
-        --         "┆",
-        --         -- "┊",
-        --     },
-        -- },
-        --
+        chunk = {
+            enable = true,
+            use_treesitter = true,
+            notify = true,
+            chars = {
+                left_arrow = "━",
+                horizontal_line = "━",
+                vertical_line = "┃",
+                -- vertical_line = "│",
+                left_top = "┏",
+                left_bottom = "┗",
+                right_arrow = "━",
+            },
+            style = {
+                { fg = cb },
+                { fg = "#f35336" },
+            },
+            textobject = "ic",
+            delay = 100,
+        },
+
+        indent = {
+            enable = true,
+            -- use_treesitter = false,
+            notify = true,
+            chars = {
+                -- " ",
+                -- "│",
+                -- "¦",
+                "┆",
+                -- "┊",
+            },
+            delay = 50,
+            filter_list = {
+                function(v)
+                    return v.level ~= 1
+                end,
+            },
+        },
+
         line_num = {
             enable = false,
         },
+
         blank = {
             enable = false,
             chars = {
                 " ",
-                -- "․",
+                "․",
                 -- "⁚",
                 -- "⁖",
                 -- "⁘",
@@ -103,9 +86,6 @@ function M.load()
                 { bg = "#284251" },
             },
         },
-        -- context = {
-        --     enable = false,
-        -- },
     })
 end
 
