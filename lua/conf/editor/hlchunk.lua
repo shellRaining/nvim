@@ -37,7 +37,8 @@ function M.load()
                 { fg = "#f35336" },
             },
             textobject = "ic",
-            delay = 100,
+            duration = 0,
+            delay = 0,
         },
 
         indent = {

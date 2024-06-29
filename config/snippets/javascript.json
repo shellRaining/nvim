@@ -1,4 +1,9 @@
 {
+  "const": {
+    "prefix": ["const"],
+    "body": ["const ${1:name} = ${2:value};"],
+    "description": "const statement"
+  },
   "iife": {
     "prefix": [
       "iife"

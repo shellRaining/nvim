@@ -21,13 +21,13 @@ function M.load()
     M.aerial.setup({
         icons = icons,
         show_guides = true,
-        backends = { "markdown", "lsp", "treesitter" },
+        backends = { "lsp", "markdown", "treesitter" },
         update_events = "TextChanged,InsertLeave",
         on_attach = function()
             M.register_key()
         end,
         layout = {
-            min_width = 30,
+            min_width = { 40, 0.2 },
             max_width = { 40, 0.2 },
         },
         lsp = {
