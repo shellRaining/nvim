@@ -184,3 +184,4 @@ EnableHLBlank
 neovim
 textobject
 utils
+ClientOnly

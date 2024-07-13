@@ -4,72 +4,38 @@ local M = {}
 
 M.theme = {
     { "folke/tokyonight.nvim" },
-    -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    -- { "oxfist/night-owl.nvim", },
 }
 
 M.basic = {
-    { "folke/noice.nvim" },
     { "williamboman/mason.nvim" },
-    { "rcarriga/nvim-notify" },
-    { "nvim-tree/nvim-web-devicons", lazy = true },
-    { "MunifTanjim/nui.nvim", lazy = true },
-    { "nvim-lua/plenary.nvim", lazy = true },
-    { "kkharji/sqlite.lua", module = "sqlite" },
-    { "stevearc/dressing.nvim", opts = {} },
-    { "willothy/flatten.nvim", lazy = false, priority = 1001 },
+    { "nvim-tree/nvim-web-devicons" },
+    { "nvim-lua/plenary.nvim" },
 }
 
 M.lsp = {
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            { "williamboman/mason-lspconfig.nvim" },
-            { "hrsh7th/cmp-nvim-lsp" },
-        },
-    },
+    { "neovim/nvim-lspconfig" },
+    { "williamboman/mason-lspconfig.nvim" },
     { "folke/lazydev.nvim", ft = "lua" },
     { "Bilal2453/luvit-meta", lazy = true },
-    { "simrat39/rust-tools.nvim", ft = { "rust" }, lazy = true },
     { "nvimtools/none-ls.nvim", name = "null-ls" },
-    { "luckasRanarison/clear-action.nvim" },
-    -- { "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
-    { "onsails/lspkind-nvim" },
-    -- { "SmiteshP/nvim-navic", lazy = true },
-    -- { "nvimdev/lspsaga.nvim", ft = { "vue" } },
 }
 
--- M.dap = {
---     { "mfussenegger/nvim-dap" },
---     { "jay-babu/mason-nvim-dap.nvim" },
---     { "theHamsta/nvim-dap-virtual-text", opts = {} },
---     { "rcarriga/nvim-dap-ui" },
---     { "mxsdev/nvim-dap-vscode-js", ft = { "javascript", "typescript" } },
--- }
-
 M.complete = {
-    {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            { "hrsh7th/cmp-path" },
-            { "hrsh7th/cmp-buffer" },
-            { "hrsh7th/cmp-cmdline" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "saadparwaiz1/cmp_luasnip" },
-            -- { "amarakon/nvim-cmp-fonts", ft = { "yaml", "json", "toml" } },
-        },
-    },
+    { "hrsh7th/nvim-cmp" },
+    { "hrsh7th/cmp-path" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-cmdline" },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "saadparwaiz1/cmp_luasnip" },
     { "L3MON4D3/LuaSnip" },
     { "zbirenbaum/copilot.lua" },
     { "crispgm/cmp-beancount", ft = { "beancount" } },
 }
 
 M.find = {
+    { "ibhagwan/fzf-lua" },
     { "folke/todo-comments.nvim" },
     { "folke/flash.nvim" },
-    { "nvim-telescope/telescope.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
-    { "ahmedkhalf/project.nvim" },
-    -- { "kevinhwang91/nvim-hlslens" },
 }
 
 M.language = {
@@ -79,66 +45,29 @@ M.language = {
 }
 
 M.tools = {
-    { "lewis6991/gitsigns.nvim" },
-    { "folke/which-key.nvim" },
     { "CRAG666/code_runner.nvim" },
     { "barrett-ruth/live-server.nvim", build = "npm install -g live-server", config = true, cmd = "LiveServerStart" },
     { "willothy/moveline.nvim", build = "make" },
-    { "uga-rosa/translate.nvim" },
-    { "ellisonleao/carbon-now.nvim" },
-    { "AckslD/nvim-neoclip.lua" },
     { "wakatime/vim-wakatime" },
     { "chrishrb/gx.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
     { "nmac427/guess-indent.nvim" },
-    { "smjonas/live-command.nvim" },
     { "stevearc/profile.nvim" },
 }
 
 M.views = {
-    { "nvimdev/dashboard-nvim" },
     { "akinsho/toggleterm.nvim" },
-    { "akinsho/bufferline.nvim", event = { "VeryLazy" } },
-    { "nvim-lualine/lualine.nvim" },
     { "stevearc/aerial.nvim" },
-    { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x" },
-    -- { "nvim-tree/nvim-tree.lua" },
-    { "kelly-lin/ranger.nvim" },
     { "folke/trouble.nvim" },
-    -- { "nvim-zh/colorful-winsep.nvim" },
-    { "folke/zen-mode.nvim", cmd = { "ZenMode" } },
 }
 
 M.editor = {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     { "kylechui/nvim-surround", version = "*" },
     { "windwp/nvim-ts-autotag" },
-    { "RRethy/vim-illuminate" },
-    { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
     { "windwp/nvim-autopairs" },
     { "numToStr/Comment.nvim" },
     { "JoosepAlviste/nvim-ts-context-commentstring" },
-    -- { "folke/ts-comments.nvim" },
-    { "echasnovski/mini.bufremove", name = "miniBufremove" },
     { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
-    -- { "Mr-LLLLL/cool-chunk.nvim" },
-    -- {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     event = { "UIEnter" },
-    --     dependencies = {
-    --         "TheGLander/indent-rainbowline.nvim",
-    --     },
-    -- },
-    -- { "echasnovski/mini.indentscope", version = "*" },
-    -- { "nvimdev/indentmini.nvim" },
-    -- {
-    --     "gh-liu/fold_line.nvim",
-    --     event = "VeryLazy",
-    --     init = function()
-    --         -- change the char of the line, see the `Appearance` section
-    --         vim.g.fold_line_char_open_start = "╭"
-    --         vim.g.fold_line_char_open_end = "╰"
-    --     end,
-    -- },
 }
 
 aid_lazy.entry(M)

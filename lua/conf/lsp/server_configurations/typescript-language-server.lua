@@ -2,6 +2,13 @@
 local mason_registry = require("mason-registry")
 local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
     .. "/node_modules/@vue/language-server"
+local util = require("lspconfig.util")
+local root_files = {
+    ".git",
+    "tsconfig.json",
+    "jsconfig.json",
+    "package.json",
+}
 
 return {
     init_options = {
@@ -13,19 +20,25 @@ return {
             },
         },
     },
+    root_dir = util.root_pattern(unpack(root_files)),
     filetypes = {
-        "vue",
         "javascript",
-        "javascriptreact",
-        "javascript.jsx",
         "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "spec.typescript",
-        "spec.javascript",
-        "spec",
-        "jest.typescript",
-        "jest.javascript",
-        "jest",
+        "vue",
     },
+    -- filetypes = {
+    --     "vue",
+    --     "javascript",
+    --     "javascriptreact",
+    --     "javascript.jsx",
+    --     "typescript",
+    --     "typescriptreact",
+    --     "typescript.tsx",
+    --     "spec.typescript",
+    --     "spec.javascript",
+    --     "spec",
+    --     "jest.typescript",
+    --     "jest.javascript",
+    --     "jest",
+    -- },
 }

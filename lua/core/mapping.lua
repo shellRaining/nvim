@@ -69,13 +69,6 @@ map.bulk_register({
         description = "move the select_hunk to right",
     },
     {
-        mode = { "n" },
-        lhs = "*",
-        rhs = "*N",
-        options = { noremap = true },
-        description = "search the word under cursor forward",
-    },
-    {
         mode = { "i", "n" },
         lhs = "<esc>",
         rhs = "<cmd>noh<cr><esc>",
@@ -106,13 +99,6 @@ map.bulk_register({
         rhs = "<c-\\><c-n>",
         options = { silent = true },
         description = "Escape terminal insert mode",
-    },
-    {
-        mode = { "t" },
-        lhs = "<c-q>",
-        rhs = "<c-\\><c-n><cmd>BufferDelete<cr>",
-        options = { silent = true },
-        description = "Escape terminal",
     },
     {
         mode = { "t" },

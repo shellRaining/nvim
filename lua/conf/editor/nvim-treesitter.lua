@@ -64,10 +64,6 @@ function M.load()
                 scope_incremental = false,
             },
         },
-        -- nvim-ts-autotag
-        autotag = {
-            enable = true,
-        },
         textobjects = {
             select = {
                 enable = true,

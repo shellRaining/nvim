@@ -76,7 +76,7 @@
         ]
       },
       {
-        "path": "./vue.json",
+        "path": "./vue/vue.json",
         "language": [
           "vue"
         ]

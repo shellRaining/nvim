@@ -8,7 +8,7 @@ local M = {
     requires = {
         "lspconfig",
         "mason-lspconfig",
-        "telescope.builtin",
+        -- "telescope.builtin",
         "cmp_nvim_lsp",
         "lazydev",
     },
@@ -21,9 +21,6 @@ function M.load()
     M.lazydev.setup({})
 
     local mappings = M.mason_lspconfig.get_mappings()
-    local ignore_lang = {
-        tsserver = false,
-    }
     local not_fmt_lang = {
         clangd = true,
         tsserver = true,
@@ -36,13 +33,10 @@ function M.load()
     local servers = M.mason_lspconfig.get_installed_servers()
 
     for _, server_name in ipairs(servers) do
-        if ignore_lang[server_name] then
-            goto continue
-        end
         local require_path = join(M.server_config_path, mappings.lspconfig_to_mason[server_name] or server_name)
         local ok, configuration = pcall(require, require_path)
         if not ok then
-            goto continue
+            configuration = {}
         end
         local private_on_init = configuration.on_init or function() end
         local private_on_attach = configuration.on_attach or function() end
@@ -61,16 +55,53 @@ function M.load()
         configuration.capabilities = M.cmp_nvim_lsp.default_capabilities()
 
         M.lspconfig[server_name].setup(configuration)
-        ::continue::
     end
 end
 
+local cmd_groups = {
+    definitions = {
+        native = vim.lsp.buf.definition,
+        telescope = "<cmd>Telescope lsp_definitions<cr>",
+        trouble = "<cmd>Trouble lsp_definitions<cr>",
+        fzf = "<cmd>FzfLua lsp_definitions<cr>",
+    },
+    implementations = {
+        native = vim.lsp.buf.implementation,
+        telescope = "<cmd>Telescope lsp_implementations<cr>",
+        trouble = "<cmd>Trouble lsp_implementations<cr>",
+        fzf = "<cmd>FzfLua lsp_implementations<cr>",
+    },
+    references = {
+        native = vim.lsp.buf.references,
+        telescope = "<cmd>Telescope lsp_references<cr>",
+        trouble = "<cmd>Trouble lsp_references<cr>",
+        fzf = "<cmd>FzfLua lsp_references<cr>",
+    },
+    type_definitions = {
+        native = vim.lsp.buf.type_definition,
+        telescope = "<cmd>Telescope lsp_type_definitions<cr>",
+        trouble = "<cmd>Trouble lsp_type_definitions<cr>",
+        fzf = "<cmd>FzfLua lsp_typedefs<cr>",
+    },
+    code_actions = {
+        native = vim.lsp.buf.code_action,
+        telescope = "<cmd>Telescope lsp_code_actions<cr>",
+        trouble = vim.lsp.buf.code_action, -- not have this cmd
+        fzf = "<cmd>FzfLua lsp_code_actions<cr>",
+    },
+}
+
 function M.after()
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "single",
+        title = "hover",
+    })
+    local type = "fzf"
     map.bulk_register({
         {
             mode = { "n" },
             lhs = "<leader>ca",
-            rhs = vim.lsp.buf.code_action,
+            rhs = cmd_groups.code_actions[type],
             options = { silent = true },
             description = "Show code action",
         },
@@ -92,15 +123,6 @@ function M.after()
         },
         {
             mode = { "n" },
-            lhs = "gi",
-            rhs = function()
-                M.telescope_builtin.lsp_implementations({ reuse_win = true })
-            end,
-            options = { silent = true },
-            description = "Show help information",
-        },
-        {
-            mode = { "n" },
             lhs = "K",
             rhs = vim.lsp.buf.hover,
             options = { silent = true },
@@ -109,27 +131,28 @@ function M.after()
         {
             mode = { "n" },
             lhs = "gd",
-            rhs = function()
-                M.telescope_builtin.lsp_definitions({ reuse_win = true })
-            end,
+            rhs = cmd_groups.definitions[type],
             options = { silent = true },
             description = "peek to definitions",
         },
         {
             mode = { "n" },
+            lhs = "gi",
+            rhs = cmd_groups.implementations[type],
+            options = { silent = true },
+            description = "Show help information",
+        },
+        {
+            mode = { "n" },
             lhs = "gr",
-            rhs = function()
-                M.telescope_builtin.lsp_references({ reuse_win = true })
-            end,
+            rhs = cmd_groups.references[type],
             options = { silent = true },
             description = "peek to references",
         },
         {
             mode = { "n" },
             lhs = "gt",
-            rhs = function()
-                M.telescope_builtin.lsp_type_definitions({ reuse_win = true })
-            end,
+            rhs = cmd_groups.type_definitions[type],
             options = { silent = true },
             description = "peek to type define of a variable",
         },

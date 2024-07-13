@@ -33,12 +33,13 @@ function M.load()
                 right_arrow = "━",
             },
             style = {
-                { fg = cb },
+                -- { fg = cb },
+                { fg = "#806d9c" },
                 { fg = "#f35336" },
             },
             textobject = "ic",
-            duration = 0,
-            delay = 0,
+            duration = 100,
+            delay = 50,
         },
 
         indent = {
@@ -47,17 +48,17 @@ function M.load()
             notify = true,
             chars = {
                 -- " ",
-                -- "│",
+                "│",
                 -- "¦",
-                "┆",
+                -- "┆",
                 -- "┊",
             },
             delay = 50,
-            filter_list = {
-                function(v)
-                    return v.level ~= 1
-                end,
-            },
+            -- filter_list = {
+            --     function(v)
+            --         return v.level ~= 1
+            --     end,
+            -- },
         },
 
         line_num = {

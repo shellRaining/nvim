@@ -13,6 +13,11 @@
     ],
     "description": "add blog head"
   },
+  "link": {
+    "prefix": ["link"],
+    "body": ["[$1]($1)$0"],
+    "description": ""
+  },
   "code highlight": {
     "prefix": ["highlight"],
     "body": ["// [!code highlight]"],
@@ -32,6 +37,11 @@
     "prefix": ["add"],
     "body": ["// [!code ++]"],
     "description": "create code block"
+  },
+  "inline": {
+    "prefix": ["inline"],
+    "body": ["`$1`$0"],
+    "description": "create inline code block"
   },
   "code block": {
     "prefix": ["code"],
