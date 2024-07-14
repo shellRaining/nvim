@@ -275,24 +275,6 @@ map.bulk_register({
         options = { silent = true },
         description = "Format buffer",
     },
-    {
-        mode = { "n" },
-        lhs = "<leader>hpb",
-        rhs = function()
-            require("plenary.profile").start("profile.log", { flame = true })
-        end,
-        options = { silent = true },
-        description = "Start profile",
-    },
-    {
-        mode = { "n" },
-        lhs = "<leader>hpe",
-        rhs = function()
-            require("plenary.profile").stop()
-        end,
-        options = { silent = true },
-        description = "stop profile",
-    },
 })
 
 return M

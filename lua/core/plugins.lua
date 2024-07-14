@@ -58,6 +58,7 @@ M.views = {
     { "akinsho/toggleterm.nvim" },
     { "stevearc/aerial.nvim" },
     { "folke/trouble.nvim" },
+    { "nvimdev/dashboard-nvim", event = "VimEnter" },
 }
 
 M.editor = {

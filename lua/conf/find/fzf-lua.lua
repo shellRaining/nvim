@@ -2,6 +2,7 @@ local M = {
     requires = {
         "fzf-lua",
     },
+    cmd = "FzfLua",
     keys = {
         { "<leader>/", "<cmd>FzfLua live_grep_glob<cr>", desc = "live grep with rg iglob" },
         { "<leader>;", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
@@ -12,8 +13,7 @@ local M = {
         { "<leader>fg", "<cmd>FzfLua git_commits<CR>", desc = "commits" },
         { "<leader>fh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
         { "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
-        { "<leader>us", "<cmd>FzfLua colorschemes", desc = "Colorscheme with preview" },
-        { "<leader>fp", "<Cmd>FzfLua projects<CR>", desc = "Projects" },
+        { "<leader>us", "<cmd>FzfLua colorschemes<cr>", desc = "Colorscheme with preview" },
     },
 }
 
