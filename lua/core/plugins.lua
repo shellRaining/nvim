@@ -39,14 +39,11 @@ M.find = {
 }
 
 M.language = {
-    { "davidgranstrom/nvim-markdown-preview", ft = { "markdown" }, cmd = "MarkdownPreview" },
     { "b0o/schemastore.nvim", ft = { "json", "json5", "jsonc" } },
-    { "hotoo/pangu.vim", ft = { "markdown" } },
 }
 
 M.tools = {
     { "CRAG666/code_runner.nvim" },
-    { "barrett-ruth/live-server.nvim", build = "npm install -g live-server", config = true, cmd = "LiveServerStart" },
     { "willothy/moveline.nvim", build = "make" },
     { "wakatime/vim-wakatime" },
     { "chrishrb/gx.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
@@ -59,6 +56,9 @@ M.views = {
     { "stevearc/aerial.nvim" },
     { "folke/trouble.nvim" },
     { "nvimdev/dashboard-nvim", event = "VimEnter" },
+    {
+        "mikavilpas/yazi.nvim",
+    },
 }
 
 M.editor = {

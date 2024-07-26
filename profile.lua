@@ -13,28 +13,29 @@ vim.opt.rtp:prepend(lazypath)
 vim.o.number = true
 
 require("lazy").setup({
-    {
-        "shellRaining/hlchunk.nvim",
-        -- tag = "v1.3.0",
-        branch = 'main',
-        lazy = true,
-        event = { "BufReadPre", "BufAdd", "BufNewFile" },
-        config = function()
-            require("hlchunk").setup({
-                chunk = { enable = false },
-                indent = { enable = true },
-                blank = { enable = false },
-                line_num = { enable = false },
-            })
-        end,
-    },
-    -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     -- {
-    --     "nvimdev/indentmini.nvim",
+    --     "shellRaining/hlchunk.nvim",
+    --     -- tag = "v1.3.0",
+    --     branch = "main",
+    --     lazy = true,
+    --     event = { "BufReadPre", "BufAdd", "BufNewFile" },
     --     config = function()
-    --         require("indentmini").setup() -- use default config
+    --         require("hlchunk").setup({
+    --             chunk = { enable = false },
+    --             indent = { enable = true },
+    --             blank = { enable = false },
+    --             line_num = { enable = false },
+    --         })
     --     end,
     -- },
+    -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    {
+        "nvimdev/indentmini.nvim",
+        config = function()
+            require("indentmini").setup() -- use default config
+        end,
+    },
     { "stevearc/profile.nvim" },
 })
 local should_profile = os.getenv("NVIM_PROFILE")
