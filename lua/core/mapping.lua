@@ -75,6 +75,20 @@ map.bulk_register({
         options = { silent = true, noremap = true },
         description = "stop highlight search when escape insert mode",
     },
+    {
+        mode = { "n" },
+        lhs = "gh",
+        rhs = "[{",
+        options = { silent = true, noremap = true },
+        description = "go to chunk head",
+    },
+    {
+        mode = { "n" },
+        lhs = "gb",
+        rhs = "]}",
+        options = { silent = true, noremap = true },
+        description = "go to chunk bottom",
+    },
 })
 
 -- console mapping

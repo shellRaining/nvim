@@ -18,6 +18,7 @@ M.lsp = {
     { "folke/lazydev.nvim", ft = "lua" },
     { "Bilal2453/luvit-meta", lazy = true },
     { "nvimtools/none-ls.nvim", name = "null-ls" },
+    { "ray-x/lsp_signature.nvim" },
 }
 
 M.complete = {
@@ -53,7 +54,7 @@ M.tools = {
 
 M.views = {
     { "akinsho/toggleterm.nvim" },
-    { "stevearc/aerial.nvim" },
+    -- { "stevearc/aerial.nvim" },
     { "folke/trouble.nvim" },
     { "nvimdev/dashboard-nvim", event = "VimEnter" },
     {
@@ -69,6 +70,7 @@ M.editor = {
     { "numToStr/Comment.nvim" },
     { "JoosepAlviste/nvim-ts-context-commentstring" },
     { "shellRaining/hlchunk.nvim", dependencies = { { "nvim-lua/plenary.nvim" } } },
+    -- { "echasnovski/mini.indentscope", version = "*" },
 }
 
 aid_lazy.entry(M)

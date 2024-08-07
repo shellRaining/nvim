@@ -13,6 +13,7 @@ local M = {
         { "<leader>fg", "<cmd>FzfLua git_commits<CR>", desc = "commits" },
         { "<leader>fh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
         { "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
+        { "<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "lsp document symbols" },
         { "<leader>us", "<cmd>FzfLua colorschemes<cr>", desc = "Colorscheme with preview" },
     },
 }

@@ -21,14 +21,18 @@ M.keys = {
     {
         "<tab>",
         function()
-            M.luasnip.jump(1)
+            if M.luasnip.expand_or_locally_jumpable() then
+                M.luasnip.jump(1)
+            end
         end,
         mode = "s",
     },
     {
         "<s-tab>",
         function()
-            M.luasnip.jump(-1)
+            if M.luasnip.expand_or_locally_jumpable() then
+                M.luasnip.jump(-1)
+            end
         end,
         mode = { "i", "s" },
     },
@@ -45,7 +49,6 @@ M.keys = {
         desc = "open snippet package",
     },
 }
-
 
 function M.load()
     M.luasnip.setup({

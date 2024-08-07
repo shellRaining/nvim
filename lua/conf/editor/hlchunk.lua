@@ -18,6 +18,7 @@ local cb = function()
 end
 
 function M.load()
+    vim.api.nvim_set_hl(0, "HLChunk1", { fg = "#FF0000" })
     M.hlchunk.setup({
         chunk = {
             enable = true,
@@ -43,7 +44,7 @@ function M.load()
         },
 
         indent = {
-            enable = true,
+            enable = false,
             -- use_treesitter = false,
             notify = true,
             chars = {
@@ -54,6 +55,9 @@ function M.load()
                 -- "┊",
             },
             delay = 50,
+            exclude_filetypes = {
+                markdonw = true,
+            },
             -- filter_list = {
             --     function(v)
             --         return v.level ~= 1
