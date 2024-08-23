@@ -39,20 +39,8 @@ function M.load()
         --     end
         -- end,
         sources = {
-            -- M.null_ls.builtins.diagnostics.pylint.with({
-            --     extra_args = {
-            --         "-f",
-            --         "json",
-            --         "--load-plugins=pylint_django",
-            --         "--disable=django-not-configured",
-            --         "--rcfile=" .. api.path.join(options.lint_directory, "pylint.conf"),
-            --     },
-            -- }),
-
             -- linter
-            M.null_ls.builtins.diagnostics.markdownlint.with({
-                extra_args = { "--fix" },
-            }),
+            M.null_ls.builtins.diagnostics.markdownlint,
             -- M.null_ls.builtins.diagnostics.vale,
             -- M.null_ls.builtins.diagnostics.textlint,
 
@@ -82,10 +70,11 @@ function M.load()
                     "jsonc",
                     "wxss",
                     "wxml",
+                    "markdown",
                 },
             }),
             M.null_ls.builtins.formatting.google_java_format,
-            M.null_ls.builtins.formatting.mdformat,
+            -- M.null_ls.builtins.formatting.mdformat,
             M.null_ls.builtins.formatting.bean_format,
             -- M.null_ls.builtins.diagnostics.stylelint.with({
             --     filetypes = {

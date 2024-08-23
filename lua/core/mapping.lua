@@ -89,6 +89,13 @@ map.bulk_register({
         options = { silent = true, noremap = true },
         description = "go to chunk bottom",
     },
+    {
+        mode = { "n" },
+        lhs = '<c-s>',
+        rhs = '<cmd>vsplit<cr>',
+        options = { silent = true },
+        description = "split window vertically",
+    }
 })
 
 -- console mapping
