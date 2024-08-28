@@ -6,6 +6,18 @@ local M = {}
 map.bulk_register({
     {
         mode = { "n" },
+        lhs = "&",
+        rhs = function()
+            local cword = vim.fn.expand("<cword>")
+            local escaped_word = cword:gsub("([^%w])", "\\%1")
+            vim.fn.setreg("/", escaped_word)
+            vim.api.nvim_feedkeys("/" .. escaped_word, "n", false)
+        end,
+        options = { silent = true, noremap = true },
+        description = "Search word under cursor",
+    },
+    {
+        mode = { "n" },
         lhs = "<leader><esc>",
         rhs = "<cmd>qa!<cr>",
         options = { silent = true },
@@ -91,11 +103,11 @@ map.bulk_register({
     },
     {
         mode = { "n" },
-        lhs = '<c-s>',
-        rhs = '<cmd>vsplit<cr>',
+        lhs = "<c-s>",
+        rhs = "<cmd>vsplit<cr>",
         options = { silent = true },
         description = "split window vertically",
-    }
+    },
 })
 
 -- console mapping

@@ -44,7 +44,7 @@ function M.load()
         },
 
         indent = {
-            enable = false,
+            enable = true,
             -- use_treesitter = false,
             notify = true,
             chars = {

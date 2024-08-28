@@ -34,14 +34,12 @@ function M.before()
         dap = {},
         linter = {
             "pylint",
-            "luacheck",
         },
         formatter = {
             "shfmt",
             -- "autopep8",
             "clang-format",
             "prettier",
-            "stylua",
             -- "eslint-lsp",
         },
     }
