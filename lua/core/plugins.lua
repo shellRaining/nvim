@@ -46,7 +46,7 @@ M.language = {
 M.tools = {
     { "CRAG666/code_runner.nvim" },
     { "willothy/moveline.nvim", build = "make" },
-    { "wakatime/vim-wakatime" },
+    { "wakatime/vim-wakatime", lazy = false },
     { "chrishrb/gx.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
     { "nmac427/guess-indent.nvim" },
     { "stevearc/profile.nvim" },
@@ -57,9 +57,7 @@ M.views = {
     -- { "stevearc/aerial.nvim" },
     { "folke/trouble.nvim" },
     { "nvimdev/dashboard-nvim", event = "VimEnter" },
-    {
-        "mikavilpas/yazi.nvim",
-    },
+    { "mikavilpas/yazi.nvim" },
 }
 
 M.editor = {
