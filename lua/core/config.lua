@@ -12,4 +12,7 @@ M.quickfix = "trouble"
 ---@type "hlchunk" | "indent-blankline" | "snack" | "indentmini" | "custom"
 M.indent = "custom"
 
+---@type "dashboard" | "snack"
+M.dashboard = "dashboard"
+
 return M

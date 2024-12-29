@@ -14,5 +14,6 @@ require("lazy").setup({
   { import = "plugins.find" },
   { import = "plugins.quickfix" },
   { import = "plugins.indent" },
+  { import = "plugins.dashboard" },
   -- { import = "plugins.lsp" },
 })

@@ -47,6 +47,11 @@ local indentMiniConfig = {
   opts = {},
 }
 
+local guessIndentConfig = {
+  "nmac427/guess-indent.nvim",
+  opts = {},
+}
+
 local indent2Config = {
   snack = snackConfig,
   indentmini = indentMiniConfig,
@@ -54,9 +59,10 @@ local indent2Config = {
   ["indent-blankline"] = indentBlanklineConfig,
 }
 
-return indent == 'custom' and {
+return indent == "custom" and {
   hlchunkConfig,
-  snackConfig
+  snackConfig,
+  guessIndentConfig,
 } or {
   indent2Config[indent],
 }
