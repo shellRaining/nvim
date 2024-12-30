@@ -60,6 +60,6 @@ map({ "i", "c", "t" }, "<m-k>", "<up><c-f>", { desc = "Move cursor up in insert 
 map({ "i", "c", "t" }, "<m-j>", "<down><c-f>", { desc = "Move cursor down in insert mode" })
 map({ "i", "c", "t" }, "<m-h>", "<left>", { desc = "Move cursor left in insert mode" })
 map({ "i", "c", "t" }, "<m-l>", "<right>", { desc = "Move cursor right in insert mode" })
-map({ "i", "s", "c", "t" }, "jk", "<esc>", { desc = "Escape insert mode" })
+map({ "i", "s", "c" }, "jk", "<esc>", { desc = "Escape insert mode" })
 
 return M

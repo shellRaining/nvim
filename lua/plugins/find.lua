@@ -90,7 +90,6 @@ end
 
 local fzfConfig = {
   "ibhagwan/fzf-lua",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
   cmd = "FzfLua",
   keys = keymaps,
   opts = function()

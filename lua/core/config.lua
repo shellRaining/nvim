@@ -1,8 +1,5 @@
 local M = {}
 
-M.float_window = true
-M.window_border = "double"
-
 ---@type "tokyonight" | "evergarden" | "catppuccin"
 M.colorscheme = "evergarden"
 M.transparent = true
