@@ -218,6 +218,64 @@ local term = {
   end,
 }
 
+local aerial = {
+  "stevearc/aerial.nvim",
+  keys = {
+    { "<leader>u2", "<cmd>AerialToggle! right<cr>", desc = "Open Outilne Explorer" },
+    { "{", "<cmd>AerialPrev<cr>", desc = "Aerial Previous item" },
+    { "}", "<cmd>AerialNext<cr>", desc = "Aerial Next item" },
+  },
+  opts = {
+    show_guides = true,
+    backends = { "lsp", "markdown", "treesitter" },
+    update_events = "TextChanged,InsertLeave",
+    layout = {
+      min_width = { 40, 0.2 },
+      max_width = { 40, 0.2 },
+    },
+    lsp = {
+      diagnostics_trigger_update = false,
+      update_when_errors = true,
+      update_delay = 300,
+    },
+    guides = {
+      mid_item = "├─",
+      last_item = "└─",
+      nested_top = "│ ",
+      whitespace = "  ",
+    },
+    filter_kind = {
+      "Module",
+      "Struct",
+      "Interface",
+      "Class",
+      "Constructor",
+      "Enum",
+      "Function",
+      "Method",
+    },
+  },
+}
+
+local yanky = {
+  "gbprod/yanky.nvim",
+  init = function()
+    vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+    vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+    vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+    vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
+  end,
+  opts = {
+    highlight = {
+      on_put = true,
+      on_yank = true,
+      timer = 200,
+    },
+  },
+}
+
+local surround = { "kylechui/nvim-surround", opts = {} }
+
 return {
   grug_far,
   moveline,
@@ -226,4 +284,7 @@ return {
   gitsigns,
   persistence,
   term,
+  aerial,
+  yanky,
+  surround,
 }
