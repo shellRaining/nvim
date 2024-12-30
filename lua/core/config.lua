@@ -16,6 +16,9 @@ M.indent = "custom"
 ---@type "dashboard" | "snack"
 M.dashboard = "dashboard"
 
+---@type "cmp" | "blink"
+M.cmp = "blink"
+
 M.autocmdOpts = {
   auto_save = true,
   auto_restore_cursor_position = true,

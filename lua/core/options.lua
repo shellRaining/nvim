@@ -23,12 +23,16 @@ opt.breakindent = true -- 启用断行缩进
 opt.smartindent = true -- 智能缩进
 opt.linebreak = true -- 行断开
 opt.wrap = false -- 启用自动换行
+opt.expandtab = true -- 启用 tab 自动展开
+opt.shiftwidth = 2 -- 设置平移距离
+opt.tabstop = 2 -- 设置 tab 宽度
+opt.softtabstop = 2 -- 设置软 tab 宽度
 
 -- 编辑体验
 opt.scrolloff = 21 -- 光标离上下边缘的距离
 opt.mouse = "a" -- 启用鼠标
-opt.updatetime = 250 -- 更新时间
-opt.timeoutlen = 300 -- 超时时间
+opt.updatetime = 800 -- 更新时间
+opt.timeoutlen = 800 -- 超时时间
 opt.undofile = true -- 启用撤销文件
 
 -- 搜索和补全
