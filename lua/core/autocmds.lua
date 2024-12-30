@@ -1,4 +1,5 @@
 local opts = require("core.config").autocmdOpts
+local paths = require("core.config").paths
 local api = vim.api
 
 -- auto save buffer
@@ -98,7 +99,7 @@ if opts.auto_spell_check_text then
   vim.api.nvim_create_autocmd("FileType", {
     pattern = { "gitcommit", "markdown" },
     callback = function()
-      vim.opt_local.spellfile = options.spell_config_directory .. "/en.utf-8.add"
+      vim.opt_local.spellfile = paths.spell_config_directory .. "/en.utf-8.add"
       vim.opt_local.wrap = true
       vim.opt_local.spell = true
     end,

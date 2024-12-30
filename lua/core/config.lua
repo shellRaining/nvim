@@ -1,5 +1,8 @@
 local M = {}
 
+M.float_window = true
+M.window_border = "double"
+
 ---@type "tokyonight" | "evergarden" | "catppuccin"
 M.colorscheme = "evergarden"
 M.transparent = true
@@ -30,6 +33,13 @@ M.autocmdOpts = {
   auto_reload_changed_file = true,
 }
 
+local function join(...)
+  return table.concat(vim.iter({ ... }):flatten():totable(), "/")
+end
+
+M.paths = {
+  spell_config_directory = join(vim.fn.stdpath("config"), "spell"),
+}
 
 ---@type "fzf" | "trouble" | "telescope" | "native"
 M.lsp_tools = "fzf"
