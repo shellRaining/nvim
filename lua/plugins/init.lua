@@ -9,11 +9,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- 导入所有插件模块
-  { import = "plugins.colorscheme" },
-  { import = "plugins.find" },
-  { import = "plugins.quickfix" },
-  { import = "plugins.indent" },
-  { import = "plugins.dashboard" },
-  -- { import = "plugins.lsp" },
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
+  spec = {
+    -- 导入所有插件模块
+    { import = "plugins.colorscheme" },
+    { import = "plugins.find" },
+    { import = "plugins.quickfix" },
+    { import = "plugins.indent" },
+    { import = "plugins.dashboard" },
+    { import = "plugins.cmp" },
+    { import = "plugins.lsp" },
+  },
 })
