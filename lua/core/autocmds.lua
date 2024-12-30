@@ -86,9 +86,11 @@ if opts.auto_set_quit_map then
       "checkhealth",
       "neotest-summary",
       "neotest-output-panel",
+      "grug-far",
     },
     callback = function(event)
       vim.bo[event.buf].buflisted = false
+      vim.print("Setting q to close buffer")
       vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
     end,
   })

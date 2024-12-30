@@ -30,5 +30,6 @@ require("lazy").setup({
     { import = "plugins.move" },
     { import = "plugins.files" },
     { import = "plugins.ai" },
+    { import = "plugins.tools" },
   },
 })
