@@ -16,6 +16,8 @@ require("lazy").setup({
   spec = {
     -- 导入所有插件模块
     { "nvim-lua/plenary.nvim", lazy = true },
+    { "MunifTanjim/nui.nvim", lazy = true },
+    { "stevearc/dressing.nvim", opts = {} },
     { "nvim-tree/nvim-web-devicons" },
     { import = "plugins.colorscheme" },
     { import = "plugins.find" },

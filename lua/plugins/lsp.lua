@@ -228,9 +228,18 @@ local none_ls = {
   end,
 }
 
+local lsp_signature = {
+  "ray-x/lsp_signature.nvim",
+  event = "VeryLazy",
+  opts = {
+    hint_enable = false,
+    toggle_key = "<C-y>",
+  },
+}
 return {
   conform,
   lazydev,
   lspconfig,
   none_ls,
+  lsp_signature,
 }
