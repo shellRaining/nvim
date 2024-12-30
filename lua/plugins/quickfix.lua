@@ -2,7 +2,15 @@ local quickfix = require("core.config").quickfix
 
 local troubleConfig = {
   "folke/trouble.nvim",
-  opts = {},
+  opts = function()
+    -- Automatically Open Trouble Quickfix
+    vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+      callback = function()
+        vim.cmd([[Trouble qflist open]])
+      end,
+    })
+    return {}
+  end,
   cmd = "Trouble",
   keys = {
     {

@@ -104,6 +104,7 @@ local fzfConfig = {
         files = {
           true,
           ["ctrl-t"] = actions.open,
+          ["alt-q"] = actions.file_sel_to_qf,
         },
       },
     }
@@ -126,6 +127,7 @@ local telescopeConfig = {
         mappings = {
           i = {
             ["<c-t>"] = trouble.open,
+            ["alt-q"] = actions.send_selected_to_qf,
           },
           n = {
             ["q"] = actions.close,
