@@ -30,6 +30,9 @@ require("lazy").setup({
     { import = "plugins.move" },
     { import = "plugins.files" },
     { import = "plugins.ai" },
+    { import = "plugins.lang" },
+
+    -- 不好分类的插件
     { import = "plugins.tools" },
   },
 })

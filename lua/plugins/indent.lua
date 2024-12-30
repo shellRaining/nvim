@@ -13,6 +13,7 @@ local snackConfig = {
 
 local hlchunkConfig = {
   "shellRaining/hlchunk.nvim",
+  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   opts = {
     chunk = {
       enable = true,
@@ -49,6 +50,8 @@ local indentMiniConfig = {
 
 local guessIndentConfig = {
   "nmac427/guess-indent.nvim",
+  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+  cmd = { "GuessIndnet" },
   opts = {},
 }
 

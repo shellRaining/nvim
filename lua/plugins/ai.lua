@@ -1,6 +1,6 @@
 local copilot = {
   "zbirenbaum/copilot.lua",
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   keys = {
     {
       "<c-l>",
