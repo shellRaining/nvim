@@ -1,5 +1,32 @@
 local lsp_tools = require("core.config").lsp_tools
 
+local conform = {
+  "stevearc/conform.nvim",
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
+  keys = {
+    {
+      "<leader>gf",
+      function()
+        require("conform").format({ async = true })
+      end,
+      mode = "",
+      desc = "Format buffer",
+    },
+  },
+  opts = {
+    formatters_by_ft = {
+      lua = { "stylua" },
+      python = { "black" },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
+    },
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
+    format_on_save = { timeout_ms = 500 },
+  },
+}
+
 local lazydev = {
   "folke/lazydev.nvim",
   ft = "lua", -- only load on lua files
@@ -19,7 +46,7 @@ local mason = {
   opts = {
     max_concurrent_installers = 10,
     ui = {
-      border = border and "double" or "none",
+      border = "double",
     },
   },
 }
@@ -89,7 +116,6 @@ local lspconfig = {
     { "gt", cmd_groups.type_definitions[lsp_tools], desc = "Lsp Type Definitions" },
     { "ga", cmd_groups.code_actions[lsp_tools], desc = "Lsp Code Actions" },
     { "<leader>gn", vim.lsp.buf.rename, desc = "Lsp Rename" },
-    { "<leader>gf", vim.lsp.buf.format, desc = "Lsp Format" },
     {
       "<F8>",
       function()
@@ -203,6 +229,7 @@ local none_ls = {
 }
 
 return {
+  conform,
   lazydev,
   lspconfig,
   none_ls,
