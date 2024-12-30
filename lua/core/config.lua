@@ -30,4 +30,8 @@ M.autocmdOpts = {
   auto_reload_changed_file = true,
 }
 
+
+---@type "fzf" | "trouble" | "telescope" | "native"
+M.lsp_tools = "fzf"
+
 return M
