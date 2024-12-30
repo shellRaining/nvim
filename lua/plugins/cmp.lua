@@ -12,15 +12,15 @@ local cmpConfig = {
   config = function()
     local cmp = require("cmp")
 
-    function confirm()
+    local function confirm()
       return cmp.mapping(cmp.mapping.confirm(), { "i", "s", "c" })
     end
 
-    function confirm_select()
+    local function confirm_select()
       return cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "s", "c" })
     end
 
-    function select_next_copilot_item()
+    local function select_next_copilot_item()
       return cmp.mapping(function(fallback)
         if copilot_suggestion.is_visible() then
           copilot_suggestion.next()
@@ -30,19 +30,19 @@ local cmpConfig = {
       end, { "i" })
     end
 
-    function select_prev_item()
+    local function select_prev_item()
       return cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" })
     end
 
-    function select_next_item()
+    local function select_next_item()
       return cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" })
     end
 
-    function scroll_docs(n)
+    local function scroll_docs(n)
       return cmp.mapping(cmp.mapping.scroll_docs(n), { "i", "s", "c" })
     end
 
-    function select_prev_n_item(n)
+    local function select_prev_n_item(n)
       return cmp.mapping(function(fallback)
         if cmp.visible() then
           for _ = 1, n, 1 do
@@ -54,7 +54,7 @@ local cmpConfig = {
       end, { "i", "s", "c" })
     end
 
-    function select_next_n_item(n)
+    local function select_next_n_item(n)
       return cmp.mapping(function(fallback)
         if cmp.visible() then
           for _ = 1, n, 1 do
@@ -66,7 +66,7 @@ local cmpConfig = {
       end, { "i", "s", "c" })
     end
 
-    function toggle_complete_menu()
+    local function toggle_complete_menu()
       return cmp.mapping(function()
         if cmp.visible() then
           cmp.abort()
@@ -76,7 +76,7 @@ local cmpConfig = {
       end, { "i", "s", "c" })
     end
 
-    function backspace()
+    local function backspace()
       return cmp.mapping(function()
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Del>", true, true, true), "x")
         vim.fn.feedkeys("i", "n")
@@ -139,7 +139,15 @@ local blinkConfig = {
       nerd_font_variant = "mono",
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+      providers = {
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          -- make lazydev completions top priority (see `:h blink.cmp`)
+          score_offset = 100,
+        },
+      },
     },
     completion = {
       ghost_text = {
