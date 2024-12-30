@@ -93,9 +93,9 @@ local fzfConfig = {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   cmd = "FzfLua",
   keys = keymaps,
-  config = function()
+  opts = function()
     local actions = require("trouble.sources.fzf").actions
-    require("fzf-lua").setup({
+    return {
       winopts = {
         height = 0.5,
         width = 0.80,
@@ -106,7 +106,7 @@ local fzfConfig = {
           ["ctrl-t"] = actions.open,
         },
       },
-    })
+    }
   end,
 }
 
@@ -115,10 +115,10 @@ local telescopeConfig = {
   dependencies = { "nvim-lua/plenary.nvim" },
   cmd = "Telescope",
   keys = keymaps,
-  config = function()
+  opts = function()
     local actions = require("telescope.actions")
     local trouble = require("trouble.sources.telescope")
-    require("telescope").setup({
+    return {
       defaults = {
         file_ignore_patterns = { "node_modules" },
         prompt_prefix = " ",
@@ -147,7 +147,7 @@ local telescopeConfig = {
           },
         },
       },
-    })
+    }
   end,
 }
 
