@@ -6,7 +6,7 @@ local conform = {
   cmd = { "ConformInfo" },
   keys = {
     {
-      "<leader>gf",
+      "<leader>cf",
       function()
         require("conform").format({ async = true })
       end,
@@ -115,7 +115,7 @@ local lspconfig = {
     { "gr", cmd_groups.references[lsp_tools], desc = "Lsp References" },
     { "gt", cmd_groups.type_definitions[lsp_tools], desc = "Lsp Type Definitions" },
     { "ga", cmd_groups.code_actions[lsp_tools], desc = "Lsp Code Actions" },
-    { "<leader>gn", vim.lsp.buf.rename, desc = "Lsp Rename" },
+    { "<leader>cn", vim.lsp.buf.rename, desc = "Lsp Rename" },
     {
       "<F8>",
       function()

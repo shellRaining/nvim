@@ -3,7 +3,7 @@ local yazi = {
   lazy = true,
   keys = {
     {
-      "<leader>-",
+      "<leader>1",
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
     },
@@ -11,7 +11,7 @@ local yazi = {
   opts = {
     open_for_directories = true,
     keymaps = {
-      show_help = '<f1>',
+      show_help = "<f1>",
     },
   },
 }

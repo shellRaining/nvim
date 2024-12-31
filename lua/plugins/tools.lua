@@ -102,7 +102,7 @@ local persistence = {
   event = { "BufWritePre" },
   keys = {
     {
-      "<leader>qs",
+      "<leader>sS",
       function()
         require("persistence").load()
       end,
@@ -110,7 +110,7 @@ local persistence = {
       desc = "load the session for the current directory",
     },
     {
-      "<leader>qS",
+      "<leader>ss",
       function()
         require("persistence").select()
       end,
@@ -118,7 +118,7 @@ local persistence = {
       desc = "select a session to load",
     },
     {
-      "<leader>ql",
+      "<leader>sl",
       function()
         require("persistence").load({ last = true })
       end,
@@ -126,7 +126,7 @@ local persistence = {
       desc = "load the last session",
     },
     {
-      "<leader>qd",
+      "<leader>sd",
       function()
         require("persistence").stop()
       end,
@@ -221,7 +221,7 @@ local term = {
 local aerial = {
   "stevearc/aerial.nvim",
   keys = {
-    { "<leader>u2", "<cmd>AerialToggle! right<cr>", desc = "Open Outilne Explorer" },
+    { "<leader>2", "<cmd>AerialToggle! right<cr>", desc = "Open Outilne Explorer" },
     { "{", "<cmd>AerialPrev<cr>", desc = "Aerial Previous item" },
     { "}", "<cmd>AerialNext<cr>", desc = "Aerial Next item" },
   },

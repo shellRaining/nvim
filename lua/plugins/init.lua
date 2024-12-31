@@ -13,12 +13,36 @@ require("lazy").setup({
     enabled = false,
     notify = false,
   },
+  ui = {
+    border = "double",
+  },
+
   spec = {
     -- 导入所有插件模块
     { "nvim-lua/plenary.nvim", lazy = true },
     { "MunifTanjim/nui.nvim", lazy = true },
     { "stevearc/dressing.nvim", opts = {} },
     { "nvim-tree/nvim-web-devicons" },
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      ---@class wk.Opts
+      opts = {
+        preset = "modern",
+        ---@type wk.Spec
+        spec = {
+          { "<leader>", desc = "Map leader" },
+          { "<leader>f", desc = "Find" },
+          { "<leader>g", desc = "Git" },
+          { "<leader>c", desc = "LSP" },
+          { "<leader>x", desc = "Quickfix" },
+          { "<leader>s", desc = "Session" },
+          { "<leader>t", desc = "Terminal" },
+          { "<leader>1", desc = "Yazi Explorer" },
+          { "<leader>2", desc = "Aerial Outline" },
+        },
+      },
+    },
     { import = "plugins.colorscheme" },
     { import = "plugins.find" },
     { import = "plugins.quickfix" },
