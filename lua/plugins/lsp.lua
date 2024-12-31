@@ -145,6 +145,8 @@ local lspconfig = {
 
     local server_config = {
       luals = require("plugins.lsp_servers.luals"),
+      volar = require("plugins.lsp_servers.volar"),
+      ts_ls = require("plugins.lsp_servers.ts_ls"),
     }
 
     for _, server in ipairs(ensure_installed) do

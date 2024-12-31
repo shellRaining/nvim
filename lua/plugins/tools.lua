@@ -141,6 +141,7 @@ local term = {
   "akinsho/toggleterm.nvim",
   keys = {
     { "<leader>tf", "<cmd>ToggleFloatTerm<cr>", desc = "Toggle float term" },
+    { "<c-f>", "<cmd>ToggleFloatTerm<cr>", desc = "Toggle float term" },
     { "<leader>tg", "<cmd>ToggleLazygitTerm<cr>", desc = "Toggle lazygit term" },
   },
   config = function()

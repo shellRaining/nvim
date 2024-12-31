@@ -29,7 +29,6 @@ require("lazy").setup({
       ---@class wk.Opts
       opts = {
         preset = "modern",
-        ---@type wk.Spec
         spec = {
           { "<leader>", desc = "Map leader" },
           { "<leader>f", desc = "Find" },
