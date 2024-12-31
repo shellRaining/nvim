@@ -73,28 +73,6 @@ local gitsigns = {
     { "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", desc = "Reset current hunk" },
     { "<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", desc = "Reset current buffer" },
     { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview current hunk" },
-    {
-      "<c-k>",
-      function()
-        if vim.wo.diff then
-          vim.cmd.normal({ "]c", bang = true })
-        else
-          vim.cmd("Gitsigns prev_hunk")
-        end
-      end,
-      desc = "Jump to the prev hunk",
-    },
-    {
-      "<c-j>",
-      function()
-        if vim.wo.diff then
-          vim.cmd.normal({ "]c", bang = true })
-        else
-          vim.cmd("Gitsigns next_hunk")
-        end
-      end,
-      desc = "Jump to the next hunk",
-    },
   },
   opts = {},
 }

@@ -56,7 +56,8 @@ local ensure_installed = {
   "rust_analyzer",
   "clangd",
   "cssls",
-  "jsonls",
+  "biome", -- json, jsonc, json5, typescript, javascript
+  "yamlls",
   "html",
   "emmet_language_server",
   "volar",
@@ -179,15 +180,8 @@ local none_ls = {
     return {
       border = "double",
       sources = {
-        -- linter
         null_ls.builtins.diagnostics.markdownlint,
-        -- M.null_ls.builtins.diagnostics.vale,
-        -- M.null_ls.builtins.diagnostics.textlint,
-
-        -- formatters
-        -- M.null_ls.builtins.formatting.autopep8,
         null_ls.builtins.formatting.black,
-        -- M.null_ls.builtins.formatting.eslint,
         null_ls.builtins.formatting.shfmt,
         null_ls.builtins.formatting.clang_format,
         null_ls.builtins.formatting.stylua,
@@ -214,17 +208,7 @@ local none_ls = {
           },
         }),
         null_ls.builtins.formatting.google_java_format,
-        -- M.null_ls.builtins.formatting.mdformat,
         null_ls.builtins.formatting.bean_format,
-        -- M.null_ls.builtins.diagnostics.stylelint.with({
-        --     filetypes = {
-        --         "css",
-        --         "scss",
-        --         "less",
-        --         "vue",
-        --     },
-        -- }),
-        -- M.null_ls.builtins.formatting.markdown_toc,
       },
     }
   end,

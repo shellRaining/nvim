@@ -36,6 +36,9 @@ local hlchunk_config = {
       duration = 100,
       delay = 50,
     },
+    indent = {
+      enable = indent == "hlchunk",
+    },
   },
 }
 

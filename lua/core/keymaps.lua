@@ -38,17 +38,13 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "stop highlight search 
 map("c", "<m-p>", "<up>", { desc = "Look up history" })
 map("c", "<m-n>", "<down>", { desc = "Look down history" })
 map("t", "<esc>", "<c-\\><c-n>", { desc = "Escape terminal insert mode" })
-map("t", "<c-h>", "<cmd>wincmd h<cr>", { desc = "goto left window" })
-map("t", "<c-j>", "<cmd>wincmd j<cr>", { desc = "goto lower window" })
-map("t", "<c-k>", "<cmd>wincmd k<cr>", { desc = "goto upper window" })
-map("t", "<c-l>", "<cmd>wincmd l<cr>", { desc = "goto right window" })
 
 -- windows mapping
 map("n", "<c-s>", "<cmd>vsplit<cr>", { desc = "split window vertically" })
-map("n", "<c-l>", "<c-w>l", { desc = "goto right window" })
-map("n", "<c-h>", "<c-w>h", { desc = "goto left window" })
-map("n", "<c-j>", "<c-w>j", { desc = "goto lower window" })
-map("n", "<c-k>", "<c-w>k", { desc = "goto upper window" })
+map({"n", "t"}, "<c-h>", "<cmd>wincmd h<cr>", { desc = "goto left window" })
+map({"n", "t"}, "<c-j>", "<cmd>wincmd j<cr>", { desc = "goto lower window" })
+map({"n", "t"}, "<c-k>", "<cmd>wincmd k<cr>", { desc = "goto upper window" })
+map({"n", "t"}, "<c-l>", "<cmd>wincmd l<cr>", { desc = "goto right window" })
 map("n", "<c-q>", "<cmd>q!<cr>", { desc = "quit window" })
 
 -- insert mapping
