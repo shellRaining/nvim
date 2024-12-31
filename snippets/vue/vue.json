@@ -1,0 +1,39 @@
+{
+  "Vue Single File Component": {
+    "prefix": "vbase",
+    "body": [
+      "<template>",
+      "\t<div>",
+      "",
+      "\t</div>",
+      "</template>",
+      "",
+      "<script setup>",
+      "</script>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "vue base template"
+  },
+  "Vue Single File Component Setup Composition API with Typescript": {
+    "prefix": "vbase-ts",
+    "body": [
+      "<template>",
+      "\t<div>",
+      "",
+      "\t</div>",
+      "</template>",
+      "",
+      "<script setup lang=\"ts\">",
+      "",
+      "</script>",
+      "",
+      "<style scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "vue base template for Typescript"
+  }
+}

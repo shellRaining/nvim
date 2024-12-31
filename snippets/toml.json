@@ -1,0 +1,14 @@
+{
+  "diary item": {
+    "prefix": ["diary_item"],
+    "body": [
+      "[[entry]]",
+      "title = \"${1:标题}\"",
+      "date = ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      "image_url = \"${2:图片URL}\"",
+      "note = \"${3:日记内容}\"",
+      "keywords = [\"${4:关键词}\"]"
+    ],
+    "description": "diary item"
+  }
+}

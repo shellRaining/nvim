@@ -1,0 +1,116 @@
+{
+  "name": "shellRaining-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "path": "./global.json",
+        "language": [
+          "plaintext",
+          "markdown",
+          "tex",
+          "html",
+          "global",
+          "all"
+        ]
+      },
+      {
+        "path": "./toml.json",
+        "language": [
+          "toml"
+        ]
+      },
+      {
+        "path": "./html.json",
+        "language": [
+          "html"
+        ]
+      },
+      {
+        "path": "./json.json",
+        "language": [
+          "json"
+        ]
+      },
+      {
+        "path": "./python.json",
+        "language": [
+          "python"
+        ]
+      },
+      {
+        "path": "./c.json",
+        "language": [
+          "c"
+        ]
+      },
+      {
+        "path": "./lua.json",
+        "language": [
+          "lua"
+        ]
+      },
+      {
+        "path": "./markdown.json",
+        "language": [
+          "markdown"
+        ]
+      },
+      {
+        "path": "./typescript.json",
+        "language": [
+          "typescript",
+          "typescriptreact"
+        ]
+      },
+      {
+        "path": "./javascript.json",
+        "language": [
+          "javascript",
+          "javascriptreact"
+        ]
+      },
+      {
+        "path": "./jest.typescript.json",
+        "language": [
+          "jest"
+        ]
+      },
+      {
+        "path": "./leetcode.json",
+        "language": [
+          "javascript"
+        ]
+      },
+      {
+        "path": "./vue/vue.json",
+        "language": [
+          "vue"
+        ]
+      },
+      {
+        "path": "./vue/vuejs.json",
+        "language": [
+          "vue"
+        ]
+      },
+      {
+        "path": "./vue/vuehtml.json",
+        "language": [
+          "vue"
+        ]
+      },
+      {
+        "path": "./react/javascript_react.json",
+        "language": [
+          "javascriptreact"
+        ]
+      },
+      {
+        "path": "./react/typescript_react.json",
+        "language": [
+          "typescriptreact"
+        ]
+      }
+    ]
+  }
+}
