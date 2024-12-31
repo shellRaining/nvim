@@ -1,22 +1,24 @@
+local colorscheme = require("core.config").colorscheme
+
 local grug_far = {
   "MagicDuck/grug-far.nvim",
   keys = {
     {
-      "<leader>sa",
+      "<leader>ra",
       function()
         require("grug-far").open({})
       end,
       desc = "Search and replace all the project",
     },
     {
-      "<leader>sv",
+      "<leader>rv",
       function()
         require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })
       end,
-      desc = "Search and replace selected line",
+      desc = "Search and replace selected lines",
     },
     {
-      "<leader>sc",
+      "<leader>rc",
       function()
         require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
       end,
@@ -283,6 +285,29 @@ local yanky = {
 
 local surround = { "kylechui/nvim-surround", opts = {} }
 
+local snippets = {
+  "chrisgrieser/nvim-scissors",
+  cmd = { "ScissorsAddNewSnippet", "ScissorsEditSnippet" },
+  keys = {
+    { "<leader>ps", "<cmd>ScissorsAddNewSnippet<cr>", desc = "Add new snippet", mode = { "n", "x" } },
+    { "<leader>pe", "<cmd>ScissorsEditSnippet<cr>", desc = "Edit snippet", mode = { "n", "x" } },
+  },
+  opts = function()
+    local nvim_config_path = vim.fn.stdpath("config")
+    local snippets_path = nvim_config_path .. "/snippets"
+    return {
+      snippetDir = snippets_path,
+    }
+  end,
+}
+
+local lualine = {
+  "nvim-lualine/lualine.nvim",
+  opts = {
+    theme = colorscheme,
+  },
+}
+
 return {
   grug_far,
   moveline,
@@ -294,4 +319,6 @@ return {
   aerial,
   yanky,
   surround,
+  snippets,
+  lualine,
 }
