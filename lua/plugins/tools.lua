@@ -100,6 +100,12 @@ local gitsigns = {
 local persistence = {
   "folke/persistence.nvim",
   event = { "BufWritePre" },
+  cmd = { "SelectSession" },
+  init = function()
+    vim.api.nvim_buf_create_user_command(0, "SelectSession", function()
+      require("persistence").select()
+    end, {})
+  end,
   keys = {
     {
       "<leader>sS",

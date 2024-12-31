@@ -1,10 +1,11 @@
 local colorscheme = require("core.config").colorscheme
 local transparent = require("core.config").transparent
 
-local tokyonightConfig = {
+local tokyonight_config = {
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
+  cond = colorscheme == "tokyonight",
   config = function()
     require("tokyonight").setup({
       style = "moon", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
@@ -14,9 +15,10 @@ local tokyonightConfig = {
   end,
 }
 
-local evergardenConfig = {
+local evergarden_config = {
   "comfysage/evergarden",
   priority = 1000,
+  cond = colorscheme == "evergarden",
   config = function()
     require("evergarden").setup({
       transparent_background = transparent,
@@ -26,9 +28,10 @@ local evergardenConfig = {
   end,
 }
 
-local catppuccinConfig = {
+local catppuccin_config = {
   "catppuccin/nvim",
   name = "catppuccin",
+  cond = colorscheme == "catppuccin",
   priority = 1000,
   config = function()
     require("catppuccin").setup({
@@ -38,12 +41,8 @@ local catppuccinConfig = {
   end,
 }
 
-local colorscheme2Config = {
-  tokyonight = tokyonightConfig,
-  evergarden = evergardenConfig,
-  catppuccin = catppuccinConfig,
-}
-
 return {
-  colorscheme2Config[colorscheme],
+  tokyonight_config,
+  evergarden_config,
+  catppuccin_config,
 }

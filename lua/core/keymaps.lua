@@ -6,30 +6,30 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
-local scrollScreenUp = function()
+local scroll_screen_up = function()
   vim.cmd("normal! " .. math.ceil(vim.api.nvim_win_get_height(0) / 4) .. "k")
 end
 
-local scrollScreenDown = function()
+local scroll_screen_down = function()
   vim.cmd("normal! " .. math.ceil(vim.api.nvim_win_get_height(0) / 4) .. "j")
 end
 
-local moveCursorUp = function()
+local move_cursor_up = function()
   return vim.v.count > 0 and "k" or "gk"
 end
 
-local moveCursorDown = function()
+local move_cursor_down = function()
   return vim.v.count > 0 and "j" or "gj"
 end
 
 -- basic set
 map("n", "&", "*", { desc = "Search word under cursor" })
 map("n", "<leader><esc>", "<cmd>qa!<cr>", { desc = "Escape Neovim" })
-map({ "n", "v" }, "<c-u>", scrollScreenUp, { desc = "Move 1/4 screen up" })
-map({ "n", "v" }, "<c-d>", scrollScreenDown, { desc = "Move 1/4 screen down" })
+map({ "n", "v" }, "<c-u>", scroll_screen_up, { desc = "Move 1/4 screen up" })
+map({ "n", "v" }, "<c-d>", scroll_screen_down, { desc = "Move 1/4 screen down" })
 map({ "n", "v" }, "<c-0>", "^", { desc = "Move to first non-blank character of line" })
-map({ "n", "x" }, "k", moveCursorUp, { expr = true, desc = "Move up one line" })
-map({ "n", "x" }, "j", moveCursorDown, { expr = true, desc = "Move down one line" })
+map({ "n", "x" }, "k", move_cursor_up, { expr = true, desc = "Move up one line" })
+map({ "n", "x" }, "j", move_cursor_down, { expr = true, desc = "Move down one line" })
 map("v", "<", "<gv", { desc = "move the select_hunk to left" })
 map("v", ">", ">gv", { desc = "move the select_hunk to right" })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "stop highlight search when escape insert mode" })

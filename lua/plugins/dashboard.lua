@@ -1,20 +1,8 @@
 local dashboard = require("core.config").dashboard
 
-local function loadLastSession()
-  local session = require("persistence").load({ last = true })
-  if session then
-    require("persistence").load({ last = true })
-  else
-    print("No last session found")
-  end
-end
-
-vim.api.nvim_create_user_command("LoadLastSession", function()
-  loadLastSession()
-end, {})
-
-local dashboardConfig = {
+local dashboard_config = {
   "glepnir/dashboard-nvim",
+  cond = dashboard == "dashboard",
   event = "VimEnter",
   opts = {
     theme = "doom",
@@ -57,13 +45,13 @@ local dashboardConfig = {
           desc_hl = "Label",
           -- action = "Telescope live_grep theme=dropdown",
           action = "FzfLua live_grep",
-          key = "g",
+          key = "/",
           key_hl = "Label",
         },
         {
           icon = " ",
           icon_hl = "Label",
-          desc = "Recent Files",
+          desc = "Recent",
           desc_hl = "Label",
           -- action = "Telescope oldfiles theme=dropdown",
           action = "FzfLua oldfiles",
@@ -73,9 +61,9 @@ local dashboardConfig = {
         {
           icon = " ",
           icon_hl = "Label",
-          desc = "Recent session",
+          desc = "Session",
           desc_hl = "Label",
-          action = "LoadLastSession",
+          action = "SelectSession",
           key = "r",
           key_hl = "Label",
         },
@@ -114,10 +102,6 @@ local dashboardConfig = {
   },
 }
 
-local dashboard2Config = {
-  dashboard = dashboardConfig,
-}
-
 return {
-  dashboard2Config[dashboard],
+  dashboard_config,
 }

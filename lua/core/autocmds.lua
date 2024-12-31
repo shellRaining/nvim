@@ -1,4 +1,4 @@
-local opts = require("core.config").autocmdOpts
+local opts = require("core.config").autocmd_opts
 local paths = require("core.config").paths
 local api = vim.api
 

@@ -1,7 +1,7 @@
 local M = {}
 
 ---@type "tokyonight" | "evergarden" | "catppuccin"
-M.colorscheme = "evergarden"
+M.colorscheme = "catppuccin"
 M.transparent = true
 
 ---@type "telescope" | "fzf-lua"
@@ -10,8 +10,8 @@ M.find = "fzf-lua"
 ---@type "trouble"
 M.quickfix = "trouble"
 
----@type "hlchunk" | "indent-blankline" | "snack" | "indentmini" | "custom"
-M.indent = "custom"
+---@type "hlchunk" | "indent-blankline" | "snack" | "indentmini"
+M.indent = "snack"
 
 ---@type "dashboard" | "snack"
 M.dashboard = "dashboard"
@@ -19,7 +19,7 @@ M.dashboard = "dashboard"
 ---@type "cmp" | "blink"
 M.cmp = "blink"
 
-M.autocmdOpts = {
+M.autocmd_opts = {
   auto_save = true,
   auto_restore_cursor_position = true,
   auto_remove_new_lines_comment = false,

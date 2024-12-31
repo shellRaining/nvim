@@ -1,7 +1,8 @@
 local indent = require("core.config").indent
 
-local snackConfig = {
+local snack_config = {
   "folke/snacks.nvim",
+  cond = indent == "snack",
   opts = {
     indent = {
       scope = {
@@ -11,7 +12,7 @@ local snackConfig = {
   },
 }
 
-local hlchunkConfig = {
+local hlchunk_config = {
   "shellRaining/hlchunk.nvim",
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   opts = {
@@ -38,34 +39,29 @@ local hlchunkConfig = {
   },
 }
 
-local indentBlanklineConfig = {
+local indent_blankline_config = {
   "lukas-reineke/indent-blankline.nvim",
+  cond = indent == "indent-blankline",
   opts = {},
 }
 
-local indentMiniConfig = {
+local indentMini_config = {
   "echasnovski/mini.indentscope",
+  cond = indent == "indentmini",
   opts = {},
 }
 
-local guessIndentConfig = {
+local guess_indent_config = {
   "nmac427/guess-indent.nvim",
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   cmd = { "GuessIndnet" },
   opts = {},
 }
 
-local indent2Config = {
-  snack = snackConfig,
-  indentmini = indentMiniConfig,
-  hlchunk = hlchunkConfig,
-  ["indent-blankline"] = indentBlanklineConfig,
-}
-
-return indent == "custom" and {
-  hlchunkConfig,
-  snackConfig,
-  guessIndentConfig,
-} or {
-  indent2Config[indent],
+return {
+  hlchunk_config,
+  snack_config,
+  indent_blankline_config,
+  indentMini_config,
+  guess_indent_config,
 }

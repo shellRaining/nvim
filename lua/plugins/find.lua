@@ -1,7 +1,7 @@
 local find = require("core.config").find
 
 local M = {
-  findFiles = {
+  {
     key = "<leader>ff",
     desc = "Find Files",
     tools = {
@@ -9,7 +9,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua files<cr>",
     },
   },
-  findGrepGlob = {
+   {
     key = "<leader>/",
     desc = "Find Files",
     tools = {
@@ -17,7 +17,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua live_grep_glob<cr>",
     },
   },
-  findBuffers = {
+  {
     key = "<leader><space>",
     desc = "Find Buffers",
     tools = {
@@ -25,7 +25,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua buffers<cr>",
     },
   },
-  findOldFiles = {
+   {
     key = "<leader>fo",
     desc = "Find Old Files",
     tools = {
@@ -33,7 +33,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua oldfiles<cr>",
     },
   },
-  findGitCommits = {
+ {
     key = "<leader>fg",
     desc = "Find Git Commits",
     tools = {
@@ -41,7 +41,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua git_commits<CR>",
     },
   },
-  findHelpTags = {
+   {
     key = "<leader>fh",
     desc = "Find Help Tags",
     tools = {
@@ -49,7 +49,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua help_tags<cr>",
     },
   },
-  findKeymaps = {
+  {
     key = "<leader>fk",
     desc = "Find Keymaps",
     tools = {
@@ -57,7 +57,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua keymaps<cr>",
     },
   },
-  findLspDocumentSymbols = {
+  {
     key = "<leader>fs",
     desc = "Find Lsp Document Symbols",
     tools = {
@@ -65,7 +65,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua lsp_document_symbols<cr>",
     },
   },
-  findResume = {
+  {
     key = "<leader>fu",
     desc = "Find Resume",
     tools = {
@@ -73,7 +73,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua resume<cr>",
     },
   },
-  findColorscheme = {
+  {
     key = "<leader>fc",
     desc = "Find Colorscheme",
     tools = {
@@ -84,12 +84,13 @@ local M = {
 }
 
 local keymaps = {}
-for _, v in pairs(M) do
-  keymaps[#keymaps + 1] = { v.key, v.tools[find], desc = v.desc }
+for i, v in ipairs(M) do
+  keymaps[i] = { v.key, v.tools[find], desc = v.desc }
 end
 
-local fzfConfig = {
+local fzf_config = {
   "ibhagwan/fzf-lua",
+  cond = find == "fzf-lua",
   cmd = "FzfLua",
   keys = keymaps,
   opts = function()
@@ -110,9 +111,10 @@ local fzfConfig = {
   end,
 }
 
-local telescopeConfig = {
+local telescope_config = {
   "nvim-telescope/telescope.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  cond = find == "telescope",
   cmd = "Telescope",
   keys = keymaps,
   opts = function()
@@ -152,11 +154,7 @@ local telescopeConfig = {
   end,
 }
 
-local find2Config = {
-  ["fzf-lua"] = fzfConfig,
-  telescope = telescopeConfig,
-}
-
 return {
-  find2Config[find],
+  fzf_config,
+  telescope_config,
 }
