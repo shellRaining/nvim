@@ -24,6 +24,23 @@ require("lazy").setup({
     { "stevearc/dressing.nvim", opts = {} },
     { "nvim-tree/nvim-web-devicons" },
     {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      opts = {
+        presets = {
+          lsp_doc_border = true, -- add a border to hover docs and signature help
+        },
+        lsp = {
+          signature = {
+            enabled = false,
+          },
+        },
+      },
+      dependencies = {
+        "rcarriga/nvim-notify",
+      },
+    },
+    {
       "folke/which-key.nvim",
       event = "VeryLazy",
       ---@class wk.Opts

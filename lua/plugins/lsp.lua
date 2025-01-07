@@ -216,16 +216,24 @@ local none_ls = {
 
 local lsp_signature = {
   "ray-x/lsp_signature.nvim",
+  enalbe = false,
   event = { "InsertEnter", "CmdlineEnter" },
   opts = {
     hint_enable = false,
     toggle_key = "<C-y>",
   },
 }
+
+local fidget = {
+  "j-hui/fidget.nvim",
+  opts = {},
+}
+
 return {
   conform,
   lazydev,
   lspconfig,
   none_ls,
   lsp_signature,
+  fidget,
 }

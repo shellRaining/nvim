@@ -36,8 +36,27 @@ local catppuccin_config = {
   config = function()
     require("catppuccin").setup({
       transparent_background = transparent, -- disables setting the background color.
+      integrations = {
+        fidget = true,
+        noice = true,
+        notify = true,
+      },
     })
     vim.cmd.colorscheme("catppuccin")
+  end,
+}
+
+local monokai_config = {
+  "polirritmico/monokai-nightasty.nvim",
+  cond = colorscheme == "monokai",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("monokai-nightasty").setup({
+      dark_style_background = "default",
+      light_style_background = "default",
+    })
+    vim.cmd.colorscheme("monokai-nightasty")
   end,
 }
 
@@ -45,4 +64,5 @@ return {
   tokyonight_config,
   evergarden_config,
   catppuccin_config,
+  monokai_config,
 }
