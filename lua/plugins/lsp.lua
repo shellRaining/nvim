@@ -1,4 +1,5 @@
 local lsp_tools = require("core.config").lsp_tools
+local disable_auto_format = require("core.config").disabled_auto_format
 
 local conform = {
   "stevearc/conform.nvim",
@@ -23,7 +24,16 @@ local conform = {
     default_format_opts = {
       lsp_format = "fallback",
     },
-    format_on_save = { timeout_ms = 500 },
+    format_on_save = function()
+      for _, ft in ipairs(disable_auto_format) do
+        if vim.bo.filetype == ft then
+          return false
+        end
+      end
+      return {
+        timeout_ms = 500,
+      }
+    end,
   },
 }
 
@@ -56,7 +66,7 @@ local ensure_installed = {
   "rust_analyzer",
   "clangd",
   "cssls",
-  "biome", -- json, jsonc, json5, typescript, javascript
+  "jsonls", -- json, jsonc, json5, typescript, javascript
   "yamlls",
   "html",
   "emmet_language_server",
@@ -148,6 +158,7 @@ local lspconfig = {
       luals = require("plugins.lsp_servers.luals"),
       volar = require("plugins.lsp_servers.volar"),
       ts_ls = require("plugins.lsp_servers.ts_ls"),
+      jsonls = require("plugins.lsp_servers.jsonls"),
     }
 
     for _, server in ipairs(ensure_installed) do
@@ -229,6 +240,8 @@ local fidget = {
   opts = {},
 }
 
+local schema_store = { "b0o/schemastore.nvim", ft = { "json", "json5", "jsonc" } }
+
 return {
   conform,
   lazydev,
@@ -236,4 +249,5 @@ return {
   none_ls,
   lsp_signature,
   fidget,
+  schema_store,
 }

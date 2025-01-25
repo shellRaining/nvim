@@ -74,6 +74,7 @@ local treesitter = {
 
 local treesitter_textobjects = {
   "nvim-treesitter/nvim-treesitter-textobjects",
+  cond = false,
   event = "VeryLazy",
 }
 
