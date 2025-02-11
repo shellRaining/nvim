@@ -98,6 +98,7 @@ local copilot_chat = {
     error_header = "## Error ",
     prompts = prompts,
     auto_follow_cursor = false, -- Don't follow the cursor after getting response
+    model = "claude-3.5-sonnet",
     mappings = {
       complete = {
         detail = "Use @<Tab> or /<Tab> for options.",

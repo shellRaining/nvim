@@ -41,4 +41,8 @@ M.paths = {
 ---@type "fzf" | "trouble" | "telescope" | "native"
 M.lsp_tools = "fzf"
 
+M.disabled_auto_format = {
+  "markdown",
+}
+
 return M

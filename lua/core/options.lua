@@ -34,6 +34,7 @@ opt.mouse = "a" -- 启用鼠标
 opt.updatetime = 800 -- 更新时间
 opt.timeoutlen = 800 -- 超时时间
 opt.undofile = true -- 启用撤销文件
+opt.swapfile = false -- 禁用交换文件
 
 -- 搜索和补全
 opt.ignorecase = true -- 忽略大小写
@@ -62,5 +63,9 @@ opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,globals" -- 会
 vim.schedule(function()
   opt.clipboard = "unnamedplus"
 end)
+
+-- 折叠
+opt.foldmethod = "indent" -- 折叠方式
+opt.foldlevel = 99 -- 折叠级别
 
 return {}

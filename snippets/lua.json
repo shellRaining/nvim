@@ -1,12 +1,12 @@
 {
-  "pprint": {
-    "prefix": ["pprint"],
-    "body": ["vim.pretty_print($1)"],
-    "description": "pretty print"
-  },
   "notify": {
-    "prefix": ["notify"],
     "body": ["vim.notify($1)"],
+    "prefix": ["notify"],
     "description": "notify"
+  },
+  "pprint": {
+    "description": "pretty print",
+    "prefix": "pprint",
+    "body": "vim.print($1)"
   }
 }
