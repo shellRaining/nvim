@@ -1,0 +1,26 @@
+{
+  "liangyuan": { "prefix": "liangyuan", "body": "靓园" },
+  "Beancount Transaction (YYYY-MM-DD)": {
+    "prefix": "tx",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} * \"${1:Payee}\" \"${2:Comment}\"",
+      "  ${3:Account1}  ${4:Amount} ${5:CNY}",
+      "  ${6:Account2}",
+      "",
+      "$0"
+    ],
+    "description": "Inserts a Beancount transaction with the current date (YYYY-MM-DD)."
+  },
+  "balance": {
+    "prefix": "balance",
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} balance ${1:Account} ${2:Amount} ${3:CNY}"
+  },
+  "pad": {
+    "prefix": "pad",
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} pad ${1:Account} Equity:Opening-Balances"
+  },
+  "open": {
+    "prefix": "open",
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} open ${1:Account} ${2:CNY}"
+  }
+}

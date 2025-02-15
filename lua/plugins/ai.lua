@@ -55,7 +55,7 @@ local copilot_chat = {
     { "<leader>ar", "<cmd>CopilotChatReview<cr>", mode = { "n", "x" }, desc = "Review code" },
     { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", mode = { "n", "x" }, desc = "Refactor code" },
     { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", mode = { "n", "x" }, desc = "Better Naming" },
-    { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", mode = { "n", "x" }, desc = "Fix Diagnostic" },
+    { "<leader>af", "<cmd>CopilotChatFix<cr>", mode = { "n", "x" }, desc = "Fix Diagnostic" },
     { "<leader>av", "<cmd>CopilotChatVisual<cr>", mode = "x", desc = "Open in vertical split" },
     { "<leader>ax", "<cmd>CopilotChatInline<cr>", mode = "x", desc = "Inline chat" },
     { "<leader>am", "<cmd>CopilotChatCommit<cr>", desc = "Generate commit message for all changes" },

@@ -20,6 +20,7 @@ local conform = {
       lua = { "stylua" },
       python = { "black" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      beancount = { "bean-format" },
     },
     default_format_opts = {
       lsp_format = "fallback",
@@ -61,6 +62,7 @@ local mason = {
   },
 }
 
+-- 这里的包名应该是 mason 后边的名字，而非主名称
 local ensure_installed = {
   "lua_ls",
   "rust_analyzer",
@@ -75,6 +77,7 @@ local ensure_installed = {
   "bashls",
   "ts_ls",
   "pyright",
+  "beancount",
 }
 
 local mason_lspconfig = {
@@ -159,6 +162,7 @@ local lspconfig = {
       volar = require("plugins.lsp_servers.volar"),
       ts_ls = require("plugins.lsp_servers.ts_ls"),
       jsonls = require("plugins.lsp_servers.jsonls"),
+      beancount = require("plugins.lsp_servers.beancount_language_server"),
     }
 
     for _, server in ipairs(ensure_installed) do

@@ -62,6 +62,15 @@ require("lazy").setup({
         },
       },
     },
+    {
+      dir = "~/.local/share/nvim/lazy/devtools.nvim",
+      ---@module 'devtools'
+      ---@type DevTools.DevToolsConfig
+      opts = {
+        log_path = "/tmp/snack_indent.log",
+        rewrite = true,
+      },
+    },
     { import = "plugins.colorscheme" },
     { import = "plugins.find" },
     { import = "plugins.quickfix" },
