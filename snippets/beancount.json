@@ -22,5 +22,25 @@
   "open": {
     "prefix": "open",
     "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} open ${1:Account} ${2:CNY}"
+  },
+  "commodity": {
+    "prefix": "commodity",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} commodity ${1:NAME}",
+      "  name: \"${3:Commodity}\"",
+      "  asset-class: ${4:AssetClass}"
+    ]
+  },
+  "note": {
+    "prefix": "note",
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} note ${1:Account} \"${2:Note}\""
+  },
+  "document": {
+    "prefix": "document",
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} document ${1:Account} \"${2:Document}\""
+  },
+  "tag stack": {
+    "prefix": "tag",
+    "body": ["pushtag #${1:Tag1}", "$0", "poptag #${1:Tag1}"]
   }
 }
