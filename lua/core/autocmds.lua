@@ -103,6 +103,8 @@ if opts.auto_spell_check_text then
       vim.opt_local.spellfile = paths.spell_config_directory .. "/en.utf-8.add"
       vim.opt_local.wrap = true
       vim.opt_local.spell = true
+      vim.opt_local.spelllang = "en_us,cjk"
+      vim.opt_local.spelloptions:append("camel")
     end,
   })
 end

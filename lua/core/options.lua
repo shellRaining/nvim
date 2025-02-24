@@ -47,10 +47,6 @@ opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- 设置行尾字�
 opt.iskeyword = "@,48-57,_,192-255" -- 关键字
 opt.fileencodings = "ucs-bom,utf-8,gbk,big5,gb18030,latin1" -- 文件编码
 
--- 拼写检查
-opt.spell = false -- 启用拼写检查
-opt.spelllang = "en_us,cjk" -- 启用拼写检查
-
 -- 窗口分割
 opt.splitright = true -- 启用右分割
 opt.splitbelow = true -- 启用下分割
