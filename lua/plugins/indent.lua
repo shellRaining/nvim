@@ -58,8 +58,6 @@ local indentMini_config = {
 
 local guess_indent_config = {
   "nmac427/guess-indent.nvim",
-  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-  cmd = { "GuessIndnet" },
   opts = {},
 }
 

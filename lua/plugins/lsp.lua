@@ -25,16 +25,16 @@ local conform = {
     default_format_opts = {
       lsp_format = "fallback",
     },
-    format_on_save = function()
-      for _, ft in ipairs(disable_auto_format) do
-        if vim.bo.filetype == ft then
-          return false
-        end
-      end
-      return {
-        timeout_ms = 500,
-      }
-    end,
+    -- format_on_save = function()
+    --   for _, ft in ipairs(disable_auto_format) do
+    --     if vim.bo.filetype == ft then
+    --       return false
+    --     end
+    --   end
+    --   return {
+    --     timeout_ms = 500,
+    --   }
+    -- end,
   },
 }
 
@@ -92,25 +92,25 @@ local cmd_groups = {
     native = vim.lsp.buf.definition,
     telescope = "<cmd>Telescope lsp_definitions<cr>",
     trouble = "<cmd>Trouble lsp_definitions<cr>",
-    fzf = "<cmd>FzfLua lsp_definitions jump_to_single_result=true ignore_current_line=true<cr>",
+    fzf = "<cmd>FzfLua lsp_definitions ignore_current_line=true<cr>",
   },
   implementations = {
     native = vim.lsp.buf.implementation,
     telescope = "<cmd>Telescope lsp_implementations<cr>",
     trouble = "<cmd>Trouble lsp_implementations<cr>",
-    fzf = "<cmd>FzfLua lsp_implementations jump_to_single_result=true ignore_current_line=true<cr>",
+    fzf = "<cmd>FzfLua lsp_implementations ignore_current_line=true<cr>",
   },
   references = {
     native = vim.lsp.buf.references,
     telescope = "<cmd>Telescope lsp_references<cr>",
     trouble = "<cmd>Trouble lsp_references<cr>",
-    fzf = "<cmd>FzfLua lsp_references jump_to_single_result=true ignore_current_line=true<cr>",
+    fzf = "<cmd>FzfLua lsp_references ignore_current_line=true<cr>",
   },
   type_definitions = {
     native = vim.lsp.buf.type_definition,
     telescope = "<cmd>Telescope lsp_type_definitions<cr>",
     trouble = "<cmd>Trouble lsp_type_definitions<cr>",
-    fzf = "<cmd>FzfLua lsp_typedefs jump_to_single_result=true ignore_current_line=true<cr>",
+    fzf = "<cmd>FzfLua lsp_typedefs ignore_current_line=true<cr>",
   },
   code_actions = {
     native = vim.lsp.buf.code_action,

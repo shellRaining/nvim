@@ -4,7 +4,9 @@ local vue_language_server_path = mason_registry.get_package("vue-language-server
   .. "/node_modules/@vue/language-server"
 
 return {
+  cmd = { "typescript-language-server", "--stdio" },
   init_options = {
+    locale = "zh-CN",
     plugins = {
       {
         name = "@vue/typescript-plugin",
