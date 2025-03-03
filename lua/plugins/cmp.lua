@@ -193,7 +193,7 @@ local blink_config = {
         },
       },
       ghost_text = {
-        enabled = true,
+        enabled = false,
       },
     },
     -- Experimental signature help support

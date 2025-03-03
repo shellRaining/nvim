@@ -43,7 +43,7 @@ local treesitter = {
         additional_vim_regex_highlighting = false,
       },
       indent = {
-        enable = false,
+        enable = true,
       },
       -- incremental selection
       incremental_selection = {
@@ -57,7 +57,7 @@ local treesitter = {
       },
       textobjects = {
         select = {
-          enable = true,
+          enable = false,
           keymaps = {
             ["ap"] = "@parameter.outer",
             ["ip"] = "@parameter.inner",
@@ -99,7 +99,7 @@ local autopair = {
   opts = { map_c_h = true, map_c_w = true },
 }
 
-local comment = { "folke/ts-comments.nvim", lazy = true, opts = {} }
+local comment = { "numToStr/Comment.nvim",  opts = {} }
 
 local commentstring = { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy", opts = {} }
 

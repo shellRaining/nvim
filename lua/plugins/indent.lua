@@ -3,6 +3,7 @@ local indent = require("core.config").indent
 local snack_config = {
   "folke/snacks.nvim",
   cond = indent == "snack",
+  lazy = false,
   ---@module 'snacks'
   ---@type snacks.Config
   opts = {

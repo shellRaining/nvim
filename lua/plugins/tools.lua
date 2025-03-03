@@ -456,6 +456,14 @@ local dial = {
   end,
 }
 
+local neogen = {
+  "danymat/neogen",
+  keys = {
+    { "<leader>cc", "<cmd>lua require('neogen').generate()<CR>", desc = "Generate doc comments" },
+  },
+  config = true,
+}
+
 return {
   grug_far,
   moveline,
@@ -470,4 +478,5 @@ return {
   snippets,
   lualine,
   dial,
+  neogen,
 }
