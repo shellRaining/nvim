@@ -1,5 +1,6 @@
 local lsp_tools = require("core.config").lsp_tools
 local disable_auto_format = require("core.config").disabled_auto_format
+local signature = require("core.config").signature
 
 local conform = {
   "stevearc/conform.nvim",
@@ -231,7 +232,7 @@ local none_ls = {
 
 local lsp_signature = {
   "ray-x/lsp_signature.nvim",
-  enalbe = false,
+  cond = signature == "lsp_signature",
   event = { "InsertEnter", "CmdlineEnter" },
   opts = {
     hint_enable = false,

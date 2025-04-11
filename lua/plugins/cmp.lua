@@ -1,4 +1,5 @@
 local cmp_tools = require("core.config").cmp
+local signature = require("core.config").signature
 
 local cmp_config = {
   "hrsh7th/nvim-cmp",
@@ -198,7 +199,7 @@ local blink_config = {
     },
     -- Experimental signature help support
     signature = {
-      enabled = true,
+      enabled = signature == "blink",
       trigger = {
         blocked_trigger_characters = {},
         blocked_retrigger_characters = {},

@@ -32,7 +32,7 @@ require("lazy").setup({
         },
         lsp = {
           signature = {
-            enabled = false,
+            enabled = require("core.config").signature == "noice",
           },
         },
       },

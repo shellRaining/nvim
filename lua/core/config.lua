@@ -19,6 +19,9 @@ M.dashboard = "dashboard"
 ---@type "cmp" | "blink"
 M.cmp = "blink"
 
+---@type "blink" | "lsp_signature" | "noice"
+M.signature = "blink"
+
 M.autocmd_opts = {
   auto_save = true,
   auto_restore_cursor_position = true,
