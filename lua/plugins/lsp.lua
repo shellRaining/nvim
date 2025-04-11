@@ -1,5 +1,4 @@
 local lsp_tools = require("core.config").lsp_tools
-local disable_auto_format = require("core.config").disabled_auto_format
 local signature = require("core.config").signature
 
 local conform = {
@@ -134,14 +133,14 @@ local lspconfig = {
     {
       "<F8>",
       function()
-        vim.diagnostic.goto_next({ float = false })
+        vim.diagnostic.jump({ count = 1, float = false })
       end,
       desc = "Lsp Next Diagnostic",
     },
     {
       "<S-F8>",
       function()
-        vim.diagnostic.goto_prev({ float = false })
+        vim.diagnostic.jump({ count = -1, float = false })
       end,
       desc = "Lsp Previous Diagnostic",
     },

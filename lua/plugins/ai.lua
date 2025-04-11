@@ -13,19 +13,24 @@ local copilot = {
       end,
       desc = "copilot suggestion accept",
     },
-    {
-      "<leader>c",
-    },
   },
   opts = {
     suggestion = {
-      enable = true,
-      auto_trigger = true,
-      keymap = false,
+      enable = false,
+      auto_trigger = false,
+      keymap = {
+        accept = false,
+        accept_word = false,
+        accept_line = false,
+        next = false,
+        prev = false,
+        dismiss = false,
+      },
     },
     filetypes = {
       markdown = true,
     },
+    copilot_model = "gpt-4o-copilot",
   },
 }
 
