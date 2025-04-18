@@ -167,7 +167,6 @@ local blink_config = {
                 return ctx.label .. ctx.label_detail
               end,
             },
-
             label_description = {
               width = { max = 30 },
               text = function(ctx)
@@ -221,6 +220,12 @@ local blink_config = {
         -- Disable if you run into performance issues
         treesitter_highlighting = true,
       },
+    },
+    cmdline = {
+      keymap = {
+        ["<Tab>"] = { "accept" },
+      },
+      completion = { menu = { auto_show = true } },
     },
   },
   opts_extend = { "sources.default" },
