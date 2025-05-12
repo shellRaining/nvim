@@ -127,6 +127,8 @@ local persistence = {
 local term = {
   "akinsho/toggleterm.nvim",
   keys = {
+    { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle term" },
+    { "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Toggle term" },
     { "<leader>tf", "<cmd>ToggleFloatTerm<cr>", desc = "Toggle float term" },
     { "<c-f>", "<cmd>ToggleFloatTerm<cr>", desc = "Toggle float term" },
     { "<leader>tg", "<cmd>ToggleLazygitTerm<cr>", desc = "Toggle lazygit term" },
