@@ -16,6 +16,9 @@ require("lazy").setup({
   ui = {
     border = "double",
   },
+  dev = {
+    path = "~/Documents/nvim_dev/",
+  },
 
   spec = {
     -- 导入所有插件模块
@@ -62,15 +65,6 @@ require("lazy").setup({
         },
       },
     },
-    {
-      dir = "~/.local/share/nvim/lazy/devtools.nvim",
-      ---@module 'devtools'
-      ---@type DevTools.DevToolsConfig
-      opts = {
-        log_path = "/tmp/snack_indent.log",
-        rewrite = true,
-      },
-    },
     { import = "plugins.colorscheme" },
     { import = "plugins.find" },
     { import = "plugins.quickfix" },
@@ -86,5 +80,21 @@ require("lazy").setup({
 
     -- 不好分类的插件
     { import = "plugins.tools" },
+
+    -- 开发中的工具库
+    {
+      "shellRaining/devtools.nvim",
+      dev = true,
+      ---@module 'devtools'
+      ---@type DevTools.DevToolsConfig
+      opts = {
+        log_path = "/tmp/myNvim.log",
+        rewrite = true,
+      },
+    },
+    {
+      "shellRaining/mult_level_cache",
+      dev = true,
+    },
   },
 })
