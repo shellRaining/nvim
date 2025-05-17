@@ -17,10 +17,10 @@ M.indent = "indentmini"
 M.dashboard = "dashboard"
 
 ---@type "cmp" | "blink"
-M.cmp = "blink"
+M.cmp = "cmp"
 
 ---@type "blink" | "lsp_signature" | "noice"
-M.signature = "blink"
+M.signature = M.cmp == 'blink' and 'blink' or 'lsp_signature'
 
 M.autocmd_opts = {
   auto_save = true,

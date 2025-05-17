@@ -9,6 +9,7 @@ local cmp_config = {
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-cmdline" },
     { "hrsh7th/cmp-nvim-lsp" },
+    { "saadparwaiz1/cmp_luasnip" },
   },
   event = { "InsertEnter", "CmdlineEnter" },
   config = function()
@@ -48,6 +49,11 @@ local cmp_config = {
     end
 
     cmp.setup({
+      snippet = {
+        expand = function(args)
+          require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+        end,
+      },
       view = { entries = "custom" },
       experimental = { ghost_text = { hl_group = "CmpGhostText" } },
       confirmation = { default_behavior = cmp.ConfirmBehavior.Insert },
@@ -65,6 +71,7 @@ local cmp_config = {
         documentation = cmp.config.window.bordered(),
       },
       sources = cmp.config.sources({
+        { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "path" },
         { name = "buffer" },
@@ -115,6 +122,7 @@ local blink_config = {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = "mono",
     },
+    snippets = { preset = "luasnip" },
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer" },
       providers = {

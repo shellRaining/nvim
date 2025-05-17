@@ -77,6 +77,7 @@ require("lazy").setup({
     { import = "plugins.files" },
     { import = "plugins.ai" },
     { import = "plugins.lang" },
+    { import = "plugins.snippets" },
 
     -- 不好分类的插件
     { import = "plugins.tools" },

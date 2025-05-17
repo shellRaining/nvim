@@ -266,22 +266,6 @@ local yanky = {
 
 local surround = { "kylechui/nvim-surround", opts = {} }
 
-local snippets = {
-  "chrisgrieser/nvim-scissors",
-  cmd = { "ScissorsAddNewSnippet", "ScissorsEditSnippet" },
-  keys = {
-    { "<leader>ps", "<cmd>ScissorsAddNewSnippet<cr>", desc = "Add new snippet", mode = { "n", "x" } },
-    { "<leader>pe", "<cmd>ScissorsEditSnippet<cr>", desc = "Edit snippet", mode = { "n", "x" } },
-  },
-  opts = function()
-    local nvim_config_path = vim.fn.stdpath("config")
-    local snippets_path = nvim_config_path .. "/snippets"
-    return {
-      snippetDir = snippets_path,
-    }
-  end,
-}
-
 local lualine = {
   "nvim-lualine/lualine.nvim",
   opts = {
@@ -477,7 +461,6 @@ return {
   aerial,
   yanky,
   surround,
-  snippets,
   lualine,
   dial,
   neogen,
