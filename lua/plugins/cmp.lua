@@ -30,30 +30,6 @@ local cmp_config = {
       return cmp.mapping(cmp.mapping.scroll_docs(n), { "i", "s", "c" })
     end
 
-    local function select_prev_n_item(n)
-      return cmp.mapping(function(fallback)
-        if cmp.visible() then
-          for _ = 1, n, 1 do
-            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-          end
-        else
-          fallback()
-        end
-      end, { "i", "s", "c" })
-    end
-
-    local function select_next_n_item(n)
-      return cmp.mapping(function(fallback)
-        if cmp.visible() then
-          for _ = 1, n, 1 do
-            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-          end
-        else
-          fallback()
-        end
-      end, { "i", "s", "c" })
-    end
-
     local function toggle_complete_menu()
       return cmp.mapping(function()
         if cmp.visible() then
@@ -81,13 +57,14 @@ local cmp_config = {
         ["<c-b>"] = scroll_docs(-5),
         ["<c-f>"] = scroll_docs(5),
         ["<tab>"] = confirm_select(),
-        ["<c-u>"] = select_prev_n_item(5),
-        ["<c-d>"] = select_next_n_item(5),
         ["<c-k>"] = toggle_complete_menu(),
         ["<bs>"] = backspace(),
       },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
       sources = cmp.config.sources({
-        { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "path" },
         { name = "buffer" },
