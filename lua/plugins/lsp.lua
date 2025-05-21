@@ -54,6 +54,7 @@ local mason = {
   "williamboman/mason.nvim",
   cmd = "Mason",
   build = ":MasonUpdate",
+  version = "1.x",
   opts = {
     max_concurrent_installers = 10,
     ui = {
@@ -82,6 +83,7 @@ local ensure_installed = {
 
 local mason_lspconfig = {
   "williamboman/mason-lspconfig.nvim",
+  version = "1.x",
   opts = {
     ensure_installed = ensure_installed,
   },
