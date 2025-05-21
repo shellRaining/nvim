@@ -52,7 +52,7 @@ local indent_blankline_config = {
 }
 
 local indentMini_config = {
-  "echasnovski/mini.indentscope",
+  "nvimdev/indentmini.nvim",
   cond = indent == "indentmini",
   opts = {},
 }
