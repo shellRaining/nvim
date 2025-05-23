@@ -21,6 +21,7 @@ local conform = {
       python = { "black" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       beancount = { "bean-format" },
+      sh = { "shfmt" },
     },
     default_format_opts = {
       lsp_format = "fallback",
@@ -165,6 +166,7 @@ local lspconfig = {
       ts_ls = require("plugins.lsp_servers.ts_ls"),
       jsonls = require("plugins.lsp_servers.jsonls"),
       beancount = require("plugins.lsp_servers.beancount_language_server"),
+      bashls = require("plugins.lsp_servers.bashls")
     }
 
     for _, server in ipairs(ensure_installed) do
@@ -198,34 +200,8 @@ local none_ls = {
       border = "double",
       sources = {
         null_ls.builtins.diagnostics.markdownlint,
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.shfmt,
         null_ls.builtins.formatting.clang_format,
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier.with({
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact",
-            "vue",
-            "css",
-            "scss",
-            "less",
-            "html",
-            "yaml",
-            "graphql",
-            "handlebars",
-            "json",
-            "json5",
-            "jsonc",
-            "wxss",
-            "wxml",
-            "markdown",
-          },
-        }),
         null_ls.builtins.formatting.google_java_format,
-        null_ls.builtins.formatting.bean_format,
       },
     }
   end,
