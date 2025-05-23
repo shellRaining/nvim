@@ -38,6 +38,17 @@ vim.keymap.set("n", "<F12>", "<cmd>NeovideToggleFullscreen<CR>", {
   desc = "Toggle fullscreen",
 })
 
+-- tab jump
+local function make_tabmap(key, tabnum)
+  vim.keymap.set("n", "<D-" .. key .. ">", function()
+    vim.cmd(tabnum .. "tabnext")
+  end, { noremap = true, silent = true, desc = "Go to tab " .. tabnum })
+end
+
+for i = 1, 9 do
+  make_tabmap(tostring(i), i)
+end
+
 -- vim.g.neovide_input_ime = false
 -- local function set_ime(args)
 --   if args.event:match("Enter$") then
