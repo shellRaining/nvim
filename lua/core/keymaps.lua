@@ -59,4 +59,22 @@ map({ "i", "c", "t" }, "<m-h>", "<left>", { desc = "Move cursor left in insert m
 map({ "i", "c", "t" }, "<m-l>", "<right>", { desc = "Move cursor right in insert mode" })
 map({ "i", "s", "c" }, "jk", "<esc>", { desc = "Escape insert mode" })
 
+-- fold mapping
+local function open_folds_in_visual()
+  local start_l = vim.fn.line("v")
+  local end_l = vim.fn.line(".")
+  if start_l > end_l then
+    start_l, end_l = end_l, start_l
+  end
+  for l = start_l, end_l do
+    if vim.fn.foldclosed(l) ~= -1 then
+      vim.cmd(l .. "foldopen!")
+    end
+  end
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+end
+map("v", "zR", function()
+  open_folds_in_visual()
+end, { desc = "open all fold" })
+
 return M

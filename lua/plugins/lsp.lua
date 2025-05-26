@@ -207,6 +207,10 @@ local lspconfig = {
         client.server_capabilities.semanticTokensProvider = nil
       end
       final_config.capabilities = capabilities
+      final_config.capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
       lspconfig[server].setup(final_config)
     end
   end,

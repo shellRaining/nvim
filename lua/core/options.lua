@@ -61,7 +61,6 @@ vim.schedule(function()
 end)
 
 -- 折叠
-opt.foldmethod = "indent" -- 折叠方式
 opt.foldlevel = 99 -- 折叠级别
 
 return {}
