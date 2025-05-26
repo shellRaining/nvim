@@ -93,6 +93,7 @@ local ensure_installed = {
   "ts_ls",
   "pyright",
   "beancount",
+  "eslint",
 }
 
 local mason_lspconfig = {
@@ -180,6 +181,7 @@ local lspconfig = {
       jsonls = require("plugins.lsp_servers.jsonls"),
       beancount = require("plugins.lsp_servers.beancount_language_server"),
       bashls = require("plugins.lsp_servers.bashls"),
+      eslint = require("plugins.lsp_servers.eslint"),
     }
 
     for _, server in ipairs(ensure_installed) do
