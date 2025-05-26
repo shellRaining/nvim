@@ -95,6 +95,7 @@ local fzf_config = {
   keys = keymaps,
   opts = function()
     local actions = require("trouble.sources.fzf").actions
+    vim.cmd("FzfLua register_ui_select")
     return {
       winopts = {
         height = 0.5,
