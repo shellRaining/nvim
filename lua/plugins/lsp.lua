@@ -1,6 +1,14 @@
 local lsp_tools = require("core.config").lsp_tools
 local signature = require("core.config").signature
 
+local frontend_formatter = function()
+  local root_file = require("conform.util").root_file
+  if root_file("dprint.json") then
+    return { "dprint" }
+  elseif root_file({ ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }) then
+    return { "prettierd", "prettier", stop_after_first = true }
+  end
+end
 local conform = {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
@@ -17,9 +25,14 @@ local conform = {
   },
   opts = {
     formatters_by_ft = {
+      c = { "clang_format" },
+      java = { "google_java_format" },
       lua = { "stylua" },
       python = { "black" },
-      javascript = { "prettierd", "prettier", stop_after_first = true },
+      javascript = frontend_formatter,
+      typescript = frontend_formatter,
+      javascriptreact = frontend_formatter,
+      typescriptreact = frontend_formatter,
       beancount = { "bean-format" },
       sh = { "shfmt" },
     },
@@ -166,7 +179,7 @@ local lspconfig = {
       ts_ls = require("plugins.lsp_servers.ts_ls"),
       jsonls = require("plugins.lsp_servers.jsonls"),
       beancount = require("plugins.lsp_servers.beancount_language_server"),
-      bashls = require("plugins.lsp_servers.bashls")
+      bashls = require("plugins.lsp_servers.bashls"),
     }
 
     for _, server in ipairs(ensure_installed) do
@@ -200,8 +213,6 @@ local none_ls = {
       border = "double",
       sources = {
         null_ls.builtins.diagnostics.markdownlint,
-        null_ls.builtins.formatting.clang_format,
-        null_ls.builtins.formatting.google_java_format,
       },
     }
   end,

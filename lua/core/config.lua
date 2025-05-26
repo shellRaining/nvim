@@ -17,7 +17,7 @@ M.indent = "indentmini"
 M.dashboard = "dashboard"
 
 ---@type "cmp" | "blink"
-M.cmp = "cmp"
+M.cmp = "blink"
 
 ---@type "blink" | "lsp_signature" | "noice"
 M.signature = M.cmp == 'blink' and 'blink' or 'lsp_signature'
