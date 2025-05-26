@@ -25,8 +25,8 @@ local conform = {
   },
   opts = {
     formatters_by_ft = {
-      c = { "clang_format" },
-      java = { "google_java_format" },
+      c = { "clang-format" },
+      java = { "google-java-format" },
       lua = { "stylua" },
       python = { "black" },
       javascript = frontend_formatter,
@@ -35,20 +35,26 @@ local conform = {
       typescriptreact = frontend_formatter,
       beancount = { "bean-format" },
       sh = { "shfmt" },
+      json = { "fixjson", "prettier" },
     },
     default_format_opts = {
       lsp_format = "fallback",
     },
-    -- format_on_save = function()
-    --   for _, ft in ipairs(disable_auto_format) do
-    --     if vim.bo.filetype == ft then
-    --       return false
-    --     end
-    --   end
-    --   return {
-    --     timeout_ms = 500,
-    --   }
-    -- end,
+    format_on_save = function()
+      local auto_format_ft = {
+        json = true,
+        json5 = true,
+        jsonc = true,
+      }
+      local current_ft = vim.bo.filetype
+      if auto_format_ft[current_ft] then
+        return {
+          timeout_ms = 500,
+        }
+      else
+        return false
+      end
+    end,
   },
 }
 
