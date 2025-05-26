@@ -7,5 +7,6 @@ ft.add({
     [".*.spec.js"] = "jest.javascript",
     [".*.wxml"] = "html",
     [".*.wxss"] = "css",
+    [".vscode/.*%.json"] = "jsonc",
   },
 })
