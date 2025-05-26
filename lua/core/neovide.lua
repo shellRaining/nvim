@@ -24,9 +24,10 @@ vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 vim.cmd("command -nargs=0 NeovideToggleFullscreen :let g:neovide_fullscreen = !g:neovide_fullscreen")
 
 vim.keymap.set("v", "<D-c>", '"+y') -- Copy
-vim.keymap.set({ "i", "c", "t", "v" }, "<D-v>", "<C-R>+", {
+vim.keymap.set({ "i", "c", "v" }, "<D-v>", "<C-R>+", {
   desc = "Paste in insert mode and console mode... due to neovide not support <D-v>",
 })
+vim.keymap.set('t', '<D-v>', '<C-\\><C-n>"+pi', { noremap = true, silent = true })
 
 -- Paste in normal mode
 vim.keymap.set("n", "<D-v>", '"+p', {
