@@ -9,11 +9,18 @@ local luasnip = {
     require("luasnip.loaders.from_vscode").lazy_load({ paths = { snippets_path } })
     local ls = require("luasnip")
 
-    vim.keymap.set({ "i", "s" }, "<Tab>", function()
-      ls.jump(1)
+    vim.keymap.set({ "i" }, "<Tab>", function()
+      return ls.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+    end, { silent = true, expr = true })
+    vim.keymap.set({ "s" }, "<Tab>", function()
+      if ls.expand_or_locally_jumpable() then
+        ls.jump(1)
+      end
     end, { silent = true })
     vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
-      ls.jump(-1)
+      if ls.expand_or_locally_jumpable() then
+        ls.jump(-1)
+      end
     end, { silent = true })
   end,
 }
