@@ -2,12 +2,13 @@ local lsp_tools = require("core.config").lsp_tools
 local signature = require("core.config").signature
 
 local frontend_formatter = function()
-  local root_file = require("conform.util").root_file
-  if root_file("dprint.json") then
+  local root = vim.fs.root
+  if root(0, "dprint.json") then
     return { "dprint" }
-  elseif root_file({ ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }) then
+  elseif root(0, { ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }) then
     return { "prettierd", "prettier", stop_after_first = true }
   end
+  return { "prettierd", "prettier", stop_after_first = true }
 end
 local conform = {
   "stevearc/conform.nvim",
