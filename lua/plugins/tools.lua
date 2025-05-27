@@ -270,6 +270,14 @@ local lualine = {
   "nvim-lualine/lualine.nvim",
   opts = {
     theme = colorscheme,
+    sections = {
+      lualine_c = {
+        {
+          "filename",
+          path = 1,
+        },
+      },
+    },
   },
 }
 
