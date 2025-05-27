@@ -36,7 +36,7 @@ local conform = {
       typescriptreact = frontend_formatter,
       beancount = { "bean-format" },
       sh = { "shfmt" },
-      json = { "fixjson", "prettier" },
+      json = vim.tbl_extend("force", { "fixjson" }, frontend_formatter()),
     },
     default_format_opts = {
       lsp_format = "fallback",
