@@ -54,6 +54,23 @@ local prompts = {
 local copilot_chat = {
   "CopilotC-Nvim/CopilotChat.nvim",
   build = "make tiktoken", -- Only on MacOS or Linux
+  cmd = {
+    "CopilotChat",
+    "CopilotChatFix",
+    "CopilotChatExplain",
+    "CopilotChatTests",
+    "CopilotChatReview",
+    "CopilotChatRefactor",
+    "CopilotChatBetterNamings",
+    "CopilotChatVisual",
+    "CopilotChatInline",
+    "CopilotChatCommit",
+    "CopilotChatBuffer",
+    "CopilotChatReset",
+    "CopilotChatToggle",
+    "CopilotChatModels",
+    "CopilotChatAgents",
+  },
   keys = {
     { "<leader>ae", "<cmd>CopilotChatExplain<cr>", mode = { "n", "x" }, desc = "Explain code" },
     { "<leader>at", "<cmd>CopilotChatTests<cr>", desc = "Generate tests" },
@@ -103,7 +120,7 @@ local copilot_chat = {
     error_header = "## Error ",
     prompts = prompts,
     auto_follow_cursor = false, -- Don't follow the cursor after getting response
-    model = "claude-3.7-sonnet",
+    model = "gpt-4.1",
     mappings = {
       complete = {
         detail = "Use @<Tab> or /<Tab> for options.",
