@@ -10,6 +10,7 @@ local frontend_formatter = function()
   end
   return { "prettierd", "prettier", stop_after_first = true }
 end
+local json_formatter = vim.tbl_extend("force", { "fixjson" }, frontend_formatter())
 local conform = {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
@@ -36,7 +37,9 @@ local conform = {
       typescriptreact = frontend_formatter,
       beancount = { "bean-format" },
       sh = { "shfmt" },
-      json = vim.tbl_extend("force", { "fixjson" }, frontend_formatter()),
+      json = json_formatter,
+      jsonc = json_formatter,
+      json5 = json_formatter,
     },
     default_format_opts = {
       lsp_format = "fallback",
