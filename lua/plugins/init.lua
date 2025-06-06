@@ -74,7 +74,7 @@ require("lazy").setup({
     { import = "plugins.lsp" },
     { import = "plugins.treesitter" },
     { import = "plugins.move" },
-    { import = "plugins.files" },
+    { import = "plugins.ui" },
     { import = "plugins.ai" },
     { import = "plugins.lang" },
     { import = "plugins.snippets" },

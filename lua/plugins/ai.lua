@@ -121,27 +121,6 @@ local copilot_chat = {
     prompts = prompts,
     auto_follow_cursor = false, -- Don't follow the cursor after getting response
     model = "gpt-4.1",
-    mappings = {
-      complete = {
-        detail = "Use @<Tab> or /<Tab> for options.",
-        insert = "<Tab>",
-      },
-      close = {
-        normal = "q",
-        insert = "<C-c>",
-      },
-      reset = {
-        normal = "<C-x>",
-        insert = "<C-x>",
-      },
-      accept_diff = {
-        normal = "<C-y>",
-        insert = "<C-y>",
-      },
-      show_help = {
-        normal = "g?",
-      },
-    },
   },
   config = function(_, opts)
     local chat = require("CopilotChat")

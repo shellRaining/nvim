@@ -17,7 +17,10 @@ local snack_config = {
 
 local hlchunk_config = {
   "shellRaining/hlchunk.nvim",
+  dev = true,
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+  ---@module 'hlchunk'
+  ---@type HlChunk.UserConf
   opts = {
     chunk = {
       enable = true,
@@ -36,11 +39,12 @@ local hlchunk_config = {
         { fg = "#f35336" },
       },
       textobject = "ic",
-      duration = 100,
-      delay = 50,
+      duration = 300,
+      delay = 200,
     },
     indent = {
       enable = indent == "hlchunk",
+      delay = 50
     },
   },
 }
