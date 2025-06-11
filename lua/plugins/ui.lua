@@ -1,4 +1,4 @@
-local colorscheme = require('core.config').colorscheme
+local colorscheme = require("core.config").colorscheme
 
 local overseer = {
   "stevearc/overseer.nvim",
@@ -21,17 +21,38 @@ local gitsigns = {
 
 local lualine = {
   "nvim-lualine/lualine.nvim",
-  opts = {
-    theme = colorscheme,
-    sections = {
-      lualine_c = {
-        {
-          "filename",
-          path = 1,
+  opts = function()
+    local noice = require("noice")
+    local function fg(name)
+      local hl = vim.api.nvim_get_hl(0, { name = name })
+      return hl and hl.fg and { fg = string.format("#%06x", hl.fg) } or nil
+    end
+    return {
+      theme = colorscheme,
+      sections = {
+        lualine_c = {
+          {
+            "filename",
+            path = 1,
+          },
         },
+        lualine_x = {
+          {
+            function()
+              return noice.api.status.mode.get()
+            end,
+            cond = noice.api.status.mode.has,
+            color = fg("Constant"),
+          },
+          "encoding",
+          "fileformat",
+          "filetype",
+        },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
       },
-    },
-  },
+    }
+  end,
 }
 
 local grug_far = {
