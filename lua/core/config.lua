@@ -11,7 +11,7 @@ M.find = "fzf-lua"
 M.quickfix = "trouble"
 
 ---@type "hlchunk" | "indent-blankline" | "snack" | "indentmini"
-M.indent = "indentmini"
+M.indent = "hlchunk"
 
 ---@type "dashboard" | "snack"
 M.dashboard = "dashboard"

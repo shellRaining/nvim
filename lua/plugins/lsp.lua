@@ -7,6 +7,8 @@ local frontend_formatter = function()
     return { "dprint" }
   elseif root(0, { ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }) then
     return { "prettierd", "prettier", stop_after_first = true }
+  elseif root(0, { "eslint.config.js", "eslint.config.mjs" }) then
+    return {}
   end
   return { "prettierd", "prettier", stop_after_first = true }
 end
