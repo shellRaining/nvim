@@ -37,6 +37,7 @@ local conform = {
       typescript = frontend_formatter,
       javascriptreact = frontend_formatter,
       typescriptreact = frontend_formatter,
+      vue = frontend_formatter(),
       beancount = { "bean-format" },
       sh = { "shfmt" },
       json = json_formatter,
