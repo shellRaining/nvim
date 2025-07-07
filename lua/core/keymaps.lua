@@ -77,4 +77,13 @@ map("v", "zR", function()
   open_folds_in_visual()
 end, { desc = "open all fold" })
 
+-- quick file opening
+map("n", "<leader>or", function()
+  vim.cmd("edit /Users/shellraining/Library/Rime/custom_phrase.txt")
+end, { desc = "Open Rime config" })
+
+map("n", "<leader>oz", function()
+  vim.cmd("edit /Users/shellraining/Documents/dotfiles/config/zsh/.zshrc")
+end, { desc = "Open zsh config" })
+
 return M

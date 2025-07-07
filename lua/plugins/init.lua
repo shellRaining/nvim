@@ -60,6 +60,7 @@ require("lazy").setup({
           { "<leader>t", desc = "Terminal" },
           { "<leader>r", desc = "Replace", mode = { "n", "x" } },
           { "<leader>p", desc = "Snippets", mode = { "n", "x" } },
+          { "<leader>o", desc = "Open Files" },
           { "<leader>1", desc = "Yazi Explorer" },
           { "<leader>2", desc = "Aerial Outline" },
         },
