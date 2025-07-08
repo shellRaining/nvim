@@ -4,9 +4,10 @@ local api = vim.api
 
 -- auto save buffer
 if opts.auto_save then
-  api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
+  api.nvim_create_autocmd({ "FocusLost", "QuitPre", "VimSuspend", "BufDelete", "BufWipeout" }, {
     pattern = { "*" },
     callback = function()
+      vim.notify("auto saved ✨✨✨")
       vim.cmd("silent! wall")
     end,
     nested = true,
