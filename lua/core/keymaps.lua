@@ -86,4 +86,8 @@ map("n", "<leader>oz", function()
   vim.cmd("edit /Users/shellraining/Documents/dotfiles/config/zsh/.zshrc")
 end, { desc = "Open zsh config" })
 
+map("n", "<leader>ot", function()
+  vim.cmd("edit /Users/shellraining/Documents/immersive_translation_rules/rules.json")
+end, { desc = "Open translation rules" })
+
 return M
