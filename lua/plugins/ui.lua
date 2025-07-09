@@ -83,7 +83,12 @@ local grug_far = {
   },
   opts = function()
     vim.g.maplocalleader = " "
-    return {}
+    return {
+      -- 确保搜索结果不会被折叠
+      folding = {
+        enabled = false,
+      },
+    }
   end,
 }
 

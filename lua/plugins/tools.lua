@@ -298,7 +298,16 @@ local ufo = {
   opts = function()
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-    return { fold_virt_text_handler = handler }
+    return {
+      fold_virt_text_handler = handler,
+      provider_selector = function(bufnr, filetype, buftype)
+        -- 禁用 grug-far 的折叠
+        if filetype == "grug-far" then
+          return ""
+        end
+        return { "treesitter", "indent" }
+      end,
+    }
   end,
 }
 
