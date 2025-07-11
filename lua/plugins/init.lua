@@ -38,6 +38,14 @@ require("lazy").setup({
             enabled = require("core.config").signature == "noice",
           },
         },
+        routes = {
+          {
+            filter = {
+              find = "No information available",
+            },
+            opts = { skip = true },
+          },
+        },
       },
       dependencies = {
         "rcarriga/nvim-notify",
