@@ -2,12 +2,34 @@ local opts = require("core.config").autocmd_opts
 local paths = require("core.config").paths
 local api = vim.api
 
--- auto save buffer
+-- auto save buffer with throttling and filetype filtering
 if opts.auto_save then
+  local last_save_time = 0
+  local save_throttle_ms = 1000 -- 1 second throttle
+  
   api.nvim_create_autocmd({ "FocusLost", "QuitPre", "VimSuspend", "BufDelete", "BufWipeout" }, {
     pattern = { "*" },
     callback = function()
-      vim.notify("auto saved ✨✨✨")
+      local buftype = vim.bo.buftype
+      local filetype = vim.bo.filetype
+      
+      -- Skip non-file buffers and special buffers
+      if buftype ~= "" or filetype == "" then
+        return
+      end
+      
+      -- Throttle saving
+      local now = vim.loop.now()
+      if now - last_save_time < save_throttle_ms then
+        return
+      end
+      last_save_time = now
+      
+      -- Only notify for code files
+      if not string.match(filetype, "dashboard") and 
+         not string.match(filetype, "grug%-far") then
+        vim.notify("auto saved ✨✨✨")
+      end
       vim.cmd("silent! wall")
     end,
     nested = true,
