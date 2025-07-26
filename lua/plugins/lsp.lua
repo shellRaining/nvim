@@ -228,20 +228,6 @@ local lspconfig = {
   end,
 }
 
-local none_ls = {
-  "nvimtools/none-ls.nvim",
-  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-  opts = function()
-    local null_ls = require("null-ls")
-    return {
-      border = "double",
-      sources = {
-        null_ls.builtins.diagnostics.markdownlint,
-      },
-    }
-  end,
-}
-
 local lsp_signature = {
   "ray-x/lsp_signature.nvim",
   cond = signature == "lsp_signature",
@@ -263,7 +249,6 @@ return {
   conform,
   lazydev,
   lspconfig,
-  none_ls,
   lsp_signature,
   fidget,
   schema_store,

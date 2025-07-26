@@ -14,7 +14,7 @@ local M = {
     desc = "Find Files",
     tools = {
       telescope = "<cmd>Telescope live_grep<cr>",
-      ["fzf-lua"] = "<cmd>FzfLua live_grep_glob<cr>",
+      ["fzf-lua"] = "<cmd>FzfLua live_grep<cr>",
     },
   },
   {
@@ -100,6 +100,9 @@ local fzf_config = {
       winopts = {
         height = 0.5,
         width = 0.80,
+        preview = {
+          layout = "vertical",
+        },
       },
       actions = {
         files = {

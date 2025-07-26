@@ -166,16 +166,7 @@ local copilot_chat = {
   end,
 }
 
-local claude = {
-  "greggh/claude-code.nvim",
-  keys = {
-    { "<leader>ac", "<cmd>ClaudeCode<cr>", mode = { "n", "x" }, desc = "Open claude code" },
-  },
-  opts = {},
-}
-
 return {
   copilot,
   copilot_chat,
-  claude,
 }
