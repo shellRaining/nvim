@@ -6,30 +6,65 @@ local api = vim.api
 if opts.auto_save then
   local last_save_time = 0
   local save_throttle_ms = 1000 -- 1 second throttle
-  
+
+  -- Filetypes to exclude from auto-save
+  local excluded_filetypes = {
+    "dashboard",
+    "grug-far",
+    "alpha",
+    "startify",
+    "neo-tree",
+    "NvimTree",
+    "help",
+    "man",
+    "qf",
+    "lspinfo",
+    "TelescopePrompt",
+    "noice",
+    "notify",
+    "toggleterm",
+    "terminal",
+    "prompt",
+    "scratch",
+  }
+
   api.nvim_create_autocmd({ "FocusLost", "QuitPre", "VimSuspend", "BufDelete", "BufWipeout" }, {
     pattern = { "*" },
     callback = function()
       local buftype = vim.bo.buftype
       local filetype = vim.bo.filetype
-      
+      local bufname = vim.api.nvim_buf_get_name(0)
+
       -- Skip non-file buffers and special buffers
-      if buftype ~= "" or filetype == "" then
+      if buftype ~= "" or filetype == "" or bufname == "" then
         return
       end
-      
+
+      -- Skip excluded filetypes
+      for _, excluded_ft in ipairs(excluded_filetypes) do
+        if filetype == excluded_ft then
+          return
+        end
+      end
+
+      -- Skip if buffer is not modifiable or readonly
+      if not vim.bo.modifiable or vim.bo.readonly then
+        return
+      end
+
+      -- Skip if buffer is not modified
+      if not vim.bo.modified then
+        return
+      end
+
       -- Throttle saving
-      local now = vim.loop.now()
+      local now = vim.uv.now()
       if now - last_save_time < save_throttle_ms then
         return
       end
       last_save_time = now
-      
-      -- Only notify for code files
-      if not string.match(filetype, "dashboard") and 
-         not string.match(filetype, "grug%-far") then
-        vim.notify("auto saved ✨✨✨")
-      end
+
+      vim.notify("auto saved ✨✨✨")
       vim.cmd("silent! wall")
     end,
     nested = true,

@@ -102,6 +102,7 @@ local fzf_config = {
         width = 0.80,
         preview = {
           layout = "vertical",
+          vertical = "up:70%",
         },
       },
       actions = {
