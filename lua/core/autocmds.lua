@@ -28,7 +28,7 @@ if opts.auto_save then
     "scratch",
   }
 
-  api.nvim_create_autocmd({ "FocusLost", "QuitPre", "VimSuspend", "BufDelete", "BufWipeout" }, {
+  api.nvim_create_autocmd({ "FocusLost", "QuitPre", "VimSuspend", "BufDelete", "BufLeave", "BufWipeout" }, {
     pattern = { "*" },
     callback = function()
       local buftype = vim.bo.buftype
