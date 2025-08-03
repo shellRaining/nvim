@@ -202,16 +202,7 @@ local aerial = {
       nested_top = "│ ",
       whitespace = "  ",
     },
-    filter_kind = {
-      "Module",
-      "Struct",
-      "Interface",
-      "Class",
-      "Constructor",
-      "Enum",
-      "Function",
-      "Method",
-    },
+    link_tree_to_folds = false,
   },
 }
 

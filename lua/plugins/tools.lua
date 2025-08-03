@@ -298,6 +298,23 @@ local ufo = {
   opts = function()
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+    -- fold mapping
+    local function open_folds_in_visual()
+      local start_l = vim.fn.line("v")
+      local end_l = vim.fn.line(".")
+      if start_l > end_l then
+        start_l, end_l = end_l, start_l
+      end
+      for l = start_l, end_l do
+        if vim.fn.foldclosed(l) ~= -1 then
+          vim.cmd(l .. "foldopen!")
+        end
+      end
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+    end
+    vim.keymap.set("v", "zR", function()
+      open_folds_in_visual()
+    end, { desc = "open all fold" })
     return {
       fold_virt_text_handler = handler,
       provider_selector = function(bufnr, filetype, buftype)
