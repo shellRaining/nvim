@@ -94,7 +94,6 @@ local fzf_config = {
   cmd = "FzfLua",
   keys = keymaps,
   opts = function()
-    local actions = require("trouble.sources.fzf").actions
     vim.cmd("FzfLua register_ui_select")
     return {
       winopts = {
@@ -108,8 +107,22 @@ local fzf_config = {
       actions = {
         files = {
           true,
-          ["ctrl-t"] = actions.open,
-          ["alt-q"] = actions.file_sel_to_qf,
+          ["ctrl-t"] = function(selected, fzf_opts)
+            -- Create a safe wrapper to handle missing __INFO field
+            if not fzf_opts.__INFO then
+              fzf_opts.__INFO = { cmd = "files" }
+            end
+            local actions = require("trouble.sources.fzf").actions
+            return actions.open.fn(selected, fzf_opts)
+          end,
+          ["alt-q"] = function(selected, fzf_opts)
+            -- Create a safe wrapper to handle missing __INFO field
+            if not fzf_opts.__INFO then
+              fzf_opts.__INFO = { cmd = "files" }
+            end
+            local actions = require("trouble.sources.fzf").actions
+            return actions.file_sel_to_qf.fn(selected, fzf_opts)
+          end,
         },
       },
     }
