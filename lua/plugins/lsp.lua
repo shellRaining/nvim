@@ -1,4 +1,3 @@
-local lsp_tools = require("core.config").lsp_tools
 local signature = require("core.config").signature
 
 local frontend_formatter = function()
@@ -46,6 +45,7 @@ local conform = {
       json = json_formatter,
       jsonc = json_formatter,
       json5 = json_formatter,
+      markdown = { "prettierd", "prettier", stop_after_first = true },
     },
     default_format_opts = {
       lsp_format = "fallback",
@@ -82,149 +82,83 @@ local lazydev = {
 
 local mason = {
   "williamboman/mason.nvim",
-  cmd = "Mason",
-  build = ":MasonUpdate",
-  version = "1.x",
   opts = {
-    max_concurrent_installers = 10,
     ui = {
       border = "double",
     },
   },
 }
 
--- 这里的包名应该是 mason 后边的名字，而非主名称
-local ensure_installed = {
-  "lua_ls",
-  "rust_analyzer",
-  "clangd",
-  "cssls",
-  "jsonls", -- json, jsonc, json5, typescript, javascript
-  "yamlls",
-  "html",
-  "emmet_language_server",
-  "volar",
-  "vimls",
-  "bashls",
-  "ts_ls",
-  "pyright",
-  "beancount",
-  "tailwindcss",
-  -- "eslint",
-}
-
 local mason_lspconfig = {
   "williamboman/mason-lspconfig.nvim",
-  version = "1.x",
   opts = {
-    ensure_installed = ensure_installed,
-  },
-}
-
-local cmd_groups = {
-  definitions = {
-    native = vim.lsp.buf.definition,
-    telescope = "<cmd>Telescope lsp_definitions<cr>",
-    trouble = "<cmd>Trouble lsp_definitions<cr>",
-    fzf = "<cmd>FzfLua lsp_definitions ignore_current_line=true<cr>",
-  },
-  implementations = {
-    native = vim.lsp.buf.implementation,
-    telescope = "<cmd>Telescope lsp_implementations<cr>",
-    trouble = "<cmd>Trouble lsp_implementations<cr>",
-    fzf = "<cmd>FzfLua lsp_implementations ignore_current_line=true<cr>",
-  },
-  references = {
-    native = vim.lsp.buf.references,
-    telescope = "<cmd>Telescope lsp_references<cr>",
-    trouble = "<cmd>Trouble lsp_references<cr>",
-    fzf = "<cmd>FzfLua lsp_references ignore_current_line=true<cr>",
-  },
-  type_definitions = {
-    native = vim.lsp.buf.type_definition,
-    telescope = "<cmd>Telescope lsp_type_definitions<cr>",
-    trouble = "<cmd>Trouble lsp_type_definitions<cr>",
-    fzf = "<cmd>FzfLua lsp_typedefs ignore_current_line=true<cr>",
-  },
-  code_actions = {
-    native = vim.lsp.buf.code_action,
-    telescope = "<cmd>Telescope lsp_code_actions<cr>",
-    trouble = vim.lsp.buf.code_action, -- not have this cmd
-    fzf = "<cmd>FzfLua lsp_code_actions<cr>",
+    -- 这里的包名应该是 mason 后边的名字，而非主名称
+    ensure_installed = {
+      "lua_ls",
+      "rust_analyzer",
+      "clangd",
+      "cssls",
+      "jsonls", -- json, jsonc, json5, typescript, javascript
+      "yamlls",
+      "html",
+      "emmet_language_server",
+      "vue_ls",
+      "vimls",
+      "bashls",
+      "vtsls",
+      "pyright",
+      "beancount",
+      "tailwindcss",
+      "eslint",
+    },
   },
 }
 
 local lspconfig = {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-  keys = {
-    { "gd", cmd_groups.definitions[lsp_tools], desc = "Lsp Definitions" },
-    { "gi", cmd_groups.implementations[lsp_tools], desc = "Lsp Implementations" },
-    { "gr", cmd_groups.references[lsp_tools], desc = "Lsp References" },
-    { "gt", cmd_groups.type_definitions[lsp_tools], desc = "Lsp Type Definitions" },
-    { "ga", cmd_groups.code_actions[lsp_tools], desc = "Lsp Code Actions" },
-    { "<leader>cn", vim.lsp.buf.rename, desc = "Lsp Rename" },
-    {
-      "<F8>",
-      function()
-        vim.diagnostic.jump({ count = 1, float = false })
-      end,
-      desc = "Lsp Next Diagnostic",
-    },
-    {
-      "<S-F8>",
-      function()
-        vim.diagnostic.jump({ count = -1, float = false })
-      end,
-      desc = "Lsp Previous Diagnostic",
-    },
-  },
-  dependencies = {
-    mason,
-    mason_lspconfig,
-  },
   config = function()
-    local lspconfig = require("lspconfig")
-
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = "single",
-      title = "hover",
-    })
-
-    local server_config = {
-      luals = require("plugins.lsp_servers.luals"),
-      volar = require("plugins.lsp_servers.volar"),
-      ts_ls = require("plugins.lsp_servers.ts_ls"),
-      jsonls = require("plugins.lsp_servers.jsonls"),
-      beancount = require("plugins.lsp_servers.beancount_language_server"),
-      bashls = require("plugins.lsp_servers.bashls"),
-      eslint = require("plugins.lsp_servers.eslint"),
-      tailwindcss = require("plugins.lsp_servers.tailwindcss"),
+    local vue_language_server_path = vim.fn.expand("$MASON/packages")
+      .. "/vue-language-server"
+      .. "/node_modules/@vue/language-server"
+    local vue_plugin = {
+      name = "@vue/typescript-plugin",
+      location = vue_language_server_path,
+      languages = { "vue" },
+      configNamespace = "typescript",
     }
-
-    for _, server in ipairs(ensure_installed) do
-      local final_config = server_config[server] or {}
-      local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-      local has_blink, blink = pcall(require, "blink.cmp")
-      local capabilities = vim.tbl_deep_extend(
-        "force",
-        {},
-        vim.lsp.protocol.make_client_capabilities(),
-        has_cmp and cmp_nvim_lsp.default_capabilities() or {},
-        has_blink and blink.get_lsp_capabilities() or {}
-      )
-
-      final_config.on_attach = function(client)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.semanticTokensProvider = nil
-      end
-      final_config.capabilities = capabilities
-      final_config.capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
-      lspconfig[server].setup(final_config)
-    end
+    local vtsls_config = {
+      settings = {
+        vtsls = {
+          tsserver = {
+            globalPlugins = {
+              vue_plugin,
+            },
+          },
+        },
+      },
+      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+    }
+    -- If you are on most recent `nvim-lspconfig`
+    local vue_ls_config = {}
+    vim.lsp.config("vtsls", vtsls_config)
+    vim.lsp.config("vue_ls", vue_ls_config)
+    vim.lsp.config("bashls", {
+      filetypes = { "bash", "csh", "ksh", "sh", "zsh" },
+    })
+    vim.lsp.config("jsonls", {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    })
+    vim.lsp.config("beancount", {
+      init_options = {
+        journal_file = "~/beancount/main.beancount",
+      },
+    })
+    vim.lsp.enable({ "vtsls", "vue_ls" })
   end,
 }
 
@@ -246,6 +180,8 @@ local fidget = {
 local schema_store = { "b0o/schemastore.nvim", ft = { "json", "json5", "jsonc" } }
 
 return {
+  mason,
+  mason_lspconfig,
   conform,
   lazydev,
   lspconfig,

@@ -90,4 +90,51 @@ map("n", "<leader>ot", function()
   vim.cmd("edit /Users/shellraining/Documents/immersive_translation_rules/rules.json")
 end, { desc = "Open translation rules" })
 
+-- lsp mapping
+local lsp_tools = require("core.config").lsp_tools
+local cmd_groups = {
+  definitions = {
+    native = vim.lsp.buf.definition,
+    telescope = "<cmd>Telescope lsp_definitions<cr>",
+    trouble = "<cmd>Trouble lsp_definitions<cr>",
+    fzf = "<cmd>FzfLua lsp_definitions ignore_current_line=true<cr>",
+  },
+  implementations = {
+    native = vim.lsp.buf.implementation,
+    telescope = "<cmd>Telescope lsp_implementations<cr>",
+    trouble = "<cmd>Trouble lsp_implementations<cr>",
+    fzf = "<cmd>FzfLua lsp_implementations ignore_current_line=true<cr>",
+  },
+  references = {
+    native = vim.lsp.buf.references,
+    telescope = "<cmd>Telescope lsp_references<cr>",
+    trouble = "<cmd>Trouble lsp_references<cr>",
+    fzf = "<cmd>FzfLua lsp_references ignore_current_line=true<cr>",
+  },
+  type_definitions = {
+    native = vim.lsp.buf.type_definition,
+    telescope = "<cmd>Telescope lsp_type_definitions<cr>",
+    trouble = "<cmd>Trouble lsp_type_definitions<cr>",
+    fzf = "<cmd>FzfLua lsp_typedefs ignore_current_line=true<cr>",
+  },
+  code_actions = {
+    native = vim.lsp.buf.code_action,
+    telescope = "<cmd>Telescope lsp_code_actions<cr>",
+    trouble = vim.lsp.buf.code_action,
+    fzf = "<cmd>FzfLua lsp_code_actions<cr>",
+  },
+}
+map("n", "gd", cmd_groups.definitions[lsp_tools], { desc = "Lsp Definitions" })
+map("n", "gi", cmd_groups.implementations[lsp_tools], { desc = "Lsp Implementations" })
+map("n", "gr", cmd_groups.references[lsp_tools], { desc = "Lsp References" })
+map("n", "gt", cmd_groups.type_definitions[lsp_tools], { desc = "Lsp Type Definitions" })
+map("n", "ga", cmd_groups.code_actions[lsp_tools], { desc = "Lsp Code Actions" })
+map("n", "<leader>cn", vim.lsp.buf.rename, { desc = "Lsp Rename" })
+map("n", "<F8>", function()
+  vim.diagnostic.jump({ count = 1, float = false })
+end, { desc = "Lsp Next Diagnostic" })
+map("n", "<S-F8>", function()
+  vim.diagnostic.jump({ count = -1, float = false })
+end, { desc = "Lsp Previous Diagnostic" })
+
 return M
