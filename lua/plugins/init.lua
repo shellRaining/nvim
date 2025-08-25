@@ -59,7 +59,6 @@ require("lazy").setup({
         preset = "modern",
         spec = {
           { "<leader>", desc = "Map leader" },
-          { "<leader>a", desc = "AI", mode = { "n", "x" } },
           { "<leader>f", desc = "Find" },
           { "<leader>g", desc = "Git" },
           { "<leader>c", desc = "LSP", mode = { "n", "x" } },
@@ -84,27 +83,10 @@ require("lazy").setup({
     { import = "plugins.treesitter" },
     { import = "plugins.move" },
     { import = "plugins.ui" },
-    { import = "plugins.ai" },
     { import = "plugins.lang" },
     { import = "plugins.snippets" },
 
     -- 不好分类的插件
     { import = "plugins.tools" },
-
-    -- 开发中的工具库
-    {
-      "shellRaining/devtools.nvim",
-      dev = true,
-      ---@module 'devtools'
-      ---@type DevTools.DevToolsConfig
-      opts = {
-        log_path = "/tmp/myNvim.log",
-        rewrite = true,
-      },
-    },
-    {
-      "shellRaining/mult_level_cache",
-      dev = true,
-    },
   },
 })
