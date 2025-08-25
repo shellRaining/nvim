@@ -1,9 +1,9 @@
 local treesitter = {
   "nvim-treesitter/nvim-treesitter",
-  version = false, -- last release is way too old and doesn't work on Windows
+  lazy = false,
+  branch = "master",
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
-  lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup({
@@ -55,27 +55,8 @@ local treesitter = {
           scope_incremental = false,
         },
       },
-      textobjects = {
-        select = {
-          enable = false,
-          keymaps = {
-            ["ap"] = "@parameter.outer",
-            ["ip"] = "@parameter.inner",
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
-          },
-        },
-      },
     })
   end,
-}
-
-local treesitter_textobjects = {
-  "nvim-treesitter/nvim-treesitter-textobjects",
-  cond = false,
-  event = "VeryLazy",
 }
 
 local autotag = {
@@ -99,13 +80,12 @@ local autopair = {
   opts = { map_c_h = true, map_c_w = true },
 }
 
-local comment = { "numToStr/Comment.nvim",  opts = {} }
+local comment = { "numToStr/Comment.nvim", opts = {} }
 
 local commentstring = { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy", opts = {} }
 
 return {
   treesitter,
-  treesitter_textobjects,
   autotag,
   autopair,
   comment,
