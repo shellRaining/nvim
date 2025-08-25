@@ -9,7 +9,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua files<cr>",
     },
   },
-   {
+  {
     key = "<leader>/",
     desc = "Find Files",
     tools = {
@@ -25,7 +25,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua buffers<cr>",
     },
   },
-   {
+  {
     key = "<leader>fo",
     desc = "Find Old Files",
     tools = {
@@ -33,7 +33,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua oldfiles<cr>",
     },
   },
- {
+  {
     key = "<leader>fg",
     desc = "Find Git Commits",
     tools = {
@@ -41,7 +41,7 @@ local M = {
       ["fzf-lua"] = "<cmd>FzfLua git_commits<CR>",
     },
   },
-   {
+  {
     key = "<leader>fh",
     desc = "Find Help Tags",
     tools = {
@@ -97,7 +97,7 @@ local fzf_config = {
     vim.cmd("FzfLua register_ui_select")
     return {
       winopts = {
-        height = 0.5,
+        height = 0.6,
         width = 0.80,
         preview = {
           layout = "vertical",

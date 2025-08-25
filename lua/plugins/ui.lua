@@ -215,6 +215,11 @@ local yazi = {
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
     },
+    {
+      "<leader>3",
+      "<cmd>Yazi toggle<cr>",
+      desc = "Resume the last yazi session",
+    },
   },
   opts = {
     open_for_directories = true,
