@@ -117,24 +117,34 @@ local mason_lspconfig = {
 local lspconfig = {
   "neovim/nvim-lspconfig",
   config = function()
-    local vue_language_server_path = vim.fn.expand("$MASON/packages")
-      .. "/vue-language-server"
-      .. "/node_modules/@vue/language-server"
+    local vue_language_server_path = ""
+    local mason_registry_ok, mason_registry = pcall(require, "mason-registry")
+    if mason_registry_ok then
+      local ok, vue_language_server_pkg = pcall(mason_registry.get_package, mason_registry, "vue-language-server")
+      if ok then
+        vue_language_server_path = vue_language_server_pkg:get_install_path() .. "/node_modules/@vue/language-server"
+      end
+    end
+    if vue_language_server_path == "" then
+      vue_language_server_path = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server")
+    end
     local vue_plugin = {
       name = "@vue/typescript-plugin",
       location = vue_language_server_path,
       languages = { "vue" },
       configNamespace = "typescript",
+      enableForWorkspaceTypeScriptDiagnostics = true,
     }
     local vtsls_config = {
       settings = {
         vtsls = {
           tsserver = {
-            globalPlugins = {
-              vue_plugin,
-            },
+            globalPlugins = { vue_plugin },
           },
         },
+      },
+      init_options = {
+        plugins = { vue_plugin },
       },
       filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
     }
