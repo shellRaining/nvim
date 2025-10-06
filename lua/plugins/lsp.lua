@@ -138,10 +138,11 @@ local lspconfig = {
       },
       filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
     }
-    -- If you are on most recent `nvim-lspconfig`
     local vue_ls_config = {}
     vim.lsp.config("vtsls", vtsls_config)
     vim.lsp.config("vue_ls", vue_ls_config)
+    vim.lsp.enable({ "vtsls", "vue_ls" })
+
     vim.lsp.config("bashls", {
       filetypes = { "bash", "csh", "ksh", "sh", "zsh" },
     })
@@ -155,10 +156,9 @@ local lspconfig = {
     })
     vim.lsp.config("beancount", {
       init_options = {
-        journal_file = "~/beancount/main.beancount",
+        journal_file = "~/Nextcloud/beancount/src/main.beancount",
       },
     })
-    vim.lsp.enable({ "vtsls", "vue_ls" })
   end,
 }
 
@@ -172,11 +172,6 @@ local lsp_signature = {
   },
 }
 
-local fidget = {
-  "j-hui/fidget.nvim",
-  opts = {},
-}
-
 local schema_store = { "b0o/schemastore.nvim", ft = { "json", "json5", "jsonc" } }
 
 return {
@@ -186,6 +181,5 @@ return {
   lazydev,
   lspconfig,
   lsp_signature,
-  fidget,
   schema_store,
 }

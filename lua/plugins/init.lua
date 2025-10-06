@@ -59,6 +59,7 @@ require("lazy").setup({
         preset = "modern",
         spec = {
           { "<leader>", desc = "Map leader" },
+          { "<leader>a", desc = "AI" },
           { "<leader>f", desc = "Find" },
           { "<leader>g", desc = "Git" },
           { "<leader>c", desc = "LSP", mode = { "n", "x" } },
@@ -73,6 +74,7 @@ require("lazy").setup({
         },
       },
     },
+    { import = "plugins.ai" },
     { import = "plugins.colorscheme" },
     { import = "plugins.find" },
     { import = "plugins.quickfix" },
