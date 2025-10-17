@@ -5,11 +5,11 @@ local frontend_formatter = function()
   if root(0, "dprint.json") then
     return { "dprint" }
   elseif root(0, { ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }) then
-    return { "prettierd", "prettier", stop_after_first = true }
+    return { "prettier", stop_after_first = true }
   elseif root(0, { "eslint.config.js", "eslint.config.mjs" }) then
     return {}
   end
-  return { "prettierd", "prettier", stop_after_first = true }
+  return { "prettier", stop_after_first = true }
 end
 local json_formatter = vim.tbl_extend("force", { "fixjson" }, frontend_formatter())
 local conform = {
@@ -45,7 +45,7 @@ local conform = {
       json = json_formatter,
       jsonc = json_formatter,
       json5 = json_formatter,
-      markdown = { "prettierd", "prettier", stop_after_first = true },
+      markdown = { "prettier", stop_after_first = true },
     },
     default_format_opts = {
       lsp_format = "fallback",
