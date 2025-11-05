@@ -28,6 +28,7 @@ M.autocmd_opts = {
   auto_remove_new_lines_comment = false,
   auto_hl_on_yank = true,
   auto_resize_window = true,
+  auto_equalize_avante_windows = true,
   auto_set_quit_map = true,
   auto_spell_check_text = true,
   auto_reload_changed_file = true,
