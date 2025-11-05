@@ -178,24 +178,21 @@ end
 
 -- equalize windows when avante windows are opened or closed
 if opts.auto_equalize_avante_windows then
-  vim.api.nvim_create_autocmd({ "FileType" }, {
+  local function equalize_windows()
+    vim.schedule(function()
+      vim.cmd("wincmd =")
+    end)
+  end
+
+  vim.api.nvim_create_autocmd("FileType", {
     pattern = "Avante",
-    callback = function()
-      -- Use vim.schedule to defer the equalization until after the window is fully created
-      vim.schedule(function()
-        vim.cmd("wincmd =")
-      end)
-    end,
+    callback = equalize_windows,
   })
 
-  vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+  vim.api.nvim_create_autocmd("BufWinLeave", {
     callback = function()
-      local filetype = vim.bo.filetype
-      if filetype == "Avante" then
-        -- Use vim.schedule to defer the equalization until after the window is closed
-        vim.schedule(function()
-          vim.cmd("wincmd =")
-        end)
+      if vim.bo.filetype == "Avante" then
+        equalize_windows()
       end
     end,
   })
