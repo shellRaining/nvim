@@ -175,3 +175,23 @@ if opts.auto_reload_changed_file then
     end,
   })
 end
+
+-- JSONL file format support
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "jsonl",
+  callback = function()
+    -- Set formatprg to use jq for pretty-printing
+    -- jq '.' formats JSON with indentation for better readability
+    vim.bo.formatprg = "jq '.'"
+
+    -- Create format command for JSONL files using jq
+    vim.api.nvim_buf_create_user_command(0, "JSONLFormat", function(opts)
+      local start_line = opts.line1
+      local end_line = opts.line2
+      vim.cmd(string.format("%d,%d!jq '.'", start_line, end_line))
+    end, { range = true, desc = "Format JSONL lines with jq (pretty-print)" })
+
+    -- Set comment string for JSONL files (though JSON doesn't support comments)
+    vim.bo.commentstring = "// %s"
+  end,
+})

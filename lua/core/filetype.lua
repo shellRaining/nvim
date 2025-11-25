@@ -9,4 +9,7 @@ ft.add({
     [".*.wxss"] = "css",
     [".vscode/.*%.json"] = "jsonc",
   },
+  extension = {
+    jsonl = "jsonl",
+  },
 })
