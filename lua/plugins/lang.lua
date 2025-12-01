@@ -34,8 +34,15 @@ local csvview = {
   cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
 }
 
+local pangu = {
+  "hotoo/pangu.vim",
+  ft = { "markdown", "text", "gitcommit" },
+  cmd = { "Pangu" },
+}
+
 return {
   schemastore,
   render_markdown,
   csvview,
+  pangu,
 }
