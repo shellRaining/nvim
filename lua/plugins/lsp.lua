@@ -6,6 +6,8 @@ local frontend_formatter = function()
     return { "dprint" }
   elseif root(0, { ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }) then
     return { "prettier", stop_after_first = true }
+  elseif root(0, { ".oxfmtrc.jsonc" }) then
+    return { "oxfmt" }
   elseif root(0, { "eslint.config.js", "eslint.config.mjs" }) then
     return {}
   end
@@ -27,6 +29,13 @@ local conform = {
     },
   },
   opts = {
+    formatters = {
+      oxfmt = {
+        command = "oxfmt",
+        stdin = false,
+        args = { "$FILENAME" },
+      },
+    },
     formatters_by_ft = {
       c = { "clang-format" },
       java = { "google-java-format" },
