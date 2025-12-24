@@ -9,7 +9,7 @@
 - Neovim >= 0.9.0
 - Git
 - 一个 Nerd Font 字体
-- Node.js >= 18 (用于 LSP 支持)
+- Node.js >= 24 (用于 LSP 和 copilot 支持)
 - gcc/clang (用于编译某些插件)
 - ripgrep (用于全文搜索)
 - lazygit (用于 Git 集成)

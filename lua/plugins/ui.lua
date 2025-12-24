@@ -16,7 +16,11 @@ local gitsigns = {
     { "<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", desc = "Reset current buffer" },
     { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview current hunk" },
   },
-  opts = {},
+  opts = {
+    current_line_blame_opts = {
+      delay = 0,
+    },
+  },
 }
 
 local lualine = {
