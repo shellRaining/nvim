@@ -328,6 +328,22 @@ local ufo = {
   end,
 }
 
+local codesnap = {
+  "mistricky/codesnap.nvim",
+  tag = "v2.0.0-beta.17",
+  cmd = {
+    "CodeSnap",
+    "CodeSnapSave",
+  },
+  opts = {
+    watermark = {
+      content = "",
+      font_family = "Pacifico",
+      color = "#ffffff",
+    },
+  },
+}
+
 return {
   wakatime,
   gx,
@@ -337,4 +353,5 @@ return {
   dial,
   neogen,
   ufo,
+  codesnap,
 }
