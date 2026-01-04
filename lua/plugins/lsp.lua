@@ -91,6 +91,7 @@ local lazydev = {
 
 local mason = {
   "williamboman/mason.nvim",
+  cond = vim.env.NVIM_NO_LSP ~= "1",
   opts = {
     ui = {
       border = "double",
@@ -100,6 +101,7 @@ local mason = {
 
 local mason_lspconfig = {
   "williamboman/mason-lspconfig.nvim",
+  cond = vim.env.NVIM_NO_LSP ~= "1",
   opts = {
     -- 这里的包名应该是 mason 后边的名字，而非主名称
     ensure_installed = {
@@ -125,6 +127,7 @@ local mason_lspconfig = {
 
 local lspconfig = {
   "neovim/nvim-lspconfig",
+  cond = vim.env.NVIM_NO_LSP ~= "1",
   config = function()
     local vue_language_server_path = ""
     local mason_registry_ok, mason_registry = pcall(require, "mason-registry")
@@ -183,7 +186,7 @@ local lspconfig = {
 
 local lsp_signature = {
   "ray-x/lsp_signature.nvim",
-  cond = signature == "lsp_signature",
+  cond = signature == "lsp_signature" and vim.env.NVIM_NO_LSP ~= "1",
   event = { "InsertEnter", "CmdlineEnter" },
   opts = {
     hint_enable = false,
