@@ -64,7 +64,6 @@ if opts.auto_save then
       end
       last_save_time = now
 
-      vim.notify("auto saved ✨✨✨")
       vim.cmd("silent! wall")
     end,
     nested = true,
