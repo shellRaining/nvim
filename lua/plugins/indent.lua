@@ -17,7 +17,6 @@ local snack_config = {
 
 local hlchunk_config = {
   "shellRaining/hlchunk.nvim",
-  dev = true,
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   ---@module 'hlchunk'
   ---@type HlChunk.UserConf
