@@ -23,6 +23,8 @@ local evergarden_config = {
     require("evergarden").setup({
       transparent_background = transparent,
       contrast_dark = "medium",
+      variant = "fall",
+      accent = "green",
     })
     vim.cmd.colorscheme("evergarden")
   end,

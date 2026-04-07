@@ -1,7 +1,7 @@
 local M = {}
 
 ---@type "tokyonight" | "evergarden" | "catppuccin"
-M.colorscheme = "tokyonight"
+M.colorscheme = "evergarden"
 M.transparent = false
 
 ---@type "telescope" | "fzf-lua"
