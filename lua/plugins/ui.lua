@@ -233,6 +233,29 @@ local yazi = {
   },
 }
 
+local modes = {
+  "mvllow/modes.nvim",
+  event = "VeryLazy",
+  opts = {
+    line_opacity = 0.15,
+    set_cursor = true,
+    set_cursorline = true,
+    set_number = true,
+    set_signcolumn = true,
+    ignore = {
+      "NvimTree",
+      "TelescopePrompt",
+      "lazy",
+      "mason",
+      "noice",
+      "toggleterm",
+      "aerial",
+      "yazi",
+      "grug-far",
+    },
+  },
+}
+
 return {
   overseer,
   gitsigns,
@@ -241,4 +264,5 @@ return {
   term,
   aerial,
   yazi,
+  modes,
 }
