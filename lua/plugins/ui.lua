@@ -256,6 +256,19 @@ local modes = {
   },
 }
 
+local highlight_colors = {
+  "brenoprata10/nvim-highlight-colors",
+  ft = "markdown",
+  opts = {
+    render = "background",
+    enable_named_colors = true,
+    enable_tailwind = true,
+    exclude_buffer = function(bufnr)
+      return vim.bo[bufnr].filetype ~= "markdown"
+    end,
+  },
+}
+
 return {
   overseer,
   gitsigns,
@@ -265,4 +278,5 @@ return {
   aerial,
   yazi,
   modes,
+  highlight_colors,
 }

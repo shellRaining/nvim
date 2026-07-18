@@ -66,6 +66,9 @@ local cmp_config = {
         ["<c-k>"] = toggle_complete_menu(),
         ["<bs>"] = backspace(),
       },
+      formatting = {
+        format = require("nvim-highlight-colors").format,
+      },
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
@@ -102,6 +105,7 @@ local blink_config = {
   "saghen/blink.cmp",
   version = "*",
   cond = cmp_tools == "blink",
+  dependencies = { "brenoprata10/nvim-highlight-colors" },
   event = { "InsertEnter", "CmdlineEnter" },
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -158,6 +162,30 @@ local blink_config = {
                 return ctx.label_description
               end,
               highlight = "BlinkCmpLabelDescription",
+            },
+            kind_icon = {
+              text = function(ctx)
+                local icon = ctx.kind_icon
+                if ctx.source_name == "LSP" then
+                  local color_item =
+                    require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                  if color_item and color_item.abbr ~= "" then
+                    icon = color_item.abbr
+                  end
+                end
+                return icon .. ctx.icon_gap
+              end,
+              highlight = function(ctx)
+                local highlight = "BlinkCmpKind" .. ctx.kind
+                if ctx.source_name == "LSP" then
+                  local color_item =
+                    require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                  if color_item and color_item.abbr_hl_group then
+                    highlight = color_item.abbr_hl_group
+                  end
+                end
+                return highlight
+              end,
             },
 
             kind = {
