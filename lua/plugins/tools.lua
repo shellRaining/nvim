@@ -129,6 +129,14 @@ local ufo = {
   opts = function()
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+    -- h/l 在折叠行上直接开合折叠
+    vim.keymap.set("n", "l", function()
+      if vim.fn.foldclosed(vim.fn.line(".")) ~= -1 then
+        vim.cmd("foldopen")
+      else
+        vim.cmd("normal! l")
+      end
+    end, { desc = "Open fold or move right" })
     -- fold mapping
     local function open_folds_in_visual()
       local start_l = vim.fn.line("v")

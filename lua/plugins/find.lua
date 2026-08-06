@@ -1,5 +1,18 @@
 local find = require("core.config").find
 
+local generated_file_patterns = {
+  "%.git/",
+  "%.jj/",
+  "node_modules/",
+  "dist/",
+  "dist%-ssr/",
+  "coverage/",
+  "%.next/",
+  "%.nuxt/",
+  "%.turbo/",
+  "%.vercel/",
+}
+
 local M = {
   {
     key = "<leader>ff",
@@ -7,6 +20,26 @@ local M = {
     tools = {
       telescope = "<cmd>Telescope find_files<cr>",
       ["fzf-lua"] = "<cmd>FzfLua files<cr>",
+    },
+  },
+  {
+    key = "<leader>fF",
+    desc = "Find All Files",
+    tools = {
+      telescope = function()
+        require("telescope.builtin").find_files({
+          hidden = true,
+          no_ignore = true,
+          file_ignore_patterns = generated_file_patterns,
+        })
+      end,
+      ["fzf-lua"] = function()
+        require("fzf-lua").files({
+          hidden = true,
+          no_ignore = true,
+          file_ignore_patterns = generated_file_patterns,
+        })
+      end,
     },
   },
   {
