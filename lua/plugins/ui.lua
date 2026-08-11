@@ -269,6 +269,22 @@ local highlight_colors = {
   },
 }
 
+local illuminate = {
+  "RRethy/vim-illuminate",
+  event = { "BufReadPost", "BufNewFile" },
+  opts = {
+    providers = { "lsp", "treesitter" },
+  },
+  config = function(_, opts)
+    require("illuminate").configure(opts)
+    -- 默认三个高亮组都只有 `gui=underline`,没有背景色,视觉存在感弱。
+    -- surface 灰阶跟背景 base(#232a2e)对比度太低,换成调色板里饱和度更高的色相块。
+    vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#3a4a52", bold = true })
+    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#3a4a52", bold = true })
+    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#5c4a3a", bold = true })
+  end,
+}
+
 return {
   overseer,
   gitsigns,
@@ -279,4 +295,5 @@ return {
   yazi,
   modes,
   highlight_colors,
+  illuminate,
 }
