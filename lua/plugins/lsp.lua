@@ -1,19 +1,42 @@
 local signature = require("core.config").signature
 
-local frontend_formatter = function()
+local function vite_plus_root(bufnr)
+  local package_json = vim.fs.find("package.json", {
+    upward = true,
+    path = vim.api.nvim_buf_get_name(bufnr),
+  })[1]
+  if not package_json then
+    return nil
+  end
+
+  local file = io.open(package_json, "r")
+  if not file then
+    return nil
+  end
+  local content = file:read("*a")
+  file:close()
+
+  if content:match('"vite%-plus"%s*:') then
+    return vim.fs.dirname(package_json)
+  end
+  return nil
+end
+
+local frontend_formatter = function(bufnr)
   local root = vim.fs.root
-  if root(0, "dprint.json") then
+  if root(bufnr, "dprint.json") then
     return { "dprint" }
-  elseif root(0, { ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }) then
+  elseif root(bufnr, { ".prettierrc", ".prettierrc.json", ".prettierrc.js", "prettier.config.js" }) then
     return { "prettier", stop_after_first = true }
-  elseif root(0, { ".oxfmtrc.json", ".oxfmtrc.jsonc", "oxfmt.config.ts" }) then
+  elseif vite_plus_root(bufnr) then
+    return { "vite_plus_oxfmt" }
+  elseif root(bufnr, { ".oxfmtrc.json", ".oxfmtrc.jsonc", "oxfmt.config.ts" }) then
     return { "oxfmt" }
-  elseif root(0, { "eslint.config.js", "eslint.config.mjs" }) then
+  elseif root(bufnr, { "eslint.config.js", "eslint.config.mjs" }) then
     return {}
   end
   return { "prettier", stop_after_first = true }
 end
-local json_formatter = vim.tbl_extend("force", { "fixjson" }, frontend_formatter())
 local conform = {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
@@ -30,6 +53,15 @@ local conform = {
   },
   opts = {
     formatters = {
+      vite_plus_oxfmt = {
+        command = "vp",
+        stdin = false,
+        args = { "fmt", "$FILENAME", "--write" },
+        cwd = function(_, ctx)
+          return vite_plus_root(ctx.buf)
+        end,
+        require_cwd = true,
+      },
       oxfmt = {
         command = "oxfmt",
         stdin = false,
@@ -46,14 +78,14 @@ local conform = {
       typescript = frontend_formatter,
       javascriptreact = frontend_formatter,
       typescriptreact = frontend_formatter,
-      vue = frontend_formatter(),
+      vue = frontend_formatter,
       beancount = { "bean-format" },
       sh = { "shfmt" },
       zsh = { "shfmt" },
       bash = { "shfmt" },
-      json = json_formatter,
-      jsonc = json_formatter,
-      json5 = json_formatter,
+      json = frontend_formatter,
+      jsonc = frontend_formatter,
+      json5 = frontend_formatter,
       markdown = { "prettier", stop_after_first = true },
     },
     default_format_opts = {
