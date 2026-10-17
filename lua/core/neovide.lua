@@ -23,6 +23,8 @@ vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 vim.cmd("command -nargs=0 NeovideToggleFullscreen :let g:neovide_fullscreen = !g:neovide_fullscreen")
 
+-- Copy requests from apps such as Bob must not fall back to the change operator.
+vim.keymap.set({ "n", "o", "i", "c", "t" }, "<D-c>", "<Nop>", { desc = "Ignore copy without a selection" })
 vim.keymap.set("v", "<D-c>", '"+y') -- Copy
 vim.keymap.set({ "i", "c", "v" }, "<D-v>", "<C-R>+", {
   desc = "Paste in insert mode and console mode... due to neovide not support <D-v>",

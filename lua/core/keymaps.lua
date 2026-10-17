@@ -35,6 +35,11 @@ map("v", ">", ">gv", { desc = "move the select_hunk to right" })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "stop highlight search when escape insert mode" })
 map("s", "<bs>", "<C-g>c", { desc = "delete selection in insert mode" })
 
+-- Ignore Bob shortcuts so unmapped Meta keys do not fall back to Esc + letter.
+for _, key in ipairs({ "<M-a>", "<M-s>", "<M-d>" }) do
+  map({ "n", "v", "o", "i", "c", "t" }, key, "<Nop>", { desc = "Reserved for Bob" })
+end
+
 -- console mapping
 map("c", "<m-p>", "<up>", { desc = "Look up history" })
 map("c", "<m-n>", "<down>", { desc = "Look down history" })
